@@ -17,6 +17,9 @@ func die():
 	self.set_collision_mask_value(3, true)
 	self.set_collision_layer_value(2, false)
 	
+func _ready():
+	GameManager.death.connect(die)
+	
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta

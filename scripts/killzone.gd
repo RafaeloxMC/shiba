@@ -5,8 +5,9 @@ extends Area2D
 func _on_body_entered(body: Node2D) -> void:
 	if not body.name == "Player": return
 	print("Player died!")
-	if(body.has_method("die")):
-		body.die()
+	#if(body.has_method("die")):
+	#	body.die()
+	GameManager.remove_heart()
 	Engine.time_scale = 0.5
 	timer.start()
 	

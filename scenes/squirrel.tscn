@@ -1,8 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://c46m5254yitc8"]
+[gd_scene load_steps=13 format=3 uid="uid://c46m5254yitc8"]
 
 [ext_resource type="Texture2D" uid="uid://bxavbajmpgt2b" path="res://assets/sprites/squirrel.png" id="1_2marj"]
 [ext_resource type="Script" uid="uid://32a5wnsy70h4" path="res://scripts/squirrel.gd" id="1_m3xcr"]
-[ext_resource type="PackedScene" uid="uid://b5lvwjoesv1re" path="res://scenes/killzone.tscn" id="3_cbpea"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m3xcr"]
 atlas = ExtResource("1_2marj")
@@ -72,6 +71,7 @@ animations = [{
 radius = 9.0
 
 [node name="Squirrel" type="CharacterBody2D"]
+scale = Vector2(0.799999, 0.799999)
 script = ExtResource("1_m3xcr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -91,12 +91,6 @@ collision_mask = 3
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
-
-[node name="Killzone" parent="." instance=ExtResource("3_cbpea")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(-1, 3)
-shape = SubResource("CircleShape2D_m3xcr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 3)

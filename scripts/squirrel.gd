@@ -1,22 +1,29 @@
 extends CharacterBody2D
 
 @export var player: CharacterBody2D
-@export var SPEED: int = 50
-@export var CHASE_SPEED: int = 100
+@export var SPEED: int = 25
+@export var CHASE_SPEED: int = 75
 @export var JUMP_VELOCITY: int = -400
 @export var ACCELERATION: int = 50
 @export var BOUNDS: float = 50
+@export var PROJECTILE: PackedScene
+
+@export var difficulty: int = 50
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var facing: RayCast2D = $AnimatedSprite2D/facing
 @onready var ground: RayCast2D = $AnimatedSprite2D/ground
 @onready var timer: Timer = $Timer
 
+var spotting_range = 200;
+
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var direction: Vector2
 var right_bounds: Vector2
 var left_bounds: Vector2
+
+var shot_cooldown: float
 
 var rand = RandomNumberGenerator.new()
 
@@ -27,7 +34,7 @@ enum States {
 
 var current_state: States = States.IDLE
 
-func _ready():
+func _ready() -> void:
 	right_bounds = self.position + Vector2(BOUNDS, 0)
 	left_bounds = self.position + Vector2(-BOUNDS, 0)
 
@@ -37,11 +44,12 @@ func _physics_process(delta: float) -> void:
 	change_direction()
 	search_player()
 
-func search_player():
+func search_player() -> void:
 	if facing.is_colliding():
 		var collider = facing.get_collider()
 		if collider == player:
 			chase_player()
+			shoot_nut()
 		elif current_state == States.CHASE:
 			stop_chase()
 	elif current_state == States.CHASE:
@@ -80,12 +88,12 @@ func change_direction() -> void:
 		if not animated_sprite_2d.flip_h:
 			animated_sprite_2d.flip_h = true
 			direction = Vector2(-1, 0)
-			facing.target_position = Vector2(-BOUNDS, 0)
+			facing.target_position = Vector2(-spotting_range, 0)
 			ground.target_position = Vector2(-15, 15)
 		else:
 			animated_sprite_2d.flip_h = false
 			direction = Vector2(1, 0)
-			facing.target_position = Vector2(BOUNDS, 0)
+			facing.target_position = Vector2(spotting_range, 0)
 			ground.target_position = Vector2(15, 15)
 		return
 	
@@ -95,24 +103,26 @@ func change_direction() -> void:
 				direction = Vector2(1, 0)
 			else:
 				animated_sprite_2d.flip_h = true
-				facing.target_position = Vector2(-BOUNDS, 0)
+				facing.target_position = Vector2(-spotting_range, 0)
 		else:
 			if self.position.x >= left_bounds.x:
 				direction = Vector2(-1, 0)
 			else:
 				animated_sprite_2d.flip_h = false
-				facing.target_position = Vector2(BOUNDS, 0)	
+				facing.target_position = Vector2(spotting_range, 0)	
 	else:
-		if (player.position.x - self.position.x) <= 0.5:
+		var xdiff = player.position.x - self.position.x
+		var ydiff = player.position.y - self.position.y
+		if (xdiff <= difficulty && xdiff >= -difficulty) || (ydiff <= 0.5 && ydiff >= -0.5):
 			return
 		direction = (player.position - self.position).normalized()
-		direction = Vector2(sign(direction.x),0)
+		direction = Vector2(sign(direction.x), 0)
 		if direction.x == 1:
 			animated_sprite_2d.flip_h = false
-			facing.target_position = Vector2(BOUNDS, 0)
+			facing.target_position = Vector2(spotting_range, 0)
 		else:
 			animated_sprite_2d.flip_h = true
-			facing.target_position = Vector2(-BOUNDS, 0)
+			facing.target_position = Vector2(-spotting_range, 0)
 
 func handle_gravity(delta: float) -> void:
 	if not is_on_floor():
@@ -120,3 +130,14 @@ func handle_gravity(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	current_state = States.IDLE
+	
+func shoot_nut():
+	if shot_cooldown + 2.5  < Time.get_unix_time_from_system():
+		shot_cooldown = Time.get_unix_time_from_system()
+		print(str(shot_cooldown))
+		var nut = PROJECTILE.instantiate()
+		nut.transform = self.global_transform
+		var nut_sprite = nut.get_child(0) as AnimatedSprite2D
+		if nut_sprite != null:
+			nut_sprite.flip_h = animated_sprite_2d.flip_h 
+			self.add_sibling(nut)

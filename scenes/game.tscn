@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bd0uwlu6vgy38"]
+[gd_scene load_steps=15 format=3 uid="uid://bd0uwlu6vgy38"]
 
 [ext_resource type="PackedScene" uid="uid://b50ps8r584f3y" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://bmajqgx1hdnrr" path="res://assets/sprites/world_tileset.png" id="2_yqjtg"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://gef1vveefbjs" path="res://scenes/gameui.tscn" id="4_gee14"]
 [ext_resource type="PackedScene" uid="uid://crqc1hhdhds5b" path="res://scenes/coin.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://c46m5254yitc8" path="res://scenes/squirrel.tscn" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://qd5bh2mlrkno" path="res://scenes/nut.tscn" id="8_gee14"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -335,3 +336,4 @@ position = Vector2(0, -140)
 player = NodePath("../Player")
 ACCELERATION = 20
 BOUNDS = 150.0
+PROJECTILE = ExtResource("8_gee14")

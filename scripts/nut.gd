@@ -11,8 +11,6 @@ var velocity = Vector2(0, 0)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	launch()
-	animated_sprite_2d.play("shot")
-	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -24,6 +22,7 @@ func launch():
 	velocity = maxVelocity
 	if animated_sprite_2d.flip_h == true:
 		velocity = -maxVelocity
+	animated_sprite_2d.play("shot")
 
 func _on_timer_timeout() -> void:
 	self.queue_free()

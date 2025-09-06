@@ -1,0 +1,89 @@
+[gd_scene load_steps=8 format=3 uid="uid://61x2dkmkmd14"]
+
+[ext_resource type="FontFile" uid="uid://8t1kpmmy5wvw" path="res://assets/fonts/pixelsix00.ttf" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://qfokxpyfo4oi" path="res://scripts/main_menu.gd" id="1_wu84c"]
+[ext_resource type="PackedScene" uid="uid://ddf3ftbofm6ld" path="res://scenes/button.tscn" id="2_ekxnf"]
+[ext_resource type="PackedScene" uid="uid://bd0uwlu6vgy38" path="res://scenes/game.tscn" id="3_bqqt6"]
+[ext_resource type="PackedScene" uid="uid://cso30bnqrkklj" path="res://scenes/shutdown.tscn" id="5_8ln24"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ekxnf"]
+font = ExtResource("1_l6cm7")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_wu84c"]
+font = ExtResource("1_l6cm7")
+font_size = 22
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wu84c")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -144.0
+offset_right = 144.0
+offset_bottom = 54.0
+grow_horizontal = 2
+text = "ShibaRunner"
+label_settings = SubResource("LabelSettings_ekxnf")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -209.0
+offset_right = 144.0
+offset_bottom = -155.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Go, Shiba, Go!"
+label_settings = SubResource("LabelSettings_wu84c")
+horizontal_alignment = 1
+
+[node name="play" parent="." instance=ExtResource("2_ekxnf")]
+position = Vector2(576, 312)
+scale = Vector2(2.84, 2.84)
+scene = ExtResource("3_bqqt6")
+
+[node name="Label" parent="play" index="2"]
+text = "play"
+
+[node name="settings" parent="." instance=ExtResource("2_ekxnf")]
+position = Vector2(576, 436)
+scale = Vector2(2.84, 2.84)
+scene = ExtResource("3_bqqt6")
+
+[node name="Label" parent="settings" index="2"]
+text = "settings"
+
+[node name="quit" parent="." instance=ExtResource("2_ekxnf")]
+position = Vector2(576, 556)
+scale = Vector2(2.84, 2.84)
+scene = ExtResource("5_8ln24")
+
+[node name="Label" parent="quit" index="2"]
+text = "quit"
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="input_event" from="play" to="play" method="_on_input_event"]
+[connection signal="mouse_exited" from="play" to="play" method="_on_mouse_exited"]
+[connection signal="input_event" from="settings" to="settings" method="_on_input_event"]
+[connection signal="mouse_exited" from="settings" to="settings" method="_on_mouse_exited"]
+[connection signal="input_event" from="quit" to="quit" method="_on_input_event"]
+[connection signal="mouse_exited" from="quit" to="quit" method="_on_mouse_exited"]
+
+[editable path="play"]
+[editable path="settings"]
+[editable path="quit"]

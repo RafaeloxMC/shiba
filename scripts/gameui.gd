@@ -5,10 +5,12 @@ extends Control
 
 @onready var coins_sprite: AnimatedSprite2D = $CanvasLayer/CoinsSprite
 @onready var coins_label: Label = $CanvasLayer/CoinsLabel
+@onready var animation_player: AnimationPlayer = $CanvasLayer/ColorRect/AnimationPlayer
 
 func death():
 	hearts_sprite.play("break")
 	update_hearts()
+	animation_player.play("fadeout")
 
 func update_hearts():
 	print("Updating hearts!")
@@ -29,3 +31,4 @@ func _ready() -> void:
 	print("Loaded GameUI")
 	update_hearts()
 	update_coins()
+	animation_player.play("fadein")

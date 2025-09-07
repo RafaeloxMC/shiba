@@ -60,7 +60,7 @@ shape = SubResource("RectangleShape2D_6q2a6")
 [node name="Killzone" parent="." instance=ExtResource("3_softn")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(-2, 1)
+position = Vector2(-1, 0.5)
 shape = SubResource("RectangleShape2D_6q2a6")
 
 [node name="Timer" type="Timer" parent="."]

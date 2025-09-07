@@ -23,12 +23,17 @@ func coin_pickup():
 func update_coins():
 	coins_label.text = str(GameManager.coins)
 	
+func tick_ui():
+	update_coins()
+	update_hearts()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GameManager.death.connect(death)
 	GameManager.coin_pickup.connect(coin_pickup)
+	GameManager.tick_ui.connect(tick_ui)
 	print("Loaded GameUI")
 	update_hearts()
 	update_coins()
 	animation_player.play("fadein")
+	GameManager.running = true

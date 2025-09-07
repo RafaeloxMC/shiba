@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ddf3ftbofm6ld" path="res://scenes/button.tscn" id="2_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://bmajqgx1hdnrr" path="res://assets/sprites/world_tileset.png" id="2_flqon"]
 [ext_resource type="PackedScene" uid="uid://bd0uwlu6vgy38" path="res://scenes/game.tscn" id="3_bqqt6"]
-[ext_resource type="Script" uid="uid://b8yyy402vh1a8" path="res://scenes/air_bg.gd" id="3_rcqid"]
+[ext_resource type="Script" uid="uid://b8yyy402vh1a8" path="res://scripts/air_bg.gd" id="3_rcqid"]
 [ext_resource type="Texture2D" uid="uid://b7gdnlf5qy75k" path="res://assets/sprites/parllax_bg.png" id="4_1ajci"]
 [ext_resource type="Script" uid="uid://5mk8yt0a4r1" path="res://scripts/clouds.gd" id="5_7b55j"]
 [ext_resource type="PackedScene" uid="uid://cso30bnqrkklj" path="res://scenes/shutdown.tscn" id="5_8ln24"]
@@ -253,7 +253,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wu84c")
 
-[node name="Background" type="Node" parent="."]
+[node name="Background" type="Control" parent="."]
+anchors_preset = 0
 
 [node name="TileMap" type="TileMap" parent="Background"]
 scale = Vector2(6, 6)
@@ -358,7 +359,7 @@ offset_right = 130.0
 offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "use the arrow keys to navigate!"
+text = "use the arrow keys and enter to navigate!"
 label_settings = SubResource("LabelSettings_8ln24")
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -6,35 +6,55 @@ extends Control
 @onready var title: Label = $title
 @onready var subtitle: Label = $subtitle
 @onready var hint: Label = $hint
+@onready var background: Control = $Background
 
 var current_button_id = 1
-var settings_open = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_current_button().selected = true
+	if GameManager.hearts <= 0:
+		GameManager.running = false
+	if GameManager.running == true:
+		var node = load(get_current_button().scene.resource_path)
+		add_child(node.instantiate())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if settings_open == true:
-		if self.has_node("Settings"):
-			title.hide()
-			subtitle.hide()
-			hint.hide()
-			return
-		else:
-			settings_open == false
-			title.visible = true
-			subtitle.visible = true
-			hint.visible = true
+	if self.has_node("Settings") || self.has_node("Game") || self.has_node("Shutdown"):
+		if Input.is_action_just_pressed("ui_cancel"):
+			if self.has_node("Settings"):
+				self.get_node("Settings").queue_free()
+			if self.has_node("Game"):
+				self.get_node("Game").queue_free()
+			if self.has_node("Shutdown"):
+				self.get_node("Shutdown").queue_free()
+			GameManager.running = false
+			get_tree().reload_current_scene()
+		title.hide()
+		subtitle.hide()
+		hint.hide()
+		play.hide()
+		settings.hide()
+		quit.hide()
+		return
+	else:
+		title.visible = true
+		subtitle.visible = true
+		hint.visible = true
+		play.visible = true
+		settings.visible = true
+		quit.visible = true
+		
+	if self.has_node("Game") || self.has_node("Shutdown"):
+		background.hide()
+	else:
+		background.visible = true
 	if Input.is_action_just_pressed("ui_up"):
-		print("Up!")
 		last()
 	elif Input.is_action_just_pressed("ui_down"):
-		print("Down!")
 		next()
 	elif Input.is_action_just_pressed("ui_accept"):
-		print("Accept!")
 		submit()
 
 func next():
@@ -56,12 +76,12 @@ func last():
 func submit():
 	print(current_button_id)
 	if get_current_button().scene != null:
-		if get_current_button() != settings:
-			get_tree().change_scene_to_packed(get_current_button().scene)
-		else:
-			var node = load(get_current_button().scene.resource_path)
-			add_child(node.instantiate())
-			settings_open = true
+		var node = load(get_current_button().scene.resource_path)
+		add_child(node.instantiate())
+		
+	if get_current_button() == play:
+		GameManager.reset()
+		GameManager.call_tick_ui()
 
 func get_current_button() -> Area2D:
 	if current_button_id == 1:

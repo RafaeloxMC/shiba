@@ -4,7 +4,12 @@ extends Control
 @onready var credits: Area2D = $credits
 @onready var back: Area2D = $back
 
+@onready var title: Label = $title
+@onready var subtitle: Label = $subtitle
+@onready var hint: Label = $hint
+
 var current_button_id = 1
+var credits_open = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,15 +17,29 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if self.has_node("Credits"):
+		title.hide()
+		subtitle.hide()
+		hint.hide()
+		difficulty.hide()
+		credits.hide()
+		back.hide()
+		return
+	else:
+		credits_open = false
+		title.visible = true
+		subtitle.visible = true
+		hint.visible = true
+		difficulty.visible = true
+		credits.visible = true
+		back.visible = true
 	if Input.is_action_just_pressed("ui_up"):
-		print("Up!")
 		last()
 	elif Input.is_action_just_pressed("ui_down"):
-		print("Down!")
 		next()
 	elif Input.is_action_just_pressed("ui_accept"):
-		print("Accept!")
 		submit()
+		
 
 func next():
 	get_current_button().selected = false
@@ -40,7 +59,11 @@ func last():
 
 func submit():
 	print(current_button_id)
-	if get_current_button().scene != null:
+	if get_current_button() == credits:
+		var node = load(get_current_button().scene.resource_path)
+		add_child(node.instantiate())
+		credits_open = true
+	elif get_current_button().scene != null:
 		if get_current_button() != back:
 			get_tree().change_scene_to_packed(get_current_button().scene)
 	elif get_current_button().type == 1:

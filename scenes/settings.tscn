@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bw0hnjwoogxr5" path="res://scripts/settings.gd" id="1_es4n0"]
 [ext_resource type="FontFile" uid="uid://8t1kpmmy5wvw" path="res://assets/fonts/pixelsix00.ttf" id="2_gis3k"]
 [ext_resource type="PackedScene" uid="uid://ddf3ftbofm6ld" path="res://scenes/button.tscn" id="3_83j8s"]
-[ext_resource type="PackedScene" uid="uid://bd0uwlu6vgy38" path="res://scenes/game.tscn" id="4_gjs24"]
+[ext_resource type="PackedScene" uid="uid://bjqwjjqdu4y11" path="res://scenes/credits.tscn" id="4_f4mfi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ekxnf"]
 font = ExtResource("2_gis3k")
@@ -70,7 +70,7 @@ metadata/_edit_use_anchors_ = true
 [node name="credits" parent="." instance=ExtResource("3_83j8s")]
 position = Vector2(576, 396)
 scale = Vector2(2.84, 2.84)
-scene = ExtResource("4_gjs24")
+scene = ExtResource("4_f4mfi")
 
 [node name="Label" parent="credits" index="2"]
 text = "credits"
@@ -95,7 +95,7 @@ offset_right = 130.0
 offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "use the arrow keys to navigate!"
+text = "use the arrow keys and enter to navigate!"
 label_settings = SubResource("LabelSettings_8ln24")
 horizontal_alignment = 1
 vertical_alignment = 1

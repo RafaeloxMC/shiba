@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ce3h4gbnrhavx"
+path="res://.godot/imported/Tiger Tracks - Lexica.mp3-2ab0f044627ef7a9b527bdb0362f2ae1.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Tiger Tracks - Lexica.mp3"
+dest_files=["res://.godot/imported/Tiger Tracks - Lexica.mp3-2ab0f044627ef7a9b527bdb0362f2ae1.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

@@ -8,6 +8,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_ccwni"]
 font = ExtResource("2_mu2ln")
 font_size = 34
+font_color = Color(0.89059, 0.89059, 0.89059, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wwaar"]
 atlas = ExtResource("2_ccwni")

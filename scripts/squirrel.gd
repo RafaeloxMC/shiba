@@ -24,6 +24,7 @@ var right_bounds: Vector2
 var left_bounds: Vector2
 
 var shot_cooldown: float
+var use_cooldown: float
 
 var rand = RandomNumberGenerator.new()
 
@@ -37,6 +38,23 @@ var current_state: States = States.IDLE
 func _ready() -> void:
 	right_bounds = self.position + Vector2(BOUNDS, 0)
 	left_bounds = self.position + Vector2(-BOUNDS, 0)
+	var diff = GameManager.difficulty
+	if diff == 0: 
+		difficulty = 50
+		CHASE_SPEED = 75
+		use_cooldown = 2.5
+	elif diff == 1:
+		difficulty = 30
+		CHASE_SPEED = 75
+		use_cooldown = 2.5
+	elif diff == 2:
+		difficulty = 15
+		CHASE_SPEED = 100
+		use_cooldown = 2.0
+	elif diff == 3:
+		difficulty = 5
+		CHASE_SPEED = 100
+		use_cooldown = 1.5
 
 func _physics_process(delta: float) -> void:
 	handle_gravity(delta)
@@ -132,7 +150,7 @@ func _on_timer_timeout() -> void:
 	current_state = States.IDLE
 	
 func shoot_nut():
-	if shot_cooldown + 2.5  < Time.get_unix_time_from_system():
+	if shot_cooldown + use_cooldown < Time.get_unix_time_from_system():
 		shot_cooldown = Time.get_unix_time_from_system()
 		print(str(shot_cooldown))
 		var nut = PROJECTILE.instantiate()

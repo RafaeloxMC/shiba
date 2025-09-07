@@ -1,0 +1,111 @@
+[gd_scene load_steps=8 format=3 uid="uid://ctrdli6f4pyyx"]
+
+[ext_resource type="Script" uid="uid://bw0hnjwoogxr5" path="res://scripts/settings.gd" id="1_es4n0"]
+[ext_resource type="FontFile" uid="uid://8t1kpmmy5wvw" path="res://assets/fonts/pixelsix00.ttf" id="2_gis3k"]
+[ext_resource type="PackedScene" uid="uid://ddf3ftbofm6ld" path="res://scenes/button.tscn" id="3_83j8s"]
+[ext_resource type="PackedScene" uid="uid://bd0uwlu6vgy38" path="res://scenes/game.tscn" id="4_gjs24"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ekxnf"]
+font = ExtResource("2_gis3k")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_wu84c"]
+font = ExtResource("2_gis3k")
+font_size = 22
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ln24"]
+font = ExtResource("2_gis3k")
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_es4n0")
+
+[node name="title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -144.0
+offset_top = 48.0
+offset_right = 144.0
+offset_bottom = 102.0
+grow_horizontal = 2
+text = "Settings"
+label_settings = SubResource("LabelSettings_ekxnf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="subtitle" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -209.0
+offset_right = 144.0
+offset_bottom = -155.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "what does fancy button do :o"
+label_settings = SubResource("LabelSettings_wu84c")
+horizontal_alignment = 1
+
+[node name="difficulty" parent="." instance=ExtResource("3_83j8s")]
+position = Vector2(576, 272)
+scale = Vector2(2.84, 2.84)
+type = 1
+settings = ["easy", "medium", "hard", "give up"]
+
+[node name="Label" parent="difficulty" index="2"]
+text = "difficulty"
+metadata/_edit_use_anchors_ = true
+
+[node name="credits" parent="." instance=ExtResource("3_83j8s")]
+position = Vector2(576, 396)
+scale = Vector2(2.84, 2.84)
+scene = ExtResource("4_gjs24")
+
+[node name="Label" parent="credits" index="2"]
+text = "credits"
+
+[node name="back" parent="." instance=ExtResource("3_83j8s")]
+position = Vector2(576, 516)
+scale = Vector2(2.84, 2.84)
+
+[node name="Label" parent="back" index="2"]
+text = "back"
+
+[node name="hint" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -130.0
+offset_top = -48.0
+offset_right = 130.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "use the arrow keys to navigate!"
+label_settings = SubResource("LabelSettings_8ln24")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="input_event" from="credits" to="credits" method="_on_input_event"]
+[connection signal="mouse_exited" from="credits" to="credits" method="_on_mouse_exited"]
+[connection signal="input_event" from="back" to="back" method="_on_input_event"]
+[connection signal="mouse_exited" from="back" to="back" method="_on_mouse_exited"]
+
+[editable path="difficulty"]
+[editable path="credits"]
+[editable path="back"]

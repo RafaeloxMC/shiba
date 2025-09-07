@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Shiba"
-run/main_scene="uid://bd0uwlu6vgy38"
+run/main_scene="uid://61x2dkmkmd14"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

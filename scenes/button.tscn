@@ -1,22 +1,30 @@
-[gd_scene load_steps=9 format=3 uid="uid://ddf3ftbofm6ld"]
+[gd_scene load_steps=11 format=3 uid="uid://ddf3ftbofm6ld"]
 
 [ext_resource type="Texture2D" uid="uid://cmd466d651fgq" path="res://assets/sprites/menu_elements.png" id="1_mi6dp"]
 [ext_resource type="Script" uid="uid://dndyvu1n30gl2" path="res://scripts/button.gd" id="1_rhj8v"]
 [ext_resource type="FontFile" uid="uid://8t1kpmmy5wvw" path="res://assets/fonts/pixelsix00.ttf" id="3_3q610"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rhj8v"]
-atlas = ExtResource("1_mi6dp")
-region = Rect2(0, 0, 128, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_3q610"]
 atlas = ExtResource("1_mi6dp")
-region = Rect2(0, 32, 128, 32)
+region = Rect2(0, 0, 160, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7y4x"]
+atlas = ExtResource("1_mi6dp")
+region = Rect2(0, 32, 160, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bdt2"]
+atlas = ExtResource("1_mi6dp")
+region = Rect2(0, 64, 160, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8m7bo"]
+atlas = ExtResource("1_mi6dp")
+region = Rect2(0, 96, 160, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n4pas"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rhj8v")
+"texture": SubResource("AtlasTexture_3q610")
 }],
 "loop": false,
 "name": &"default",
@@ -24,10 +32,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3q610")
+"texture": SubResource("AtlasTexture_i7y4x")
 }],
 "loop": false,
-"name": &"selected",
+"name": &"default_selected",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bdt2")
+}],
+"loop": false,
+"name": &"settings",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8m7bo")
+}],
+"loop": false,
+"name": &"settings_selected",
 "speed": 10.0
 }]
 
@@ -42,6 +66,7 @@ script = ExtResource("1_rhj8v")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_n4pas")
+animation = &"default_selected"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -63,5 +88,3 @@ text = "button label"
 label_settings = SubResource("LabelSettings_i7y4x")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

@@ -73,8 +73,11 @@ func search_player() -> void:
 	elif current_state == States.CHASE:
 		stop_chase()
 		
+
 func chase_player() -> void:
 	timer.stop()
+	if current_state == States.IDLE:
+		animated_sprite_2d.play("aggressive")
 	current_state = States.CHASE
 	
 func stop_chase() -> void:
@@ -151,9 +154,10 @@ func _on_timer_timeout() -> void:
 	
 func shoot_nut():
 	if shot_cooldown + use_cooldown < Time.get_unix_time_from_system():
+		animated_sprite_2d.play("shoot")
 		shot_cooldown = Time.get_unix_time_from_system()
-		print(str(shot_cooldown))
 		var nut = PROJECTILE.instantiate()
+		await get_tree().create_timer(0.5).timeout
 		nut.transform = self.global_transform
 		var nut_sprite = nut.get_child(0) as AnimatedSprite2D
 		if nut_sprite != null:

@@ -7,6 +7,7 @@ extends Control
 @onready var subtitle: Label = $subtitle
 @onready var hint: Label = $hint
 @onready var background: Control = $Background
+@onready var parallax_background: ParallaxBackground = $Background/ParallaxBackground
 
 var current_button_id = 1
 
@@ -37,6 +38,11 @@ func _process(_delta: float) -> void:
 		play.hide()
 		settings.hide()
 		quit.hide()
+		if self.has_node("Game"):
+			parallax_background.hide()
+		else:
+			parallax_background.visible = true
+			
 		return
 	else:
 		title.visible = true

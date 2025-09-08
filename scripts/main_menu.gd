@@ -81,13 +81,13 @@ func last():
 
 func submit():
 	print(current_button_id)
-	if get_current_button().scene != null:
-		var node = load(get_current_button().scene.resource_path)
-		add_child(node.instantiate())
-		
 	if get_current_button() == play:
 		GameManager.reset()
 		GameManager.call_tick_ui()
+		
+	if get_current_button().scene != null:
+		var node = load(get_current_button().scene.resource_path)
+		add_child(node.instantiate())
 
 func get_current_button() -> Area2D:
 	if current_button_id == 1:

@@ -2,7 +2,11 @@ extends Area2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+func _ready() -> void:
+	if GameManager.is_coin_blacklisted(self):
+		self.queue_free()
+
 func _on_body_entered(body: Node2D) -> void:
 	if body.name != "Player": return
-	GameManager.add_coin()
+	GameManager.add_coin(self)
 	animation_player.play("pickup")

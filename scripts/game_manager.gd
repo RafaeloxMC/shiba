@@ -18,13 +18,17 @@ signal death()
 signal coin_pickup()
 signal tick_ui()
 
+signal dialog(content: String, author: String, animation: SpriteFrames)
+
 func _process(_delta: float) -> void:
 	max_hearts = hearts_per_diff()
 	
 	if hearts > max_hearts:
 		hearts = max_hearts
 
-func add_coin(coin: Area2D):
+func add_coin(coin: Area2D, player: CharacterBody2D):
+	if coin_blacklist.size() == 0:
+		call_dialog("I picked up my first coin. I could use these to buy Shibina a gift to win her heart!", "Shiba", player.get_node("AnimatedSprite2D").sprite_frames)
 	coin_blacklist.push_back(coin.transform)
 	coins += 1
 	print("Coin picked up: ", coins)
@@ -57,3 +61,6 @@ func hearts_per_diff() -> int:
 	elif difficulty == 3:
 		return 1
 	return 3
+
+func call_dialog(content: String, author: String, animation: SpriteFrames):
+	dialog.emit(content, author, animation)

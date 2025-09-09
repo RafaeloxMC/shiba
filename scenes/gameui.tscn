@@ -1,10 +1,14 @@
-[gd_scene load_steps=42 format=3 uid="uid://gef1vveefbjs"]
+[gd_scene load_steps=60 format=3 uid="uid://gef1vveefbjs"]
 
 [ext_resource type="Script" uid="uid://d4fky1rju1p7y" path="res://scripts/gameui.gd" id="1_wwaar"]
 [ext_resource type="Texture2D" uid="uid://byivli2q5tqnr" path="res://assets/sprites/ui_elements.png" id="2_ccwni"]
 [ext_resource type="FontFile" uid="uid://8t1kpmmy5wvw" path="res://assets/fonts/pixelsix00.ttf" id="2_mu2ln"]
 [ext_resource type="Texture2D" uid="uid://dq278psfgufaf" path="res://assets/sprites/coin.png" id="4_mu2ln"]
 [ext_resource type="Script" uid="uid://clpad50mh2ml4" path="res://scripts/gameui_color_rect.gd" id="5_n31af"]
+[ext_resource type="Texture2D" uid="uid://baxnct107gh6l" path="res://assets/sprites/dialogbox.png" id="6_wexye"]
+[ext_resource type="Script" uid="uid://bmiksxfiyj8sf" path="res://scripts/dialog_manager.gd" id="7_bjfv8"]
+[ext_resource type="Texture2D" uid="uid://cbuc4rw04hmp5" path="res://assets/sprites/shiba.png" id="7_tgq32"]
+[ext_resource type="Texture2D" uid="uid://cmd466d651fgq" path="res://assets/sprites/menu_elements.png" id="8_s0xlj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ccwni"]
 font = ExtResource("2_mu2ln")
@@ -293,6 +297,103 @@ _data = {
 &"fadeout": SubResource("Animation_mu2ln")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_wexye"]
+font = ExtResource("2_mu2ln")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jyfi"]
+atlas = ExtResource("7_tgq32")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x70um"]
+atlas = ExtResource("7_tgq32")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8h4rg"]
+atlas = ExtResource("7_tgq32")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wh61"]
+atlas = ExtResource("7_tgq32")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcs7t"]
+atlas = ExtResource("7_tgq32")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_au8qu"]
+atlas = ExtResource("7_tgq32")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kpsq"]
+atlas = ExtResource("7_tgq32")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0dk5"]
+atlas = ExtResource("7_tgq32")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hwmyc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jyfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x70um")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8h4rg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wh61")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kcs7t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_au8qu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kpsq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0dk5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwmyc"]
+atlas = ExtResource("8_s0xlj")
+region = Rect2(0, 0, 160, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afor6"]
+atlas = ExtResource("8_s0xlj")
+region = Rect2(0, 32, 160, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wb12n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwmyc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afor6")
+}],
+"loop": true,
+"name": &"default_selected",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dfh7m"]
+font = ExtResource("2_mu2ln")
+
 [node name="GameUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -348,3 +449,81 @@ script = ExtResource("5_n31af")
 libraries = {
 &"": SubResource("AnimationLibrary_wexye")
 }
+
+[node name="DialogManager" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -358.5
+offset_top = -224.0
+offset_right = 358.5
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("6_wexye")
+script = ExtResource("7_bjfv8")
+
+[node name="Text" type="Label" parent="CanvasLayer/DialogManager"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -116.5
+offset_top = 18.0
+offset_right = 307.5
+offset_bottom = 183.0
+grow_horizontal = 2
+text = "Example dialog text:
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. "
+label_settings = SubResource("LabelSettings_wexye")
+autowrap_mode = 3
+
+[node name="Character" type="AnimatedSprite2D" parent="CanvasLayer/DialogManager"]
+position = Vector2(142.5, 114)
+scale = Vector2(8.14062, 8.14062)
+sprite_frames = SubResource("SpriteFrames_hwmyc")
+frame_progress = 0.662845
+
+[node name="CharacterName" type="Label" parent="CanvasLayer/DialogManager"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -290.5
+offset_top = 22.0
+offset_right = -129.5
+offset_bottom = 40.0
+grow_horizontal = 2
+text = "Shiba"
+label_settings = SubResource("LabelSettings_wexye")
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="Button" type="AnimatedSprite2D" parent="CanvasLayer/DialogManager"]
+position = Vector2(585.5, 190)
+sprite_frames = SubResource("SpriteFrames_wb12n")
+
+[node name="Label" type="Label" parent="CanvasLayer/DialogManager/Button"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.0
+offset_top = -25.0
+offset_right = -44.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Continue"
+label_settings = SubResource("LabelSettings_dfh7m")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="CanvasLayer/DialogManager"]
+wait_time = 0.025
+one_shot = true
+
+[connection signal="timeout" from="CanvasLayer/DialogManager/Timer" to="CanvasLayer/DialogManager" method="_on_timer_timeout"]

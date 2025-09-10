@@ -471,7 +471,7 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -116.5
 offset_top = 18.0
-offset_right = 307.5
+offset_right = 336.5
 offset_bottom = 183.0
 grow_horizontal = 2
 text = "Example dialog text:
@@ -480,19 +480,19 @@ label_settings = SubResource("LabelSettings_wexye")
 autowrap_mode = 3
 
 [node name="Character" type="AnimatedSprite2D" parent="CanvasLayer/DialogManager"]
-position = Vector2(142.5, 114)
+position = Vector2(118.5, 114)
 scale = Vector2(8.14062, 8.14062)
 sprite_frames = SubResource("SpriteFrames_hwmyc")
-frame_progress = 0.662845
+frame_progress = 0.152362
 
 [node name="CharacterName" type="Label" parent="CanvasLayer/DialogManager"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -290.5
+offset_left = -341.5
 offset_top = 22.0
-offset_right = -129.5
+offset_right = -128.5
 offset_bottom = 40.0
 grow_horizontal = 2
 text = "Shiba"
@@ -521,9 +521,3 @@ text = "Continue"
 label_settings = SubResource("LabelSettings_dfh7m")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Timer" type="Timer" parent="CanvasLayer/DialogManager"]
-wait_time = 0.025
-one_shot = true
-
-[connection signal="timeout" from="CanvasLayer/DialogManager/Timer" to="CanvasLayer/DialogManager" method="_on_timer_timeout"]

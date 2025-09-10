@@ -23,6 +23,10 @@ func coin_pickup():
 func update_coins():
 	coins_label.text = str(GameManager.coins)
 	
+func eat_dog_food():
+	hearts_sprite.play_backwards("break")
+	update_hearts()
+	
 func tick_ui():
 	update_coins()
 	update_hearts()
@@ -32,6 +36,7 @@ func _ready() -> void:
 	GameManager.death.connect(death)
 	GameManager.coin_pickup.connect(coin_pickup)
 	GameManager.tick_ui.connect(tick_ui)
+	GameManager.eat_dog_food.connect(eat_dog_food)
 	print("Loaded GameUI")
 	update_hearts()
 	update_coins()

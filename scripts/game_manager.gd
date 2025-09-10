@@ -12,11 +12,15 @@ var hearts = 3
 
 var running = false
 
+var should_show_intro = true
+
 var coin_blacklist: Array[Transform2D] = []
+var food_blacklist: Array[Transform2D] = []
 
 signal death()
 signal coin_pickup()
 signal tick_ui()
+signal eat_dog_food()
 
 signal dialog(content: String, author: String, animation: SpriteFrames)
 
@@ -39,6 +43,22 @@ func is_coin_blacklisted(coin: Area2D) -> bool:
 		return true
 	return false
 	
+func is_food_blacklisted(food: Area2D) -> bool:
+	if food_blacklist.has(food.transform):
+		return true
+	return false
+	
+func eat_food(food: Area2D, player: CharacterBody2D):
+	var diff_warning = ""
+	if difficulty == 3: 
+		diff_warning = "\nSadly I can't restore health on this difficulty!"
+	if food_blacklist.size() == 0:
+		call_dialog("*nom nom nom*\nThis is very delicious! And I already feel so much better! I need more of that!" + diff_warning, "Shiba", player.get_node("AnimatedSprite2D").sprite_frames)
+	food_blacklist.push_back(food.transform)
+	if hearts < max_hearts: 
+		hearts += 1
+	eat_dog_food.emit()
+	
 func remove_heart():
 	print("Removed heart!")
 	hearts -= 1
@@ -49,6 +69,7 @@ func reset():
 	coins = 0
 	hearts = hearts_per_diff()
 	coin_blacklist.clear()
+	should_show_intro = true
 	
 func call_tick_ui() -> void:
 	tick_ui.emit()

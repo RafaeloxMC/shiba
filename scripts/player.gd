@@ -13,12 +13,11 @@ func die():
 	animated_sprite_2d.play("death")
 	velocity.y = -175 
 	self.collision_shape_2d.queue_free()
-	self.set_collision_mask_value(1, false)
-	self.set_collision_mask_value(3, true)
-	self.set_collision_layer_value(2, false)
 	
 func _ready():
 	GameManager.death.connect(die)
+	if GameManager.should_show_intro == true:
+		GameManager.call_dialog("Oh no! The robo dog kidnapped Shibina!\nI need to rescue her before something happens!", "Shiba", animated_sprite_2d.sprite_frames)
 	
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():

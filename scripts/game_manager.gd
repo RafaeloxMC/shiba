@@ -17,6 +17,8 @@ var should_show_intro = true
 var coin_blacklist: Array[Transform2D] = []
 var food_blacklist: Array[Transform2D] = []
 
+var dialog_blacklist: Array[Transform2D] = []
+
 signal death()
 signal coin_pickup()
 signal tick_ui()
@@ -45,6 +47,11 @@ func is_coin_blacklisted(coin: Area2D) -> bool:
 	
 func is_food_blacklisted(food: Area2D) -> bool:
 	if food_blacklist.has(food.transform):
+		return true
+	return false
+	
+func is_dialog_blacklisted(dlg: Area2D) -> bool:
+	if dialog_blacklist.has(dlg.transform):
 		return true
 	return false
 	

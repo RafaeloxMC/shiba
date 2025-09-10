@@ -18,6 +18,7 @@ func _ready():
 	GameManager.death.connect(die)
 	if GameManager.should_show_intro == true:
 		GameManager.call_dialog("Oh no! The robo dog kidnapped Shibina!\nI need to rescue her before something happens!", "Shiba", animated_sprite_2d.sprite_frames)
+		GameManager.should_show_intro = false
 	
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():

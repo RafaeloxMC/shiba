@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bd0uwlu6vgy38"]
+[gd_scene load_steps=30 format=3 uid="uid://bd0uwlu6vgy38"]
 
 [ext_resource type="Script" uid="uid://b8yyy402vh1a8" path="res://scripts/air_bg.gd" id="1_kvuet"]
 [ext_resource type="PackedScene" uid="uid://b50ps8r584f3y" path="res://scenes/player.tscn" id="1_uwrxv"]
@@ -14,6 +14,8 @@
 [ext_resource type="FontFile" uid="uid://8t1kpmmy5wvw" path="res://assets/fonts/pixelsix00.ttf" id="8_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://qd5bh2mlrkno" path="res://scenes/nut.tscn" id="8_gee14"]
 [ext_resource type="PackedScene" uid="uid://dwkr2txvg88fv" path="res://scenes/dog_food.tscn" id="14_trtic"]
+[ext_resource type="PackedScene" uid="uid://prtcrbjwfdku" path="res://scenes/dialog_trigger.tscn" id="15_ir15t"]
+[ext_resource type="SpriteFrames" uid="uid://bklk7p5g27qcp" path="res://assets/sprite_frames/player.tres" id="16_ca42v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -575,3 +577,10 @@ offset_bottom = -204.5
 text = "Patience is key..."
 label_settings = SubResource("LabelSettings_vtaks")
 autowrap_mode = 2
+
+[node name="DialogTrigger" parent="." instance=ExtResource("15_ir15t")]
+position = Vector2(160, -112)
+scale = Vector2(1.6, 1)
+text = "Oh no! A squirrel! I've heared those are very dangerous!"
+author = "Shiba"
+sprite_frames = ExtResource("16_ca42v")

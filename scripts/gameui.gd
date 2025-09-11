@@ -17,7 +17,7 @@ func update_hearts():
 	hearts_label.text = str(GameManager.hearts)
 
 func coin_pickup():
-	coins_sprite.sprite_frames.set_animation_speed("default", 20)
+	coins_sprite.sprite_frames.set_animation_speed("pickup", 20)
 	coins_sprite.play("pickup")
 	update_coins()
 

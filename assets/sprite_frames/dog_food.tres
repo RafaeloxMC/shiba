@@ -1,0 +1,81 @@
+[gd_resource type="SpriteFrames" load_steps=12 format=3 uid="uid://c4faj8wj7wlbs"]
+
+[ext_resource type="Texture2D" uid="uid://cxiponi8t5qg3" path="res://assets/sprites/dog_food.png" id="1_auosy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tb5dr"]
+atlas = ExtResource("1_auosy")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewrmn"]
+atlas = ExtResource("1_auosy")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2qw5"]
+atlas = ExtResource("1_auosy")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bx0k1"]
+atlas = ExtResource("1_auosy")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vo0mn"]
+atlas = ExtResource("1_auosy")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nslmr"]
+atlas = ExtResource("1_auosy")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46wxk"]
+atlas = ExtResource("1_auosy")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylb3h"]
+atlas = ExtResource("1_auosy")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wblus"]
+atlas = ExtResource("1_auosy")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_us76k"]
+atlas = ExtResource("1_auosy")
+region = Rect2(144, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tb5dr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewrmn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2qw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bx0k1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vo0mn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nslmr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46wxk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ylb3h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wblus")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_us76k")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]

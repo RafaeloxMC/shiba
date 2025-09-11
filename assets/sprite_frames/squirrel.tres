@@ -1,0 +1,154 @@
+[gd_resource type="SpriteFrames" load_steps=21 format=3 uid="uid://c7wha8wst3mxo"]
+
+[ext_resource type="Texture2D" uid="uid://bxavbajmpgt2b" path="res://assets/sprites/squirrel.png" id="1_qi08s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3s8v4"]
+atlas = ExtResource("1_qi08s")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwq8m"]
+atlas = ExtResource("1_qi08s")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sk1u"]
+atlas = ExtResource("1_qi08s")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_muyfv"]
+atlas = ExtResource("1_qi08s")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3xcr"]
+atlas = ExtResource("1_qi08s")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbpea"]
+atlas = ExtResource("1_qi08s")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jtqv"]
+atlas = ExtResource("1_qi08s")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6coh3"]
+atlas = ExtResource("1_qi08s")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvxgr"]
+atlas = ExtResource("1_qi08s")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbcbw"]
+atlas = ExtResource("1_qi08s")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjnre"]
+atlas = ExtResource("1_qi08s")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_be7vh"]
+atlas = ExtResource("1_qi08s")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvtld"]
+atlas = ExtResource("1_qi08s")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iaw41"]
+atlas = ExtResource("1_qi08s")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttdyi"]
+atlas = ExtResource("1_qi08s")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_od3mi"]
+atlas = ExtResource("1_qi08s")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dx78t"]
+atlas = ExtResource("1_qi08s")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxd5p"]
+atlas = ExtResource("1_qi08s")
+region = Rect2(160, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7xno"]
+atlas = ExtResource("1_qi08s")
+region = Rect2(192, 64, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3s8v4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwq8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2sk1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_muyfv")
+}],
+"loop": false,
+"name": &"aggressive",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3xcr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbpea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jtqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6coh3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvxgr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbcbw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjnre")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_be7vh")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvtld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iaw41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttdyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_od3mi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dx78t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxd5p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7xno")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 10.0
+}]

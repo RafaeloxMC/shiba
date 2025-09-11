@@ -5,10 +5,13 @@ const SPEED = 130.0
 const ACCELERATION = 1000.0
 const JUMP_VELOCITY = -300.0
 var DEAD = false
+var jumping = false
+var is_falling = false
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
-@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var jump_sfx: AudioStreamPlayer2D = $JumpSFX
+@onready var fall_sfx: AudioStreamPlayer2D = $FallSFX
 
 func die():
 	DEAD = true
@@ -25,14 +28,21 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+		is_falling = true
+	else:
+		if is_falling == true && jumping == false:
+			fall_sfx.play()
+		jumping = false
+		is_falling = false
+	
 	if DEAD: 
 		move_and_slide()
 		return
 		
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		audio_stream_player_2d.play()
+		jump_sfx.play()
+		jumping = true
 
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:

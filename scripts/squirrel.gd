@@ -106,6 +106,10 @@ func handle_movement(_delta: float) -> void:
 	
 func change_direction() -> void:
 	if is_on_floor() and not ground.is_colliding():
+		if current_state == States.CHASE:
+			var dir = (player.position - self.position).normalized()
+			if sign(dir.x) == sign(self.position.x):
+				return
 		if not animated_sprite_2d.flip_h:
 			animated_sprite_2d.flip_h = true
 			direction = Vector2(-1, 0)
@@ -117,17 +121,18 @@ func change_direction() -> void:
 			facing.target_position = Vector2(spotting_range, 0)
 			ground.target_position = Vector2(15, 15)
 		return
-	
 	if current_state == States.IDLE:
 		if not animated_sprite_2d.flip_h:
 			if self.position.x <= right_bounds.x:
 				direction = Vector2(1, 0)
+				ground.target_position = Vector2(15, 15)
 			else:
 				animated_sprite_2d.flip_h = true
 				facing.target_position = Vector2(-spotting_range, 0)
 		else:
 			if self.position.x >= left_bounds.x:
 				direction = Vector2(-1, 0)
+				ground.target_position = Vector2(-15, 15)
 			else:
 				animated_sprite_2d.flip_h = false
 				facing.target_position = Vector2(spotting_range, 0)	
@@ -141,9 +146,11 @@ func change_direction() -> void:
 		if direction.x == 1:
 			animated_sprite_2d.flip_h = false
 			facing.target_position = Vector2(spotting_range, 0)
+			ground.target_position = Vector2(15, 15)
 		else:
 			animated_sprite_2d.flip_h = true
 			facing.target_position = Vector2(-spotting_range, 0)
+			ground.target_position = Vector2(-15, 15)
 
 func handle_gravity(delta: float) -> void:
 	if not is_on_floor():

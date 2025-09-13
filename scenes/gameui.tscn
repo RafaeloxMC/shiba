@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://gef1vveefbjs"]
+[gd_scene load_steps=43 format=3 uid="uid://gef1vveefbjs"]
 
 [ext_resource type="Script" uid="uid://d4fky1rju1p7y" path="res://scripts/gameui.gd" id="1_wwaar"]
 [ext_resource type="FontFile" uid="uid://8t1kpmmy5wvw" path="res://assets/fonts/pixelsix00.ttf" id="2_mu2ln"]
@@ -207,6 +207,9 @@ animations = [{
 [sub_resource type="LabelSettings" id="LabelSettings_dfh7m"]
 font = ExtResource("2_mu2ln")
 
+[sub_resource type="LabelSettings" id="LabelSettings_bjfv8"]
+font = ExtResource("2_mu2ln")
+
 [sub_resource type="Animation" id="Animation_n31af"]
 length = 0.001
 tracks/0/type = "value"
@@ -373,6 +376,23 @@ grow_vertical = 2
 text = "Continue"
 label_settings = SubResource("LabelSettings_dfh7m")
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="hint" type="Label" parent="CanvasLayer/DialogManager"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -116.0
+offset_top = -43.0
+offset_right = 68.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "use enter to continue!"
+label_settings = SubResource("LabelSettings_bjfv8")
 vertical_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]

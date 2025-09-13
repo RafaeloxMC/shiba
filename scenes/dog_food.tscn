@@ -114,9 +114,10 @@ script = ExtResource("1_lp1ig")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_lp1ig")
 autoplay = "default"
-frame_progress = 0.00455769
+frame_progress = 0.314023
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_ssuvv")
 
 [node name="PickupSound" type="AudioStreamPlayer2D" parent="."]

@@ -321,13 +321,24 @@ shape = SubResource("WorldBoundaryShape2D_p57ef")
 
 [node name="Dog Food" type="Node" parent="."]
 
-[node name="DialogTrigger" parent="." instance=ExtResource("15_wwjag")]
-position = Vector2(160, -112)
-scale = Vector2(1.6, 1)
-text = "Oh no! A squirrel! I've heared those are very dangerous!"
-author = "Shiba"
-sprite_frames = ExtResource("16_rvwo1")
-
 [node name="Dog House" parent="." instance=ExtResource("17_yxkvy")]
 position = Vector2(-64, -32)
 entry = true
+
+[node name="HouseBG" parent="Dog House" index="0"]
+scale = Vector2(-1, 1)
+
+[node name="CollisionShape2D" parent="Dog House" index="2"]
+position = Vector2(-29, -51)
+
+[node name="Area2D" parent="Dog House" index="4"]
+position = Vector2(-29, 0)
+
+[node name="DialogTrigger" parent="." instance=ExtResource("15_wwjag")]
+position = Vector2(0, -11)
+scale = Vector2(3.17426, 1.08355)
+text = "Woah! This dog house is like a... teleporter! I thought this only exists in movies! And somehow I always wake up here when I get hurt..."
+author = "Shiba"
+sprite_frames = ExtResource("16_rvwo1")
+
+[editable path="Dog House"]

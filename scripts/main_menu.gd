@@ -23,15 +23,16 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if self.has_node("Settings") || self.has_node("Game") || self.has_node("Shutdown"):
-		if Input.is_action_just_pressed("ui_cancel"):
-			if self.has_node("Settings"):
-				self.get_node("Settings").queue_free()
-			if self.has_node("Game"):
-				self.get_node("Game").queue_free()
-			if self.has_node("Shutdown"):
-				self.get_node("Shutdown").queue_free()
+		if Input.is_action_just_pressed("pause"):
+			#if self.has_node("Settings"):
+			#	self.get_node("Settings").queue_free()
+			#if self.has_node("Game"):
+			#	self.get_node("Game").queue_free()
+			#if self.has_node("Shutdown"):
+			#	self.get_node("Shutdown").queue_free()
 			GameManager.running = false
-			get_tree().reload_current_scene()
+			SceneManager.call_scene("main_menu")
+			return;
 		title.hide()
 		subtitle.hide()
 		hint.hide()
@@ -84,6 +85,8 @@ func submit():
 	if get_current_button() == play:
 		GameManager.reset()
 		GameManager.call_tick_ui()
+		SceneManager.call_scene("level_1")
+		return
 		
 	if get_current_button().scene != null:
 		var node = load(get_current_button().scene.resource_path)

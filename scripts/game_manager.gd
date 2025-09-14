@@ -10,6 +10,8 @@ var score = 0
 var coins = 0
 var hearts = 3
 
+var coins_collected_in_current_scene = 0
+
 var running = false
 
 var should_show_intro = true
@@ -37,6 +39,7 @@ func add_coin(coin: Area2D, player: CharacterBody2D):
 		call_dialog("I picked up my first coin. I could use these to buy Shibina a gift to win her heart!", "Shiba", player.get_node("AnimatedSprite2D").sprite_frames)
 	coin_blacklist.push_back(coin.transform)
 	coins += 1
+	coins_collected_in_current_scene += 1
 	print("Coin picked up: ", coins)
 	coin_pickup.emit()
 	

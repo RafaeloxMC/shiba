@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://qfokxpyfo4oi" path="res://scripts/main_menu.gd" id="1_wu84c"]
 [ext_resource type="PackedScene" uid="uid://ddf3ftbofm6ld" path="res://scenes/button.tscn" id="2_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://bmajqgx1hdnrr" path="res://assets/sprites/world_tileset.png" id="2_flqon"]
-[ext_resource type="PackedScene" uid="uid://bd0uwlu6vgy38" path="res://scenes/game.tscn" id="3_bqqt6"]
+[ext_resource type="PackedScene" uid="uid://bd0uwlu6vgy38" path="res://scenes/levels/level_1.tscn" id="3_bqqt6"]
 [ext_resource type="Script" uid="uid://b8yyy402vh1a8" path="res://scripts/air_bg.gd" id="3_rcqid"]
 [ext_resource type="Texture2D" uid="uid://b7gdnlf5qy75k" path="res://assets/sprites/parllax_bg.png" id="4_1ajci"]
 [ext_resource type="Script" uid="uid://5mk8yt0a4r1" path="res://scripts/clouds.gd" id="5_7b55j"]

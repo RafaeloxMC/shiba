@@ -308,6 +308,7 @@ position_smoothing_enabled = true
 [node name="GameUI" parent="Player/Camera2D/CanvasLayer" instance=ExtResource("7_5niy6")]
 offset_top = -9.0
 offset_bottom = -9.0
+level_border_left = -80
 
 [node name="Killzone" parent="." instance=ExtResource("8_wikm6")]
 position = Vector2(0, 165)

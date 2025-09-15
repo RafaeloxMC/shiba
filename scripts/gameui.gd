@@ -7,6 +7,9 @@ extends Control
 @onready var coins_label: Label = $CanvasLayer/CoinsLabel
 @onready var animation_player: AnimationPlayer = $CanvasLayer/ColorRect/AnimationPlayer
 
+@export var level_border_left: int = 0
+@export var level_border_right: int = 100
+
 func death():
 	hearts_sprite.play("break")
 	update_hearts()

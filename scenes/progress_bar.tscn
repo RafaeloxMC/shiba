@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://3bnagxorg0g4"]
+
+[ext_resource type="Script" uid="uid://bvo1gxy2hrnxy" path="res://scripts/progress_bar.gd" id="1_1iuoo"]
+[ext_resource type="Texture2D" uid="uid://uvuj3unppjtg" path="res://assets/sprites/progress_bar.png" id="1_vt3ux"]
+[ext_resource type="Texture2D" uid="uid://cuvdsqnukdgjh" path="res://assets/sprites/shiba_face.png" id="2_8un81"]
+[ext_resource type="Texture2D" uid="uid://c7q7f1gkws05h" path="res://assets/sprites/flag.png" id="4_eu8db"]
+
+[sub_resource type="Animation" id="Animation_8un81"]
+resource_name = "wiggle"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.349066, -0.174533]
+}
+
+[sub_resource type="Animation" id="Animation_1iuoo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.281524]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eu8db"]
+_data = {
+&"RESET": SubResource("Animation_1iuoo"),
+&"wiggle": SubResource("Animation_8un81")
+}
+
+[node name="ProgressBar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_1iuoo")
+
+[node name="Slider" type="Sprite2D" parent="."]
+texture = ExtResource("1_vt3ux")
+
+[node name="ShibaHead" type="Sprite2D" parent="Slider"]
+position = Vector2(0, -1)
+rotation = -0.281524
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("2_8un81")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slider/ShibaHead"]
+libraries = {
+&"": SubResource("AnimationLibrary_eu8db")
+}
+autoplay = "wiggle"
+
+[node name="Flag" type="Sprite2D" parent="Slider"]
+position = Vector2(116, -3)
+texture = ExtResource("4_eu8db")

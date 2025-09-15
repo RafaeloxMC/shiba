@@ -1,6 +1,7 @@
-[gd_scene load_steps=43 format=3 uid="uid://gef1vveefbjs"]
+[gd_scene load_steps=44 format=3 uid="uid://gef1vveefbjs"]
 
 [ext_resource type="Script" uid="uid://d4fky1rju1p7y" path="res://scripts/gameui.gd" id="1_wwaar"]
+[ext_resource type="PackedScene" uid="uid://3bnagxorg0g4" path="res://scenes/progress_bar.tscn" id="2_3guck"]
 [ext_resource type="FontFile" uid="uid://8t1kpmmy5wvw" path="res://assets/fonts/pixelsix00.ttf" id="2_mu2ln"]
 [ext_resource type="SpriteFrames" uid="uid://dju8iw2jp5jrs" path="res://assets/sprite_frames/hearts.tres" id="3_bjfv8"]
 [ext_resource type="Texture2D" uid="uid://dq278psfgufaf" path="res://assets/sprites/coin.png" id="4_mu2ln"]
@@ -274,6 +275,15 @@ grow_vertical = 2
 script = ExtResource("1_wwaar")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" parent="CanvasLayer" instance=ExtResource("2_3guck")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+scale = Vector2(2.17131, 2.17131)
 
 [node name="HeartsLabel" type="Label" parent="CanvasLayer"]
 offset_left = 70.0

@@ -114,18 +114,18 @@ func handle_movement(_delta: float) -> void:
 	
 func change_direction() -> void:
 	if is_on_floor() and not ground.is_colliding():
-		if current_state != States.CHASE:
-			if not animated_sprite_2d.flip_h:
-				animated_sprite_2d.flip_h = true
-				direction = Vector2(-1, 0)
-				facing.target_position = Vector2(-spotting_range, 0)
-				ground.target_position = Vector2(-15, 15)
-			else:
+		if current_state == States.CHASE:
+			direction = Vector2(0, 0)
+			var player_dir_x = sign(player.position.x - self.position.x)
+			if player_dir_x == 1 or player_dir_x == 0:
 				animated_sprite_2d.flip_h = false
-				direction = Vector2(1, 0)
 				facing.target_position = Vector2(spotting_range, 0)
 				ground.target_position = Vector2(15, 15)
-		return
+			else:
+				animated_sprite_2d.flip_h = true
+				facing.target_position = Vector2(-spotting_range, 0)
+				ground.target_position = Vector2(-15, 15)
+			return
 	if current_state == States.IDLE:
 		if not animated_sprite_2d.flip_h:
 			if self.position.x <= right_bounds.x:

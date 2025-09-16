@@ -17,28 +17,13 @@ func _ready() -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if self.has_node("Settings") || self.has_node("Game") || self.has_node("Shutdown"):
-		if Input.is_action_just_pressed("pause"):
-			#if self.has_node("Settings"):
-			#	self.get_node("Settings").queue_free()
-			#if self.has_node("Game"):
-			#	self.get_node("Game").queue_free()
-			#if self.has_node("Shutdown"):
-			#	self.get_node("Shutdown").queue_free()
-			GameManager.running = false
-			SceneManager.call_scene("main_menu")
-			return;
+	if self.has_node("Settings") || self.has_node("Shutdown"):
 		title.hide()
 		subtitle.hide()
 		hint.hide()
 		play.hide()
 		settings.hide()
 		quit.hide()
-		if self.has_node("Game"):
-			parallax_background.hide()
-		else:
-			parallax_background.visible = true
-			
 		return
 	else:
 		title.visible = true
@@ -78,7 +63,8 @@ func last():
 func submit():
 	print(current_button_id)
 	if get_current_button() == play:
-		GameManager.reset()
+		if GameManager.hearts <= 0:
+			GameManager.reset()
 		GameManager.call_tick_ui()
 		SceneManager.reload_current_level()
 		return

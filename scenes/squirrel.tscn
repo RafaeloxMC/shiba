@@ -12,9 +12,8 @@ script = ExtResource("1_m3xcr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_m3xcr")
-animation = &"evolve"
-frame = 12
-frame_progress = 1.0
+animation = &"idle"
+autoplay = "idle"
 
 [node name="facing" type="RayCast2D" parent="AnimatedSprite2D"]
 target_position = Vector2(125, 0)

@@ -83,6 +83,7 @@ func reset():
 	hearts = hearts_per_diff()
 	coin_blacklist.clear()
 	should_show_intro = true
+	SceneManager.current_level = "level_1"
 	
 func call_tick_ui() -> void:
 	tick_ui.emit()

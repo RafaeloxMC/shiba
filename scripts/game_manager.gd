@@ -3,6 +3,7 @@ extends Node
 ## 1 = Medium
 ## 2 = Hard
 ## 3 = Give Up
+## 4 = Random
 var difficulty = 0
 var max_hearts;
 

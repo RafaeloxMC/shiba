@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var SPEED: int = 25
 @export var CHASE_SPEED: int = 75
 @export var JUMP_VELOCITY: int = -400
-@export var ACCELERATION: int = 50
+@export var ACCELERATION: int = 20
 @export var BOUNDS: float = 50
 @export var PROJECTILE: PackedScene
 
@@ -114,20 +114,17 @@ func handle_movement(_delta: float) -> void:
 	
 func change_direction() -> void:
 	if is_on_floor() and not ground.is_colliding():
-		if current_state == States.CHASE:
-			var dir = (player.position - self.position).normalized()
-			if sign(dir.x) == sign(self.position.x):
-				return
-		if not animated_sprite_2d.flip_h:
-			animated_sprite_2d.flip_h = true
-			direction = Vector2(-1, 0)
-			facing.target_position = Vector2(-spotting_range, 0)
-			ground.target_position = Vector2(-15, 15)
-		else:
-			animated_sprite_2d.flip_h = false
-			direction = Vector2(1, 0)
-			facing.target_position = Vector2(spotting_range, 0)
-			ground.target_position = Vector2(15, 15)
+		if current_state != States.CHASE:
+			if not animated_sprite_2d.flip_h:
+				animated_sprite_2d.flip_h = true
+				direction = Vector2(-1, 0)
+				facing.target_position = Vector2(-spotting_range, 0)
+				ground.target_position = Vector2(-15, 15)
+			else:
+				animated_sprite_2d.flip_h = false
+				direction = Vector2(1, 0)
+				facing.target_position = Vector2(spotting_range, 0)
+				ground.target_position = Vector2(15, 15)
 		return
 	if current_state == States.IDLE:
 		if not animated_sprite_2d.flip_h:

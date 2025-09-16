@@ -567,7 +567,6 @@ position = Vector2(472, -232)
 [node name="Squirrel" parent="." node_paths=PackedStringArray("player") instance=ExtResource("12_x7jkp")]
 position = Vector2(-120, -140)
 player = NodePath("../Player")
-ACCELERATION = 20
 BOUNDS = 150.0
 PROJECTILE = ExtResource("13_0qwwm")
 

@@ -8,12 +8,18 @@ extends Control
 @onready var hint: Label = $hint
 @onready var background: Control = $Background
 @onready var parallax_background: ParallaxBackground = $Background/ParallaxBackground
+@onready var fade: AnimationPlayer = $ColorRect/AnimationPlayer
+@onready var color_rect: ColorRect = $ColorRect
 
 var current_button_id = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_current_button().selected = true
+	if GameManager.hearts <= 0:
+		fade.play("fadein")
+	else:
+		color_rect.hide()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

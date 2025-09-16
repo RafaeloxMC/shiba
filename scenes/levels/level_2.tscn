@@ -265,6 +265,21 @@ sources/0 = SubResource("TileSetAtlasSource_lnu2h")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p57ef"]
 
+[sub_resource type="Animation" id="Animation_r88tb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(392, 36.5)]
+}
+
 [sub_resource type="Animation" id="Animation_tv7cl"]
 resource_name = "move"
 length = 6.0
@@ -282,7 +297,13 @@ tracks/0/keys = {
 "values": [Vector2(392, 36.5), Vector2(392, 36.5), Vector2(392, 308.5), Vector2(392, 308.5)]
 }
 
-[sub_resource type="Animation" id="Animation_r88tb"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1yj8c"]
+_data = {
+&"RESET": SubResource("Animation_r88tb"),
+&"move": SubResource("Animation_tv7cl")
+}
+
+[sub_resource type="Animation" id="Animation_ndlae"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -294,13 +315,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(392, 36.5)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_1yj8c"]
-_data = {
-&"RESET": SubResource("Animation_r88tb"),
-&"move": SubResource("Animation_tv7cl")
+"values": [Vector2(704, 308.5)]
 }
 
 [sub_resource type="Animation" id="Animation_1yj8c"]
@@ -318,21 +333,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(704, 308.5), Vector2(704, 308.5), Vector2(816, 164.5), Vector2(816, 164.5), Vector2(704, 164.5), Vector2(704, 164.5), Vector2(816, 164.5), Vector2(816, 164.5), Vector2(704, 20.5), Vector2(704, 20.5)]
-}
-
-[sub_resource type="Animation" id="Animation_ndlae"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(704, 308.5)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v8d84"]
@@ -475,20 +475,23 @@ position = Vector2(848, 152)
 [node name="Squirrel" parent="Enemies" node_paths=PackedStringArray("player") instance=ExtResource("11_r88tb")]
 position = Vector2(558, 294)
 player = NodePath("../../Player")
+ACCELERATION = 20
 BOUNDS = 100.0
 PROJECTILE = ExtResource("12_1yj8c")
 
 [node name="Squirrel2" parent="Enemies" node_paths=PackedStringArray("player") instance=ExtResource("11_r88tb")]
 position = Vector2(558, 150)
 player = NodePath("../../Player")
+ACCELERATION = 20
 BOUNDS = 100.0
 PROJECTILE = ExtResource("12_1yj8c")
 
 [node name="Squirrel3" parent="Enemies" node_paths=PackedStringArray("player") instance=ExtResource("11_r88tb")]
 position = Vector2(558, 6)
 player = NodePath("../../Player")
+ACCELERATION = 20
+BOUNDS = 100.0
 PROJECTILE = ExtResource("12_1yj8c")
-difficulty = 100
 
 [node name="Dialogs" type="Node" parent="."]
 

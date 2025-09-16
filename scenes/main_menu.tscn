@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://61x2dkmkmd14"]
+[gd_scene load_steps=33 format=3 uid="uid://61x2dkmkmd14"]
 
 [ext_resource type="FontFile" uid="uid://8t1kpmmy5wvw" path="res://assets/fonts/pixelsix00.ttf" id="1_l6cm7"]
 [ext_resource type="Script" uid="uid://qfokxpyfo4oi" path="res://scripts/main_menu.gd" id="1_wu84c"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ctrdli6f4pyyx" path="res://scenes/settings.tscn" id="5_rtw2f"]
 [ext_resource type="Texture2D" uid="uid://cwjr6pb7jamhr" path="res://assets/sprites/parallax_fg.png" id="6_5pajh"]
 [ext_resource type="Texture2D" uid="uid://cbuc4rw04hmp5" path="res://assets/sprites/shiba.png" id="7_j7ex8"]
+[ext_resource type="Script" uid="uid://clpad50mh2ml4" path="res://scripts/gameui_color_rect.gd" id="13_rcqid"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a8gd2"]
 texture = ExtResource("2_flqon")
@@ -244,6 +245,101 @@ font_size = 22
 [sub_resource type="LabelSettings" id="LabelSettings_8ln24"]
 font = ExtResource("1_l6cm7")
 
+[sub_resource type="Animation" id="Animation_n31af"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:label_settings:font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wexye"]
+resource_name = "fadein"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:label_settings:font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mu2ln"]
+resource_name = "fadeout"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:label_settings:font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wexye"]
+_data = {
+&"RESET": SubResource("Animation_n31af"),
+&"fadein": SubResource("Animation_wexye"),
+&"fadeout": SubResource("Animation_mu2ln")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_1ajci"]
+font = ExtResource("1_l6cm7")
+font_size = 64
+font_color = Color(1, 1, 1, 0)
+
 [node name="Main Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -361,6 +457,37 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "use the arrow keys and enter to navigate!"
 label_settings = SubResource("LabelSettings_8ln24")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -23.0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0)
+script = ExtResource("13_rcqid")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+libraries = {
+&"": SubResource("AnimationLibrary_wexye")
+}
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -184.0
+offset_top = -36.0
+offset_right = 184.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game over!"
+label_settings = SubResource("LabelSettings_1ajci")
 horizontal_alignment = 1
 vertical_alignment = 1
 

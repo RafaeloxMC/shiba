@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b50ps8r584f3y"]
+[gd_scene load_steps=7 format=3 uid="uid://b50ps8r584f3y"]
 
 [ext_resource type="Script" uid="uid://ciqg0sbawfmmb" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="SpriteFrames" uid="uid://bklk7p5g27qcp" path="res://assets/sprite_frames/player.tres" id="2_g2els"]
 [ext_resource type="AudioStream" uid="uid://c7owpnotcfg75" path="res://assets/sounds/jump.wav" id="3_qhqgy"]
 [ext_resource type="AudioStream" uid="uid://b7853fyqr03o" path="res://assets/sounds/fall.wav" id="4_tuyoq"]
+[ext_resource type="AudioStream" uid="uid://bqe058g6tqnv" path="res://assets/sounds/death.wav" id="5_qlg0r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fjrip"]
 radius = 5.0
@@ -36,3 +37,8 @@ bus = &"SFX"
 [node name="FallSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_tuyoq")
 volume_db = -4.0
+
+[node name="DeathSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_qlg0r")
+pitch_scale = 0.9
+bus = &"SFX"

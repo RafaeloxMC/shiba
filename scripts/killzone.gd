@@ -3,7 +3,7 @@ extends Area2D
 @onready var timer: Timer = $KillzoneTimer
 
 func _on_body_entered(body: Node2D) -> void:
-	if not body.name == "Player": return
+	if not body.name == "Player" && timer.time_left >= 0: return
 	print("Player died!")
 	GameManager.remove_heart()
 	Engine.time_scale = 0.5

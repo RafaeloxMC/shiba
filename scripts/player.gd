@@ -12,14 +12,19 @@ var is_falling = false
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var jump_sfx: AudioStreamPlayer2D = $JumpSFX
 @onready var fall_sfx: AudioStreamPlayer2D = $FallSFX
+@onready var death_sfx: AudioStreamPlayer2D = $DeathSFX
 
 func die():
 	DEAD = true
 	animated_sprite_2d.play("death")
+	death_sfx.play()
 	velocity.y = -175 
-	self.collision_shape_2d.queue_free()
+	self.set_collision_mask_value(1, false)
+	self.set_collision_layer_value(2, false)
 	
 func _ready():
+	self.set_collision_mask_value(1, true)
+	self.set_collision_layer_value(2, true)
 	GameManager.death.connect(die)
 	if GameManager.should_show_intro == true:
 		GameManager.call_dialog("Oh no! The robo dog kidnapped Shibina!\nI need to rescue her before something happens!", "Shiba", animated_sprite_2d.sprite_frames)

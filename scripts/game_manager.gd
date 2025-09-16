@@ -16,6 +16,8 @@ var running = false
 
 var should_show_intro = true
 
+var show_fps = false
+
 var coin_blacklist: Array[Transform2D] = []
 var food_blacklist: Array[Transform2D] = []
 

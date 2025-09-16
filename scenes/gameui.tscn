@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://gef1vveefbjs"]
+[gd_scene load_steps=46 format=3 uid="uid://gef1vveefbjs"]
 
 [ext_resource type="Script" uid="uid://d4fky1rju1p7y" path="res://scripts/gameui.gd" id="1_wwaar"]
 [ext_resource type="PackedScene" uid="uid://3bnagxorg0g4" path="res://scenes/progress_bar.tscn" id="2_3guck"]
@@ -294,6 +294,9 @@ font = ExtResource("2_mu2ln")
 font_size = 64
 font_color = Color(1, 1, 1, 0)
 
+[sub_resource type="LabelSettings" id="LabelSettings_lwled"]
+font = ExtResource("2_mu2ln")
+
 [node name="GameUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -463,3 +466,9 @@ text = "Game over!"
 label_settings = SubResource("LabelSettings_3guck")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="FPS" type="Label" parent="CanvasLayer"]
+offset_top = 113.0
+offset_right = 135.0
+offset_bottom = 136.0
+label_settings = SubResource("LabelSettings_lwled")

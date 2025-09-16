@@ -8,9 +8,11 @@ extends Control
 @onready var animation_player: AnimationPlayer = $CanvasLayer/ColorRect/AnimationPlayer
 
 @onready var label: Label = $CanvasLayer/ColorRect/Label
+@onready var fps: Label = $CanvasLayer/FPS
 
 @export var level_border_left: int = 0
 @export var level_border_right: int = 100
+
 
 func death():
 	hearts_sprite.play("break")
@@ -53,3 +55,9 @@ func _ready() -> void:
 	animation_player.play("fadein")
 	GameManager.running = true
 	label.visible = false
+
+func _process(_delta: float) -> void:
+	fps.visible = GameManager.show_fps
+	if GameManager.show_fps:
+		fps.text = str(Engine.get_frames_per_second()) + " FPS"
+		

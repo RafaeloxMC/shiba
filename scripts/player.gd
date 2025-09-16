@@ -34,6 +34,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		SceneManager.call_scene("main_menu")
 	
+	if Input.is_action_just_pressed("show_fps"):
+		GameManager.show_fps = !GameManager.show_fps
+	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 		is_falling = true

@@ -7,6 +7,8 @@ extends Control
 @onready var coins_label: Label = $CanvasLayer/CoinsLabel
 @onready var animation_player: AnimationPlayer = $CanvasLayer/ColorRect/AnimationPlayer
 
+@onready var label: Label = $CanvasLayer/ColorRect/Label
+
 @export var level_border_left: int = 0
 @export var level_border_right: int = 100
 
@@ -14,6 +16,10 @@ func death():
 	hearts_sprite.play("break")
 	update_hearts()
 	animation_player.play("fadeout")
+	if GameManager.hearts <= 0:
+		label.visible = true
+	else:
+		label.visible = false
 
 func update_hearts():
 	print("Updating hearts!")
@@ -46,3 +52,4 @@ func _ready() -> void:
 	update_coins()
 	animation_player.play("fadein")
 	GameManager.running = true
+	label.visible = false

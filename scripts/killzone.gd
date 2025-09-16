@@ -12,3 +12,5 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_timer_timeout() -> void:
 	Engine.time_scale = 1
 	SceneManager.reload_current()
+	if GameManager.hearts <= 0:
+		SceneManager.call_scene("main_menu")

@@ -14,12 +14,7 @@ var current_button_id = 1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_current_button().selected = true
-	if GameManager.hearts <= 0:
-		GameManager.running = false
-	if GameManager.running == true:
-		var node = load(get_current_button().scene.resource_path)
-		add_child(node.instantiate())
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if self.has_node("Settings") || self.has_node("Game") || self.has_node("Shutdown"):
@@ -85,7 +80,7 @@ func submit():
 	if get_current_button() == play:
 		GameManager.reset()
 		GameManager.call_tick_ui()
-		SceneManager.call_scene("level_1")
+		SceneManager.reload_current_level()
 		return
 		
 	if get_current_button().scene != null:

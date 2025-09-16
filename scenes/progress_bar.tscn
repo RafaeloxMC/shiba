@@ -5,6 +5,21 @@
 [ext_resource type="Texture2D" uid="uid://cuvdsqnukdgjh" path="res://assets/sprites/shiba_face.png" id="2_8un81"]
 [ext_resource type="Texture2D" uid="uid://c7q7f1gkws05h" path="res://assets/sprites/flag.png" id="4_eu8db"]
 
+[sub_resource type="Animation" id="Animation_1iuoo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.281524]
+}
+
 [sub_resource type="Animation" id="Animation_8un81"]
 resource_name = "wiggle"
 loop_mode = 2
@@ -19,21 +34,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [-0.349066, -0.174533]
-}
-
-[sub_resource type="Animation" id="Animation_1iuoo"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.281524]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eu8db"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://3bnagxorg0g4"]
+[gd_scene load_steps=13 format=3 uid="uid://3bnagxorg0g4"]
 
 [ext_resource type="Script" uid="uid://bvo1gxy2hrnxy" path="res://scripts/progress_bar.gd" id="1_1iuoo"]
 [ext_resource type="Texture2D" uid="uid://uvuj3unppjtg" path="res://assets/sprites/progress_bar.png" id="1_vt3ux"]
@@ -42,6 +42,42 @@ _data = {
 &"wiggle": SubResource("Animation_8un81")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_eu8db"]
+atlas = ExtResource("4_eu8db")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tumid"]
+atlas = ExtResource("4_eu8db")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_relan"]
+atlas = ExtResource("4_eu8db")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dk1bo"]
+atlas = ExtResource("4_eu8db")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e5nlk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eu8db")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tumid")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_relan")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dk1bo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="ProgressBar" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -62,6 +98,8 @@ libraries = {
 }
 autoplay = "wiggle"
 
-[node name="Flag" type="Sprite2D" parent="Slider"]
-position = Vector2(116, -3)
-texture = ExtResource("4_eu8db")
+[node name="Flag" type="AnimatedSprite2D" parent="Slider"]
+position = Vector2(116, 1)
+sprite_frames = SubResource("SpriteFrames_e5nlk")
+autoplay = "default"
+frame_progress = 0.676662

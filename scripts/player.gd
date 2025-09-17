@@ -13,6 +13,9 @@ var is_falling = false
 @onready var jump_sfx: AudioStreamPlayer2D = $JumpSFX
 @onready var fall_sfx: AudioStreamPlayer2D = $FallSFX
 @onready var death_sfx: AudioStreamPlayer2D = $DeathSFX
+@onready var timer: Timer = $Timer
+
+@export var projectile: PackedScene = load("res://scenes/bone.tscn")
 
 func die():
 	DEAD = true
@@ -66,5 +69,13 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		animated_sprite_2d.play("idle")
+		
+	if Input.is_action_just_pressed("attack") && timer.time_left <= 0:
+		var proj = projectile.instantiate()
+		proj.position = self.global_position
+		proj.position.y -= 10
+		proj.get_node("AnimatedSprite2D").flip_h = animated_sprite_2d.flip_h
+		self.add_sibling(proj)
+		timer.start()
 
 	move_and_slide()

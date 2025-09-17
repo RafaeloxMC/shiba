@@ -42,3 +42,7 @@ volume_db = -4.0
 stream = ExtResource("5_qlg0r")
 pitch_scale = 0.9
 bus = &"SFX"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true

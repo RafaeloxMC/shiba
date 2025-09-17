@@ -35,6 +35,8 @@ enum States {
 
 var current_state: States = States.IDLE
 
+var dead = false
+
 func randomize_difficulty() -> void:
 	difficulty = int(randf_range(2, 50))
 	CHASE_SPEED = int(randf_range(50, 125))
@@ -66,6 +68,9 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	handle_gravity(delta)
+	if dead == true:
+		move_and_slide()
+		return
 	handle_movement(delta)
 	change_direction()
 	search_player()
@@ -174,6 +179,8 @@ func shoot_nut():
 		var nut_sprite = nut.get_child(0) as AnimatedSprite2D
 		if nut_sprite != null:
 			nut_sprite.flip_h = animated_sprite_2d.flip_h 
+			if dead == true:
+				return
 			self.add_sibling(nut)
 			if GameManager.difficulty == 4:
 				randomize_difficulty()

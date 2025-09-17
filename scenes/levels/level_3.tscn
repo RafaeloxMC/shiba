@@ -90,8 +90,8 @@ shape = SubResource("WorldBoundaryShape2D_p57ef")
 [node name="DialogTrigger" parent="Dialogs" instance=ExtResource("14_flme0")]
 position = Vector2(128, -24)
 scale = Vector2(6.5288696, 1)
-text = "Seems like you've reached the end of the playtest already! This will be the next stage: a sand-themed level! It will most likely also include a shop where you can spend your coins! I will also continue to work on the story, I already have it planned! I hope you had fun!"
-author = "xvcf"
+text = "Wow, this looks so cool here! Is this a... shop! Here I can spend my coins! But I can't come back at any time, I should be mindful with what I buy and how much I spend since I still need a gift for Shibina!"
+author = "Shiba"
 sprite_frames = ExtResource("15_0qxt0")
 
 [node name="Dog Houses" type="Node" parent="."]

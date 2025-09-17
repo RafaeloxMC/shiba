@@ -18,9 +18,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if launched:
 		position.x += velocity * delta
-		if ray_cast_2d.is_colliding() && not ray_cast_2d.get_collider().name.begins_with("Nut"):
-			self.queue_free()
-			return
+		#if ray_cast_2d.is_colliding() && not ray_cast_2d.get_collider().name.begins_with("Nut"):
+		#	self.queue_free()
+		#	return
 
 func launch():
 	launched = true

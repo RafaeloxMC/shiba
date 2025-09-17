@@ -73,6 +73,7 @@ func submit():
 			GameManager.reset()
 		GameManager.call_tick_ui()
 		SceneManager.reload_current_level()
+		Engine.time_scale = 1
 		return
 		
 	if get_current_button().scene != null:

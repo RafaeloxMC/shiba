@@ -24,7 +24,7 @@ texture = ExtResource("2_quimm")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(-469.658, -123.333)
-motion_mirroring = Vector2(1164.8, 850)
+motion_mirroring = Vector2(1164.8, 900)
 script = ExtResource("3_yvlf7")
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]

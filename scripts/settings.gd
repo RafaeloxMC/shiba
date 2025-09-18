@@ -58,7 +58,6 @@ func last():
 	get_current_button().selected = true
 
 func submit():
-	print(current_button_id)
 	if get_current_button() == credits:
 		var node = load(get_current_button().scene.resource_path)
 		add_child(node.instantiate())

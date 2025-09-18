@@ -35,6 +35,7 @@ func _ready():
 	
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
+		Engine.time_scale = 1
 		SceneManager.call_scene("main_menu")
 	
 	if Input.is_action_just_pressed("show_fps"):

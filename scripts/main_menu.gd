@@ -67,7 +67,6 @@ func last():
 	get_current_button().selected = true
 
 func submit():
-	print(current_button_id)
 	if get_current_button() == play:
 		if GameManager.hearts <= 0:
 			GameManager.reset()

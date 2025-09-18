@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=34 format=3 uid="uid://c7wha8wst3mxo"]
+[gd_resource type="SpriteFrames" load_steps=35 format=3 uid="uid://c7wha8wst3mxo"]
 
 [ext_resource type="Texture2D" uid="uid://bxavbajmpgt2b" path="res://assets/sprites/squirrel.png" id="1_qi08s"]
 
@@ -69,6 +69,10 @@ region = Rect2(96, 128, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_b443j"]
 atlas = ExtResource("1_qi08s")
 region = Rect2(128, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akrvd"]
+atlas = ExtResource("1_qi08s")
+region = Rect2(160, 128, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m3xcr"]
 atlas = ExtResource("1_qi08s")
@@ -188,6 +192,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_b443j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akrvd")
 }],
 "loop": false,
 "name": &"evolve",

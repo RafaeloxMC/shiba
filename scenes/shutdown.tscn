@@ -49,6 +49,7 @@ vertical_alignment = 1
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
+ignore_time_scale = true
 
 [node name="hint" type="Label" parent="."]
 layout_mode = 1

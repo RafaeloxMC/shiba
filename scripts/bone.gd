@@ -35,7 +35,6 @@ func _on_timer_timeout() -> void:
 	
 func _on_body_entered(body: Node2D) -> void:
 	if body.name.begins_with("Squirrel"):
-		print("Hit")
 		var squirrel = body as CharacterBody2D
 		squirrel.set_collision_mask_value(1, false)
 		squirrel.dead = true

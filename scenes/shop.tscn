@@ -1,0 +1,98 @@
+[gd_scene load_steps=13 format=3 uid="uid://taf06p4vfbrq"]
+
+[ext_resource type="SpriteFrames" uid="uid://bklk7p5g27qcp" path="res://assets/sprite_frames/player.tres" id="1_1l46r"]
+[ext_resource type="Texture2D" uid="uid://bqyqmf8hay02n" path="res://assets/sprites/shop.png" id="1_lx5au"]
+[ext_resource type="FontFile" uid="uid://8t1kpmmy5wvw" path="res://assets/fonts/pixelsix00.ttf" id="2_xfvoa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1l46r"]
+atlas = ExtResource("1_lx5au")
+region = Rect2(0, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_032fp"]
+atlas = ExtResource("1_lx5au")
+region = Rect2(128, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fc2m"]
+atlas = ExtResource("1_lx5au")
+region = Rect2(256, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8r1wq"]
+atlas = ExtResource("1_lx5au")
+region = Rect2(384, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajxib"]
+atlas = ExtResource("1_lx5au")
+region = Rect2(512, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6sft"]
+atlas = ExtResource("1_lx5au")
+region = Rect2(640, 0, 128, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1l46r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1l46r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_032fp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2fc2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8r1wq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajxib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6sft")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m4ofw"]
+font = ExtResource("2_xfvoa")
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_1l46r"]
+font = ExtResource("2_xfvoa")
+font_size = 36
+
+[node name="Shop" type="Node2D"]
+
+[node name="Seller" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.5, 7)
+sprite_frames = ExtResource("1_1l46r")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1l46r")
+autoplay = "default"
+frame_progress = 0.5925594
+
+[node name="Label" type="Label" parent="."]
+offset_left = -22.000002
+offset_top = -23.000002
+offset_right = 605.3816
+offset_bottom = 79.1319
+scale = Vector2(0.06853884, 0.06853884)
+text = "super shiba shop"
+label_settings = SubResource("LabelSettings_m4ofw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -7.0
+offset_top = -2.9999998
+offset_right = 197.26373
+offset_bottom = 40.770874
+scale = Vector2(0.06853884, 0.06853884)
+text = "cash only"
+label_settings = SubResource("LabelSettings_1l46r")
+horizontal_alignment = 1
+vertical_alignment = 1

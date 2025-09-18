@@ -323,8 +323,8 @@ script = ExtResource("1_wwaar")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_top = 30.0
-offset_bottom = 30.0
+offset_top = 36.0
+offset_bottom = 36.0
 grow_horizontal = 2
 scale = Vector2(2.17131, 2.17131)
 

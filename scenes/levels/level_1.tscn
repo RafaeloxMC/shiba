@@ -1,9 +1,6 @@
-[gd_scene load_steps=29 format=3 uid="uid://bd0uwlu6vgy38"]
+[gd_scene load_steps=26 format=3 uid="uid://bd0uwlu6vgy38"]
 
-[ext_resource type="Script" uid="uid://b8yyy402vh1a8" path="res://scripts/air_bg.gd" id="1_bahl2"]
-[ext_resource type="Texture2D" uid="uid://b7gdnlf5qy75k" path="res://assets/sprites/parllax_bg.png" id="2_np2pn"]
-[ext_resource type="Script" uid="uid://5mk8yt0a4r1" path="res://scripts/clouds.gd" id="3_v6ha0"]
-[ext_resource type="Texture2D" uid="uid://cwjr6pb7jamhr" path="res://assets/sprites/parallax_fg.png" id="4_gmpev"]
+[ext_resource type="PackedScene" uid="uid://cesxcje0r35td" path="res://scenes/parallax.tscn" id="1_mm8aj"]
 [ext_resource type="TileSet" uid="uid://bk2fv30homksp" path="res://assets/tile_sets/map_tiles.tres" id="5_bahl2"]
 [ext_resource type="PackedScene" uid="uid://b50ps8r584f3y" path="res://scenes/player.tscn" id="6_ndtll"]
 [ext_resource type="PackedScene" uid="uid://gef1vveefbjs" path="res://scenes/gameui.tscn" id="7_7h2jl"]
@@ -143,30 +140,7 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="Game" type="Node2D"]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-scale = Vector2(0.3, 0.3)
-transform = Transform2D(0.3, 0, 0, 0.3, 0, 0)
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-470, 118.667)
-motion_scale = Vector2(0.1, 0.1)
-motion_mirroring = Vector2(1168.5, 680)
-script = ExtResource("1_bahl2")
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(576.342, 102)
-scale = Vector2(1.82607, 1.42606)
-texture = ExtResource("2_np2pn")
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-469.658, -123.333)
-motion_mirroring = Vector2(1164.8, 800)
-script = ExtResource("3_v6ha0")
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2(576, 464)
-scale = Vector2(1.82, 1.82)
-texture = ExtResource("4_gmpev")
+[node name="Parallax" parent="." instance=ExtResource("1_mm8aj")]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("5_bahl2")

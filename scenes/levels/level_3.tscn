@@ -1,9 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://domf11aw817be"]
+[gd_scene load_steps=11 format=3 uid="uid://domf11aw817be"]
 
-[ext_resource type="Script" uid="uid://b8yyy402vh1a8" path="res://scripts/air_bg.gd" id="1_t14x3"]
-[ext_resource type="Texture2D" uid="uid://b7gdnlf5qy75k" path="res://assets/sprites/parllax_bg.png" id="2_ahaer"]
-[ext_resource type="Script" uid="uid://5mk8yt0a4r1" path="res://scripts/clouds.gd" id="3_wt4k6"]
-[ext_resource type="Texture2D" uid="uid://cwjr6pb7jamhr" path="res://assets/sprites/parallax_fg.png" id="4_wo5bm"]
+[ext_resource type="PackedScene" uid="uid://cesxcje0r35td" path="res://scenes/parallax.tscn" id="1_ugcn1"]
 [ext_resource type="TileSet" uid="uid://bk2fv30homksp" path="res://assets/tile_sets/map_tiles.tres" id="5_n6eey"]
 [ext_resource type="PackedScene" uid="uid://b50ps8r584f3y" path="res://scenes/player.tscn" id="6_022ip"]
 [ext_resource type="PackedScene" uid="uid://gef1vveefbjs" path="res://scenes/gameui.tscn" id="7_hl16f"]
@@ -19,30 +16,7 @@ size = Vector2(10, 165)
 
 [node name="Game" type="Node2D"]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-scale = Vector2(0.3, 0.3)
-transform = Transform2D(0.3, 0, 0, 0.3, 0, 0)
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-470, 118.667)
-motion_scale = Vector2(0.1, 0.1)
-motion_mirroring = Vector2(1168.5, 680)
-script = ExtResource("1_t14x3")
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(576.342, 102)
-scale = Vector2(1.82607, 1.42606)
-texture = ExtResource("2_ahaer")
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-469.658, -123.333)
-motion_mirroring = Vector2(1164.8, 800)
-script = ExtResource("3_wt4k6")
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2(576, 464)
-scale = Vector2(1.82, 1.82)
-texture = ExtResource("4_wo5bm")
+[node name="Parallax" parent="." instance=ExtResource("1_ugcn1")]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("5_n6eey")

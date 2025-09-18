@@ -82,6 +82,8 @@ func reset():
 	coins = 0
 	hearts = hearts_per_diff()
 	coin_blacklist.clear()
+	food_blacklist.clear()
+	dialog_blacklist.clear()
 	should_show_intro = true
 	SceneManager.current_level = "level_1"
 	

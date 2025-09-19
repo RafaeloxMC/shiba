@@ -33,6 +33,14 @@ func _ready():
 		GameManager.call_dialog("Oh no! The robo dog kidnapped Shibina!\nI need to rescue her before something happens!", "Shiba", animated_sprite_2d.sprite_frames)
 		GameManager.should_show_intro = false
 	
+func _process(_delta: float) -> void:
+	var rand = floor(randf_range(0, 10000))
+	if rand >= 9997:
+		var bird_pos = self.position
+		bird_pos.y = self.position.y - floor(randf_range(50, 125))
+		bird_pos.x = self.position.x - 200
+		GameManager.spawn_bird(bird_pos)
+
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		Engine.time_scale = 1

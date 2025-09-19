@@ -31,6 +31,11 @@ signal eat_dog_food()
 
 signal dialog(content: String, author: String, animation: SpriteFrames)
 
+var bird: PackedScene
+
+func _ready() -> void:
+	bird = preload("res://scenes/bird.tscn")
+
 func _process(_delta: float) -> void:
 	max_hearts = hearts_per_diff()
 	
@@ -101,3 +106,16 @@ func hearts_per_diff() -> int:
 
 func call_dialog(content: String, author: String, animation: SpriteFrames):
 	dialog.emit(content, author, animation)
+	
+func spawn_bird(pos: Vector2):
+		if get_tree().current_scene.has_node("Birds"):
+			var bird_node = bird.instantiate()
+			bird_node.position = pos
+			get_tree().current_scene.get_node("Birds").add_child(bird_node)
+		else:
+			var node = Node.new()
+			node.name = "Birds"
+			var bird_node = bird.instantiate()
+			bird_node.position = pos
+			get_tree().current_scene.add_child(node)
+			get_tree().current_scene.get_node("Birds").add_child(bird_node)

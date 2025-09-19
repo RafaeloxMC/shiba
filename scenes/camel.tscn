@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=3 uid="uid://ck0qtrvoxga1x"]
+
+[ext_resource type="Texture2D" uid="uid://e6wwknucdb5s" path="res://assets/sprites/camel.png" id="1_bxbho"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgj7e"]
+atlas = ExtResource("1_bxbho")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jq772"]
+atlas = ExtResource("1_bxbho")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yk2v4"]
+atlas = ExtResource("1_bxbho")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7sq0"]
+atlas = ExtResource("1_bxbho")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47mvy"]
+atlas = ExtResource("1_bxbho")
+region = Rect2(0, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_by1bb"]
+atlas = ExtResource("1_bxbho")
+region = Rect2(48, 96, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rss4h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgj7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jq772")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yk2v4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7sq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47mvy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_by1bb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47mvy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7sq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yk2v4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jq772")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Camel" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_rss4h")
+frame_progress = 0.7932429

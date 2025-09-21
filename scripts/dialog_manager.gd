@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 		text_queue = text_queue.substr(1, text_queue.length())
 		time = 0.00
 
-func show_dialog(content: String, author: String, animation: SpriteFrames):
+func show_dialog(content: String, author: String, animation: SpriteFrames, char_size: float = 1):
 	print(author + " said: " + content)
 	text.text = ""
 	if content != null:
@@ -35,6 +35,9 @@ func show_dialog(content: String, author: String, animation: SpriteFrames):
 	else:
 		character_name.text = "Anonymous"
 	if animation != null:
+		character.transform = character.transform.scaled(Vector2(char_size, char_size))
+		character.position.x = 118.5
+		character.position.y = 114
 		character.sprite_frames = animation
 		character.play("idle")
 	unhide_dialog()

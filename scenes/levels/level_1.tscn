@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bd0uwlu6vgy38"]
+[gd_scene load_steps=24 format=3 uid="uid://bd0uwlu6vgy38"]
 
 [ext_resource type="PackedScene" uid="uid://cesxcje0r35td" path="res://scenes/parallax.tscn" id="1_mm8aj"]
 [ext_resource type="TileSet" uid="uid://bk2fv30homksp" path="res://assets/tile_sets/map_tiles.tres" id="5_bahl2"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://dwkr2txvg88fv" path="res://scenes/dog_food.tscn" id="11_31oqk"]
 [ext_resource type="PackedScene" uid="uid://c46m5254yitc8" path="res://scenes/squirrel.tscn" id="12_x7jkp"]
 [ext_resource type="PackedScene" uid="uid://qd5bh2mlrkno" path="res://scenes/nut.tscn" id="13_0qwwm"]
-[ext_resource type="FontFile" uid="uid://8t1kpmmy5wvw" path="res://assets/fonts/pixelsix00.ttf" id="14_t4umt"]
 [ext_resource type="PackedScene" uid="uid://prtcrbjwfdku" path="res://scenes/dialog_trigger.tscn" id="15_4yk0h"]
 [ext_resource type="SpriteFrames" uid="uid://bklk7p5g27qcp" path="res://assets/sprite_frames/player.tres" id="16_vmrhw"]
 [ext_resource type="PackedScene" uid="uid://uhoo82xnqgww" path="res://scenes/dog_house.tscn" id="17_cfnpk"]
@@ -130,13 +129,6 @@ _data = {
 &"RESET": SubResource("Animation_vtaks"),
 &"move": SubResource("Animation_0tnpc")
 }
-
-[sub_resource type="LabelSettings" id="LabelSettings_vtaks"]
-font = ExtResource("14_t4umt")
-font_size = 6
-font_color = Color(0.881937, 0.881937, 0.881937, 1)
-outline_size = 2
-outline_color = Color(0, 0, 0, 1)
 
 [node name="Game" type="Node2D"]
 
@@ -297,15 +289,6 @@ position = Vector2(-120, -140)
 player = NodePath("../Player")
 BOUNDS = 150.0
 PROJECTILE = ExtResource("13_0qwwm")
-
-[node name="Patience Is Key" type="Label" parent="."]
-offset_left = -17.0
-offset_top = -317.0
-offset_right = 395.0
-offset_bottom = -204.5
-text = "Patience is key..."
-label_settings = SubResource("LabelSettings_vtaks")
-autowrap_mode = 2
 
 [node name="DialogTrigger" parent="." instance=ExtResource("15_4yk0h")]
 position = Vector2(160, -112)

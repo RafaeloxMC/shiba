@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6dl0nf124lmj"
-path="res://.godot/imported/dog_house.png-60ec4072a437cc08980920865f3b7eea.ctex"
+uid="uid://bl3kql7umraqo"
+path="res://.godot/imported/shop_ui.png-2deff75647a54ae9dfb21bbae2bfc444.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/dog_house.png"
-dest_files=["res://.godot/imported/dog_house.png-60ec4072a437cc08980920865f3b7eea.ctex"]
+source_file="res://assets/sprites/shop_ui.png"
+dest_files=["res://.godot/imported/shop_ui.png-2deff75647a54ae9dfb21bbae2bfc444.ctex"]
 
 [params]
 

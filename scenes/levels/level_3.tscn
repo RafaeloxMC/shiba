@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://domf11aw817be"]
+[gd_scene load_steps=11 format=3 uid="uid://domf11aw817be"]
 
 [ext_resource type="PackedScene" uid="uid://cesxcje0r35td" path="res://scenes/parallax.tscn" id="1_ugcn1"]
 [ext_resource type="TileSet" uid="uid://bk2fv30homksp" path="res://assets/tile_sets/map_tiles.tres" id="5_n6eey"]
@@ -11,9 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://uhoo82xnqgww" path="res://scenes/dog_house.tscn" id="16_lsxft"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p57ef"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2bnyt"]
-size = Vector2(10, 165)
 
 [node name="Game" type="Node2D"]
 
@@ -87,14 +84,8 @@ position = Vector2(-29, 0)
 [node name="Dog House2" parent="Dog Houses" instance=ExtResource("16_lsxft")]
 position = Vector2(352, -48)
 
-[node name="PLAYTEST BLOCKER" type="StaticBody2D" parent="."]
-position = Vector2(312, -32)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PLAYTEST BLOCKER"]
-position = Vector2(15, -66.5)
-shape = SubResource("RectangleShape2D_2bnyt")
-
 [node name="Shop" parent="." instance=ExtResource("9_pimnq")]
+z_index = -1
 position = Vector2(248, -48)
 
 [editable path="Dog Houses/Dog House"]

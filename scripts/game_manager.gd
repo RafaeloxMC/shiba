@@ -29,7 +29,7 @@ signal coin_pickup()
 signal tick_ui()
 signal eat_dog_food()
 
-signal dialog(content: String, author: String, animation: SpriteFrames)
+signal dialog(content: String, author: String, animation: SpriteFrames, char_size: float)
 
 var bird: PackedScene
 
@@ -104,8 +104,8 @@ func hearts_per_diff() -> int:
 		return 1
 	return 3
 
-func call_dialog(content: String, author: String, animation: SpriteFrames):
-	dialog.emit(content, author, animation)
+func call_dialog(content: String, author: String, animation: SpriteFrames, char_size: float = 1):
+	dialog.emit(content, author, animation, char_size)
 	
 func spawn_bird(pos: Vector2):
 		if get_tree().current_scene.has_node("Birds"):

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://hj41x6y82kta"
+path="res://.godot/imported/Purge Dropper - Lupus Nocte.mp3-18072fcc18a0f649456260bf08d576dd.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Purge Dropper - Lupus Nocte.mp3"
+dest_files=["res://.godot/imported/Purge Dropper - Lupus Nocte.mp3-18072fcc18a0f649456260bf08d576dd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

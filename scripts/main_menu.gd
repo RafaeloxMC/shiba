@@ -10,6 +10,7 @@ extends Control
 @onready var parallax_background: ParallaxBackground = $Background/ParallaxBackground
 @onready var fade: AnimationPlayer = $ColorRect/AnimationPlayer
 @onready var color_rect: ColorRect = $ColorRect
+@onready var current_song: Label = $"current song"
 
 var current_button_id = 1
 
@@ -38,6 +39,7 @@ func _process(_delta: float) -> void:
 		play.visible = true
 		settings.visible = true
 		quit.visible = true
+		current_song.text = "currently playing: " + SoundManager.currently_playing
 		
 	if self.has_node("Game") || self.has_node("Shutdown"):
 		background.hide()

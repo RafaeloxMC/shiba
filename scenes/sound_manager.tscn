@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://diy7f4igxcl24"]
+
+[ext_resource type="Script" uid="uid://dtgg604re5f0n" path="res://scripts/sound_manager.gd" id="1_gbdfy"]
+[ext_resource type="AudioStream" uid="uid://ce3h4gbnrhavx" path="res://assets/music/Tiger Tracks - Lexica.mp3" id="2_ro3ww"]
+[ext_resource type="AudioStream" uid="uid://2kuewpja2jvk" path="res://assets/music/You Know You Know - Forever Sunset.mp3" id="3_v1pt3"]
+[ext_resource type="AudioStream" uid="uid://hj41x6y82kta" path="res://assets/music/Purge Dropper - Lupus Nocte.mp3" id="4_mpi5b"]
+
+[node name="SoundManager" type="Node"]
+script = ExtResource("1_gbdfy")
+sounds = Dictionary[String, AudioStreamMP3]({
+"Purge Dropper - Lupus Nocte": ExtResource("4_mpi5b"),
+"Tiger Tracks - Lexica": ExtResource("2_ro3ww"),
+"You Know You Know - Forever Sunset": ExtResource("3_v1pt3")
+})
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_ro3ww")
+volume_db = 10.0
+autoplay = true
+max_distance = 100000000.0
+attenuation = 2.2191389e-05
+panning_strength = 0.0
+bus = &"Music"

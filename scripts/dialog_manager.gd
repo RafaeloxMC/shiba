@@ -8,6 +8,7 @@ var text_queue: String
 
 var time: float = 0
 
+var current_char: Node
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hide_dialog()
@@ -35,15 +36,26 @@ func show_dialog(content: String, author: String, animation: SpriteFrames, char_
 	else:
 		character_name.text = "Anonymous"
 	if animation != null:
-		character.transform = character.transform.scaled(Vector2(char_size, char_size))
-		character.position.x = 118.5
-		character.position.y = 114
-		character.sprite_frames = animation
-		character.play("idle")
+		print("Animation provided!")
+		current_char = character.duplicate()
+		character.hide()
+		current_char.visible = true
+		character.add_sibling(current_char)
+		current_char.transform = current_char.transform.scaled(Vector2(char_size, char_size))
+		current_char.position.x = 118.5
+		current_char.position.y = 114
+		current_char.sprite_frames = animation
+		current_char.play("idle")
+	else:
+		print("No animation provided!")
 	unhide_dialog()
 
 func hide_dialog():
 	self.hide()
+	if current_char:
+		current_char.queue_free()
+		current_char = null
+		print("Queue free called")
 
 func unhide_dialog():
 	self.visible = true

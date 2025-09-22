@@ -72,7 +72,6 @@ scale = Vector2(8.395618, 5.4498353)
 text = "This cave is spooky! I'm very curious what's gonna be inside of that... But sadly I have to wait for the next playtest to find out!"
 author = "Shiba"
 sprite_frames = ExtResource("8_glw47")
-char_size = 2.0
 
 [node name="Dog Houses" type="Node" parent="."]
 
@@ -101,6 +100,12 @@ rotation = -3.1415927
 scale = Vector2(0.96, -0.96)
 frame_progress = 0.0
 
+[node name="CollisionShape2D" parent="Friendly/Camel/StaticBody2D" index="0"]
+disabled = true
+
+[node name="CollisionShape2D2" parent="Friendly/Camel/StaticBody2D" index="1"]
+disabled = true
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
@@ -108,3 +113,4 @@ position = Vector2(54, 98.5)
 shape = SubResource("RectangleShape2D_4wsov")
 
 [editable path="Dog Houses/Dog House"]
+[editable path="Friendly/Camel"]

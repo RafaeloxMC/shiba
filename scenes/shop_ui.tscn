@@ -1,0 +1,106 @@
+[gd_scene load_steps=12 format=3 uid="uid://brwbaty0abnxo"]
+
+[ext_resource type="Script" uid="uid://pnu734i6koev" path="res://scripts/shop_ui.gd" id="1_crtus"]
+[ext_resource type="Texture2D" uid="uid://bl3kql7umraqo" path="res://assets/sprites/shop_ui.png" id="1_fs6yy"]
+[ext_resource type="FontFile" uid="uid://8t1kpmmy5wvw" path="res://assets/fonts/pixelsix00.ttf" id="2_18xnp"]
+[ext_resource type="Script" uid="uid://b8to5lv7tuovr" path="res://scripts/shop_item.gd" id="2_epbsd"]
+[ext_resource type="SpriteFrames" uid="uid://c4faj8wj7wlbs" path="res://assets/sprite_frames/dog_food.tres" id="3_usj2y"]
+[ext_resource type="SpriteFrames" uid="uid://5ci3qjfh1j1c" path="res://assets/sprite_frames/coin.tres" id="6_usj2y"]
+
+[sub_resource type="Resource" id="Resource_bidp2"]
+script = ExtResource("2_epbsd")
+name = "Bone"
+description = "A bone that Shiba can throw to defeat his enemies!"
+price = 30
+metadata/_custom_type_script = "uid://b8to5lv7tuovr"
+
+[sub_resource type="Resource" id="Resource_obwu6"]
+script = ExtResource("2_epbsd")
+name = "Dog Food"
+description = "Shiba's favorite food! He could never get enough of it!"
+price = 10
+icon = ExtResource("3_usj2y")
+metadata/_custom_type_script = "uid://b8to5lv7tuovr"
+
+[sub_resource type="LabelSettings" id="LabelSettings_18xnp"]
+font = ExtResource("2_18xnp")
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_crtus"]
+font = ExtResource("2_18xnp")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_epbsd"]
+
+[node name="ShopUI" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(7.368002, 7.368002)
+script = ExtResource("1_crtus")
+items = Array[ExtResource("2_epbsd")]([SubResource("Resource_bidp2"), SubResource("Resource_obwu6")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fs6yy")
+
+[node name="Shop Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.0
+offset_top = -28.908787
+offset_right = 36.0
+offset_bottom = -19.908787
+grow_horizontal = 2
+text = "Super Shiba Shop"
+label_settings = SubResource("LabelSettings_18xnp")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = -16.829529
+offset_top = -16.829527
+offset_right = 158.80327
+offset_bottom = 6.170473
+scale = Vector2(0.34310544, 0.34310544)
+text = "Some item"
+label_settings = SubResource("LabelSettings_crtus")
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="Coin" type="AnimatedSprite2D" parent="."]
+position = Vector2(-13.029313, -5.157437)
+scale = Vector2(0.51682997, 0.51682997)
+sprite_frames = ExtResource("6_usj2y")
+autoplay = "default"
+
+[node name="Price" type="Label" parent="."]
+layout_mode = 0
+offset_left = -7.600436
+offset_top = -8.957653
+offset_right = 141.13367
+offset_bottom = 14.042347
+scale = Vector2(0.34310544, 0.34310544)
+text = "0"
+label_settings = SubResource("LabelSettings_crtus")
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Description" type="Label" parent="."]
+layout_mode = 0
+offset_left = -17.372417
+offset_top = -0.5428891
+offset_right = 287.50555
+offset_bottom = 130.1191
+scale = Vector2(0.1994354, 0.1994354)
+text = "lorem ipsum dolor sit amet, constructeur"
+label_settings = SubResource("LabelSettings_crtus")
+autowrap_mode = 3
+
+[node name="Item" type="AnimatedSprite2D" parent="."]
+position = Vector2(-30.401728, 0.54288805)
+sprite_frames = SubResource("SpriteFrames_epbsd")

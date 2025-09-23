@@ -60,11 +60,16 @@ shape = SubResource("WorldBoundaryShape2D_p57ef")
 [node name="Dialogs" type="Node" parent="."]
 
 [node name="DialogTrigger" parent="Dialogs" instance=ExtResource("14_flme0")]
-position = Vector2(128, -24)
-scale = Vector2(6.5288696, 1)
+position = Vector2(128, -34)
+scale = Vector2(6.4088745, 1.8000021)
 text = "Wow, this looks so cool here! Is this a... shop! Here I can spend my coins! But I can't come back at any time, I should be mindful with what I buy and how much I spend since I still need a gift for Shibina!"
 author = "Shiba"
 sprite_frames = ExtResource("15_0qxt0")
+
+[node name="DialogTrigger2" parent="Dialogs" instance=ExtResource("14_flme0")]
+position = Vector2(247.99998, -43.000004)
+scale = Vector2(5.440005, 2.6800017)
+text = "Hey and welcome to my shop! Feel free to buy all the stuff you could ever need! The prices are overpriced- *cough*... I meant very fair\\n\\nPress enter to interact with the shop!"
 
 [node name="Dog Houses" type="Node" parent="."]
 

@@ -12,6 +12,6 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.name != "Player":
 		return
-	GameManager.call_dialog(text, author, sprite_frames, char_size)
+	GameManager.call_dialog(text.replace("\\n", "\n"), author, sprite_frames, char_size)
 	GameManager.dialog_blacklist.push_back(self.transform)
 	self.queue_free()

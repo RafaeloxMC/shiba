@@ -17,7 +17,7 @@ func call_scene(scene: String) -> void:
 	current_scene = scene
 	if current_scene.begins_with("level_"):
 		if scene == "level_4" && current_level == "level_3":
-			SoundManager.call_sound("You Know You Know - Forever Sunset")
+			SoundManager.call_sound_with_fade("You Know You Know - Forever Sunset")
 		current_level = current_scene
 	print("Current scene now is: " + scene)
 	GameManager.coins_collected_in_current_scene = 0

@@ -91,6 +91,7 @@ func reset():
 	dialog_blacklist.clear()
 	should_show_intro = true
 	SceneManager.current_level = "level_1"
+	SoundManager.call_sound("Tiger Tracks - Lexica")
 	
 func call_tick_ui() -> void:
 	tick_ui.emit()

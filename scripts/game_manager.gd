@@ -24,6 +24,8 @@ var food_blacklist: Array[Transform2D] = []
 
 var dialog_blacklist: Array[Transform2D] = []
 
+var bought_items: Array[String]
+
 signal death()
 signal coin_pickup()
 signal tick_ui()

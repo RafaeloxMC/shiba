@@ -84,11 +84,12 @@ func _physics_process(delta: float) -> void:
 		animated_sprite_2d.play("idle")
 		
 	if Input.is_action_just_pressed("attack") && timer.time_left <= 0:
-		var proj = projectile.instantiate()
-		proj.position = self.global_position
-		proj.position.y -= 10
-		proj.get_node("AnimatedSprite2D").flip_h = animated_sprite_2d.flip_h
-		self.add_sibling(proj)
-		timer.start()
+		if GameManager.bought_items.has("bone"):
+			var proj = projectile.instantiate()
+			proj.position = self.global_position
+			proj.position.y -= 10
+			proj.get_node("AnimatedSprite2D").flip_h = animated_sprite_2d.flip_h
+			self.add_sibling(proj)
+			timer.start()
 
 	move_and_slide()

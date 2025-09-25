@@ -8,7 +8,6 @@ extends Control
 @export var items: Array[ShopItem]
 
 var curr = 0
-var bought_items: Array[ShopItem]
 
 @export var tilemap: TileMap
 
@@ -23,6 +22,7 @@ func update() -> void:
 		description.text = "No description provided."
 	if items[curr].is_bought || not items[curr].price:
 		price.text = "Sold out!"
+		price.label_settings.font_color = Color("da3840ff")
 	else:
 		price.text = str(items[curr].price)
 		if GameManager.coins < items[curr].price:
@@ -44,6 +44,10 @@ func buy() -> void:
 		print("Bought " + str(items[curr].name))
 		if items[curr].name.to_lower() == "dog food":
 			GameManager.eat_food(null, self.get_parent().get_parent().get_parent().get_parent().get_parent() as CharacterBody2D)
+			
+		GameManager.bought_items.push_back(items[curr].name.to_lower())
+		GameManager.coins -= items[curr].price
+		GameManager.call_tick_ui()
 	pass
 
 # Called when the node enters the scene tree for the first time.

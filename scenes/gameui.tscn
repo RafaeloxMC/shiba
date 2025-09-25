@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://gef1vveefbjs"]
+[gd_scene load_steps=47 format=3 uid="uid://gef1vveefbjs"]
 
 [ext_resource type="Script" uid="uid://d4fky1rju1p7y" path="res://scripts/gameui.gd" id="1_wwaar"]
 [ext_resource type="PackedScene" uid="uid://3bnagxorg0g4" path="res://scenes/progress_bar.tscn" id="2_3guck"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://bmiksxfiyj8sf" path="res://scripts/dialog_manager.gd" id="7_bjfv8"]
 [ext_resource type="Texture2D" uid="uid://cbuc4rw04hmp5" path="res://assets/sprites/shiba.png" id="7_tgq32"]
 [ext_resource type="Texture2D" uid="uid://cmd466d651fgq" path="res://assets/sprites/menu_elements.png" id="8_s0xlj"]
+[ext_resource type="PackedScene" uid="uid://brwbaty0abnxo" path="res://scenes/shop_ui.tscn" id="11_lwled"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ccwni"]
 font = ExtResource("2_mu2ln")
@@ -483,3 +484,8 @@ offset_top = 113.0
 offset_right = 135.0
 offset_bottom = 136.0
 label_settings = SubResource("LabelSettings_lwled")
+
+[node name="ShopLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ShopUI" parent="ShopLayer" instance=ExtResource("11_lwled")]

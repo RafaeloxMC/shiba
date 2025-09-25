@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://taf06p4vfbrq"]
+[gd_scene load_steps=16 format=3 uid="uid://taf06p4vfbrq"]
 
 [ext_resource type="SpriteFrames" uid="uid://bklk7p5g27qcp" path="res://assets/sprite_frames/player.tres" id="1_1l46r"]
+[ext_resource type="Script" uid="uid://vm00mnug1ad1" path="res://scripts/shop.gd" id="1_032fp"]
 [ext_resource type="Texture2D" uid="uid://bqyqmf8hay02n" path="res://assets/sprites/shop.png" id="1_lx5au"]
 [ext_resource type="FontFile" uid="uid://8t1kpmmy5wvw" path="res://assets/fonts/pixelsix00.ttf" id="2_xfvoa"]
 
@@ -62,7 +63,16 @@ font_size = 64
 font = ExtResource("2_xfvoa")
 font_size = 36
 
-[node name="Shop" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1l46r"]
+size = Vector2(102, 58)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_032fp"]
+size = Vector2(94, 2)
+
+[node name="Shop" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_032fp")
 
 [node name="Seller" type="AnimatedSprite2D" parent="."]
 position = Vector2(-0.5, 7)
@@ -96,3 +106,17 @@ text = "cash only"
 label_settings = SubResource("LabelSettings_1l46r")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_1l46r")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(3, -25)
+shape = SubResource("RectangleShape2D_032fp")
+one_way_collision = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -9,9 +9,9 @@ var borders: int = 115
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	sprite_2d.position.x = -borders
-	if self.get_parent().get_parent():
-		level_border_left = self.get_parent().get_parent().level_border_left
-		level_border_right = self.get_parent().get_parent().level_border_right
+	if self.get_parent().get_parent().get_parent().get_parent().get_parent():
+		level_border_left = self.get_parent().get_parent().get_parent().get_parent().get_parent().level_border_left
+		level_border_right = self.get_parent().get_parent().get_parent().get_parent().get_parent().level_border_right
 	else:
 		print("Couldn't find parent control!")
 	if level_border_left == null or level_border_right == null:

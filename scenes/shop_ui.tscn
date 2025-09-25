@@ -1,17 +1,19 @@
-[gd_scene load_steps=12 format=3 uid="uid://brwbaty0abnxo"]
+[gd_scene load_steps=14 format=3 uid="uid://brwbaty0abnxo"]
 
 [ext_resource type="Script" uid="uid://pnu734i6koev" path="res://scripts/shop_ui.gd" id="1_crtus"]
 [ext_resource type="Texture2D" uid="uid://bl3kql7umraqo" path="res://assets/sprites/shop_ui.png" id="1_fs6yy"]
 [ext_resource type="FontFile" uid="uid://8t1kpmmy5wvw" path="res://assets/fonts/pixelsix00.ttf" id="2_18xnp"]
 [ext_resource type="Script" uid="uid://b8to5lv7tuovr" path="res://scripts/shop_item.gd" id="2_epbsd"]
+[ext_resource type="SpriteFrames" uid="uid://b4jnktklknpwp" path="res://assets/sprite_frames/bone.tres" id="3_bidp2"]
 [ext_resource type="SpriteFrames" uid="uid://c4faj8wj7wlbs" path="res://assets/sprite_frames/dog_food.tres" id="3_usj2y"]
 [ext_resource type="SpriteFrames" uid="uid://5ci3qjfh1j1c" path="res://assets/sprite_frames/coin.tres" id="6_usj2y"]
 
 [sub_resource type="Resource" id="Resource_bidp2"]
 script = ExtResource("2_epbsd")
 name = "Bone"
-description = "A bone that Shiba can throw to defeat his enemies!"
+description = "A bone that Shiba can throw to defeat his enemies! (use s or arrow down to throw)"
 price = 30
+icon = ExtResource("3_bidp2")
 metadata/_custom_type_script = "uid://b8to5lv7tuovr"
 
 [sub_resource type="Resource" id="Resource_obwu6"]
@@ -27,6 +29,9 @@ font = ExtResource("2_18xnp")
 font_size = 8
 
 [sub_resource type="LabelSettings" id="LabelSettings_crtus"]
+font = ExtResource("2_18xnp")
+
+[sub_resource type="LabelSettings" id="LabelSettings_usj2y"]
 font = ExtResource("2_18xnp")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_epbsd"]
@@ -86,7 +91,7 @@ offset_right = 141.13367
 offset_bottom = 14.042347
 scale = Vector2(0.34310544, 0.34310544)
 text = "0"
-label_settings = SubResource("LabelSettings_crtus")
+label_settings = SubResource("LabelSettings_usj2y")
 vertical_alignment = 1
 autowrap_mode = 3
 
@@ -99,6 +104,18 @@ offset_bottom = 130.1191
 scale = Vector2(0.1994354, 0.1994354)
 text = "lorem ipsum dolor sit amet, constructeur"
 label_settings = SubResource("LabelSettings_crtus")
+autowrap_mode = 3
+
+[node name="hint" type="Label" parent="."]
+layout_mode = 0
+offset_left = -39.902267
+offset_top = 26.194351
+offset_right = 360.25
+offset_bottom = 45.24922
+scale = Vector2(0.1994354, 0.1994354)
+text = "enter to buy, arrows to navigate, esc to leave"
+label_settings = SubResource("LabelSettings_crtus")
+horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="Item" type="AnimatedSprite2D" parent="."]

@@ -29,12 +29,19 @@ signal coin_pickup()
 signal tick_ui()
 signal eat_dog_food()
 
+signal trigger_shop(value: bool)
+var is_showing_shop: bool = false
 signal dialog(content: String, author: String, animation: SpriteFrames, char_size: float)
 
 var bird: PackedScene
 
+func set_show_shop(value: bool) -> void:
+	is_showing_shop = value
+	print("Showing shop: " + str(value))
+
 func _ready() -> void:
 	bird = preload("res://scenes/bird.tscn")
+	trigger_shop.connect(set_show_shop)
 
 func _process(_delta: float) -> void:
 	max_hearts = hearts_per_diff()
@@ -70,11 +77,12 @@ func eat_food(food: Area2D, player: CharacterBody2D):
 	var diff_warning = ""
 	if difficulty == 3: 
 		diff_warning = "\nSadly I can't restore health on this difficulty!"
-	if food_blacklist.size() == 0:
-		call_dialog("*nom nom nom*\nThis is very delicious! And I already feel so much better! I need more of that!" + diff_warning, "Shiba", player.get_node("AnimatedSprite2D").sprite_frames)
-	food_blacklist.push_back(food.transform)
 	if hearts < max_hearts: 
 		hearts += 1
+	if food != null:
+		if food_blacklist.size() == 0:
+			call_dialog("*nom nom nom*\nThis is very delicious! And I already feel so much better! I need more of that!" + diff_warning, "Shiba", player.get_node("AnimatedSprite2D").sprite_frames)
+		food_blacklist.push_back(food.transform)
 	eat_dog_food.emit()
 	
 func remove_heart():

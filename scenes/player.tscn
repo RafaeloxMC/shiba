@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b50ps8r584f3y"]
+[gd_scene load_steps=8 format=3 uid="uid://b50ps8r584f3y"]
 
 [ext_resource type="Script" uid="uid://ciqg0sbawfmmb" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="SpriteFrames" uid="uid://bklk7p5g27qcp" path="res://assets/sprite_frames/player.tres" id="2_g2els"]
 [ext_resource type="AudioStream" uid="uid://c7owpnotcfg75" path="res://assets/sounds/jump.wav" id="3_qhqgy"]
 [ext_resource type="AudioStream" uid="uid://b7853fyqr03o" path="res://assets/sounds/fall.wav" id="4_tuyoq"]
 [ext_resource type="AudioStream" uid="uid://bqe058g6tqnv" path="res://assets/sounds/death.wav" id="5_qlg0r"]
+[ext_resource type="PackedScene" uid="uid://gef1vveefbjs" path="res://scenes/gameui.tscn" id="6_tuyoq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fjrip"]
 radius = 5.0
@@ -21,6 +22,7 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 z_index = 5
 position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_fjrip")
@@ -43,3 +45,18 @@ bus = &"SFX"
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.5
 one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -9)
+zoom = Vector2(4, 4)
+limit_bottom = 360
+limit_smoothed = true
+position_smoothing_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="GameUI" parent="Camera2D/CanvasLayer" instance=ExtResource("6_tuyoq")]
+offset_left = 36.0
+offset_top = 16.0
+offset_right = 36.0
+offset_bottom = 16.0

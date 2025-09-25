@@ -10,9 +10,12 @@ extends Control
 @onready var label: Label = $CanvasLayer/ColorRect/Label
 @onready var fps: Label = $CanvasLayer/FPS
 
-@export var level_border_left: int = 0
-@export var level_border_right: int = 100
+@onready var player: CharacterBody2D = $"../../.."
 
+var level_border_left: int = 0
+var level_border_right: int = 100
+
+@onready var shop_layer: CanvasLayer = $ShopLayer
 
 func death():
 	hearts_sprite.play("break")
@@ -43,18 +46,26 @@ func tick_ui():
 	update_coins()
 	update_hearts()
 
+func trigger_shop(value: bool) -> void:
+	shop_layer.visible = value
+	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GameManager.death.connect(death)
 	GameManager.coin_pickup.connect(coin_pickup)
 	GameManager.tick_ui.connect(tick_ui)
 	GameManager.eat_dog_food.connect(eat_dog_food)
+	GameManager.trigger_shop.connect(trigger_shop)
 	print("Loaded GameUI")
 	update_hearts()
 	update_coins()
 	animation_player.play("fadein")
 	GameManager.running = true
 	label.visible = false
+	level_border_left = player.level_border_left
+	level_border_right = player.level_border_right
+	print("Border left: " + str(level_border_left))
+	print("Border right: " + str(level_border_right))
 
 func _process(_delta: float) -> void:
 	fps.visible = GameManager.show_fps

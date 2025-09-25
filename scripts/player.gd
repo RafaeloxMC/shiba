@@ -16,6 +16,8 @@ var is_falling = false
 @onready var timer: Timer = $Timer
 
 @export var projectile: PackedScene = load("res://scenes/bone.tscn")
+@export var level_border_left: int = 0
+@export var level_border_right: int = 100
 
 func die():
 	DEAD = true
@@ -34,6 +36,9 @@ func _ready():
 		GameManager.should_show_intro = false
 	
 func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("pause") && GameManager.is_showing_shop == false:
+		Engine.time_scale = 1
+		SceneManager.call_scene("main_menu")
 	var rand = floor(randf_range(0, 10000))
 	if rand >= 9997:
 		var bird_pos = self.position
@@ -42,10 +47,6 @@ func _process(_delta: float) -> void:
 		GameManager.spawn_bird(bird_pos)
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("pause"):
-		Engine.time_scale = 1
-		SceneManager.call_scene("main_menu")
-	
 	if Input.is_action_just_pressed("show_fps"):
 		GameManager.show_fps = !GameManager.show_fps
 	
@@ -60,6 +61,9 @@ func _physics_process(delta: float) -> void:
 	
 	if DEAD: 
 		move_and_slide()
+		return
+	
+	if GameManager.is_showing_shop:
 		return
 		
 	if Input.is_action_pressed("jump") and is_on_floor():

@@ -1,9 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://bd0uwlu6vgy38"]
+[gd_scene load_steps=23 format=3 uid="uid://bd0uwlu6vgy38"]
 
 [ext_resource type="PackedScene" uid="uid://cesxcje0r35td" path="res://scenes/parallax.tscn" id="1_mm8aj"]
 [ext_resource type="TileSet" uid="uid://bk2fv30homksp" path="res://assets/tile_sets/map_tiles.tres" id="5_bahl2"]
 [ext_resource type="PackedScene" uid="uid://b50ps8r584f3y" path="res://scenes/player.tscn" id="6_ndtll"]
-[ext_resource type="PackedScene" uid="uid://gef1vveefbjs" path="res://scenes/gameui.tscn" id="7_7h2jl"]
 [ext_resource type="PackedScene" uid="uid://b5lvwjoesv1re" path="res://scenes/killzone.tscn" id="8_mqh5v"]
 [ext_resource type="PackedScene" uid="uid://hmyka8egx1i6" path="res://scenes/platform.tscn" id="9_7o3do"]
 [ext_resource type="PackedScene" uid="uid://crqc1hhdhds5b" path="res://scenes/coin.tscn" id="10_o7j4k"]
@@ -142,19 +141,6 @@ layer_0/tile_data = PackedInt32Array(65535, 917504, 13, 0, 917504, 13, 1, 655360
 
 [node name="Player" parent="." instance=ExtResource("6_ndtll")]
 z_index = 5
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(0, -9)
-zoom = Vector2(4, 4)
-limit_bottom = 120
-limit_smoothed = true
-position_smoothing_enabled = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Player/Camera2D"]
-
-[node name="GameUI" parent="Player/Camera2D/CanvasLayer" instance=ExtResource("7_7h2jl")]
-offset_top = -9.0
-offset_bottom = -9.0
 level_border_left = -448
 level_border_right = 720
 

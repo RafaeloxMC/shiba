@@ -21,16 +21,30 @@ func update() -> void:
 		description.text = items[curr].description
 	else:
 		description.text = "No description provided."
-	if items[curr].price:
-		price.text = str(items[curr].price)
-	else:
+	if items[curr].is_bought || not items[curr].price:
 		price.text = "Sold out!"
+	else:
+		price.text = str(items[curr].price)
+		if GameManager.coins < items[curr].price:
+			price.label_settings.font_color = Color("da3840ff")
+		else: 
+			price.label_settings.font_color = Color(255, 255, 255, 255)
 	if items[curr].icon:
 		item.sprite_frames = items[curr].icon
 		if item.sprite_frames.has_animation("default"):
 			item.play("default")
 	else:
 		item.sprite_frames = null
+
+func buy() -> void:
+	if items[curr].is_bought || GameManager.coins < items[curr].price:
+		return
+	else:
+		items[curr].is_bought = true
+		print("Bought " + str(items[curr].name))
+		if items[curr].name.to_lower() == "dog food":
+			GameManager.eat_food(null, self.get_parent().get_parent().get_parent().get_parent().get_parent() as CharacterBody2D)
+	pass
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -39,6 +53,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if self.visible == false || self.get_parent().visible == false:
+		return
 	if Input.is_action_just_pressed("ui_up") || Input.is_action_just_pressed("ui_right"):
 		if curr + 1 >= items.size():
 			curr = 0
@@ -50,4 +66,12 @@ func _process(_delta: float) -> void:
 			curr = items.size() - 1
 		else:
 			curr -= 1
+			
+	if Input.is_action_just_pressed("next"):
+		buy()
+		
+	if Input.is_action_just_pressed("pause"):
+		self.get_parent().visible = false
+		GameManager.trigger_shop.emit(false)
+		
 	update()

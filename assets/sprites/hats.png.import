@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbuc4rw04hmp5"
-path="res://.godot/imported/shiba.png-da8223f8fb5205de18b67a48c767873a.ctex"
+uid="uid://bgwxkd1mpiqd5"
+path="res://.godot/imported/hats.png-67aef3c66a0c630199f82efeef89990c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/shiba.png"
-dest_files=["res://.godot/imported/shiba.png-da8223f8fb5205de18b67a48c767873a.ctex"]
+source_file="res://assets/sprites/hats.png"
+dest_files=["res://.godot/imported/hats.png-67aef3c66a0c630199f82efeef89990c.ctex"]
 
 [params]
 

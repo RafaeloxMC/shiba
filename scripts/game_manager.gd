@@ -33,9 +33,11 @@ signal eat_dog_food()
 
 signal trigger_shop(value: bool)
 var is_showing_shop: bool = false
-signal dialog(content: String, author: String, animation: SpriteFrames, char_size: float)
+signal dialog(content: String, author: String, animation: SpriteFrames, char_size: float, y_offset: float)
 
 var bird: PackedScene
+
+var hat: String = ""
 
 func set_show_shop(value: bool) -> void:
 	is_showing_shop = value
@@ -115,8 +117,8 @@ func hearts_per_diff() -> int:
 		return 1
 	return 3
 
-func call_dialog(content: String, author: String, animation: SpriteFrames, char_size: float = 1):
-	dialog.emit(content, author, animation, char_size)
+func call_dialog(content: String, author: String, animation: SpriteFrames, char_size: float = 1, y_offset: float = 0):
+	dialog.emit(content, author, animation, char_size, y_offset)
 	
 func spawn_bird(pos: Vector2):
 		if get_tree().current_scene.has_node("Birds"):

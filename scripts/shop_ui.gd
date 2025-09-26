@@ -44,7 +44,8 @@ func buy() -> void:
 		print("Bought " + str(items[curr].name))
 		if items[curr].name.to_lower() == "dog food":
 			GameManager.eat_food(null, self.get_parent().get_parent().get_parent().get_parent().get_parent() as CharacterBody2D)
-			
+		if items[curr].name.to_lower().contains("hat"):
+			GameManager.hat = items[curr].name.split(" ")[0].to_lower()
 		GameManager.bought_items.push_back(items[curr].name.to_lower())
 		GameManager.coins -= items[curr].price
 		GameManager.call_tick_ui()

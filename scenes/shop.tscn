@@ -1,8 +1,8 @@
 [gd_scene load_steps=16 format=3 uid="uid://taf06p4vfbrq"]
 
-[ext_resource type="SpriteFrames" uid="uid://bklk7p5g27qcp" path="res://assets/sprite_frames/player.tres" id="1_1l46r"]
 [ext_resource type="Script" uid="uid://vm00mnug1ad1" path="res://scripts/shop.gd" id="1_032fp"]
 [ext_resource type="Texture2D" uid="uid://bqyqmf8hay02n" path="res://assets/sprites/shop.png" id="1_lx5au"]
+[ext_resource type="SpriteFrames" uid="uid://cmyr24ernl424" path="res://assets/sprite_frames/store_owner.tres" id="2_032fp"]
 [ext_resource type="FontFile" uid="uid://8t1kpmmy5wvw" path="res://assets/fonts/pixelsix00.ttf" id="2_xfvoa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1l46r"]
@@ -76,7 +76,7 @@ script = ExtResource("1_032fp")
 
 [node name="Seller" type="AnimatedSprite2D" parent="."]
 position = Vector2(-0.5, 7)
-sprite_frames = ExtResource("1_1l46r")
+sprite_frames = ExtResource("2_032fp")
 animation = &"idle"
 autoplay = "idle"
 

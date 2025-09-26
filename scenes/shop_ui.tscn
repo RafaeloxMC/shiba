@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://brwbaty0abnxo"]
+[gd_scene load_steps=24 format=3 uid="uid://brwbaty0abnxo"]
 
 [ext_resource type="Script" uid="uid://pnu734i6koev" path="res://scripts/shop_ui.gd" id="1_crtus"]
 [ext_resource type="Texture2D" uid="uid://bl3kql7umraqo" path="res://assets/sprites/shop_ui.png" id="1_fs6yy"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://b8to5lv7tuovr" path="res://scripts/shop_item.gd" id="2_epbsd"]
 [ext_resource type="SpriteFrames" uid="uid://b4jnktklknpwp" path="res://assets/sprite_frames/bone.tres" id="3_bidp2"]
 [ext_resource type="SpriteFrames" uid="uid://c4faj8wj7wlbs" path="res://assets/sprite_frames/dog_food.tres" id="3_usj2y"]
+[ext_resource type="Texture2D" uid="uid://bgwxkd1mpiqd5" path="res://assets/sprites/hats.png" id="5_obwu6"]
 [ext_resource type="SpriteFrames" uid="uid://5ci3qjfh1j1c" path="res://assets/sprite_frames/coin.tres" id="6_usj2y"]
 
 [sub_resource type="Resource" id="Resource_bidp2"]
@@ -22,6 +23,79 @@ name = "Dog Food"
 description = "Shiba's favorite food! He could never get enough of it!"
 price = 10
 icon = ExtResource("3_usj2y")
+metadata/_custom_type_script = "uid://b8to5lv7tuovr"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obwu6"]
+atlas = ExtResource("5_obwu6")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y4j81"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obwu6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="Resource" id="Resource_ijxsd"]
+script = ExtResource("2_epbsd")
+name = "Melon Hat"
+description = "Absolutely useless but absolutely epic..."
+price = 15
+icon = SubResource("SpriteFrames_y4j81")
+metadata/_custom_type_script = "uid://b8to5lv7tuovr"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3xdf"]
+atlas = ExtResource("5_obwu6")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yw5g"]
+atlas = ExtResource("5_obwu6")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s287r"]
+atlas = ExtResource("5_obwu6")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrnm2"]
+atlas = ExtResource("5_obwu6")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ijxsd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3xdf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0yw5g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s287r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrnm2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s287r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0yw5g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="Resource" id="Resource_ytm40"]
+script = ExtResource("2_epbsd")
+name = "Propeller Hat"
+description = "Propeller hat gives you wings!"
+price = 25
+icon = SubResource("SpriteFrames_ijxsd")
 metadata/_custom_type_script = "uid://b8to5lv7tuovr"
 
 [sub_resource type="LabelSettings" id="LabelSettings_18xnp"]
@@ -47,7 +121,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(7.368002, 7.368002)
 script = ExtResource("1_crtus")
-items = Array[ExtResource("2_epbsd")]([SubResource("Resource_bidp2"), SubResource("Resource_obwu6")])
+items = Array[ExtResource("2_epbsd")]([SubResource("Resource_bidp2"), SubResource("Resource_obwu6"), SubResource("Resource_ijxsd"), SubResource("Resource_ytm40")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_fs6yy")

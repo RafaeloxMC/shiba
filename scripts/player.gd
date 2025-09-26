@@ -19,6 +19,8 @@ var is_falling = false
 @export var level_border_left: int = 0
 @export var level_border_right: int = 100
 
+var hat = ""
+
 func die():
 	DEAD = true
 	animated_sprite_2d.play("death")
@@ -45,6 +47,9 @@ func _process(_delta: float) -> void:
 		bird_pos.y = self.position.y - floor(randf_range(50, 125))
 		bird_pos.x = self.position.x - 200
 		GameManager.spawn_bird(bird_pos)
+		
+	if GameManager.hat != "":
+		hat = "_" + GameManager.hat
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("show_fps"):
@@ -59,6 +64,8 @@ func _physics_process(delta: float) -> void:
 		jumping = false
 		is_falling = false
 	
+	
+		
 	if DEAD: 
 		move_and_slide()
 		return
@@ -73,7 +80,7 @@ func _physics_process(delta: float) -> void:
 
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
-		animated_sprite_2d.play("walk")
+		animated_sprite_2d.play("walk" + hat)
 		velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION * delta)
 		if velocity.x > 0:
 			animated_sprite_2d.flip_h = false;
@@ -81,7 +88,7 @@ func _physics_process(delta: float) -> void:
 			animated_sprite_2d.flip_h = true
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		animated_sprite_2d.play("idle")
+		animated_sprite_2d.play("idle" + hat)
 		
 	if Input.is_action_just_pressed("attack") && timer.time_left <= 0:
 		if GameManager.bought_items.has("bone"):

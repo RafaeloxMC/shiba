@@ -4,6 +4,7 @@ extends Area2D
 @export var author = ""
 @export var sprite_frames: SpriteFrames
 @export var char_size: float = 1
+@export var y_offset: float = 0
 
 func _ready() -> void:
 	if GameManager.is_dialog_blacklisted(self):
@@ -12,6 +13,6 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.name != "Player":
 		return
-	GameManager.call_dialog(text.replace("\\n", "\n"), author, sprite_frames, char_size)
+	GameManager.call_dialog(text.replace("\\n", "\n"), author, sprite_frames, char_size, y_offset)
 	GameManager.dialog_blacklist.push_back(self.transform)
 	self.queue_free()

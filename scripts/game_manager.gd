@@ -36,6 +36,8 @@ var is_showing_shop: bool = false
 signal dialog(content: String, author: String, animation: SpriteFrames, char_size: float, y_offset: float)
 
 var bird: PackedScene
+var bat: PackedScene
+var bats: bool = false
 
 var hat: String = ""
 
@@ -45,6 +47,7 @@ func set_show_shop(value: bool) -> void:
 
 func _ready() -> void:
 	bird = preload("res://scenes/bird.tscn")
+	bat = preload("res://scenes/bat.tscn")
 	trigger_shop.connect(set_show_shop)
 
 func _process(_delta: float) -> void:
@@ -121,14 +124,22 @@ func call_dialog(content: String, author: String, animation: SpriteFrames, char_
 	dialog.emit(content, author, animation, char_size, y_offset)
 	
 func spawn_bird(pos: Vector2):
-		if get_tree().current_scene.has_node("Birds"):
-			var bird_node = bird.instantiate()
-			bird_node.position = pos
-			get_tree().current_scene.get_node("Birds").add_child(bird_node)
+	if get_tree().current_scene.has_node("Birds"):
+		var bird_node
+		if bats == true:
+			bird_node = bat.instantiate()
 		else:
-			var node = Node.new()
-			node.name = "Birds"
-			var bird_node = bird.instantiate()
-			bird_node.position = pos
-			get_tree().current_scene.add_child(node)
-			get_tree().current_scene.get_node("Birds").add_child(bird_node)
+			bird_node = bird.instantiate()
+		bird_node.position = pos
+		get_tree().current_scene.get_node("Birds").add_child(bird_node)
+	else:
+		var node = Node.new()
+		node.name = "Birds"
+		var bird_node
+		if bats == true:
+			bird_node = bat.instantiate()
+		else:
+			bird_node = bird.instantiate()
+		bird_node.position = pos
+		get_tree().current_scene.add_child(node)
+		get_tree().current_scene.get_node("Birds").add_child(bird_node)

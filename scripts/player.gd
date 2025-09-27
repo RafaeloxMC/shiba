@@ -18,6 +18,7 @@ var is_falling = false
 @export var projectile: PackedScene = load("res://scenes/bone.tscn")
 @export var level_border_left: int = 0
 @export var level_border_right: int = 100
+@export var bats = false
 
 var hat = ""
 
@@ -28,11 +29,14 @@ func die():
 	velocity.y = -175 
 	self.set_collision_mask_value(1, false)
 	self.set_collision_layer_value(2, false)
+	self.set_collision_mask_value(3, false)
 	
 func _ready():
 	self.set_collision_mask_value(1, true)
 	self.set_collision_layer_value(2, true)
+	self.set_collision_mask_value(3, true)
 	GameManager.death.connect(die)
+	GameManager.bats = bats
 	if GameManager.should_show_intro == true:
 		GameManager.call_dialog("Oh no! The robo dog kidnapped Shibina!\nI need to rescue her before something happens!", "Shiba", animated_sprite_2d.sprite_frames)
 		GameManager.should_show_intro = false

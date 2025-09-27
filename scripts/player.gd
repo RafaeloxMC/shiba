@@ -61,7 +61,6 @@ func _physics_process(delta: float) -> void:
 	
 	if not is_on_floor():
 		if hat == "_propeller":
-			print("custom grav")
 			velocity += get_gravity() * 0.7 * delta
 		else:
 			velocity += get_gravity() * delta

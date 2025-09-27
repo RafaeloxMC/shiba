@@ -41,6 +41,8 @@ var bats: bool = false
 
 var hat: String = ""
 
+var ribbon_collected = false
+
 func set_show_shop(value: bool) -> void:
 	is_showing_shop = value
 	print("Showing shop: " + str(value))

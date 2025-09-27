@@ -1,0 +1,111 @@
+[gd_scene load_steps=17 format=3 uid="uid://b6n024ar4c0vv"]
+
+[ext_resource type="Texture2D" uid="uid://bkdwib4fana1m" path="res://assets/sprites/ribbon.png" id="1_5j557"]
+[ext_resource type="Script" uid="uid://d1u5ppclvi0im" path="res://scripts/ribbon.gd" id="1_gc6ue"]
+[ext_resource type="FontFile" uid="uid://8t1kpmmy5wvw" path="res://assets/fonts/pixelsix00.ttf" id="2_m4bee"]
+[ext_resource type="AudioStream" uid="uid://cj87xmf5vrgt" path="res://assets/sounds/coin.wav" id="4_jsjen"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4bee"]
+atlas = ExtResource("1_5j557")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gc6ue"]
+atlas = ExtResource("1_5j557")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsjen"]
+atlas = ExtResource("1_5j557")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85cdj"]
+atlas = ExtResource("1_5j557")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7bak"]
+atlas = ExtResource("1_5j557")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnfk5"]
+atlas = ExtResource("1_5j557")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1ret"]
+atlas = ExtResource("1_5j557")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wp3cc"]
+atlas = ExtResource("1_5j557")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntn5p"]
+atlas = ExtResource("1_5j557")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_arng2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4bee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gc6ue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsjen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85cdj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7bak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnfk5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1ret")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wp3cc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntn5p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5j557"]
+radius = 8.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_gc6ue"]
+font = ExtResource("2_m4bee")
+
+[node name="Ribbon" type="Area2D"]
+script = ExtResource("1_gc6ue")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_arng2")
+autoplay = "default"
+frame_progress = 0.72719437
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5j557")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -23.5
+offset_top = -19.0
+offset_right = 113.5
+offset_bottom = 4.0
+scale = Vector2(0.3429811, 0.3429811)
+text = "Camella's Ribbon"
+label_settings = SubResource("LabelSettings_gc6ue")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PickupSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_jsjen")
+bus = &"SFX"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

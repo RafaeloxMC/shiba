@@ -57,7 +57,7 @@ char_size = 0.5
 [node name="DialogTrigger3" parent="Dialogs" instance=ExtResource("6_fcb7b")]
 position = Vector2(588, 87.00001)
 scale = Vector2(9.320481, -2.4668713)
-text = "Well, this is quite an odd place to sleep... But I am very tired and Camella said warned me of the dangerous animals. I need to rest so I can beat them!"
+text = "Well, this is quite an odd place to sleep... But I am very tired and Camella warned me because of the dangerous animals. I need to rest so I can beat them!"
 author = "Shiba"
 sprite_frames = ExtResource("8_glw47")
 

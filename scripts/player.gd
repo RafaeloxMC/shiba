@@ -56,7 +56,11 @@ func _physics_process(delta: float) -> void:
 		GameManager.show_fps = !GameManager.show_fps
 	
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		if hat == "_propeller":
+			print("custom grav")
+			velocity += get_gravity() * 0.7 * delta
+		else:
+			velocity += get_gravity() * delta
 		is_falling = true
 	else:
 		if is_falling == true && jumping == false:

@@ -70,10 +70,13 @@ func last():
 
 func submit():
 	if get_current_button() == play:
-		if GameManager.hearts <= 0:
-			GameManager.reset()
 		GameManager.call_tick_ui()
-		SceneManager.reload_current_level()
+		if GameManager.hearts <= 0 || GameManager.first_play == true:
+			GameManager.first_play = false
+			GameManager.reset()
+			SceneManager.call_scene("kidnapping_cutscene")
+		else:
+			SceneManager.reload_current_level()
 		Engine.time_scale = 1
 		return
 		

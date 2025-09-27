@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bit7c4yer0t7n"]
+
+[ext_resource type="SpriteFrames" uid="uid://2032t5qshgsi" path="res://assets/sprite_frames/robo_shiba.tres" id="1_h40ri"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nrvsa"]
+radius = 7.0
+height = 24.0
+
+[node name="Robo Shiba" type="CharacterBody2D"]
+
+[node name="RoboShibaSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_h40ri")
+animation = &"walk"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(1, 0)
+shape = SubResource("CapsuleShape2D_nrvsa")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn7txy08et8hd"]
+
+[ext_resource type="SpriteFrames" uid="uid://dhy5r000cn6gf" path="res://assets/sprite_frames/shibina.tres" id="1_8b5ry"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nrvsa"]
+radius = 7.0
+height = 24.0
+
+[node name="Shibina" type="CharacterBody2D"]
+
+[node name="ShibinaSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_8b5ry")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(1, 0)
+shape = SubResource("CapsuleShape2D_nrvsa")

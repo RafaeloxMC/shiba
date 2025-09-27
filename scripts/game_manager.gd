@@ -14,6 +14,7 @@ var hearts = 3
 var coins_collected_in_current_scene = 0
 
 var running = false
+var first_play = true
 
 var should_show_intro = true
 

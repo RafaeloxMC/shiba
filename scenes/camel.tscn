@@ -13,9 +13,9 @@ scale = Vector2(0.95999885, 0.95999885)
 sprite_frames = ExtResource("1_bxbho")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.5360982
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-6.8181825, -1.1363637)

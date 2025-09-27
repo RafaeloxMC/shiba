@@ -1,18 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://bhty2kytmv7tx"]
+[gd_scene load_steps=10 format=3 uid="uid://bhty2kytmv7tx"]
 
 [ext_resource type="PackedScene" uid="uid://cesxcje0r35td" path="res://scenes/parallax.tscn" id="1_741xk"]
 [ext_resource type="TileSet" uid="uid://bk2fv30homksp" path="res://assets/tile_sets/map_tiles.tres" id="3_uwlxl"]
 [ext_resource type="PackedScene" uid="uid://b50ps8r584f3y" path="res://scenes/player.tscn" id="4_4wfvb"]
 [ext_resource type="PackedScene" uid="uid://b5lvwjoesv1re" path="res://scenes/killzone.tscn" id="5_tqv5a"]
-[ext_resource type="SpriteFrames" uid="uid://cmyr24ernl424" path="res://assets/sprite_frames/store_owner.tres" id="7_7x7cx"]
+[ext_resource type="SpriteFrames" uid="uid://3d5racilo3iy" path="res://assets/sprite_frames/camel.tres" id="6_b6i88"]
 [ext_resource type="PackedScene" uid="uid://prtcrbjwfdku" path="res://scenes/dialog_trigger.tscn" id="7_pafwe"]
 [ext_resource type="PackedScene" uid="uid://ck0qtrvoxga1x" path="res://scenes/camel.tscn" id="8_b6i88"]
 [ext_resource type="PackedScene" uid="uid://uhoo82xnqgww" path="res://scenes/dog_house.tscn" id="9_glmj6"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p57ef"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6i88"]
-size = Vector2(20, 201.04169)
 
 [node name="Game" type="Node2D"]
 
@@ -48,12 +45,11 @@ shape = SubResource("WorldBoundaryShape2D_p57ef")
 [node name="Dialogs" type="Node" parent="."]
 
 [node name="DialogTrigger" parent="Dialogs" instance=ExtResource("7_pafwe")]
-position = Vector2(103, -104.00001)
-rotation = -3.1415927
-scale = Vector2(3.6589406, -2.3934486)
-text = "Shiba can already see Camella in the distance. He really wants to give her the ribbon back. Suddenly, his knees get weak. He tries his best to get to Camella, but he just can't. He has to wait for the next playtest to give Camella the ribbon..."
-author = "xvcf"
-sprite_frames = ExtResource("7_7x7cx")
+position = Vector2(240, -113)
+scale = Vector2(5.7764792, 1.6800025)
+text = "It's you again! Don't tell me you really found the ribbon. Thank you so so much! My grandpa, Sir Caramello III., the mayor of Cameltown gave it to me when I got born! It would've broken my heart if you couldn't find it. I definitely owe you one!"
+author = "Camella"
+sprite_frames = ExtResource("6_b6i88")
 
 [node name="Dog Houses" type="Node" parent="."]
 
@@ -76,15 +72,5 @@ position = Vector2(-29, 0)
 position = Vector2(234, -119)
 rotation = -3.1415927
 scale = Vector2(0.96, -0.96)
-
-[node name="PLAYTEST BLOCKER" type="StaticBody2D" parent="."]
-position = Vector2(234, -119)
-rotation = 3.1415927
-scale = Vector2(0.96, -0.96)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PLAYTEST BLOCKER"]
-position = Vector2(83.33333, -46.35417)
-scale = Vector2(0.9999998, 0.9999998)
-shape = SubResource("RectangleShape2D_b6i88")
 
 [editable path="Dog Houses/Dog House"]

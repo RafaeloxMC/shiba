@@ -1,0 +1,517 @@
+[gd_scene load_steps=34 format=3 uid="uid://bnd3klrchib31"]
+
+[ext_resource type="PackedScene" uid="uid://cesxcje0r35td" path="res://scenes/parallax.tscn" id="1_7jj13"]
+[ext_resource type="TileSet" uid="uid://bk2fv30homksp" path="res://assets/tile_sets/map_tiles.tres" id="1_q61eo"]
+[ext_resource type="Script" uid="uid://b5njuat1t7r34" path="res://scripts/kidnapping_cutscene.gd" id="1_vdjhw"]
+[ext_resource type="PackedScene" uid="uid://cn7txy08et8hd" path="res://scenes/shibina.tscn" id="2_xum14"]
+[ext_resource type="PackedScene" uid="uid://bit7c4yer0t7n" path="res://scenes/robo_shiba.tscn" id="3_7jj13"]
+[ext_resource type="Texture2D" uid="uid://baxnct107gh6l" path="res://assets/sprites/dialogbox.png" id="6_l2p33"]
+[ext_resource type="Script" uid="uid://bmiksxfiyj8sf" path="res://scripts/dialog_manager.gd" id="7_psdak"]
+[ext_resource type="FontFile" uid="uid://8t1kpmmy5wvw" path="res://assets/fonts/pixelsix00.ttf" id="8_c811l"]
+[ext_resource type="Texture2D" uid="uid://cbuc4rw04hmp5" path="res://assets/sprites/shiba.png" id="9_5tv6b"]
+[ext_resource type="Texture2D" uid="uid://cmd466d651fgq" path="res://assets/sprites/menu_elements.png" id="10_g8kpw"]
+[ext_resource type="Script" uid="uid://clpad50mh2ml4" path="res://scripts/gameui_color_rect.gd" id="11_psdak"]
+
+[sub_resource type="Animation" id="Animation_7jj13"]
+resource_name = "scene"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Characters/Shibina:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 7.5, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(12, -12), Vector2(12, -12), Vector2(-91, -12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(8, 8), Vector2(8, 8), Vector2(6, 6)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Characters/Robo Shiba/RoboShibaSprite:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 7.49, 8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Characters/Robo Shiba/RoboShibaSprite:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.9666667, 2, 4.5, 6.4666667, 6.5, 7, 8.49, 8.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [&"idle", &"idle", &"walk", &"idle", &"idle", &"walk", &"idle", &"idle", &"walk"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Characters/Shibina/ShibinaSprite:animation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 7.49, 7.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"idle", &"idle", &"walk"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Characters/Shibina/ShibinaSprite:flip_h")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 4.9666667, 5, 7.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Characters/Robo Shiba:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2, 4.5, 6.5, 7, 8.5, 10.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-91, -12), Vector2(-91, -12), Vector2(-8, -12), Vector2(-8, -12), Vector2(2, -12), Vector2(2, -12), Vector2(-90, -12)]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.5, 4.5, 10.5, 11),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"fade_in"
+}, {
+"args": [],
+"method": &"call_shibina_dialog"
+}, {
+"args": [],
+"method": &"call_robo_dialog"
+}, {
+"args": [],
+"method": &"fade_out"
+}, {
+"args": [],
+"method": &"call_level_1"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_vdjhw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Characters/Shibina:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, -12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6, 6)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Characters/Shibina/ShibinaSprite:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Characters/Shibina/ShibinaSprite:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Characters/Robo Shiba/RoboShibaSprite:flip_h")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Characters/Robo Shiba/RoboShibaSprite:animation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Characters/Robo Shiba:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-91, -12)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vdjhw"]
+_data = {
+&"RESET": SubResource("Animation_vdjhw"),
+&"scene": SubResource("Animation_7jj13")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_mrxjx"]
+font = ExtResource("8_c811l")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jyfi"]
+atlas = ExtResource("9_5tv6b")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x70um"]
+atlas = ExtResource("9_5tv6b")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8h4rg"]
+atlas = ExtResource("9_5tv6b")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wh61"]
+atlas = ExtResource("9_5tv6b")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcs7t"]
+atlas = ExtResource("9_5tv6b")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_au8qu"]
+atlas = ExtResource("9_5tv6b")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kpsq"]
+atlas = ExtResource("9_5tv6b")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0dk5"]
+atlas = ExtResource("9_5tv6b")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xgjm4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jyfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x70um")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8h4rg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wh61")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kcs7t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_au8qu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kpsq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0dk5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwmyc"]
+atlas = ExtResource("10_g8kpw")
+region = Rect2(0, 0, 160, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afor6"]
+atlas = ExtResource("10_g8kpw")
+region = Rect2(0, 32, 160, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5y1tr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwmyc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afor6")
+}],
+"loop": true,
+"name": &"default_selected",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_afecv"]
+font = ExtResource("8_c811l")
+
+[sub_resource type="LabelSettings" id="LabelSettings_anwdt"]
+font = ExtResource("8_c811l")
+
+[sub_resource type="Animation" id="Animation_n31af"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wexye"]
+resource_name = "fadein"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mu2ln"]
+resource_name = "fadeout"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wexye"]
+_data = {
+&"RESET": SubResource("Animation_n31af"),
+&"fadein": SubResource("Animation_wexye"),
+&"fadeout": SubResource("Animation_mu2ln")
+}
+
+[node name="Kidnapping Cutscene" type="Node2D"]
+script = ExtResource("1_vdjhw")
+
+[node name="Parallax" parent="." instance=ExtResource("1_7jj13")]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_q61eo")
+format = 2
+layer_0/name = "Mid"
+layer_0/tile_data = PackedInt32Array(65535, 917504, 13, 0, 917504, 13, 1, 655360, 13, 3, 786432, 14, 65538, 720896, 15, 65539, 983040, 15, 65537, 720896, 15, 65536, 720896, 15, 131071, 720896, 15, 2, 655360, 14, -65534, 851968, 13, -65533, 983040, 13, 131070, 720896, 15, 131069, 720896, 15, 131068, 720896, 15, 131067, 720896, 15, 131066, 917504, 15, 65530, 851968, 13, 65531, 917504, 13, -2, 65536, 6, 65532, 917504, 13, 65533, 917504, 13, 65534, 917504, 13)
+
+[node name="Characters" type="Node" parent="."]
+
+[node name="Shibina" parent="Characters" instance=ExtResource("2_xum14")]
+position = Vector2(12, -12)
+
+[node name="Robo Shiba" parent="Characters" instance=ExtResource("3_7jj13")]
+position = Vector2(-91, -12)
+
+[node name="RoboShibaSprite" parent="Characters/Robo Shiba" index="0"]
+animation = &"idle"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_vdjhw")
+}
+autoplay = "scene"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(13, -14)
+zoom = Vector2(6, 6)
+
+[node name="Control" type="Control" parent="Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D/Control"]
+
+[node name="DialogManager" type="TextureRect" parent="Camera2D/Control/CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -358.5
+offset_top = -224.0
+offset_right = 358.5
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("6_l2p33")
+script = ExtResource("7_psdak")
+
+[node name="Text" type="Label" parent="Camera2D/Control/CanvasLayer/DialogManager"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -116.5
+offset_top = 18.0
+offset_right = 336.5
+offset_bottom = 183.0
+grow_horizontal = 2
+text = "Example dialog text:
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. "
+label_settings = SubResource("LabelSettings_mrxjx")
+autowrap_mode = 3
+
+[node name="Character" type="AnimatedSprite2D" parent="Camera2D/Control/CanvasLayer/DialogManager"]
+position = Vector2(118.5, 114)
+scale = Vector2(8.14062, 8.14062)
+sprite_frames = SubResource("SpriteFrames_xgjm4")
+
+[node name="CharacterName" type="Label" parent="Camera2D/Control/CanvasLayer/DialogManager"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -341.5
+offset_top = 22.0
+offset_right = -128.5
+offset_bottom = 40.0
+grow_horizontal = 2
+text = "Shiba"
+label_settings = SubResource("LabelSettings_mrxjx")
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="Button" type="AnimatedSprite2D" parent="Camera2D/Control/CanvasLayer/DialogManager"]
+position = Vector2(585.5, 190)
+sprite_frames = SubResource("SpriteFrames_5y1tr")
+
+[node name="Label" type="Label" parent="Camera2D/Control/CanvasLayer/DialogManager/Button"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.0
+offset_top = -25.0
+offset_right = -44.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Continue"
+label_settings = SubResource("LabelSettings_afecv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="hint" type="Label" parent="Camera2D/Control/CanvasLayer/DialogManager"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -116.0
+offset_top = -43.0
+offset_right = 68.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "use enter to continue!"
+label_settings = SubResource("LabelSettings_anwdt")
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D/Control/CanvasLayer"]
+offset_left = -23.0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0)
+script = ExtResource("11_psdak")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D/Control/CanvasLayer/ColorRect"]
+libraries = {
+&"": SubResource("AnimationLibrary_wexye")
+}
+
+[editable path="Characters/Shibina"]
+[editable path="Characters/Robo Shiba"]

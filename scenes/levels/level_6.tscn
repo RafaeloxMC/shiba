@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bhty2kytmv7tx"]
+[gd_scene load_steps=18 format=3 uid="uid://bhty2kytmv7tx"]
 
 [ext_resource type="PackedScene" uid="uid://cesxcje0r35td" path="res://scenes/parallax.tscn" id="1_741xk"]
 [ext_resource type="Texture2D" uid="uid://caavse5j8o3yk" path="res://assets/sprites/parallax_desert_bg.png" id="2_4wfvb"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ck0qtrvoxga1x" path="res://scenes/camel.tscn" id="8_b6i88"]
 [ext_resource type="SpriteFrames" uid="uid://bklk7p5g27qcp" path="res://assets/sprite_frames/player.tres" id="9_e18e5"]
 [ext_resource type="PackedScene" uid="uid://uhoo82xnqgww" path="res://scenes/dog_house.tscn" id="9_glmj6"]
+[ext_resource type="SpriteFrames" uid="uid://cmyr24ernl424" path="res://assets/sprite_frames/store_owner.tres" id="11_tqv5a"]
 [ext_resource type="PackedScene" uid="uid://dwkr2txvg88fv" path="res://scenes/dog_food.tscn" id="11_uwlxl"]
 [ext_resource type="PackedScene" uid="uid://xgk1a5pcdwcx" path="res://scenes/swim_trigger.tscn" id="12_uwlxl"]
 
@@ -95,6 +96,13 @@ scale = Vector2(5.493782, 3.2250726)
 text = "The sign says: \"The view over Cameltown\". I really need to go there, maybe the mayor knows where Shibina is!"
 author = "Shiba"
 sprite_frames = ExtResource("9_e18e5")
+
+[node name="DialogTrigger3" parent="Dialogs" instance=ExtResource("7_pafwe")]
+position = Vector2(1280, -248)
+scale = Vector2(3.4400196, 2.3600001)
+text = "Seems like this is the end of the current playtest! I hope you had fun!"
+author = "xvcf"
+sprite_frames = ExtResource("11_tqv5a")
 
 [node name="Dog Houses" type="Node" parent="."]
 

@@ -13,6 +13,7 @@ var is_swimming = false
 @onready var jump_sfx: AudioStreamPlayer2D = $JumpSFX
 @onready var fall_sfx: AudioStreamPlayer2D = $FallSFX
 @onready var death_sfx: AudioStreamPlayer2D = $DeathSFX
+@onready var splash_sfx: AudioStreamPlayer2D = $SplashSFX
 @onready var timer: Timer = $Timer
 
 @export var projectile: PackedScene = load("res://scenes/bone.tscn")
@@ -54,6 +55,7 @@ func _on_swim_trigger_entered(body: Node) -> void:
 	print("ENTERED")
 	if body == self:
 		is_swimming = true
+		splash_sfx.play()
 
 func _on_swim_trigger_exited(body: Node) -> void:
 	print("EXITED")

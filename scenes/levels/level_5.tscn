@@ -87,6 +87,15 @@ position = Vector2(360, 280)
 [node name="Coin9" parent="Coins" instance=ExtResource("5_mxx4w")]
 position = Vector2(1128, 376)
 
+[node name="Coin10" parent="Coins" instance=ExtResource("5_mxx4w")]
+position = Vector2(1464, 488)
+
+[node name="Coin11" parent="Coins" instance=ExtResource("5_mxx4w")]
+position = Vector2(1480, 488)
+
+[node name="Coin12" parent="Coins" instance=ExtResource("5_mxx4w")]
+position = Vector2(1496, 488)
+
 [node name="Dog Food" type="Node" parent="."]
 
 [node name="Enemies" type="Node" parent="."]
@@ -145,19 +154,6 @@ position = Vector2(2016, 320)
 
 [node name="Friendly" type="Node" parent="."]
 
-[node name="Ribbon" parent="." instance=ExtResource("10_tqnj0")]
-position = Vector2(1304, 504)
-collision_mask = 7
-
-[node name="Coin" parent="." instance=ExtResource("5_mxx4w")]
-position = Vector2(1464, 488)
-
-[node name="Coin2" parent="." instance=ExtResource("5_mxx4w")]
-position = Vector2(1480, 488)
-
-[node name="Coin3" parent="." instance=ExtResource("5_mxx4w")]
-position = Vector2(1496, 488)
-
 [node name="Swim Triggers" type="Node" parent="."]
 
 [node name="SwimTrigger" parent="Swim Triggers" instance=ExtResource("8_6xwso")]
@@ -167,5 +163,9 @@ scale = Vector2(4.0000196, 1)
 [node name="SwimTrigger2" parent="Swim Triggers" instance=ExtResource("8_6xwso")]
 position = Vector2(1624, 488)
 scale = Vector2(5.6, 1)
+
+[node name="Ribbon" parent="." instance=ExtResource("10_tqnj0")]
+position = Vector2(1304, 504)
+collision_mask = 7
 
 [editable path="Player"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bhty2kytmv7tx"]
+[gd_scene load_steps=17 format=3 uid="uid://bhty2kytmv7tx"]
 
 [ext_resource type="PackedScene" uid="uid://cesxcje0r35td" path="res://scenes/parallax.tscn" id="1_741xk"]
 [ext_resource type="Texture2D" uid="uid://caavse5j8o3yk" path="res://assets/sprites/parallax_desert_bg.png" id="2_4wfvb"]
@@ -18,6 +18,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e18e5"]
 size = Vector2(51.999992, 36.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4wfvb"]
+size = Vector2(20, 45)
 
 [node name="Game" type="Node2D"]
 
@@ -63,7 +66,16 @@ position = Vector2(920, -8)
 [node name="Coin5" parent="Coins" instance=ExtResource("5_kydov")]
 position = Vector2(952, -8)
 
+[node name="Coin6" parent="Coins" instance=ExtResource("5_kydov")]
+position = Vector2(104, -88)
+
+[node name="Coin7" parent="Coins" instance=ExtResource("5_kydov")]
+position = Vector2(184, -104)
+
 [node name="Dog Food" type="Node" parent="."]
+
+[node name="Dog Food2" parent="Dog Food" instance=ExtResource("11_uwlxl")]
+position = Vector2(1288, -232)
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -99,6 +111,9 @@ position = Vector2(-29, -51)
 [node name="Area2D" parent="Dog Houses/Dog House" index="4"]
 position = Vector2(-29, 0)
 
+[node name="Dog House2" parent="Dog Houses" instance=ExtResource("9_glmj6")]
+position = Vector2(1344, -256)
+
 [node name="Friendly" type="Node" parent="."]
 
 [node name="Camel" parent="Friendly" instance=ExtResource("8_b6i88")]
@@ -124,17 +139,12 @@ rotation = 1.5707964
 shape = SubResource("RectangleShape2D_e18e5")
 one_way_collision = true
 
-[node name="Dog House" parent="." instance=ExtResource("9_glmj6")]
-position = Vector2(1344, -256)
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(1304, -234)
 
-[node name="Dog Food2" parent="." instance=ExtResource("11_uwlxl")]
-position = Vector2(1288, -232)
-
-[node name="Coin" parent="." instance=ExtResource("5_kydov")]
-position = Vector2(104, -88)
-
-[node name="Coin2" parent="." instance=ExtResource("5_kydov")]
-position = Vector2(184, -104)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(20, -12.5)
+shape = SubResource("RectangleShape2D_4wfvb")
 
 [editable path="Parallax"]
 [editable path="Dog Houses/Dog House"]

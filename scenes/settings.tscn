@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctrdli6f4pyyx"]
+[gd_scene load_steps=12 format=3 uid="uid://ctrdli6f4pyyx"]
 
 [ext_resource type="Script" uid="uid://bw0hnjwoogxr5" path="res://scripts/settings.gd" id="1_es4n0"]
 [ext_resource type="FontFile" uid="uid://8t1kpmmy5wvw" path="res://assets/fonts/pixelsix00.ttf" id="2_gis3k"]
 [ext_resource type="PackedScene" uid="uid://ddf3ftbofm6ld" path="res://scenes/button.tscn" id="3_83j8s"]
 [ext_resource type="PackedScene" uid="uid://bjqwjjqdu4y11" path="res://scenes/credits.tscn" id="4_f4mfi"]
+[ext_resource type="Texture2D" uid="uid://bqa452kias5qu" path="res://assets/sprites/menu_arrows.png" id="5_es4n0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ekxnf"]
 font = ExtResource("2_gis3k")
@@ -15,6 +16,33 @@ font_size = 22
 
 [sub_resource type="LabelSettings" id="LabelSettings_8ln24"]
 font = ExtResource("2_gis3k")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gis3k"]
+atlas = ExtResource("5_es4n0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83j8s"]
+atlas = ExtResource("5_es4n0")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gjs24"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gis3k")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83j8s")
+}],
+"loop": false,
+"name": &"selected",
+"speed": 5.0
+}]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -57,29 +85,59 @@ text = "what does fancy button do :o"
 label_settings = SubResource("LabelSettings_wu84c")
 horizontal_alignment = 1
 
-[node name="difficulty" parent="." instance=ExtResource("3_83j8s")]
+[node name="btn_difficulty" parent="." instance=ExtResource("3_83j8s")]
 position = Vector2(576, 272)
 scale = Vector2(2.84, 2.84)
 type = 1
 settings = ["easy", "medium", "hard", "give up", "random"]
 
-[node name="Label" parent="difficulty" index="2"]
+[node name="Label" parent="btn_difficulty" index="2"]
 text = "difficulty"
 metadata/_edit_use_anchors_ = true
 
-[node name="credits" parent="." instance=ExtResource("3_83j8s")]
+[node name="btn_volume" parent="." instance=ExtResource("3_83j8s")]
 position = Vector2(576, 396)
+scale = Vector2(2.84, 2.84)
+type = 1
+settings = ["10", "20", "30", "40", "50", "60", "70", "80", "90", "100"]
+
+[node name="Label" parent="btn_volume" index="2"]
+text = "volume"
+metadata/_edit_use_anchors_ = true
+
+[node name="btn_music_volume" parent="." instance=ExtResource("3_83j8s")]
+position = Vector2(576, 516)
+scale = Vector2(2.84, 2.84)
+type = 1
+settings = ["10", "20", "30", "40", "50", "60", "70", "80", "90", "100"]
+
+[node name="Label" parent="btn_music_volume" index="2"]
+text = "music volume"
+metadata/_edit_use_anchors_ = true
+
+[node name="btn_sfx_volume" parent="." instance=ExtResource("3_83j8s")]
+position = Vector2(576, 396)
+scale = Vector2(2.84, 2.84)
+type = 1
+settings = ["10", "20", "30", "40", "50", "60", "70", "80", "90", "100"]
+
+[node name="Label" parent="btn_sfx_volume" index="2"]
+text = "sfx volume"
+metadata/_edit_use_anchors_ = true
+
+[node name="btn_credits" parent="." instance=ExtResource("3_83j8s")]
+position = Vector2(576, 516)
 scale = Vector2(2.84, 2.84)
 scene = ExtResource("4_f4mfi")
 
-[node name="Label" parent="credits" index="2"]
+[node name="Label" parent="btn_credits" index="2"]
 text = "credits"
 
-[node name="back" parent="." instance=ExtResource("3_83j8s")]
+[node name="btn_back" parent="." instance=ExtResource("3_83j8s")]
 position = Vector2(576, 516)
 scale = Vector2(2.84, 2.84)
 
-[node name="Label" parent="back" index="2"]
+[node name="Label" parent="btn_back" index="2"]
 text = "back"
 
 [node name="hint" type="Label" parent="."]
@@ -100,12 +158,28 @@ label_settings = SubResource("LabelSettings_8ln24")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="gui_input" from="." to="." method="_on_gui_input"]
-[connection signal="input_event" from="credits" to="credits" method="_on_input_event"]
-[connection signal="mouse_exited" from="credits" to="credits" method="_on_mouse_exited"]
-[connection signal="input_event" from="back" to="back" method="_on_input_event"]
-[connection signal="mouse_exited" from="back" to="back" method="_on_mouse_exited"]
+[node name="arrow_down" type="AnimatedSprite2D" parent="."]
+position = Vector2(576, 584)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_gjs24")
+autoplay = "default"
 
-[editable path="difficulty"]
-[editable path="credits"]
-[editable path="back"]
+[node name="arrow_up" type="AnimatedSprite2D" parent="."]
+position = Vector2(576, 200)
+rotation = 3.1415927
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_gjs24")
+autoplay = "default"
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="input_event" from="btn_credits" to="btn_credits" method="_on_input_event"]
+[connection signal="mouse_exited" from="btn_credits" to="btn_credits" method="_on_mouse_exited"]
+[connection signal="input_event" from="btn_back" to="btn_back" method="_on_input_event"]
+[connection signal="mouse_exited" from="btn_back" to="btn_back" method="_on_mouse_exited"]
+
+[editable path="btn_difficulty"]
+[editable path="btn_volume"]
+[editable path="btn_music_volume"]
+[editable path="btn_sfx_volume"]
+[editable path="btn_credits"]
+[editable path="btn_back"]

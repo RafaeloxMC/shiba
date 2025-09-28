@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://vjt40nuscoly"]
+[gd_scene load_steps=13 format=3 uid="uid://vjt40nuscoly"]
 
 [ext_resource type="Script" uid="uid://b8yyy402vh1a8" path="res://scripts/air_bg.gd" id="1_vvoq0"]
 [ext_resource type="Texture2D" uid="uid://cx3ln4ycwd18s" path="res://assets/sprites/parallax_bg_cave.png" id="2_dwyms"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://prtcrbjwfdku" path="res://scenes/dialog_trigger.tscn" id="5_5ke18"]
 [ext_resource type="PackedScene" uid="uid://crqc1hhdhds5b" path="res://scenes/coin.tscn" id="5_mxx4w"]
 [ext_resource type="SpriteFrames" uid="uid://bklk7p5g27qcp" path="res://assets/sprite_frames/player.tres" id="7_0y7y4"]
+[ext_resource type="PackedScene" uid="uid://b6cui63harfpa" path="res://scenes/rabbit.tscn" id="7_dwyms"]
 [ext_resource type="PackedScene" uid="uid://uhoo82xnqgww" path="res://scenes/dog_house.tscn" id="8_gruok"]
 [ext_resource type="PackedScene" uid="uid://b6n024ar4c0vv" path="res://scenes/ribbon.tscn" id="10_tqnj0"]
 
@@ -88,6 +89,11 @@ position = Vector2(1128, 376)
 [node name="Dog Food" type="Node" parent="."]
 
 [node name="Enemies" type="Node" parent="."]
+
+[node name="Rabbit" parent="Enemies" node_paths=PackedStringArray("player") instance=ExtResource("7_dwyms")]
+position = Vector2(232, 296)
+player = NodePath("../../Player")
+BOUNDS = 100.0
 
 [node name="Dialogs" type="Node" parent="."]
 

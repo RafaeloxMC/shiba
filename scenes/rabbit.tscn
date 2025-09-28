@@ -1,0 +1,101 @@
+[gd_scene load_steps=12 format=3 uid="uid://b6cui63harfpa"]
+
+[ext_resource type="Texture2D" uid="uid://4rdithx1cbed" path="res://assets/sprites/rabbit.png" id="1_0rrc3"]
+[ext_resource type="Script" uid="uid://dl4vgepgcnkly" path="res://scripts/rabbit.gd" id="1_dxh4p"]
+[ext_resource type="PackedScene" uid="uid://b5lvwjoesv1re" path="res://scenes/killzone.tscn" id="3_haj5u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcyra"]
+atlas = ExtResource("1_0rrc3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxh4p"]
+atlas = ExtResource("1_0rrc3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_haj5u"]
+atlas = ExtResource("1_0rrc3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukfwh"]
+atlas = ExtResource("1_0rrc3")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybw8e"]
+atlas = ExtResource("1_0rrc3")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dcyra"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcyra")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxh4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_haj5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukfwh")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_ybw8e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukfwh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_haj5u")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_haj5u"]
+radius = 7.152649
+height = 28.610596
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ukfwh"]
+radius = 3.5763245
+
+[node name="Rabbit" type="CharacterBody2D"]
+scale = Vector2(0.55923337, 0.55923337)
+script = ExtResource("1_dxh4p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dcyra")
+animation = &"jump"
+
+[node name="facing" type="RayCast2D" parent="AnimatedSprite2D"]
+position = Vector2(0, 4)
+target_position = Vector2(100, 0)
+collision_mask = 7
+
+[node name="ground" type="RayCast2D" parent="AnimatedSprite2D"]
+position = Vector2(0, 3.9473696)
+target_position = Vector2(20, 20)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="BoxCollider2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.7881624)
+shape = SubResource("CapsuleShape2D_haj5u")
+
+[node name="JumpTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="Killzone" parent="." instance=ExtResource("3_haj5u")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(7.152649, 0)
+shape = SubResource("CircleShape2D_ukfwh")

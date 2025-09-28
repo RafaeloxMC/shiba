@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://brwbaty0abnxo"]
+[gd_scene load_steps=30 format=3 uid="uid://brwbaty0abnxo"]
 
 [ext_resource type="Script" uid="uid://pnu734i6koev" path="res://scripts/shop_ui.gd" id="1_crtus"]
 [ext_resource type="Texture2D" uid="uid://bl3kql7umraqo" path="res://assets/sprites/shop_ui.png" id="1_fs6yy"]
@@ -98,6 +98,50 @@ price = 25
 icon = SubResource("SpriteFrames_ijxsd")
 metadata/_custom_type_script = "uid://b8to5lv7tuovr"
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4j81"]
+atlas = ExtResource("5_obwu6")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijxsd"]
+atlas = ExtResource("5_obwu6")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytm40"]
+atlas = ExtResource("5_obwu6")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2t8e"]
+atlas = ExtResource("5_obwu6")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a5g6y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4j81")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijxsd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytm40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2t8e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_t3xdf"]
+script = ExtResource("2_epbsd")
+name = "Knight Helmet"
+description = "Absorbs damage once before it breaks!"
+price = 30
+icon = SubResource("SpriteFrames_a5g6y")
+metadata/_custom_type_script = "uid://b8to5lv7tuovr"
+
 [sub_resource type="LabelSettings" id="LabelSettings_18xnp"]
 font = ExtResource("2_18xnp")
 font_size = 8
@@ -121,7 +165,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(7.368002, 7.368002)
 script = ExtResource("1_crtus")
-items = Array[ExtResource("2_epbsd")]([SubResource("Resource_bidp2"), SubResource("Resource_obwu6"), SubResource("Resource_ijxsd"), SubResource("Resource_ytm40")])
+items = Array[ExtResource("2_epbsd")]([SubResource("Resource_bidp2"), SubResource("Resource_obwu6"), SubResource("Resource_ijxsd"), SubResource("Resource_ytm40"), SubResource("Resource_t3xdf")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_fs6yy")

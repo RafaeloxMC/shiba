@@ -4,6 +4,17 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	if not body.name == "Player" && timer.time_left >= 0: return
+	if GameManager.hat == "knight":
+		print("DAMAGE ABSORBED!")
+		GameManager.hat = ""
+		var enemy = self.get_parent()
+		enemy.set_collision_mask_value(1, false)
+		enemy.dead = true
+		enemy.velocity.y = -175
+		self.queue_free()
+		await get_tree().create_timer(0.5).timeout
+		enemy.queue_free()
+		return
 	print("Player died!")
 	GameManager.remove_heart()
 	Engine.time_scale = 0.5

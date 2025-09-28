@@ -23,6 +23,9 @@ var is_falling = false
 var hat = ""
 
 func die():
+	if hat == "_knight":
+		GameManager.hat = ""
+		return
 	DEAD = true
 	animated_sprite_2d.play("death")
 	death_sfx.play()
@@ -54,6 +57,8 @@ func _process(_delta: float) -> void:
 		
 	if GameManager.hat != "":
 		hat = "_" + GameManager.hat
+	else:
+		hat = ""
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("show_fps"):

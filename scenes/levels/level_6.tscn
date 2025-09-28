@@ -50,6 +50,7 @@ scale = Vector2(5.7764792, 1.6800025)
 text = "It's you again! Don't tell me you really found the ribbon. Thank you so so much! My grandpa, Sir Caramello III., the mayor of Cameltown gave it to me when I got born! It would've broken my heart if you couldn't find it. I definitely owe you one!"
 author = "Camella"
 sprite_frames = ExtResource("6_b6i88")
+char_size = 0.5
 
 [node name="Dog Houses" type="Node" parent="."]
 

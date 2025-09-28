@@ -18,6 +18,8 @@ var level_border_right: int = 100
 @onready var shop_layer: CanvasLayer = $ShopLayer
 
 func death():
+	if GameManager.hat == "knight":
+		return
 	hearts_sprite.play("break")
 	update_hearts()
 	animation_player.play("fadeout")

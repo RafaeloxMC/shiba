@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://brwbaty0abnxo"]
+[gd_scene load_steps=36 format=3 uid="uid://brwbaty0abnxo"]
 
 [ext_resource type="Script" uid="uid://pnu734i6koev" path="res://scripts/shop_ui.gd" id="1_crtus"]
 [ext_resource type="Texture2D" uid="uid://bl3kql7umraqo" path="res://assets/sprites/shop_ui.png" id="1_fs6yy"]
@@ -142,6 +142,56 @@ price = 30
 icon = SubResource("SpriteFrames_a5g6y")
 metadata/_custom_type_script = "uid://b8to5lv7tuovr"
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5g6y"]
+atlas = ExtResource("5_obwu6")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsbvm"]
+atlas = ExtResource("5_obwu6")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxprq"]
+atlas = ExtResource("5_obwu6")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_veu2v"]
+atlas = ExtResource("5_obwu6")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5t3ou"]
+animations = [{
+"frames": [{
+"duration": 8.0,
+"texture": SubResource("AtlasTexture_a5g6y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsbvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxprq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_veu2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxprq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsbvm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="Resource" id="Resource_0yw5g"]
+script = ExtResource("2_epbsd")
+name = "Zac's Kuro Mask"
+description = "The man, the myth, the legend! (we all love him!)"
+price = 20
+icon = SubResource("SpriteFrames_5t3ou")
+metadata/_custom_type_script = "uid://b8to5lv7tuovr"
+
 [sub_resource type="LabelSettings" id="LabelSettings_18xnp"]
 font = ExtResource("2_18xnp")
 font_size = 8
@@ -165,7 +215,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(7.368002, 7.368002)
 script = ExtResource("1_crtus")
-items = Array[ExtResource("2_epbsd")]([SubResource("Resource_bidp2"), SubResource("Resource_obwu6"), SubResource("Resource_ijxsd"), SubResource("Resource_ytm40"), SubResource("Resource_t3xdf")])
+items = Array[ExtResource("2_epbsd")]([SubResource("Resource_bidp2"), SubResource("Resource_obwu6"), SubResource("Resource_ijxsd"), SubResource("Resource_ytm40"), SubResource("Resource_t3xdf"), SubResource("Resource_0yw5g")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_fs6yy")

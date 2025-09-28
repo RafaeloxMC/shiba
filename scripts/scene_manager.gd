@@ -16,7 +16,7 @@ func _process(_delta: float) -> void:
 func call_scene(scene: String) -> void:
 	current_scene = scene
 	if current_scene.begins_with("level_"):
-		if scene == "level_4" && current_level == "level_3":
+		if scene == "level_3" && current_level == "level_2":
 			SoundManager.call_sound_with_fade("You Know You Know - Forever Sunset")
 		current_level = current_scene
 	print("Current scene now is: " + scene)

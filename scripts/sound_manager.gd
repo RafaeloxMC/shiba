@@ -12,12 +12,16 @@ func _ready() -> void:
 	call_sound("Tiger Tracks - Lexica")
 
 func call_sound(song: String) -> void:
+	if currently_playing == song:
+		return
 	music.stop()
 	music.stream = sounds[song]
 	currently_playing = song
 	music.play()
 	
 func call_sound_with_fade(song: String) -> void:
+	if currently_playing == song:
+		return
 	animation_player.play("fadeout")
 	await get_tree().create_timer(0.5).timeout
 	call_sound(song)

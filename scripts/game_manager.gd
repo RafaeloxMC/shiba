@@ -108,6 +108,8 @@ func reset():
 	food_blacklist.clear()
 	dialog_blacklist.clear()
 	should_show_intro = true
+	bought_items.clear()
+	hat = ""
 	SceneManager.current_level = "level_1"
 	SoundManager.call_sound("Tiger Tracks - Lexica")
 	

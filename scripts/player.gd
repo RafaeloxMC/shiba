@@ -107,7 +107,7 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
 		if is_swimming:
-			animated_sprite_2d.play("swim")
+			animated_sprite_2d.play("swim" + hat)
 		else:
 			animated_sprite_2d.play("walk" + hat)
 		velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION * delta)

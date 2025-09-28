@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://empn3a75lcv6"]
+[gd_scene load_steps=13 format=3 uid="uid://empn3a75lcv6"]
 
 [ext_resource type="PackedScene" uid="uid://cesxcje0r35td" path="res://scenes/parallax.tscn" id="1_um320"]
+[ext_resource type="Texture2D" uid="uid://caavse5j8o3yk" path="res://assets/sprites/parallax_desert_bg.png" id="2_4wsov"]
 [ext_resource type="TileSet" uid="uid://bk2fv30homksp" path="res://assets/tile_sets/map_tiles.tres" id="2_glw47"]
 [ext_resource type="PackedScene" uid="uid://b50ps8r584f3y" path="res://scenes/player.tscn" id="3_4wsov"]
 [ext_resource type="PackedScene" uid="uid://b5lvwjoesv1re" path="res://scenes/killzone.tscn" id="5_hsvsk"]
@@ -17,6 +18,9 @@
 [node name="Game" type="Node2D"]
 
 [node name="Parallax" parent="." instance=ExtResource("1_um320")]
+
+[node name="Sprite2D" parent="Parallax/ParallaxBackground/ParallaxLayer" index="0"]
+texture = ExtResource("2_4wsov")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_glw47")
@@ -99,5 +103,6 @@ scale = Vector2(1, 4.320001)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_um320")
 
+[editable path="Parallax"]
 [editable path="Dog Houses/Dog House"]
 [editable path="Friendly/Camel"]

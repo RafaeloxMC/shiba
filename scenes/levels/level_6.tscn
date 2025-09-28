@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://bhty2kytmv7tx"]
+[gd_scene load_steps=16 format=3 uid="uid://bhty2kytmv7tx"]
 
 [ext_resource type="PackedScene" uid="uid://cesxcje0r35td" path="res://scenes/parallax.tscn" id="1_741xk"]
+[ext_resource type="Texture2D" uid="uid://caavse5j8o3yk" path="res://assets/sprites/parallax_desert_bg.png" id="2_4wfvb"]
 [ext_resource type="TileSet" uid="uid://bk2fv30homksp" path="res://assets/tile_sets/map_tiles.tres" id="3_uwlxl"]
 [ext_resource type="PackedScene" uid="uid://b50ps8r584f3y" path="res://scenes/player.tscn" id="4_4wfvb"]
 [ext_resource type="PackedScene" uid="uid://crqc1hhdhds5b" path="res://scenes/coin.tscn" id="5_kydov"]
@@ -21,6 +22,9 @@ size = Vector2(51.999992, 36.5)
 [node name="Game" type="Node2D"]
 
 [node name="Parallax" parent="." instance=ExtResource("1_741xk")]
+
+[node name="Sprite2D" parent="Parallax/ParallaxBackground/ParallaxLayer" index="0"]
+texture = ExtResource("2_4wfvb")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("3_uwlxl")
@@ -132,4 +136,5 @@ position = Vector2(104, -88)
 [node name="Coin2" parent="." instance=ExtResource("5_kydov")]
 position = Vector2(184, -104)
 
+[editable path="Parallax"]
 [editable path="Dog Houses/Dog House"]

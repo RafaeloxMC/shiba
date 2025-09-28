@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://domf11aw817be"]
+[gd_scene load_steps=12 format=3 uid="uid://domf11aw817be"]
 
 [ext_resource type="PackedScene" uid="uid://cesxcje0r35td" path="res://scenes/parallax.tscn" id="1_ugcn1"]
+[ext_resource type="Texture2D" uid="uid://caavse5j8o3yk" path="res://assets/sprites/parallax_desert_bg.png" id="2_2bnyt"]
 [ext_resource type="TileSet" uid="uid://bk2fv30homksp" path="res://assets/tile_sets/map_tiles.tres" id="5_n6eey"]
 [ext_resource type="PackedScene" uid="uid://b50ps8r584f3y" path="res://scenes/player.tscn" id="6_022ip"]
 [ext_resource type="SpriteFrames" uid="uid://cmyr24ernl424" path="res://assets/sprite_frames/store_owner.tres" id="7_pimnq"]
@@ -15,6 +16,9 @@
 [node name="Game" type="Node2D"]
 
 [node name="Parallax" parent="." instance=ExtResource("1_ugcn1")]
+
+[node name="Sprite2D" parent="Parallax/ParallaxBackground/ParallaxLayer" index="0"]
+texture = ExtResource("2_2bnyt")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("5_n6eey")
@@ -84,4 +88,5 @@ position = Vector2(352, -48)
 z_index = -1
 position = Vector2(248, -48)
 
+[editable path="Parallax"]
 [editable path="Dog Houses/Dog House"]

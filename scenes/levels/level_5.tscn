@@ -43,7 +43,7 @@ layer_0/tile_data = PackedInt32Array(196602, 1245184, 15, 131075, 1245184, 15, 1
 [node name="Player" parent="." instance=ExtResource("3_dwyms")]
 z_index = 5
 position = Vector2(353, 128)
-level_border_right = 1000
+level_border_right = 2000
 bats = true
 
 [node name="Camera2D" parent="Player" index="6"]

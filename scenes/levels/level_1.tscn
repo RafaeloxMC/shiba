@@ -1,8 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://bd0uwlu6vgy38"]
+[gd_scene load_steps=24 format=3 uid="uid://bd0uwlu6vgy38"]
 
 [ext_resource type="PackedScene" uid="uid://cesxcje0r35td" path="res://scenes/parallax.tscn" id="1_mm8aj"]
 [ext_resource type="TileSet" uid="uid://bk2fv30homksp" path="res://assets/tile_sets/map_tiles.tres" id="5_bahl2"]
 [ext_resource type="PackedScene" uid="uid://b50ps8r584f3y" path="res://scenes/player.tscn" id="6_ndtll"]
+[ext_resource type="PackedScene" uid="uid://xgk1a5pcdwcx" path="res://scenes/swim_trigger.tscn" id="8_dnkej"]
 [ext_resource type="PackedScene" uid="uid://b5lvwjoesv1re" path="res://scenes/killzone.tscn" id="8_mqh5v"]
 [ext_resource type="PackedScene" uid="uid://hmyka8egx1i6" path="res://scenes/platform.tscn" id="9_7o3do"]
 [ext_resource type="PackedScene" uid="uid://crqc1hhdhds5b" path="res://scenes/coin.tscn" id="10_o7j4k"]
@@ -269,6 +270,12 @@ position = Vector2(472, -184)
 
 [node name="Dog Food" parent="Dog Food" instance=ExtResource("11_31oqk")]
 position = Vector2(472, -232)
+
+[node name="Swim Triggers" type="Node" parent="."]
+
+[node name="SwimTrigger" parent="Swim Triggers" instance=ExtResource("8_dnkej")]
+position = Vector2(8, -280)
+scale = Vector2(3.9900818, 1)
 
 [node name="Squirrel" parent="." node_paths=PackedStringArray("player") instance=ExtResource("12_x7jkp")]
 position = Vector2(-120, -140)

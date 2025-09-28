@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://xgk1a5pcdwcx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4qmp"]
+size = Vector2(20, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ecv8u"]
+size = Vector2(20, 1)
+
+[node name="SwimTrigger" type="Area2D"]
+collision_layer = 0
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_s4qmp")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_ecv8u")
+one_way_collision = true

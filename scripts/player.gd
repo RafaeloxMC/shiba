@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
-
 const SPEED = 130.0
 const ACCELERATION = 1000.0
 const JUMP_VELOCITY = -300.0
 var DEAD = false
 var jumping = false
 var is_falling = false
+var is_swimming = false
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
@@ -33,7 +33,7 @@ func die():
 	self.set_collision_mask_value(1, false)
 	self.set_collision_layer_value(2, false)
 	self.set_collision_mask_value(3, false)
-	
+
 func _ready():
 	self.set_collision_mask_value(1, true)
 	self.set_collision_layer_value(2, true)
@@ -44,6 +44,22 @@ func _ready():
 		GameManager.call_dialog("Oh no! The robo dog kidnapped Shibina!\nI need to rescue her before something happens!", "Shiba", animated_sprite_2d.sprite_frames)
 		GameManager.should_show_intro = false
 	
+	if self.get_parent().has_node("Swim Triggers"):
+		var swim_triggers = self.get_parent().get_node("Swim Triggers").get_children()
+		for trigger in swim_triggers:
+			trigger.body_entered.connect(_on_swim_trigger_entered)
+			trigger.body_exited.connect(_on_swim_trigger_exited)
+
+func _on_swim_trigger_entered(body: Node) -> void:
+	print("ENTERED")
+	if body == self:
+		is_swimming = true
+
+func _on_swim_trigger_exited(body: Node) -> void:
+	print("EXITED")
+	if body == self:
+		is_swimming = false
+
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause") && GameManager.is_showing_shop == false:
 		Engine.time_scale = 1
@@ -76,8 +92,6 @@ func _physics_process(delta: float) -> void:
 		jumping = false
 		is_falling = false
 	
-	
-		
 	if DEAD: 
 		move_and_slide()
 		return
@@ -92,10 +106,13 @@ func _physics_process(delta: float) -> void:
 
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
-		animated_sprite_2d.play("walk" + hat)
+		if is_swimming:
+			animated_sprite_2d.play("swim")
+		else:
+			animated_sprite_2d.play("walk" + hat)
 		velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION * delta)
 		if velocity.x > 0:
-			animated_sprite_2d.flip_h = false;
+			animated_sprite_2d.flip_h = false
 		else:
 			animated_sprite_2d.flip_h = true
 	else:

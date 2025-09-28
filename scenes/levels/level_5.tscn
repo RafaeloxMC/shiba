@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://vjt40nuscoly"]
+[gd_scene load_steps=14 format=3 uid="uid://vjt40nuscoly"]
 
 [ext_resource type="Script" uid="uid://b8yyy402vh1a8" path="res://scripts/air_bg.gd" id="1_vvoq0"]
 [ext_resource type="Texture2D" uid="uid://cx3ln4ycwd18s" path="res://assets/sprites/parallax_bg_cave.png" id="2_dwyms"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://crqc1hhdhds5b" path="res://scenes/coin.tscn" id="5_mxx4w"]
 [ext_resource type="SpriteFrames" uid="uid://bklk7p5g27qcp" path="res://assets/sprite_frames/player.tres" id="7_0y7y4"]
 [ext_resource type="PackedScene" uid="uid://b6cui63harfpa" path="res://scenes/rabbit.tscn" id="7_dwyms"]
+[ext_resource type="PackedScene" uid="uid://xgk1a5pcdwcx" path="res://scenes/swim_trigger.tscn" id="8_6xwso"]
 [ext_resource type="PackedScene" uid="uid://uhoo82xnqgww" path="res://scenes/dog_house.tscn" id="8_gruok"]
 [ext_resource type="PackedScene" uid="uid://b6n024ar4c0vv" path="res://scenes/ribbon.tscn" id="10_tqnj0"]
 
@@ -156,5 +157,15 @@ position = Vector2(1480, 488)
 
 [node name="Coin3" parent="." instance=ExtResource("5_mxx4w")]
 position = Vector2(1496, 488)
+
+[node name="Swim Triggers" type="Node" parent="."]
+
+[node name="SwimTrigger" parent="Swim Triggers" instance=ExtResource("8_6xwso")]
+position = Vector2(520, 328)
+scale = Vector2(4.0000196, 1)
+
+[node name="SwimTrigger2" parent="Swim Triggers" instance=ExtResource("8_6xwso")]
+position = Vector2(1624, 488)
+scale = Vector2(5.6, 1)
 
 [editable path="Player"]

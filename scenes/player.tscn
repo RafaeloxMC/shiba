@@ -19,9 +19,10 @@ script = ExtResource("1_g2els")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = ExtResource("2_g2els")
-animation = &"idle"
+animation = &"swim"
 autoplay = "idle"
-frame_progress = 0.46734267
+frame = 5
+frame_progress = 0.47142494
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

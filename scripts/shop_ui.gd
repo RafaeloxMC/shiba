@@ -58,7 +58,6 @@ func buy() -> void:
 func _ready() -> void:
 	update()
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if self.visible == false || self.get_parent().visible == false:

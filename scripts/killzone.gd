@@ -7,6 +7,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if GameManager.hat == "knight":
 		print("DAMAGE ABSORBED!")
 		GameManager.hat = ""
+		GameManager.absorb.emit()
 		var enemy = self.get_parent()
 		enemy.set_collision_mask_value(1, false)
 		enemy.dead = true

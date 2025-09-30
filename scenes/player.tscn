@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b50ps8r584f3y"]
+[gd_scene load_steps=10 format=3 uid="uid://b50ps8r584f3y"]
 
 [ext_resource type="Script" uid="uid://ciqg0sbawfmmb" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="SpriteFrames" uid="uid://bklk7p5g27qcp" path="res://assets/sprite_frames/player.tres" id="2_g2els"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bqe058g6tqnv" path="res://assets/sounds/death.wav" id="5_qlg0r"]
 [ext_resource type="AudioStream" uid="uid://34hhcihhh1oh" path="res://assets/sounds/splash.wav" id="6_fjrip"]
 [ext_resource type="PackedScene" uid="uid://gef1vveefbjs" path="res://scenes/gameui.tscn" id="6_tuyoq"]
+[ext_resource type="AudioStream" uid="uid://cmabcgt2d3gbr" path="res://assets/sounds/break.wav" id="7_smehm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fjrip"]
 radius = 5.0
@@ -48,6 +49,11 @@ bus = &"SFX"
 stream = ExtResource("6_fjrip")
 volume_db = -12.0
 max_polyphony = 10
+bus = &"SFX"
+
+[node name="BreakSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_smehm")
+volume_db = -4.0
 bus = &"SFX"
 
 [node name="Timer" type="Timer" parent="."]

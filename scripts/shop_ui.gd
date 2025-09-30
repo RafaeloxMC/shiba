@@ -4,6 +4,7 @@ extends Control
 @onready var description: Label = $Description
 @onready var item: AnimatedSprite2D = $Item
 @onready var price: Label = $Price
+@onready var buy_sfx: AudioStreamPlayer2D = $BuySFX
 
 @export var items: Array[ShopItem]
 
@@ -52,7 +53,8 @@ func buy() -> void:
 		GameManager.bought_items.push_back(items[curr].name.to_lower())
 		GameManager.coins -= items[curr].price
 		GameManager.call_tick_ui()
-	pass
+		
+		buy_sfx.play()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -36,6 +36,8 @@ signal trigger_shop(value: bool)
 var is_showing_shop: bool = false
 signal dialog(content: String, author: String, animation: SpriteFrames, char_size: float, y_offset: float)
 
+signal absorb()
+
 var bird: PackedScene
 var bat: PackedScene
 var bats: bool = false

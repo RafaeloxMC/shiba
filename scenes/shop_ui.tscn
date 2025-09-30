@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://brwbaty0abnxo"]
+[gd_scene load_steps=37 format=3 uid="uid://brwbaty0abnxo"]
 
 [ext_resource type="Script" uid="uid://pnu734i6koev" path="res://scripts/shop_ui.gd" id="1_crtus"]
 [ext_resource type="Texture2D" uid="uid://bl3kql7umraqo" path="res://assets/sprites/shop_ui.png" id="1_fs6yy"]
@@ -8,6 +8,7 @@
 [ext_resource type="SpriteFrames" uid="uid://c4faj8wj7wlbs" path="res://assets/sprite_frames/dog_food.tres" id="3_usj2y"]
 [ext_resource type="Texture2D" uid="uid://bgwxkd1mpiqd5" path="res://assets/sprites/hats.png" id="5_obwu6"]
 [ext_resource type="SpriteFrames" uid="uid://5ci3qjfh1j1c" path="res://assets/sprite_frames/coin.tres" id="6_usj2y"]
+[ext_resource type="AudioStream" uid="uid://7rbbbvwhoyby" path="res://assets/sounds/buy.wav" id="9_t3xdf"]
 
 [sub_resource type="Resource" id="Resource_bidp2"]
 script = ExtResource("2_epbsd")
@@ -289,3 +290,9 @@ autowrap_mode = 3
 [node name="Item" type="AnimatedSprite2D" parent="."]
 position = Vector2(-30.401728, 0.54288805)
 sprite_frames = SubResource("SpriteFrames_epbsd")
+
+[node name="BuySFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_t3xdf")
+volume_db = -4.0
+panning_strength = 0.0
+bus = &"SFX"

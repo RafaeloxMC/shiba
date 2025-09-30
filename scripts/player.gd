@@ -14,6 +14,7 @@ var is_swimming = false
 @onready var fall_sfx: AudioStreamPlayer2D = $FallSFX
 @onready var death_sfx: AudioStreamPlayer2D = $DeathSFX
 @onready var splash_sfx: AudioStreamPlayer2D = $SplashSFX
+@onready var break_sfx: AudioStreamPlayer2D = $BreakSFX
 @onready var timer: Timer = $Timer
 
 @export var projectile: PackedScene = load("res://scenes/bone.tscn")
@@ -35,11 +36,15 @@ func die():
 	self.set_collision_layer_value(2, false)
 	self.set_collision_mask_value(3, false)
 
+func absorb():
+	break_sfx.play()
+	
 func _ready():
 	self.set_collision_mask_value(1, true)
 	self.set_collision_layer_value(2, true)
 	self.set_collision_mask_value(3, true)
 	GameManager.death.connect(die)
+	GameManager.absorb.connect(absorb)
 	GameManager.bats = bats
 	if GameManager.should_show_intro == true:
 		GameManager.call_dialog("Oh no! The robo dog kidnapped Shibina!\nI need to rescue her before something happens!", "Shiba", animated_sprite_2d.sprite_frames)

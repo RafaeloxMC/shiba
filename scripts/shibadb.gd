@@ -3,14 +3,28 @@ extends Node
 const API_BASE: String = "https://shibadb.xvcf.dev/api/v1"
 var api_key: String = ""
 var req
+var logged_in = false
 
-func _ready() -> void:
-	pass
+signal api_response(res, code, headers, body)
 	
 func init_shibadb(key: String):
 	api_key = key
 	req = HTTPRequest.new()
 	req.request_completed.connect(self.handle_res)
+	
+	add_child(req)
+	
+	var js_payload = """
+	console.log('All cookies:', document.cookie);
+	fetch('%s', {
+	    method: 'GET',
+	    credentials: 'include'
+	})
+	.then(res => res.text())
+	.then(text => console.log('Auth check:', text))
+	""" % [API_BASE + "/api/v1/auth/me"]
+
+	JavaScriptBridge.eval(js_payload, true)
 	print("ShibaDB initialized!")
 	
 func save_progress(values: Dictionary[String, Variant]) -> void:
@@ -69,19 +83,14 @@ func save_progress(values: Dictionary[String, Variant]) -> void:
 func save_progress_with_cookie(values: Dictionary[String, Variant], cookie: String) -> void:
 	var payload = JSON.stringify(values, "\t")
 	print(payload)
-
-	add_child(req)
 	
-	var err = req.request("https://shibadb.xvcf.dev/api/v1/games/" + api_key + "/data", ["Cookie: shibaCookie=" + cookie], HTTPClient.METHOD_POST, "{\"saveData\":" + payload + "}")
+	var err = req.request(API_BASE + "/games/" + api_key + "/data", ["Cookie: shibaCookie=" + cookie], HTTPClient.METHOD_POST, "{\"saveData\":" + payload + "}")
 	if err != OK:
 		print("Something went wrong while requesting ShibaDB!\n" + str(err))
 
 func handle_res(result, response_code, headers, body):
 	var json = JSON.new()
-	print("Result: " + str(result))
-	print("Response Code: " + str(response_code))
-	print("Headers: " + str(headers))
-	print("Body: " + str(json.parse(body.get_string_from_utf8())))
+	api_response.emit(result, response_code, headers, json.parse(body.get_string_from_utf8()))
 	
 func _handle_fetch_complete(args: Array) -> void:
 	var res = args[0]
@@ -102,8 +111,4 @@ func _handle_fetch_complete(args: Array) -> void:
 				
 	var json = JSON.new()
 	var body = json.parse(body_str)
-	print("Res: " + str(res))
-	print("Code: " + str(code))
-	print("Headers: " + str(headers))
-	print("Body: " + str(body))
-	pass
+	api_response.emit(res, code, headers, body)

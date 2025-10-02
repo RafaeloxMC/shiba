@@ -36,6 +36,7 @@ signal trigger_shop(value: bool)
 var is_showing_shop: bool = false
 signal dialog(content: String, author: String, animation: SpriteFrames, char_size: float, y_offset: float)
 
+@warning_ignore("unused_signal")
 signal absorb()
 
 var bird: PackedScene
@@ -54,6 +55,7 @@ func _ready() -> void:
 	bird = preload("res://scenes/bird.tscn")
 	bat = preload("res://scenes/bat.tscn")
 	trigger_shop.connect(set_show_shop)
+	ShibaDB.init_shibadb("68d97ac7241f0847810f436d")
 
 func _process(_delta: float) -> void:
 	max_hearts = hearts_per_diff()

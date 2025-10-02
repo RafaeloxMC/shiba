@@ -27,6 +27,7 @@ func next_level():
 	if current_level.begins_with("level_"):
 		var lvl_idx = int(current_level.split("_")[1])
 		if scenes.has("level_" + str(lvl_idx + 1)):
+			ShibaDB.save_progress({ "coins": GameManager.coins, "hearts": GameManager.hearts, "level": "level_" + str(lvl_idx + 1) })
 			call_scene("level_" + str(lvl_idx + 1))
 		
 func prev_level():

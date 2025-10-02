@@ -5,7 +5,7 @@ on: push
 
 env:
   GODOT_VERSION: 4.5
-  EXPORT_NAME: ShibaRunner
+  EXPORT_NAME: index
   PROJECT_PATH: .
 
 jobs:

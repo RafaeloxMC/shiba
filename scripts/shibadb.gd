@@ -94,7 +94,7 @@ func save_progress_with_cookie(values: Dictionary[String, Variant], cookie: Stri
 
 func load_progress():
 	if OS.get_name() != "Web":
-		print("Dynamically saving progress is not supported on this platform!")
+		print("Dynamically loading progress is not supported on this platform!")
 		return
 	
 	var callable = Callable(self, "_handle_fetch_complete")
@@ -102,37 +102,44 @@ func load_progress():
 	
 	var callback_name = "godot_shibadb_callback_load_" + str(Time.get_ticks_msec())
 	
-	var js_setup = "window." + callback_name + " = null;"
-	JavaScriptBridge.eval(js_setup, true)
-	
 	var window = JavaScriptBridge.get_interface("window")
 	window[callback_name] = callback
 	
 	var js_payload = """
-	fetch('%s', {
-		method: 'GET',
-		credentials: 'include'
-	})
-	.then(function(response) {
-		var headers = "";
-		response.headers.forEach(function(value, key) {
-			headers += key + ":" + value + "\\n"
-		});
-		return [response.status, headers, response]
-	})
-	.then(function([status, headers_str, response]) {
-		if (!response.ok) {
-			throw new Error("HTTP " + status) 
-		}
-		
-		return response.text().then(function(text) {
-			window.%s([0, status, headers_str, text])
+	(function() {
+		fetch('%s', {
+			method: 'GET',
+			credentials: 'include'
 		})
-	})
-	.catch(function(error) {
-		window.%s([1, 0, "", "Error: " + error.message])
-	})
-	""" % [API_BASE + "/games/" + api_key + "/data", callback_name, callback_name]
+		.then(function(response) {
+			var headers = "";
+			response.headers.forEach(function(value, key) {
+				headers += key + ":" + value + "\\n"
+			});
+			return [response.status, headers, response]
+		})
+		.then(function([status, headers_str, response]) {
+			if (!response.ok) {
+				throw new Error("HTTP " + status) 
+			}
+			
+			return response.text().then(function(text) {
+				if (window.%s && typeof window.%s === 'function') {
+					window.%s([0, status, headers_str, text])
+				}
+			})
+		})
+		.catch(function(error) {
+			if (window.%s && typeof window.%s === 'function') {
+				window.%s([1, 0, "", "Error: " + error.message])
+			}
+		})
+	})();
+	""" % [
+		API_BASE + "/games/" + api_key + "/data",
+		callback_name, callback_name, callback_name,
+		callback_name, callback_name, callback_name
+	]
 	
 	JavaScriptBridge.eval(js_payload, true)
 

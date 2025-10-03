@@ -1,13 +1,18 @@
 extends Node
 
+var is_init: bool = false
 const API_BASE: String = "https://shibadb.xvcf.dev/api/v1"
 var api_key: String = ""
 var req
 var logged_in = false
 
 signal api_response(res, code, headers, body)
+signal save_loaded(saveData)
 	
 func init_shibadb(key: String):
+	if is_init:
+		print("WARNING: ShibaDB should not be initialized more than once!")
+		return
 	api_key = key
 	req = HTTPRequest.new()
 	req.request_completed.connect(self.handle_res)
@@ -15,7 +20,6 @@ func init_shibadb(key: String):
 	add_child(req)
 	
 	var js_payload = """
-	console.log('All cookies:', document.cookie);
 	fetch('%s', {
 	    method: 'GET',
 	    credentials: 'include'
@@ -25,7 +29,9 @@ func init_shibadb(key: String):
 	""" % [API_BASE + "/api/v1/auth/me"]
 
 	JavaScriptBridge.eval(js_payload, true)
+	api_response.connect(is_data_save)
 	print("ShibaDB initialized!")
+	is_init = true
 	
 func save_progress(values: Dictionary[String, Variant]) -> void:
 	if OS.get_name() != "Web":
@@ -80,6 +86,7 @@ func save_progress(values: Dictionary[String, Variant]) -> void:
 	
 	JavaScriptBridge.eval(js_payload, true)
 
+# WARNING: THIS SHOULD ONLY EVER BE USED IN DEVELOPMENT! DO NOT PUSH THIS TO PRODUCTION!!! THIS WILL LEAK YOUR SHIBADB TOKEN!
 func save_progress_with_cookie(values: Dictionary[String, Variant], cookie: String) -> void:
 	var payload = JSON.stringify(values, "\t")
 	print(payload)
@@ -87,6 +94,52 @@ func save_progress_with_cookie(values: Dictionary[String, Variant], cookie: Stri
 	var err = req.request(API_BASE + "/games/" + api_key + "/data", ["Cookie: shibaCookie=" + cookie], HTTPClient.METHOD_POST, "{\"saveData\":" + payload + "}")
 	if err != OK:
 		print("Something went wrong while requesting ShibaDB!\n" + str(err))
+
+func load_progress():
+	if OS.get_name() != "Web":
+		print("Dynamically saving progress is not supported on this platform!")
+		return
+	
+	var callable = Callable(self, "_handle_fetch_complete")
+	var callback = JavaScriptBridge.create_callback(callable)
+	
+	var callback_name = "godot_shibadb_callback_" + str(Time.get_ticks_msec())
+	
+	var js_setup = "window." + callback_name + " = null;"
+	JavaScriptBridge.eval(js_setup, true)
+	
+	var window = JavaScriptBridge.get_interface("window")
+	window[callback_name] = callback
+	
+	var js_payload = """
+	fetch('%s', {
+		method: 'GET',
+		credentials: 'include'
+	})
+	.then(function(response) {
+		var headers = "";
+		response.headers.forEach(function(value, key) {
+			headers += key + ":" + value + "\\n"
+		});
+		return [response.status, headers, response]
+	})
+	.then(function([status, headers_str, response]) {
+		if (!response.ok) {
+			throw new Error("HTTP " + status) 
+		}
+		
+		return response.text().then(function(text) {
+			window.%s([0, status, headers_str, text])
+		})
+	})
+	.catch(function(error) {
+		window.%s([1, 0, "", "Error: " + error.message])
+	})
+	""" % [API_BASE + "/games/" + api_key + "/data", callback_name, callback_name]
+	
+	print(js_payload)
+	
+	JavaScriptBridge.eval(js_payload, true)
 
 func handle_res(result, response_code, headers, body):
 	var json = JSON.new()
@@ -112,3 +165,10 @@ func _handle_fetch_complete(args: Array) -> void:
 	var json = JSON.new()
 	var body = json.parse(body_str)
 	api_response.emit(res, code, headers, body)
+
+
+func is_data_save(_res, code, _headers, body):
+	if code == 200:
+		if body == OK && body.data.includes(""):
+			print("VALID!")
+			save_loaded.emit(body.data)

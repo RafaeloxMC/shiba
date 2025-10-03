@@ -51,11 +51,17 @@ func set_show_shop(value: bool) -> void:
 	is_showing_shop = value
 	print("Showing shop: " + str(value))
 
+func save_loaded(saveData) -> void:
+	print("Loaded save from ShibaDB")
+	print(str(saveData))
+
 func _ready() -> void:
 	bird = preload("res://scenes/bird.tscn")
 	bat = preload("res://scenes/bat.tscn")
 	trigger_shop.connect(set_show_shop)
+	ShibaDB.save_loaded.connect(save_loaded)
 	ShibaDB.init_shibadb("68d97ac7241f0847810f436d")
+	ShibaDB.load_progress()
 
 func _process(_delta: float) -> void:
 	max_hearts = hearts_per_diff()

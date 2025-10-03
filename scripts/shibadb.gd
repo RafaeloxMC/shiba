@@ -44,7 +44,7 @@ func save_progress(values: Dictionary[String, Variant]) -> void:
 	var callable = Callable(self, "_handle_fetch_complete")
 	var callback = JavaScriptBridge.create_callback(callable)
 	
-	var callback_name = "godot_shibadb_callback_" + str(Time.get_ticks_msec())
+	var callback_name = "godot_shibadb_callback_save_" + str(Time.get_ticks_msec())
 	
 	var js_setup = "window." + callback_name + " = null;"
 	JavaScriptBridge.eval(js_setup, true)
@@ -82,14 +82,11 @@ func save_progress(values: Dictionary[String, Variant]) -> void:
 	})
 	""" % [API_BASE + "/games/" + api_key + "/data", payload, callback_name, callback_name]
 	
-	print(js_payload)
-	
 	JavaScriptBridge.eval(js_payload, true)
 
-# WARNING: THIS SHOULD ONLY EVER BE USED IN DEVELOPMENT! DO NOT PUSH THIS TO PRODUCTION!!! THIS WILL LEAK YOUR SHIBADB TOKEN!
+# WARNING: THIS SHOULD ONLY EVER BE USED IN DEVELOPMENT! DO NOT PUSH THIS TO PRODUCTION!!! THIS WILL LEAK YOUR SHIBADB TOKEN! USE DYNAMIC LOADING INSTEAD!
 func save_progress_with_cookie(values: Dictionary[String, Variant], cookie: String) -> void:
 	var payload = JSON.stringify(values, "\t")
-	print(payload)
 	
 	var err = req.request(API_BASE + "/games/" + api_key + "/data", ["Cookie: shibaCookie=" + cookie], HTTPClient.METHOD_POST, "{\"saveData\":" + payload + "}")
 	if err != OK:
@@ -103,7 +100,7 @@ func load_progress():
 	var callable = Callable(self, "_handle_fetch_complete")
 	var callback = JavaScriptBridge.create_callback(callable)
 	
-	var callback_name = "godot_shibadb_callback_" + str(Time.get_ticks_msec())
+	var callback_name = "godot_shibadb_callback_load_" + str(Time.get_ticks_msec())
 	
 	var js_setup = "window." + callback_name + " = null;"
 	JavaScriptBridge.eval(js_setup, true)
@@ -137,8 +134,6 @@ func load_progress():
 	})
 	""" % [API_BASE + "/games/" + api_key + "/data", callback_name, callback_name]
 	
-	print(js_payload)
-	
 	JavaScriptBridge.eval(js_payload, true)
 
 func handle_res(result, response_code, headers, body):
@@ -146,6 +141,7 @@ func handle_res(result, response_code, headers, body):
 	api_response.emit(result, response_code, headers, json.parse(body.get_string_from_utf8()))
 	
 func _handle_fetch_complete(args: Array) -> void:
+	print("HANDLING FETCH RESPONSE")
 	var res = args[0]
 	var code = args[1]
 	var headers_str = args[2]
@@ -168,11 +164,16 @@ func _handle_fetch_complete(args: Array) -> void:
 	print("Code: " + str(code))
 	print("Headers: " + str(headers))
 	print("Body: " + str(body))
+	print("EMITTING API RESPONSE SIGNAL")
 	api_response.emit(res, code, headers, body)
-
 
 func is_data_save(_res, code, _headers, body):
 	if code == 200:
 		if body == OK && body.data.includes(""):
-			print("VALID!")
+			print("VALID SAVE DATA!")
 			save_loaded.emit(body.data)
+		else:
+			print("INVALID SAVE DATA!")
+			print(str(body))
+	else:
+		print("RES CODE " + str(code))

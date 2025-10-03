@@ -60,7 +60,7 @@ func _ready() -> void:
 	bat = preload("res://scenes/bat.tscn")
 	trigger_shop.connect(set_show_shop)
 	ShibaDB.save_loaded.connect(save_loaded)
-	ShibaDB.init_shibadb("68d97ac7241f0847810f436d")
+	await ShibaDB.init_shibadb("68d97ac7241f0847810f436d")
 	ShibaDB.load_progress()
 
 func _process(_delta: float) -> void:

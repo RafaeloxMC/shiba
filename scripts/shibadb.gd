@@ -26,7 +26,7 @@ func init_shibadb(key: String):
 	})
 	.then(res => res.text())
 	.then(text => console.log('Auth check:', text))
-	""" % [API_BASE + "/api/v1/auth/me"]
+	""" % [API_BASE + "/auth/me"]
 
 	JavaScriptBridge.eval(js_payload, true)
 	api_response.connect(is_data_save)
@@ -164,6 +164,10 @@ func _handle_fetch_complete(args: Array) -> void:
 				
 	var json = JSON.new()
 	var body = json.parse(body_str)
+	print("Res: " + str(res))
+	print("Code: " + str(code))
+	print("Headers: " + str(headers))
+	print("Body: " + str(body))
 	api_response.emit(res, code, headers, body)
 
 

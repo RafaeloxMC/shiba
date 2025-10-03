@@ -41,6 +41,7 @@ shape = SubResource("RectangleShape2D_pxr23")
 [node name="Text" type="Node2D" parent="."]
 
 [node name="Label" type="Label" parent="Text"]
+modulate = Color(1, 1, 1, 0.49803922)
 offset_left = -17.0
 offset_top = -35.0
 offset_right = 32.0
@@ -50,6 +51,7 @@ label_settings = SubResource("LabelSettings_303ex")
 horizontal_alignment = 2
 
 [node name="CoinSprite" type="AnimatedSprite2D" parent="Text"]
+modulate = Color(1, 1, 1, 0.49803922)
 position = Vector2(-27, -26)
 sprite_frames = ExtResource("4_pxr23")
 autoplay = "default"

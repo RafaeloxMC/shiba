@@ -58,6 +58,11 @@ func buy() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	for itm in items:
+		if GameManager.bought_items.has(itm.name):
+			itm.is_bought = true
+		else:
+			itm.is_bought = false
 	update()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -54,6 +54,16 @@ func set_show_shop(value: bool) -> void:
 func save_loaded(saveData) -> void:
 	print("Loaded save from ShibaDB")
 	print(str(saveData))
+	var json = JSON.new()
+	var raw = json.parse(saveData)
+	var save = raw.data;
+	print("Extracted save data: " + save)
+	print("Attempted object extraction - coins: " + str(save.coins))
+	hearts = save.hearts
+	coins = save.coins
+	SceneManager.current_level = save.level
+	first_play = false
+	
 
 func _ready() -> void:
 	bird = preload("res://scenes/bird.tscn")

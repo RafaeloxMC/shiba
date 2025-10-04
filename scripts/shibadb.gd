@@ -21,15 +21,6 @@ func init_shibadb(key: String):
 		sdb_log("WARNING: ShibaDB should not be initialized more than once!")
 		return
 	api_key = key
-	var js_payload = """
-    fetch('%s', {
-        method: 'GET',
-        credentials: 'include'
-    })
-    .then(res => res.text())
-    .then(text => console.log('Auth check:', text))
-	""" % [API_BASE + "/auth/me"]
-	JavaScriptBridge.eval(js_payload, true)
 	sdb_log("ShibaDB initialized!")
 	is_init = true
 	

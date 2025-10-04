@@ -168,8 +168,9 @@ func handle_res(result, response_code, headers, body):
 	api_response.emit(result, response_code, headers, json.parse(body.get_string_from_utf8()))
 
 func is_data_save(_res, code, _headers, body):
+	print("is_data_save CALLED! Code: " + str(code) + ", Body type: " + str(typeof(body)))
 	if code == 200:
-		if body == OK && body.data.includes(""):
+		if body.has("success") && body.success && body.has("data"):
 			print("VALID SAVE DATA!")
 			save_loaded.emit(body.data)
 		else:

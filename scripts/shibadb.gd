@@ -11,15 +11,17 @@ var active_callbacks = {}
 signal api_response(res, code, headers, body)
 signal save_loaded(saveData)
 	
+func _ready() -> void:
+	api_response.connect(is_data_save)
+	req = HTTPRequest.new()
+	req.request_completed.connect(self.handle_res)
+	add_child(req)
+
 func init_shibadb(key: String):
 	if is_init:
 		print("WARNING: ShibaDB should not be initialized more than once!")
 		return
 	api_key = key
-	req = HTTPRequest.new()
-	req.request_completed.connect(self.handle_res)
-	
-	add_child(req)
 	
 	var js_payload = """
 	fetch('%s', {
@@ -31,7 +33,6 @@ func init_shibadb(key: String):
 	""" % [API_BASE + "/auth/me"]
 
 	JavaScriptBridge.eval(js_payload, true)
-	api_response.connect(is_data_save)
 	print("ShibaDB initialized!")
 	is_init = true
 	

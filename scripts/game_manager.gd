@@ -55,9 +55,9 @@ func _on_save_loaded(saveData):
 	print("GameManager received save!")
 	print("Received data: " + str(saveData))
 	if saveData.has("coins"):
-		coins = saveData.coins
+		coins = int(saveData.coins)
 	if saveData.has("hearts"):
-		hearts = saveData.hearts
+		hearts = int(saveData.hearts)
 	if saveData.has("level"):
 		SceneManager.current_level = saveData.level
 	first_play = false

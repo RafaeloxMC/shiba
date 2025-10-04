@@ -12,7 +12,6 @@ signal api_response(res, code, headers, body)
 signal save_loaded(saveData)
 	
 func _ready() -> void:
-	api_response.connect(is_data_save)
 	req = HTTPRequest.new()
 	req.request_completed.connect(self.handle_res)
 	add_child(req)
@@ -61,6 +60,7 @@ func _handle_fetch_complete(args: Array) -> void:
 	print("Body: " + str(parse_result))
 	print("EMITTING API RESPONSE SIGNAL")
 	api_response.emit(res, code, headers, parse_result)
+	is_data_save(res, code, headers, parse_result)
 	
 func save_progress(values: Dictionary[String, Variant]) -> void:
 	if OS.get_name() != "Web":

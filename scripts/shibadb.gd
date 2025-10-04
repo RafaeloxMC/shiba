@@ -6,6 +6,8 @@ var api_key: String = ""
 var req
 var logged_in = false
 
+var active_callbacks = {}
+
 signal api_response(res, code, headers, body)
 signal save_loaded(saveData)
 	
@@ -51,14 +53,13 @@ func _handle_fetch_complete(args: Array) -> void:
 					)
 				)
 				
-	var json = JSON.new()
-	var body = json.parse(body_str)
+	var parse_result = JSON.parse_string(body_str)
 	print("Res: " + str(res))
 	print("Code: " + str(code))
 	print("Headers: " + str(headers))
-	print("Body: " + str(body))
+	print("Body: " + str(parse_result))
 	print("EMITTING API RESPONSE SIGNAL")
-	api_response.emit(res, code, headers, body)
+	api_response.emit(res, code, headers, parse_result)
 	
 func save_progress(values: Dictionary[String, Variant]) -> void:
 	if OS.get_name() != "Web":
@@ -73,8 +74,7 @@ func save_progress(values: Dictionary[String, Variant]) -> void:
 	
 	var callback_name = "godot_shibadb_callback_save_" + str(Time.get_ticks_msec())
 	
-	var js_setup = "window." + callback_name + " = null;"
-	JavaScriptBridge.eval(js_setup, true)
+	active_callbacks[callback_name] = callback
 	
 	var window = JavaScriptBridge.get_interface("window")
 	window[callback_name] = callback
@@ -101,11 +101,11 @@ func save_progress(values: Dictionary[String, Variant]) -> void:
 		}
 		
 		return response.text().then(function(text) {
-			window.%s([0, status, headers_str, text])
+			window.%s(0, status, headers_str, text)
 		})
 	})
 	.catch(function(error) {
-		window.%s([1, 0, "", "Error: " + error.message])
+		window.%s(1, 0, "", "Error: " + error.message)
 	})
 	""" % [API_BASE + "/games/" + api_key + "/data", payload, callback_name, callback_name]
 	
@@ -129,8 +129,7 @@ func load_progress():
 	
 	var callback_name = "godot_shibadb_callback_load_" + str(Time.get_ticks_msec())
 	
-	var js_setup = "window." + callback_name + " = null;"
-	JavaScriptBridge.eval(js_setup, true)
+	active_callbacks[callback_name] = callback
 	
 	var window = JavaScriptBridge.get_interface("window")
 	window[callback_name] = callback
@@ -153,11 +152,11 @@ func load_progress():
 		}
 		
 		return response.text().then(function(text) {
-			window.%s([0, status, headers_str, text])
+			window.%s(0, status, headers_str, text)
 		})
 	})
 	.catch(function(error) {
-		window.%s([1, 0, "", "Error: " + error.message])
+		window.%s(1, 0, "", "Error: " + error.message)
 	})
 	""" % [API_BASE + "/games/" + api_key + "/data", callback_name, callback_name]
 	

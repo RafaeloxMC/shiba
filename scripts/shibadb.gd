@@ -33,6 +33,33 @@ func init_shibadb(key: String):
 	print("ShibaDB initialized!")
 	is_init = true
 	
+func _handle_fetch_complete(args: Array) -> void:
+	print("HANDLING FETCH RESPONSE")
+	var res = args[0]
+	var code = args[1]
+	var headers_str = args[2]
+	var body_str = args[3]
+	var headers = PackedStringArray()
+	
+	if headers_str:
+		headers = PackedStringArray(
+			headers_str
+			.split("\n")
+			.filter(
+				func(h):
+					return h.strip_edges() != ""
+					)
+				)
+				
+	var json = JSON.new()
+	var body = json.parse(body_str)
+	print("Res: " + str(res))
+	print("Code: " + str(code))
+	print("Headers: " + str(headers))
+	print("Body: " + str(body))
+	print("EMITTING API RESPONSE SIGNAL")
+	api_response.emit(res, code, headers, body)
+	
 func save_progress(values: Dictionary[String, Variant]) -> void:
 	if OS.get_name() != "Web":
 		print("Dynamically saving progress is not supported on this platform!")
@@ -139,33 +166,6 @@ func load_progress():
 func handle_res(result, response_code, headers, body):
 	var json = JSON.new()
 	api_response.emit(result, response_code, headers, json.parse(body.get_string_from_utf8()))
-	
-func _handle_fetch_complete(args: Array) -> void:
-	print("HANDLING FETCH RESPONSE")
-	var res = args[0]
-	var code = args[1]
-	var headers_str = args[2]
-	var body_str = args[3]
-	var headers = PackedStringArray()
-	
-	if headers_str:
-		headers = PackedStringArray(
-			headers_str
-			.split("\n")
-			.filter(
-				func(h):
-					return h.strip_edges() != ""
-					)
-				)
-				
-	var json = JSON.new()
-	var body = json.parse(body_str)
-	print("Res: " + str(res))
-	print("Code: " + str(code))
-	print("Headers: " + str(headers))
-	print("Body: " + str(body))
-	print("EMITTING API RESPONSE SIGNAL")
-	api_response.emit(res, code, headers, body)
 
 func is_data_save(_res, code, _headers, body):
 	if code == 200:

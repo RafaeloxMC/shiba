@@ -1,13 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://de8gb0inn4kox"]
+[gd_scene load_steps=11 format=3 uid="uid://de8gb0inn4kox"]
 
 [ext_resource type="PackedScene" uid="uid://cesxcje0r35td" path="res://scenes/parallax.tscn" id="1_st48t"]
 [ext_resource type="Texture2D" uid="uid://caavse5j8o3yk" path="res://assets/sprites/parallax_desert_bg.png" id="2_dfn7m"]
 [ext_resource type="TileSet" uid="uid://bk2fv30homksp" path="res://assets/tile_sets/map_tiles.tres" id="3_8rm7r"]
 [ext_resource type="PackedScene" uid="uid://b50ps8r584f3y" path="res://scenes/player.tscn" id="4_c64tk"]
 [ext_resource type="PackedScene" uid="uid://b5lvwjoesv1re" path="res://scenes/killzone.tscn" id="5_bntht"]
+[ext_resource type="PackedScene" uid="uid://prtcrbjwfdku" path="res://scenes/dialog_trigger.tscn" id="6_posk4"]
+[ext_resource type="SpriteFrames" uid="uid://cmyr24ernl424" path="res://assets/sprite_frames/store_owner.tres" id="7_sjq8i"]
 [ext_resource type="PackedScene" uid="uid://uhoo82xnqgww" path="res://scenes/dog_house.tscn" id="12_r4aal"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p57ef"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hq5i0"]
+size = Vector2(20, 209)
 
 [node name="Game" type="Node2D"]
 
@@ -47,6 +52,13 @@ shape = SubResource("WorldBoundaryShape2D_p57ef")
 
 [node name="Dialogs" type="Node" parent="."]
 
+[node name="DialogTrigger" parent="Dialogs" instance=ExtResource("6_posk4")]
+position = Vector2(194, -94)
+scale = Vector2(7.7034597, 4.586466)
+text = "Welcome to Cameltown! This part is currently WIP! and yes, the house background is absolutey terrible, I know that as well! I'm gonna change that in the future and there will be more lore! Hope you had fun!"
+author = "xvcf"
+sprite_frames = ExtResource("7_sjq8i")
+
 [node name="Dog Houses" type="Node" parent="."]
 
 [node name="Dog House" parent="Dog Houses" instance=ExtResource("12_r4aal")]
@@ -65,6 +77,13 @@ position = Vector2(-29, 0)
 [node name="Friendly" type="Node" parent="."]
 
 [node name="Swim Triggers" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(262, -58)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -94.5)
+shape = SubResource("RectangleShape2D_hq5i0")
 
 [editable path="Parallax"]
 [editable path="Dog Houses/Dog House"]

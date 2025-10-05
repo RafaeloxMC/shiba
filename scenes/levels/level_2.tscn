@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ctt48cl7wtscj"]
+[gd_scene load_steps=21 format=3 uid="uid://ctt48cl7wtscj"]
 
 [ext_resource type="PackedScene" uid="uid://cesxcje0r35td" path="res://scenes/parallax.tscn" id="1_tv7cl"]
 [ext_resource type="TileSet" uid="uid://bk2fv30homksp" path="res://assets/tile_sets/map_tiles.tres" id="5_ndlae"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dwkr2txvg88fv" path="res://scenes/dog_food.tscn" id="11_ndlae"]
 [ext_resource type="PackedScene" uid="uid://c46m5254yitc8" path="res://scenes/squirrel.tscn" id="11_r88tb"]
 [ext_resource type="PackedScene" uid="uid://qd5bh2mlrkno" path="res://scenes/nut.tscn" id="12_1yj8c"]
+[ext_resource type="PackedScene" uid="uid://bgwkv2r6fk6fm" path="res://scenes/timer.tscn" id="13_tv7cl"]
 [ext_resource type="PackedScene" uid="uid://prtcrbjwfdku" path="res://scenes/dialog_trigger.tscn" id="15_wwjag"]
 [ext_resource type="SpriteFrames" uid="uid://bklk7p5g27qcp" path="res://assets/sprite_frames/player.tres" id="16_rvwo1"]
 [ext_resource type="PackedScene" uid="uid://uhoo82xnqgww" path="res://scenes/dog_house.tscn" id="17_yxkvy"]
@@ -235,5 +236,16 @@ position = Vector2(-29, 0)
 
 [node name="Dog House2" parent="Dog Houses" instance=ExtResource("17_yxkvy")]
 position = Vector2(976, 128)
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="Timer" parent="Timers" instance=ExtResource("13_tv7cl")]
+position = Vector2(680, 280)
+
+[node name="Timer2" parent="Timers" instance=ExtResource("13_tv7cl")]
+position = Vector2(680, 136)
+
+[node name="Timer3" parent="Timers" instance=ExtResource("13_tv7cl")]
+position = Vector2(680, -8)
 
 [editable path="Dog Houses/Dog House"]

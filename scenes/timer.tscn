@@ -1,0 +1,217 @@
+[gd_scene load_steps=17 format=3 uid="uid://bgwkv2r6fk6fm"]
+
+[ext_resource type="Texture2D" uid="uid://boa1e3hkghgt8" path="res://assets/sprites/timer.png" id="1_srplv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lxq6"]
+atlas = ExtResource("1_srplv")
+region = Rect2(0, 0, 15, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g5y8c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lxq6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bi5oq"]
+atlas = ExtResource("1_srplv")
+region = Rect2(15, 0, 15, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uktcg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bi5oq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qso1l"]
+atlas = ExtResource("1_srplv")
+region = Rect2(30, 0, 15, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y07ne"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qso1l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_dtxrw"]
+resource_name = "play"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+
+[sub_resource type="Animation" id="Animation_sa7gq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_03p6j"]
+_data = {
+&"RESET": SubResource("Animation_sa7gq"),
+&"play": SubResource("Animation_dtxrw")
+}
+
+[sub_resource type="Animation" id="Animation_0yba6"]
+resource_name = "move"
+length = 36.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D3:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 36),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+
+[sub_resource type="Animation" id="Animation_u5bqm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D3:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rva15"]
+_data = {
+&"RESET": SubResource("Animation_u5bqm"),
+&"move": SubResource("Animation_0yba6")
+}
+
+[sub_resource type="Animation" id="Animation_srplv"]
+resource_name = "spin"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.3490658503988659, -0.34906584, 0.34906584]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.3, 0.3), Vector2(0.35, 0.35)]
+}
+
+[sub_resource type="Animation" id="Animation_5lxq6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.3, 0.3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g5y8c"]
+_data = {
+&"RESET": SubResource("Animation_5lxq6"),
+&"spin": SubResource("Animation_srplv")
+}
+
+[node name="Timer" type="Node2D"]
+modulate = Color(1, 1, 1, 0.6117647)
+scale = Vector2(0.3, 0.3)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_g5y8c")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_uktcg")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_y07ne")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_03p6j")
+}
+autoplay = "play"
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_rva15")
+}
+autoplay = "move"
+
+[node name="AnimationPlayer3" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_g5y8c")
+}
+autoplay = "spin"

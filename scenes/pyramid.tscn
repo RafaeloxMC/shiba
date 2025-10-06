@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://waaoxe33v217"]
+
+[ext_resource type="Texture2D" uid="uid://q2grwg6fkjxj" path="res://assets/sprites/pyramid.png" id="1_sw6ir"]
+[ext_resource type="Texture2D" uid="uid://dk7sqxss74jsx" path="res://assets/sprites/pyramid_fg.png" id="2_yvq63"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_posk4"]
+size = Vector2(32.65874, 141.89714)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1w5x"]
+size = Vector2(2.6694183, 31.35593)
+
+[node name="Pyramid" type="StaticBody2D"]
+scale = Vector2(2.3600001, 2.3600001)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_sw6ir")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(125.84745, 0)
+texture = ExtResource("1_sw6ir")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6.038147, 29.555088)
+rotation = 0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_posk4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(48.729, 38.97)
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_posk4")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(63.622803, -47.457634)
+shape = SubResource("RectangleShape2D_u1w5x")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(48, -47.9)
+texture = ExtResource("2_yvq63")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(77.845, -47.9)
+texture = ExtResource("2_yvq63")
+flip_h = true

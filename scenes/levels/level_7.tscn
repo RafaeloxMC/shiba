@@ -79,7 +79,7 @@ position = Vector2(648, -48)
 [node name="DialogTrigger" parent="." instance=ExtResource("9_q0wsq")]
 position = Vector2(776, -41)
 scale = Vector2(7.68002, 2.5199988)
-text = "This leads me directly to the Great Pyramid of Shibeh! That's where the mayor's at!"
+text = "This leads me directly to the Great Pyramid of Shiba! That's where the mayor's at!"
 author = "Shiba"
 sprite_frames = ExtResource("10_ivh0c")
 

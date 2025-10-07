@@ -1,13 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://waaoxe33v217"]
+[gd_scene load_steps=9 format=3 uid="uid://waaoxe33v217"]
 
 [ext_resource type="Texture2D" uid="uid://q2grwg6fkjxj" path="res://assets/sprites/pyramid.png" id="1_sw6ir"]
+[ext_resource type="Texture2D" uid="uid://bsnuntc344ov6" path="res://assets/sprites/pyramid_fg_open.png" id="2_ifwva"]
 [ext_resource type="Texture2D" uid="uid://dk7sqxss74jsx" path="res://assets/sprites/pyramid_fg.png" id="2_yvq63"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_posk4"]
-size = Vector2(32.65874, 141.89714)
+size = Vector2(32.65874, 135.1293)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m8ubx"]
+size = Vector2(59.957626, 95.76271)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u1w5x"]
 size = Vector2(2.6694183, 31.35593)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yvq63"]
+size = Vector2(1.9491539, 10.847458)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ifwva"]
+size = Vector2(51.525425, 5.7627106)
 
 [node name="Pyramid" type="StaticBody2D"]
 scale = Vector2(2.3600001, 2.3600001)
@@ -21,15 +31,15 @@ texture = ExtResource("1_sw6ir")
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-6.038147, 29.555088)
+position = Vector2(-4.025428, 27.542368)
 rotation = 0.7853982
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_posk4")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(48.729, 38.97)
+position = Vector2(62.1822, 16.101694)
 scale = Vector2(0.9999999, 0.9999999)
-shape = SubResource("RectangleShape2D_posk4")
+shape = SubResource("RectangleShape2D_m8ubx")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
 position = Vector2(63.622803, -47.457634)
@@ -38,10 +48,18 @@ shape = SubResource("RectangleShape2D_u1w5x")
 [node name="Sprite2D3" type="Sprite2D" parent="."]
 z_index = 10
 position = Vector2(48, -47.9)
-texture = ExtResource("2_yvq63")
+texture = ExtResource("2_ifwva")
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
 z_index = 10
 position = Vector2(77.845, -47.9)
 texture = ExtResource("2_yvq63")
 flip_h = true
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2(40.97457, -51.35593)
+shape = SubResource("RectangleShape2D_yvq63")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+position = Vector2(62.796604, -59.830505)
+shape = SubResource("RectangleShape2D_ifwva")

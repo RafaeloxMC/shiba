@@ -73,22 +73,22 @@ func save_progress(values: Dictionary[String, Variant]) -> void:
         body: '%s'
     })
     .then(function(response) {
-        var headers = "";
+		var headers = "";
         response.headers.forEach(function(value, key) {
-            headers += key + ":" + value + "\\n"
+			headers += key + ":" + value + "\\n"
         });
         return [response.status, headers, response]
     })
     .then(function([status, headers_str, response]) {
         if (!response.ok) {
-            throw new Error("HTTP " + status)
+			throw new Error("HTTP " + status)
         }
         return response.text().then(function(text) {
             window.%s(0, status, headers_str, text)
         })
     })
     .catch(function(error) {
-        window.%s(1, 0, "", "Error: " + error.message)
+		window.%s(1, 0, "", "Error: " + error.message)
     })
 	""" % [API_BASE + "/games/" + api_key + "/data", payload, callback_name, callback_name]
 	JavaScriptBridge.eval(js_payload, true)
@@ -116,22 +116,22 @@ func load_progress():
         credentials: 'include'
     })
     .then(function(response) {
-        var headers = "";
+		var headers = "";
         response.headers.forEach(function(value, key) {
-            headers += key + ":" + value + "\\n"
+			headers += key + ":" + value + "\\n"
         });
         return [response.status, headers, response]
     })
     .then(function([status, headers_str, response]) {
         if (!response.ok) {
-            throw new Error("HTTP " + status)
+			throw new Error("HTTP " + status)
         }
         return response.text().then(function(text) {
             window.%s(0, status, headers_str, text)
         })
     })
     .catch(function(error) {
-        window.%s(1, 0, "", "Error: " + error.message)
+		window.%s(1, 0, "", "Error: " + error.message)
     })
 	""" % [API_BASE + "/games/" + api_key + "/data", callback_name, callback_name]
 	JavaScriptBridge.eval(js_payload, true)

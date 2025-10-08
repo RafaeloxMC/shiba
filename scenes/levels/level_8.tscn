@@ -147,6 +147,7 @@ position = Vector2(152, -56)
 [node name="Trap6" parent="Traps" instance=ExtResource("4_ene4w")]
 position = Vector2(600, -40)
 upside_down = true
+has_ramp_r = false
 
 [node name="Trap7" parent="Traps" instance=ExtResource("4_ene4w")]
 position = Vector2(616, -40)
@@ -171,6 +172,7 @@ upside_down = true
 [node name="Trap12" parent="Traps" instance=ExtResource("4_ene4w")]
 position = Vector2(696, -40)
 upside_down = true
+has_ramp_l = false
 
 [node name="Trap13" parent="Traps" instance=ExtResource("4_ene4w")]
 position = Vector2(600, -24)

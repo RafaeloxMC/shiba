@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://od6flgp76n4u"]
+[gd_scene load_steps=20 format=3 uid="uid://od6flgp76n4u"]
 
 [ext_resource type="Script" uid="uid://bw5m8sqc3asry" path="res://scripts/trap.gd" id="1_aucmg"]
 [ext_resource type="Texture2D" uid="uid://xe50gcgcygtq" path="res://assets/sprites/spikes.png" id="1_npg1n"]
@@ -103,6 +103,12 @@ size = Vector2(16, 10)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fp550"]
 size = Vector2(16, 4)
 
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_aucmg"]
+points = PackedVector2Array(0, 6, 8, 10, 0, 10)
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_tk2q1"]
+points = PackedVector2Array(8, 6, 8, 10, 0, 10)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aucmg"]
 size = Vector2(14, 10)
 
@@ -125,6 +131,14 @@ shape = SubResource("RectangleShape2D_jl22o")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_fp550")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(8, -2)
+shape = SubResource("ConvexPolygonShape2D_aucmg")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-16, -2)
+shape = SubResource("ConvexPolygonShape2D_tk2q1")
 
 [node name="Killzone" parent="." instance=ExtResource("2_62q8x")]
 position = Vector2(-7, -1)

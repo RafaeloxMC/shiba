@@ -102,6 +102,11 @@ func handle_movement(_delta: float) -> void:
 		move_and_slide()
 		return
 	
+	if is_on_floor():
+		velocity.x = 0
+		move_and_slide()
+		return
+	
 	if current_state == States.CHASE:
 		var xdiff = player.position.x - self.position.x
 		velocity.x = sign(xdiff) * CHASE_SPEED
@@ -158,16 +163,17 @@ func change_direction() -> void:
 	else:
 		direction = (player.position - self.position).normalized()
 		direction = Vector2(sign(direction.x), 0)
-		if direction.x == 1:
-			animated_sprite_2d.flip_h = false
-			facing.target_position = Vector2(spotting_range, 0)
-			ground.target_position = Vector2(50, 50)
-			killzone.position.x = 0
-		else:
-			animated_sprite_2d.flip_h = true
-			facing.target_position = Vector2(-spotting_range, 0)
-			ground.target_position = Vector2(-50, 50)
-			killzone.position.x = -14
+		if abs(player.position.x - self.position.x) > 10:
+			if direction.x == 1:
+				animated_sprite_2d.flip_h = false
+				facing.target_position = Vector2(spotting_range, 0)
+				ground.target_position = Vector2(50, 50)
+				killzone.position.x = 0
+			else:
+				animated_sprite_2d.flip_h = true
+				facing.target_position = Vector2(-spotting_range, 0)
+				ground.target_position = Vector2(-50, 50)
+				killzone.position.x = -14
 
 func handle_gravity(delta: float) -> void:
 	if not is_on_floor():

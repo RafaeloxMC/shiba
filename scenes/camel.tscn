@@ -11,7 +11,7 @@ size = Vector2(15.681819, 15.194805)
 [node name="Camel" type="AnimatedSprite2D"]
 scale = Vector2(0.95999885, 0.95999885)
 sprite_frames = ExtResource("1_bxbho")
-animation = &"idle"
+animation = &"walk_ribbon"
 autoplay = "idle"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://dsq1056mcwhn"]
+[gd_scene load_steps=9 format=4 uid="uid://dsq1056mcwhn"]
 
 [ext_resource type="Script" uid="uid://b8yyy402vh1a8" path="res://scripts/air_bg.gd" id="1_6nuwh"]
 [ext_resource type="Texture2D" uid="uid://cx3ln4ycwd18s" path="res://assets/sprites/parallax_bg_cave.png" id="2_m2cpo"]
 [ext_resource type="TileSet" uid="uid://bk2fv30homksp" path="res://assets/tile_sets/map_tiles.tres" id="3_kj523"]
 [ext_resource type="PackedScene" uid="uid://b50ps8r584f3y" path="res://scenes/player.tscn" id="4_xampj"]
 [ext_resource type="PackedScene" uid="uid://b5lvwjoesv1re" path="res://scenes/killzone.tscn" id="5_xev4b"]
+[ext_resource type="PackedScene" uid="uid://d1y0ep1so2fqb" path="res://scenes/sir_caramello.tscn" id="7_ltlq2"]
 [ext_resource type="PackedScene" uid="uid://uhoo82xnqgww" path="res://scenes/dog_house.tscn" id="7_ylwrn"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p57ef"]
@@ -82,5 +83,9 @@ position = Vector2(1280, 16)
 [node name="Swim Triggers" type="Node" parent="."]
 
 [node name="Traps" type="Node" parent="."]
+
+[node name="Camel" parent="." instance=ExtResource("7_ltlq2")]
+position = Vector2(921, 57)
+flip_h = true
 
 [editable path="Dog Houses/Dog House"]

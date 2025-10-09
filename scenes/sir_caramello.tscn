@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1y0ep1so2fqb"]
+
+[ext_resource type="SpriteFrames" uid="uid://bayblkj2ccx2m" path="res://assets/sprite_frames/sir_caramello.tres" id="1_ljtky"]
+
+[node name="Camel" type="AnimatedSprite2D"]
+scale = Vector2(0.95999885, 0.95999885)
+sprite_frames = ExtResource("1_ljtky")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.1861

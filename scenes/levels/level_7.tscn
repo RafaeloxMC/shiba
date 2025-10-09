@@ -140,6 +140,27 @@ position = Vector2(-29, -51)
 [node name="Area2D" parent="Dog Houses/Dog House" index="4"]
 position = Vector2(-29, 0)
 
+[node name="Dog House2" parent="Dog Houses" instance=ExtResource("12_r4aal")]
+position = Vector2(1248, -304)
+
+[node name="HouseBG" parent="Dog Houses/Dog House2" index="0"]
+visible = false
+
+[node name="HouseFG" parent="Dog Houses/Dog House2/HouseBG" index="0"]
+visible = false
+
+[node name="Collider" parent="Dog Houses/Dog House2" index="1"]
+visible = false
+
+[node name="CollisionShape2D" parent="Dog Houses/Dog House2" index="2"]
+position = Vector2(28, -80)
+
+[node name="Text" parent="Dog Houses/Dog House2" index="3"]
+position = Vector2(-24, -32)
+
+[node name="Trigger" parent="Dog Houses/Dog House2/Area2D" index="0"]
+position = Vector2(16, -4)
+
 [node name="Friendly" type="Node" parent="."]
 
 [node name="Camel" parent="Friendly" instance=ExtResource("14_dfn7m")]
@@ -172,5 +193,6 @@ position = Vector2(648, -48)
 
 [editable path="Parallax"]
 [editable path="Dog Houses/Dog House"]
+[editable path="Dog Houses/Dog House2"]
 [editable path="Friendly/Camel"]
 [editable path="Friendly/Camel2"]

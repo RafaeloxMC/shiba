@@ -1,12 +1,15 @@
-[gd_scene load_steps=9 format=4 uid="uid://dsq1056mcwhn"]
+[gd_scene load_steps=12 format=4 uid="uid://dsq1056mcwhn"]
 
 [ext_resource type="Script" uid="uid://b8yyy402vh1a8" path="res://scripts/air_bg.gd" id="1_6nuwh"]
 [ext_resource type="Texture2D" uid="uid://cx3ln4ycwd18s" path="res://assets/sprites/parallax_bg_cave.png" id="2_m2cpo"]
 [ext_resource type="TileSet" uid="uid://bk2fv30homksp" path="res://assets/tile_sets/map_tiles.tres" id="3_kj523"]
 [ext_resource type="PackedScene" uid="uid://b50ps8r584f3y" path="res://scenes/player.tscn" id="4_xampj"]
 [ext_resource type="PackedScene" uid="uid://b5lvwjoesv1re" path="res://scenes/killzone.tscn" id="5_xev4b"]
+[ext_resource type="PackedScene" uid="uid://prtcrbjwfdku" path="res://scenes/dialog_trigger.tscn" id="6_m2cpo"]
+[ext_resource type="SpriteFrames" uid="uid://bklk7p5g27qcp" path="res://assets/sprite_frames/player.tres" id="7_kj523"]
 [ext_resource type="PackedScene" uid="uid://d1y0ep1so2fqb" path="res://scenes/sir_caramello.tscn" id="7_ltlq2"]
 [ext_resource type="PackedScene" uid="uid://uhoo82xnqgww" path="res://scenes/dog_house.tscn" id="7_ylwrn"]
+[ext_resource type="SpriteFrames" uid="uid://bayblkj2ccx2m" path="res://assets/sprite_frames/sir_caramello.tres" id="8_kj523"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p57ef"]
 
@@ -60,6 +63,21 @@ shape = SubResource("WorldBoundaryShape2D_p57ef")
 
 [node name="Dialogs" type="Node" parent="."]
 
+[node name="DialogTrigger" parent="Dialogs" instance=ExtResource("6_m2cpo")]
+position = Vector2(-27, 35)
+scale = Vector2(7.119999, 3.92)
+text = "Hmm, this looks quite right...\\n*shouts*\\nSir Caramello III! Are you in here?"
+author = "Shiba"
+sprite_frames = ExtResource("7_kj523")
+
+[node name="DialogTrigger2" parent="Dialogs" instance=ExtResource("6_m2cpo")]
+position = Vector2(881, 43)
+scale = Vector2(9.545973, 3.6796606)
+text = "Hey there, little Shiba! My niece, Camella, already told me everything about you! I can help you to find Shibina! My guards have seen her with some robo dog from the tower of nothern cameltown! There's a lake between you and the tower. You could walk around it but you're probably faster crossing it! Oh, and take some coins, you might need them!"
+author = "Sir Caramello III."
+sprite_frames = ExtResource("8_kj523")
+char_size = 0.5
+
 [node name="Dog Houses" type="Node" parent="."]
 
 [node name="Dog House" parent="Dog Houses" instance=ExtResource("7_ylwrn")]
@@ -80,12 +98,12 @@ position = Vector2(1280, 16)
 
 [node name="Friendly" type="Node" parent="."]
 
+[node name="Camel" parent="Friendly" instance=ExtResource("7_ltlq2")]
+position = Vector2(921, 57)
+flip_h = true
+
 [node name="Swim Triggers" type="Node" parent="."]
 
 [node name="Traps" type="Node" parent="."]
-
-[node name="Camel" parent="." instance=ExtResource("7_ltlq2")]
-position = Vector2(921, 57)
-flip_h = true
 
 [editable path="Dog Houses/Dog House"]

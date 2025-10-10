@@ -7,6 +7,7 @@ var DEAD = false
 var jumping = false
 var is_falling = false
 var is_swimming = false
+var water_multiplier = 1
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
@@ -57,15 +58,16 @@ func _ready():
 			trigger.body_exited.connect(_on_swim_trigger_exited)
 
 func _on_swim_trigger_entered(body: Node) -> void:
-	print("ENTERED")
 	if body == self:
 		is_swimming = true
 		splash_sfx.play()
+		water_multiplier = 0.5
+		
 
 func _on_swim_trigger_exited(body: Node) -> void:
-	print("EXITED")
 	if body == self:
 		is_swimming = false
+		water_multiplier = 1
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause") && GameManager.is_showing_shop == false:
@@ -88,10 +90,13 @@ func _physics_process(delta: float) -> void:
 		GameManager.show_fps = !GameManager.show_fps
 	
 	if not is_on_floor():
-		if hat == "_propeller":
-			velocity += get_gravity() * 0.7 * delta
+		if not is_swimming:
+			if hat == "_propeller":
+				velocity += get_gravity() * 0.7 * delta
+			else:
+				velocity += get_gravity() * delta
 		else:
-			velocity += get_gravity() * delta
+			velocity += get_gravity() * delta * water_multiplier
 		is_falling = true
 	else:
 		if is_falling == true && jumping == false:
@@ -106,10 +111,17 @@ func _physics_process(delta: float) -> void:
 	if GameManager.is_showing_shop:
 		return
 		
-	if Input.is_action_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		jump_sfx.play()
-		jumping = true
+	if Input.is_action_pressed("jump"):
+		if is_on_floor():
+			if not is_swimming:
+				velocity.y = JUMP_VELOCITY
+				jump_sfx.play()
+				jumping = true
+			else:
+				velocity.y = JUMP_VELOCITY / 2
+		else:
+			if is_swimming:
+				velocity.y = JUMP_VELOCITY / 2
 
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:

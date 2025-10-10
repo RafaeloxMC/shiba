@@ -118,10 +118,10 @@ func _physics_process(delta: float) -> void:
 				jump_sfx.play()
 				jumping = true
 			else:
-				velocity.y = JUMP_VELOCITY / 2
+				velocity.y = JUMP_VELOCITY / 2.5
 		else:
 			if is_swimming:
-				velocity.y = JUMP_VELOCITY / 2
+				velocity.y = JUMP_VELOCITY / 2.5
 
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:

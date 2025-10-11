@@ -3,6 +3,7 @@ extends Control
 @onready var difficulty: Area2D = $btn_difficulty
 @onready var credits: Area2D = $btn_credits
 @onready var back: Area2D = $btn_back
+@onready var btn_shibadb_reset: Area2D = $btn_shibadb_reset
 
 @onready var title: Label = $title
 @onready var subtitle: Label = $subtitle
@@ -97,6 +98,9 @@ func submit():
 		var node = load(current_button.scene.resource_path)
 		add_child(node.instantiate())
 		credits_open = true
+	if current_button == btn_shibadb_reset:
+		ShibaDB.reset_progress("Untitled Save")
+		GameManager.reset()
 	elif current_button.scene != null:
 		if current_button != back:
 			get_tree().change_scene_to_packed(current_button.scene)

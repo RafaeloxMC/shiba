@@ -125,6 +125,14 @@ settings = ["10", "20", "30", "40", "50", "60", "70", "80", "90", "100"]
 text = "sfx volume"
 metadata/_edit_use_anchors_ = true
 
+[node name="btn_shibadb_reset" parent="." instance=ExtResource("3_83j8s")]
+position = Vector2(576, 516)
+scale = Vector2(2.84, 2.84)
+scene = ExtResource("4_f4mfi")
+
+[node name="Label" parent="btn_shibadb_reset" index="2"]
+text = "reset save"
+
 [node name="btn_credits" parent="." instance=ExtResource("3_83j8s")]
 position = Vector2(576, 516)
 scale = Vector2(2.84, 2.84)
@@ -172,6 +180,8 @@ sprite_frames = SubResource("SpriteFrames_gjs24")
 autoplay = "default"
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="input_event" from="btn_shibadb_reset" to="btn_shibadb_reset" method="_on_input_event"]
+[connection signal="mouse_exited" from="btn_shibadb_reset" to="btn_shibadb_reset" method="_on_mouse_exited"]
 [connection signal="input_event" from="btn_credits" to="btn_credits" method="_on_input_event"]
 [connection signal="mouse_exited" from="btn_credits" to="btn_credits" method="_on_mouse_exited"]
 [connection signal="input_event" from="btn_back" to="btn_back" method="_on_input_event"]
@@ -181,5 +191,6 @@ autoplay = "default"
 [editable path="btn_volume"]
 [editable path="btn_music_volume"]
 [editable path="btn_sfx_volume"]
+[editable path="btn_shibadb_reset"]
 [editable path="btn_credits"]
 [editable path="btn_back"]

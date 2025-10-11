@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://gef1vveefbjs"]
+[gd_scene load_steps=48 format=3 uid="uid://gef1vveefbjs"]
 
 [ext_resource type="Script" uid="uid://d4fky1rju1p7y" path="res://scripts/gameui.gd" id="1_wwaar"]
 [ext_resource type="PackedScene" uid="uid://3bnagxorg0g4" path="res://scenes/progress_bar.tscn" id="2_3guck"]
@@ -6,7 +6,7 @@
 [ext_resource type="SpriteFrames" uid="uid://dju8iw2jp5jrs" path="res://assets/sprite_frames/hearts.tres" id="3_bjfv8"]
 [ext_resource type="Texture2D" uid="uid://dq278psfgufaf" path="res://assets/sprites/coin.png" id="4_mu2ln"]
 [ext_resource type="Script" uid="uid://clpad50mh2ml4" path="res://scripts/gameui_color_rect.gd" id="5_n31af"]
-[ext_resource type="Texture2D" uid="uid://byivli2q5tqnr" path="res://assets/sprites/ui_elements.png" id="6_55g5v"]
+[ext_resource type="SpriteFrames" uid="uid://bkoirxm7mrk6x" path="res://assets/sprite_frames/bubble.tres" id="6_55g5v"]
 [ext_resource type="Texture2D" uid="uid://baxnct107gh6l" path="res://assets/sprites/dialogbox.png" id="6_wexye"]
 [ext_resource type="Script" uid="uid://bmiksxfiyj8sf" path="res://scripts/dialog_manager.gd" id="7_bjfv8"]
 [ext_resource type="Texture2D" uid="uid://cbuc4rw04hmp5" path="res://assets/sprites/shiba.png" id="7_tgq32"]
@@ -110,49 +110,6 @@ animations = [{
 "loop": false,
 "name": &"pickup",
 "speed": 20.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d0edb"]
-atlas = ExtResource("6_55g5v")
-region = Rect2(0, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r6hs0"]
-atlas = ExtResource("6_55g5v")
-region = Rect2(16, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_seba6"]
-atlas = ExtResource("6_55g5v")
-region = Rect2(32, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_68h5l"]
-atlas = ExtResource("6_55g5v")
-region = Rect2(48, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gk3oy"]
-atlas = ExtResource("6_55g5v")
-region = Rect2(64, 32, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_jwklp"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d0edb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r6hs0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_seba6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_68h5l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gk3oy")
-}],
-"loop": false,
-"name": &"pop",
-"speed": 10.0
 }]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wexye"]
@@ -413,19 +370,20 @@ offset_bottom = 40.0
 [node name="Bubble" type="AnimatedSprite2D" parent="CanvasLayer/Bubbles"]
 position = Vector2(30, 142)
 scale = Vector2(4.23325, 4.23325)
-sprite_frames = SubResource("SpriteFrames_jwklp")
+sprite_frames = ExtResource("6_55g5v")
 animation = &"pop"
+autoplay = "default"
 
 [node name="Bubble2" type="AnimatedSprite2D" parent="CanvasLayer/Bubbles"]
 position = Vector2(80, 142)
 scale = Vector2(4.23325, 4.23325)
-sprite_frames = SubResource("SpriteFrames_jwklp")
+sprite_frames = ExtResource("6_55g5v")
 animation = &"pop"
 
 [node name="Bubble3" type="AnimatedSprite2D" parent="CanvasLayer/Bubbles"]
 position = Vector2(130, 142)
 scale = Vector2(4.23325, 4.23325)
-sprite_frames = SubResource("SpriteFrames_jwklp")
+sprite_frames = ExtResource("6_55g5v")
 animation = &"pop"
 
 [node name="DialogManager" type="TextureRect" parent="CanvasLayer"]

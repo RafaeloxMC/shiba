@@ -31,6 +31,7 @@ signal death()
 signal coin_pickup()
 signal tick_ui()
 signal eat_dog_food()
+signal set_underwater_bubbles(amount: int)
 
 signal trigger_shop(value: bool)
 var is_showing_shop: bool = false
@@ -42,6 +43,7 @@ signal absorb()
 var bird: PackedScene
 var bat: PackedScene
 var bats: bool = false
+var flying_animals: bool = true
 
 var hat: String = ""
 
@@ -153,6 +155,8 @@ func call_dialog(content: String, author: String, animation: SpriteFrames, char_
 	dialog.emit(content, author, animation, char_size, y_offset)
 	
 func spawn_bird(pos: Vector2):
+	if not flying_animals:
+		return
 	if get_tree().current_scene.has_node("Birds"):
 		var bird_node
 		if bats == true:

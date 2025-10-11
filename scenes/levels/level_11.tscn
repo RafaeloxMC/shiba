@@ -43,10 +43,11 @@ tile_set = ExtResource("3_5tmw6")
 
 [node name="Player" parent="." instance=ExtResource("4_c8dgj")]
 z_index = 5
-position = Vector2(-52, 48)
+position = Vector2(-574, -320)
 level_border_left = -75
 level_border_right = 1400
 bats = true
+flying_animals = false
 
 [node name="Killzone" parent="." instance=ExtResource("5_yf4k5")]
 position = Vector2(0, 165)

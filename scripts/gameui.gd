@@ -12,6 +12,10 @@ extends Control
 
 @onready var player: CharacterBody2D = $"../../.."
 
+@onready var bubble: AnimatedSprite2D = $CanvasLayer/Bubbles/Bubble
+@onready var bubble_2: AnimatedSprite2D = $CanvasLayer/Bubbles/Bubble2
+@onready var bubble_3: AnimatedSprite2D = $CanvasLayer/Bubbles/Bubble3
+
 var level_border_left: int = 0
 var level_border_right: int = 100
 
@@ -51,6 +55,31 @@ func tick_ui():
 func trigger_shop(value: bool) -> void:
 	shop_layer.visible = value
 	
+func set_bubbles(amount: int) -> void:
+	if amount == -1:
+		bubble.visible = false
+		bubble_2.visible = false
+		bubble_3.visible = false
+	else:
+		bubble.visible = true
+		bubble_2.visible = true
+		bubble_3.visible = true
+	if amount >= 1:
+		bubble.play("default")
+	else:
+		if not bubble.animation == "pop":
+			bubble.play("pop")
+	if amount >= 2:
+		bubble_2.play("default")
+	else:
+		if not bubble_2.animation == "pop":
+			bubble_2.play("pop")
+	if amount >= 3:
+		bubble_3.play("default")
+	else:
+		if not bubble_3.animation == "pop":
+			bubble_3.play("pop")
+	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GameManager.death.connect(death)
@@ -58,6 +87,7 @@ func _ready() -> void:
 	GameManager.tick_ui.connect(tick_ui)
 	GameManager.eat_dog_food.connect(eat_dog_food)
 	GameManager.trigger_shop.connect(trigger_shop)
+	GameManager.set_underwater_bubbles.connect(set_bubbles)
 	print("Loaded GameUI")
 	update_hearts()
 	update_coins()

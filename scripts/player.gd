@@ -8,6 +8,7 @@ var jumping = false
 var is_falling = false
 var is_swimming = false
 var water_multiplier = 1
+var air_left: float = 15
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
@@ -22,6 +23,7 @@ var water_multiplier = 1
 @export var level_border_left: int = 0
 @export var level_border_right: int = 100
 @export var bats = false
+@export var flying_animals = true
 
 var hat = ""
 
@@ -47,6 +49,7 @@ func _ready():
 	GameManager.death.connect(die)
 	GameManager.absorb.connect(absorb)
 	GameManager.bats = bats
+	GameManager.flying_animals = flying_animals
 	if GameManager.should_show_intro == true:
 		GameManager.call_dialog("Oh no! The robo dog kidnapped Shibina!\nI need to rescue her before something happens!", "Shiba", animated_sprite_2d.sprite_frames)
 		GameManager.should_show_intro = false
@@ -111,6 +114,16 @@ func _physics_process(delta: float) -> void:
 	if GameManager.is_showing_shop:
 		return
 		
+	if not is_swimming:
+		GameManager.set_underwater_bubbles.emit(-1)
+		air_left = 15
+	else:
+		air_left = air_left - ( delta )
+		GameManager.set_underwater_bubbles.emit(roundi(air_left / 5.0))
+	
+	if air_left <= 0:
+		GameManager.death.emit()
+		
 	if Input.is_action_pressed("jump"):
 		if is_on_floor():
 			if not is_swimming:
@@ -122,7 +135,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			if is_swimming:
 				velocity.y = JUMP_VELOCITY / 2.5
-
+		
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
 		if is_swimming:

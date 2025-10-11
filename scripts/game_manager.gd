@@ -62,6 +62,10 @@ func _on_save_loaded(saveData):
 		hearts = int(saveData.hearts)
 	if saveData.has("level"):
 		SceneManager.current_level = saveData.level
+	if saveData.has("hat"):
+		hat = saveData.hat
+	if saveData.has("bought_items"):
+		bought_items = saveData.bought_itmes
 	
 	
 

@@ -8,7 +8,7 @@ var jumping = false
 var is_falling = false
 var is_swimming = false
 var water_multiplier = 1
-var air_left: float = 15
+var air_left: float = 20
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
@@ -116,7 +116,7 @@ func _physics_process(delta: float) -> void:
 		
 	if not is_swimming:
 		GameManager.set_underwater_bubbles.emit(-1)
-		air_left = 15
+		air_left = 20
 	else:
 		air_left = air_left - ( delta )
 		GameManager.set_underwater_bubbles.emit(roundi(air_left / 5.0))

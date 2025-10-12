@@ -14,7 +14,6 @@ radius = 6.0
 radius = 49.010204
 
 [node name="Pufferfish" type="CharacterBody2D"]
-collision_mask = 2
 script = ExtResource("1_kn2uh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -35,6 +34,7 @@ shape = SubResource("CircleShape2D_ry8r6")
 target_position = Vector2(20, 0)
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_kn2uh")

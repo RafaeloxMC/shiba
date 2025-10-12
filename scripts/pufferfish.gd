@@ -24,5 +24,4 @@ func _physics_process(_delta: float) -> void:
 	if ray_cast_2d.is_colliding():
 		scale.x = scale.x * -1
 		velocity.x = -velocity.x
-	print(str( self.transform.get_scale().x))
 	move_and_slide()

@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://buad0ne3qn6se"]
+
+[ext_resource type="Script" uid="uid://b2ghkt5wampw8" path="res://scripts/pufferfish.gd" id="1_kn2uh"]
+[ext_resource type="PackedScene" uid="uid://b5lvwjoesv1re" path="res://scenes/killzone.tscn" id="2_kn2uh"]
+[ext_resource type="SpriteFrames" uid="uid://c2kxucbuh0jxt" path="res://assets/sprite_frames/pufferfish.tres" id="2_r0q7b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wgg2w"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ry8r6"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kn2uh"]
+radius = 49.010204
+
+[node name="Pufferfish" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_kn2uh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -1)
+sprite_frames = ExtResource("2_r0q7b")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Killzone" parent="." instance=ExtResource("2_kn2uh")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("CircleShape2D_wgg2w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ry8r6")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(20, 0)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_kn2uh")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_body_exited"]

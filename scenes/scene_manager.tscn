@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://demrdgjmkbl8d"]
+[gd_scene load_steps=15 format=3 uid="uid://demrdgjmkbl8d"]
 
 [ext_resource type="Script" uid="uid://11wsmxinx6m4" path="res://scripts/scene_manager.gd" id="1_we8k5"]
 [ext_resource type="PackedScene" uid="uid://61x2dkmkmd14" path="res://scenes/main_menu.tscn" id="2_65mdo"]
@@ -11,12 +11,17 @@
 [ext_resource type="PackedScene" uid="uid://bnd3klrchib31" path="res://scenes/kidnapping_cutscene.tscn" id="9_wofdf"]
 [ext_resource type="PackedScene" uid="uid://de8gb0inn4kox" path="res://scenes/levels/level_7.tscn" id="10_2lhpl"]
 [ext_resource type="PackedScene" uid="uid://cgy60n1bevabi" path="res://scenes/levels/level_8.tscn" id="11_ae61e"]
+[ext_resource type="PackedScene" uid="uid://dsq1056mcwhn" path="res://scenes/levels/level_9.tscn" id="12_0t0fu"]
+[ext_resource type="PackedScene" uid="uid://xsh8l0lbju34" path="res://scenes/levels/level_10.tscn" id="13_pxkgk"]
+[ext_resource type="PackedScene" uid="uid://cjtkxtwdk4ra8" path="res://scenes/levels/level_11.tscn" id="14_ypelm"]
 
 [node name="SceneManager" type="Node2D"]
 script = ExtResource("1_we8k5")
 scenes = Dictionary[String, PackedScene]({
 "kidnapping_cutscene": ExtResource("9_wofdf"),
 "level_1": ExtResource("3_b81s6"),
+"level_10": ExtResource("13_pxkgk"),
+"level_11": ExtResource("14_ypelm"),
 "level_2": ExtResource("4_h7lqg"),
 "level_3": ExtResource("5_q7wi7"),
 "level_4": ExtResource("6_6k21d"),
@@ -24,5 +29,6 @@ scenes = Dictionary[String, PackedScene]({
 "level_6": ExtResource("8_hhobr"),
 "level_7": ExtResource("10_2lhpl"),
 "level_8": ExtResource("11_ae61e"),
+"level_9": ExtResource("12_0t0fu"),
 "main_menu": ExtResource("2_65mdo")
 })

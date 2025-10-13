@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://dsq1056mcwhn"]
+[gd_scene load_steps=12 format=4 uid="uid://dsq1056mcwhn"]
 
 [ext_resource type="Script" uid="uid://b8yyy402vh1a8" path="res://scripts/air_bg.gd" id="1_6nuwh"]
 [ext_resource type="Texture2D" uid="uid://cx3ln4ycwd18s" path="res://assets/sprites/parallax_bg_cave.png" id="2_m2cpo"]
@@ -10,12 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://d1y0ep1so2fqb" path="res://scenes/sir_caramello.tscn" id="7_ltlq2"]
 [ext_resource type="PackedScene" uid="uid://uhoo82xnqgww" path="res://scenes/dog_house.tscn" id="7_ylwrn"]
 [ext_resource type="SpriteFrames" uid="uid://bayblkj2ccx2m" path="res://assets/sprite_frames/sir_caramello.tres" id="8_kj523"]
-[ext_resource type="SpriteFrames" uid="uid://cmyr24ernl424" path="res://assets/sprite_frames/store_owner.tres" id="9_xampj"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p57ef"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xev4b"]
-size = Vector2(20, 65)
 
 [node name="Game" type="Node2D"]
 
@@ -82,13 +78,6 @@ author = "Sir Caramello III."
 sprite_frames = ExtResource("8_kj523")
 char_size = 0.5
 
-[node name="DialogTrigger3" parent="Dialogs" instance=ExtResource("6_m2cpo")]
-position = Vector2(1212, 14)
-scale = Vector2(9.4, 9.4)
-text = "This is the end of the current playtest! You can guess what's behind this dog house! (hint, there will be an underwater stage soon)"
-author = "xvcf"
-sprite_frames = ExtResource("9_xampj")
-
 [node name="Dog Houses" type="Node" parent="."]
 
 [node name="Dog House" parent="Dog Houses" instance=ExtResource("7_ylwrn")]
@@ -116,11 +105,5 @@ flip_h = true
 [node name="Swim Triggers" type="Node" parent="."]
 
 [node name="Traps" type="Node" parent="."]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1240, 16.5)
-shape = SubResource("RectangleShape2D_xev4b")
 
 [editable path="Dog Houses/Dog House"]

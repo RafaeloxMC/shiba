@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=4 uid="uid://cjtkxtwdk4ra8"]
 
-[ext_resource type="Script" uid="uid://b8yyy402vh1a8" path="res://scripts/air_bg.gd" id="1_4fty2"]
-[ext_resource type="Texture2D" uid="uid://cx3ln4ycwd18s" path="res://assets/sprites/parallax_bg_cave.png" id="2_1nnno"]
+[ext_resource type="PackedScene" uid="uid://cesxcje0r35td" path="res://scenes/parallax.tscn" id="1_1nnno"]
 [ext_resource type="TileSet" uid="uid://bk2fv30homksp" path="res://assets/tile_sets/map_tiles.tres" id="3_5tmw6"]
+[ext_resource type="Texture2D" uid="uid://caavse5j8o3yk" path="res://assets/sprites/parallax_desert_bg.png" id="3_c8dgj"]
 [ext_resource type="PackedScene" uid="uid://b50ps8r584f3y" path="res://scenes/player.tscn" id="4_c8dgj"]
 [ext_resource type="PackedScene" uid="uid://b5lvwjoesv1re" path="res://scenes/killzone.tscn" id="5_yf4k5"]
 [ext_resource type="PackedScene" uid="uid://buad0ne3qn6se" path="res://scenes/pufferfish.tscn" id="6_5bask"]
@@ -13,22 +13,10 @@
 
 [node name="Game" type="Node2D"]
 
-[node name="Parallax" type="Node2D" parent="."]
+[node name="Parallax" parent="." instance=ExtResource("1_1nnno")]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="Parallax"]
-scale = Vector2(0.3, 0.3)
-transform = Transform2D(0.3, 0, 0, 0.3, 0, 0)
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Parallax/ParallaxBackground"]
-position = Vector2(-470, 118.667)
-motion_scale = Vector2(0.1, 0.1)
-motion_mirroring = Vector2(1168.5, 680)
-script = ExtResource("1_4fty2")
-
-[node name="Sprite2D" type="Sprite2D" parent="Parallax/ParallaxBackground/ParallaxLayer"]
-position = Vector2(576.342, 102)
-scale = Vector2(1.82607, 1.42606)
-texture = ExtResource("2_1nnno")
+[node name="Sprite2D" parent="Parallax/ParallaxBackground/ParallaxLayer" index="0"]
+texture = ExtResource("3_c8dgj")
 
 [node name="TileMap" type="Node2D" parent="."]
 
@@ -99,3 +87,5 @@ position = Vector2(1287, -315)
 scale = Vector2(192.1076, 79.24974)
 
 [node name="Traps" type="Node" parent="."]
+
+[editable path="Parallax"]

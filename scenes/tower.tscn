@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://byvwykj6rreht"]
+
+[ext_resource type="Texture2D" uid="uid://clmbp8wtgpe2c" path="res://assets/sprites/tower.png" id="1_2x682"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ay4al"]
+size = Vector2(44, 189)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktxwe"]
+size = Vector2(52, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qrbg1"]
+size = Vector2(54, 11)
+
+[node name="Tower" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2x682")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 33.5)
+shape = SubResource("RectangleShape2D_ay4al")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -65.5)
+shape = SubResource("RectangleShape2D_ktxwe")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -75.5)
+shape = SubResource("RectangleShape2D_qrbg1")

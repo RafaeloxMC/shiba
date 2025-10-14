@@ -25,7 +25,6 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 z_index = 5
 position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_fjrip")
@@ -57,6 +56,10 @@ volume_db = -4.0
 bus = &"SFX"
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true
+
+[node name="DrownTimer" type="Timer" parent="."]
 wait_time = 2.5
 one_shot = true
 

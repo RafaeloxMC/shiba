@@ -8,7 +8,7 @@ var jumping = false
 var is_falling = false
 var is_swimming = false
 var water_multiplier = 1
-var air_left: float = 20
+var air_left: float = 30
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
@@ -18,6 +18,7 @@ var air_left: float = 20
 @onready var splash_sfx: AudioStreamPlayer2D = $SplashSFX
 @onready var break_sfx: AudioStreamPlayer2D = $BreakSFX
 @onready var timer: Timer = $Timer
+@onready var drown_timer: Timer = $DrownTimer
 
 @export var projectile: PackedScene = load("res://scenes/bone.tscn")
 @export var level_border_left: int = 0
@@ -64,13 +65,17 @@ func _on_swim_trigger_entered(body: Node) -> void:
 	if body == self:
 		is_swimming = true
 		splash_sfx.play()
-		water_multiplier = 0.5
+		water_multiplier = 0.05
+		collision_shape_2d.position.y += 2
+		collision_shape_2d.rotate(deg_to_rad(90))
 		
 
 func _on_swim_trigger_exited(body: Node) -> void:
 	if body == self:
 		is_swimming = false
 		water_multiplier = 1
+		collision_shape_2d.position.y -= 2
+		collision_shape_2d.rotate(deg_to_rad(-90))
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause") && GameManager.is_showing_shop == false:
@@ -116,13 +121,18 @@ func _physics_process(delta: float) -> void:
 		
 	if not is_swimming:
 		GameManager.set_underwater_bubbles.emit(-1)
-		air_left = 20
+		air_left = 30
 	else:
 		air_left = air_left - ( delta )
 		GameManager.set_underwater_bubbles.emit(roundi(air_left / 5.0))
 	
 	if air_left <= 0:
-		GameManager.death.emit()
+		Engine.time_scale = 0.5
+		if GameManager.hearts <= 0:
+			drown_timer.start(2)
+		else:
+			drown_timer.start(1)
+		GameManager.remove_heart()
 		
 	if Input.is_action_pressed("jump"):
 		if is_on_floor():
@@ -131,10 +141,10 @@ func _physics_process(delta: float) -> void:
 				jump_sfx.play()
 				jumping = true
 			else:
-				velocity.y = JUMP_VELOCITY / 2.5
+				velocity.y = JUMP_VELOCITY / 6
 		else:
 			if is_swimming:
-				velocity.y = JUMP_VELOCITY / 2.5
+				velocity.y = JUMP_VELOCITY / 6
 		
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
@@ -161,3 +171,11 @@ func _physics_process(delta: float) -> void:
 			timer.start()
 
 	move_and_slide()
+
+func _on_drown_timer_timeout() -> void:
+	Engine.time_scale = 1
+	print("Timed out!")
+	if GameManager.hearts <= 0:
+		SceneManager.call_scene("main_menu")
+		return
+	SceneManager.reload_current()

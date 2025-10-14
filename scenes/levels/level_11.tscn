@@ -71,12 +71,132 @@ position = Vector2(2984, -344)
 [node name="Coin6" parent="Coins" instance=ExtResource("6_gr7jt")]
 position = Vector2(3000, -344)
 
+[node name="Coin7" parent="Coins" instance=ExtResource("6_gr7jt")]
+position = Vector2(2344, -184)
+
+[node name="Coin8" parent="Coins" instance=ExtResource("6_gr7jt")]
+position = Vector2(2680, -168)
+
+[node name="Coin9" parent="Coins" instance=ExtResource("6_gr7jt")]
+position = Vector2(1832, -24)
+
+[node name="Coin10" parent="Coins" instance=ExtResource("6_gr7jt")]
+position = Vector2(1304, 24)
+
+[node name="Coin11" parent="Coins" instance=ExtResource("6_gr7jt")]
+position = Vector2(1352, 24)
+
+[node name="Coin12" parent="Coins" instance=ExtResource("6_gr7jt")]
+position = Vector2(2200, -232)
+
+[node name="Coin13" parent="Coins" instance=ExtResource("6_gr7jt")]
+position = Vector2(2216, -232)
+
+[node name="Coin14" parent="Coins" instance=ExtResource("6_gr7jt")]
+position = Vector2(2296, -120)
+
+[node name="Coin15" parent="Coins" instance=ExtResource("6_gr7jt")]
+position = Vector2(1240, -72)
+
+[node name="Coin16" parent="Coins" instance=ExtResource("6_gr7jt")]
+position = Vector2(1064, -152)
+
+[node name="Coin17" parent="Coins" instance=ExtResource("6_gr7jt")]
+position = Vector2(888, -120)
+
+[node name="Coin18" parent="Coins" instance=ExtResource("6_gr7jt")]
+position = Vector2(632, -24)
+
+[node name="Coin19" parent="Coins" instance=ExtResource("6_gr7jt")]
+position = Vector2(472, -200)
+
+[node name="Coin20" parent="Coins" instance=ExtResource("6_gr7jt")]
+position = Vector2(344, -136)
+
+[node name="Coin21" parent="Coins" instance=ExtResource("6_gr7jt")]
+position = Vector2(232, -40)
+
+[node name="Coin22" parent="Coins" instance=ExtResource("6_gr7jt")]
+position = Vector2(136, -168)
+
+[node name="Coin23" parent="Coins" instance=ExtResource("6_gr7jt")]
+position = Vector2(24, -136)
+
+[node name="Coin24" parent="Coins" instance=ExtResource("6_gr7jt")]
+position = Vector2(-88, -200)
+
+[node name="Coin25" parent="Coins" instance=ExtResource("6_gr7jt")]
+position = Vector2(-168, -88)
+
+[node name="Coin26" parent="Coins" instance=ExtResource("6_gr7jt")]
+position = Vector2(-264, -200)
+
+[node name="Coin27" parent="Coins" instance=ExtResource("6_gr7jt")]
+position = Vector2(-360, -152)
+
+[node name="Coin28" parent="Coins" instance=ExtResource("6_gr7jt")]
+position = Vector2(744, 24)
+
 [node name="Dog Food" type="Node" parent="."]
 
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Pufferfish" parent="Enemies" instance=ExtResource("6_5bask")]
 position = Vector2(1856, -24)
+
+[node name="Pufferfish2" parent="Enemies" instance=ExtResource("6_5bask")]
+position = Vector2(2296, -120)
+
+[node name="Pufferfish3" parent="Enemies" instance=ExtResource("6_5bask")]
+position = Vector2(2120, -184)
+
+[node name="Pufferfish4" parent="Enemies" instance=ExtResource("6_5bask")]
+position = Vector2(1992, -104)
+
+[node name="Pufferfish5" parent="Enemies" instance=ExtResource("6_5bask")]
+position = Vector2(2520, -168)
+
+[node name="Pufferfish6" parent="Enemies" instance=ExtResource("6_5bask")]
+position = Vector2(2648, -216)
+
+[node name="Pufferfish7" parent="Enemies" instance=ExtResource("6_5bask")]
+position = Vector2(-160, -96)
+
+[node name="Pufferfish8" parent="Enemies" instance=ExtResource("6_5bask")]
+position = Vector2(1096, -248)
+
+[node name="Pufferfish9" parent="Enemies" instance=ExtResource("6_5bask")]
+position = Vector2(1112, 24)
+
+[node name="Pufferfish10" parent="Enemies" instance=ExtResource("6_5bask")]
+position = Vector2(744, -40)
+
+[node name="Pufferfish11" parent="Enemies" instance=ExtResource("6_5bask")]
+position = Vector2(1216, -144)
+
+[node name="Pufferfish12" parent="Enemies" instance=ExtResource("6_5bask")]
+position = Vector2(104, 40)
+
+[node name="Pufferfish13" parent="Enemies" instance=ExtResource("6_5bask")]
+position = Vector2(72, -232)
+
+[node name="Pufferfish14" parent="Enemies" instance=ExtResource("6_5bask")]
+position = Vector2(464, -160)
+
+[node name="Pufferfish15" parent="Enemies" instance=ExtResource("6_5bask")]
+position = Vector2(1312, -288)
+
+[node name="Pufferfish16" parent="Enemies" instance=ExtResource("6_5bask")]
+position = Vector2(1296, -96)
+
+[node name="Pufferfish17" parent="Enemies" instance=ExtResource("6_5bask")]
+position = Vector2(216, -64)
+
+[node name="Pufferfish18" parent="Enemies" instance=ExtResource("6_5bask")]
+position = Vector2(-304, -264)
+
+[node name="Pufferfish19" parent="Enemies" instance=ExtResource("6_5bask")]
+position = Vector2(-408, -128)
 
 [node name="Dialogs" type="Node" parent="."]
 

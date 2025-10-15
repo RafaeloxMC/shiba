@@ -10,6 +10,8 @@ extends CharacterBody2D
 
 @export var difficulty: int = 50
 
+@export var flipped_by_default: bool = false
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var facing: RayCast2D = $AnimatedSprite2D/facing
 @onready var ground: RayCast2D = $AnimatedSprite2D/ground
@@ -46,6 +48,10 @@ func randomize_difficulty() -> void:
 func _ready() -> void:
 	right_bounds = self.position + Vector2(BOUNDS, 0)
 	left_bounds = self.position + Vector2(-BOUNDS, 0)
+	if flipped_by_default:
+		facing.target_position = Vector2(-spotting_range, 0)
+		ground.target_position = Vector2(-15, 15)
+		animated_sprite_2d.flip_h = true
 	var diff = GameManager.difficulty
 	if diff == 0: 
 		difficulty = 50

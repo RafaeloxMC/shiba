@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://cgy60n1bevabi"]
+[gd_scene load_steps=13 format=4 uid="uid://cgy60n1bevabi"]
 
 [ext_resource type="Texture2D" uid="uid://cx3ln4ycwd18s" path="res://assets/sprites/parallax_bg_cave.png" id="2_7snfr"]
 [ext_resource type="Script" uid="uid://b8yyy402vh1a8" path="res://scripts/air_bg.gd" id="2_v7ucw"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b50ps8r584f3y" path="res://scenes/player.tscn" id="6_40qa3"]
 [ext_resource type="PackedScene" uid="uid://crqc1hhdhds5b" path="res://scenes/coin.tscn" id="6_h6r4t"]
 [ext_resource type="PackedScene" uid="uid://b5lvwjoesv1re" path="res://scenes/killzone.tscn" id="7_e7lui"]
+[ext_resource type="PackedScene" uid="uid://dwkr2txvg88fv" path="res://scenes/dog_food.tscn" id="7_w2i51"]
 [ext_resource type="PackedScene" uid="uid://uhoo82xnqgww" path="res://scenes/dog_house.tscn" id="8_acgl5"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p57ef"]
@@ -107,6 +108,9 @@ position = Vector2(680, -32)
 position = Vector2(696, -32)
 
 [node name="Dog Food" type="Node" parent="."]
+
+[node name="Dog Food" parent="Dog Food" instance=ExtResource("7_w2i51")]
+position = Vector2(1304, -56)
 
 [node name="Enemies" type="Node" parent="."]
 

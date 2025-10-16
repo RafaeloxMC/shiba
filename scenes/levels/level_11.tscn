@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://cjtkxtwdk4ra8"]
+[gd_scene load_steps=12 format=4 uid="uid://cjtkxtwdk4ra8"]
 
 [ext_resource type="PackedScene" uid="uid://cesxcje0r35td" path="res://scenes/parallax.tscn" id="1_1nnno"]
 [ext_resource type="TileSet" uid="uid://bk2fv30homksp" path="res://assets/tile_sets/map_tiles.tres" id="3_5tmw6"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://buad0ne3qn6se" path="res://scenes/pufferfish.tscn" id="6_5bask"]
 [ext_resource type="PackedScene" uid="uid://crqc1hhdhds5b" path="res://scenes/coin.tscn" id="6_gr7jt"]
 [ext_resource type="PackedScene" uid="uid://buinbb2j54r17" path="res://scenes/underwater_trigger.tscn" id="6_ntgks"]
+[ext_resource type="PackedScene" uid="uid://dwkr2txvg88fv" path="res://scenes/dog_food.tscn" id="8_4fty2"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p57ef"]
 
@@ -138,6 +139,9 @@ position = Vector2(-360, -152)
 position = Vector2(744, 24)
 
 [node name="Dog Food" type="Node" parent="."]
+
+[node name="Dog Food" parent="Dog Food" instance=ExtResource("8_4fty2")]
+position = Vector2(-520, -328)
 
 [node name="Enemies" type="Node" parent="."]
 

@@ -47,7 +47,7 @@ position = Vector2(353, 128)
 level_border_right = 2000
 bats = true
 
-[node name="Camera2D" parent="Player" index="8"]
+[node name="Camera2D" parent="Player" index="9"]
 limit_bottom = 650
 
 [node name="Killzone" parent="." instance=ExtResource("4_6xwso")]

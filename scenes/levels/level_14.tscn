@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://bg8ilm2vmj4k2"]
+[gd_scene load_steps=14 format=4 uid="uid://bg8ilm2vmj4k2"]
 
 [ext_resource type="PackedScene" uid="uid://cesxcje0r35td" path="res://scenes/parallax.tscn" id="1_x7cri"]
 [ext_resource type="TileSet" uid="uid://bk2fv30homksp" path="res://assets/tile_sets/map_tiles.tres" id="2_5muy6"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://sxsdjy6x1pqn" path="res://assets/sprites/slippery.png" id="11_2ayqo"]
 [ext_resource type="SpriteFrames" uid="uid://bklk7p5g27qcp" path="res://assets/sprite_frames/player.tres" id="11_8fg8a"]
 [ext_resource type="PackedScene" uid="uid://uhoo82xnqgww" path="res://scenes/dog_house.tscn" id="12_4qnux"]
+[ext_resource type="PackedScene" uid="uid://taf06p4vfbrq" path="res://scenes/shop.tscn" id="12_hd4w6"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p57ef"]
 
@@ -96,5 +97,12 @@ scale = Vector2(15.397041, 116.47946)
 position = Vector2(-401, -80)
 texture = ExtResource("11_2ayqo")
 
+[node name="Shop" parent="." instance=ExtResource("12_hd4w6")]
+position = Vector2(77, -80)
+
+[node name="AnimatedSprite2D" parent="Shop" index="1"]
+autoplay = "northern"
+
 [editable path="Parallax"]
 [editable path="Dog Houses/Dog House"]
+[editable path="Shop"]

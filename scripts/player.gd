@@ -7,6 +7,7 @@ var DEAD = false
 var jumping = false
 var is_falling = false
 var is_swimming = false
+var is_slippery = false
 var water_multiplier = 1
 var air_left: float = 30
 
@@ -60,6 +61,12 @@ func _ready():
 		for trigger in swim_triggers:
 			trigger.body_entered.connect(_on_swim_trigger_entered)
 			trigger.body_exited.connect(_on_swim_trigger_exited)
+			
+	if self.get_parent().has_node("Slippery Triggers"):
+		var slippery_triggers = self.get_parent().get_node("Slippery Triggers").get_children()
+		for trigger in slippery_triggers:
+			trigger.body_entered.connect(_on_slippery_trigger_entered)
+			trigger.body_exited.connect(_on_slippery_trigger_exited)
 
 func _on_swim_trigger_entered(body: Node) -> void:
 	if body == self:
@@ -68,7 +75,6 @@ func _on_swim_trigger_entered(body: Node) -> void:
 		water_multiplier = 0.05
 		collision_shape_2d.position.y += 2
 		collision_shape_2d.rotate(deg_to_rad(90))
-		
 
 func _on_swim_trigger_exited(body: Node) -> void:
 	if body == self:
@@ -76,6 +82,14 @@ func _on_swim_trigger_exited(body: Node) -> void:
 		water_multiplier = 1
 		collision_shape_2d.position.y -= 2
 		collision_shape_2d.rotate(deg_to_rad(-90))
+
+func _on_slippery_trigger_entered(body: Node) -> void:
+	if body == self:
+		is_slippery = true
+
+func _on_slippery_trigger_exited(body: Node) -> void:
+	if body == self:
+		is_slippery = false
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause") && GameManager.is_showing_shop == false:
@@ -152,13 +166,19 @@ func _physics_process(delta: float) -> void:
 			animated_sprite_2d.play("swim" + hat)
 		else:
 			animated_sprite_2d.play("walk" + hat)
-		velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION * delta)
+		if is_slippery:
+			velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION * delta * 0.3)
+		else:
+			velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION * delta)
 		if velocity.x > 0:
 			animated_sprite_2d.flip_h = false
 		else:
 			animated_sprite_2d.flip_h = true
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		if is_slippery:
+			velocity.x = move_toward(velocity.x, 0, ACCELERATION * delta * 0.005)
+		else: 
+			velocity.x = move_toward(velocity.x, 0, SPEED)
 		animated_sprite_2d.play("idle" + hat)
 		
 	if Input.is_action_just_pressed("attack") && timer.time_left <= 0:

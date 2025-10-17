@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cknxodlu000ej"]
+
+[ext_resource type="Texture2D" uid="uid://sxsdjy6x1pqn" path="res://assets/sprites/slippery.png" id="1_qyr6u"]
+
+[node name="Slippery Warning" type="Sprite2D"]
+texture = ExtResource("1_qyr6u")

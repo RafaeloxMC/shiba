@@ -1,6 +1,5 @@
 extends Area2D
 
-@onready var timer: Timer = $Timer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $StaticBody2D/CollisionShape2D
 

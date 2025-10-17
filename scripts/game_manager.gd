@@ -31,6 +31,8 @@ signal death()
 signal coin_pickup()
 signal tick_ui()
 signal eat_dog_food()
+
+@warning_ignore("unused_signal")
 signal set_underwater_bubbles(amount: int)
 
 signal trigger_shop(value: bool)

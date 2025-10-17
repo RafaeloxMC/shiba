@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://bg8ilm2vmj4k2"]
+[gd_scene load_steps=16 format=4 uid="uid://bg8ilm2vmj4k2"]
 
 [ext_resource type="PackedScene" uid="uid://cesxcje0r35td" path="res://scenes/parallax.tscn" id="1_x7cri"]
 [ext_resource type="TileSet" uid="uid://bk2fv30homksp" path="res://assets/tile_sets/map_tiles.tres" id="2_5muy6"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://uhoo82xnqgww" path="res://scenes/dog_house.tscn" id="12_4qnux"]
 [ext_resource type="PackedScene" uid="uid://taf06p4vfbrq" path="res://scenes/shop.tscn" id="12_hd4w6"]
 [ext_resource type="PackedScene" uid="uid://cknxodlu000ej" path="res://scenes/slippery_warning.tscn" id="12_x7cri"]
+[ext_resource type="PackedScene" uid="uid://dmn0lkcbvawff" path="res://scenes/cracked_ice.tscn" id="14_5muy6"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p57ef"]
 
@@ -122,6 +123,9 @@ frame_progress = 0.008851184
 
 [node name="CollisionShape2D" parent="Shop" index="4"]
 visible = false
+
+[node name="Cracked Ice" parent="." instance=ExtResource("14_5muy6")]
+position = Vector2(715, 40)
 
 [editable path="Parallax"]
 [editable path="Dog Houses/Dog House"]

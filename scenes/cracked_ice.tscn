@@ -1,0 +1,82 @@
+[gd_scene load_steps=11 format=3 uid="uid://dmn0lkcbvawff"]
+
+[ext_resource type="Texture2D" uid="uid://cxmq0a3jwng35" path="res://assets/sprites/ice.png" id="1_0vivu"]
+[ext_resource type="Script" uid="uid://cn1h2ygjokwnv" path="res://scripts/cracked_ice.gd" id="1_apuuf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apuuf"]
+atlas = ExtResource("1_0vivu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bdl1"]
+atlas = ExtResource("1_0vivu")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tj10t"]
+atlas = ExtResource("1_0vivu")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy2rj"]
+atlas = ExtResource("1_0vivu")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icntn"]
+atlas = ExtResource("1_0vivu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tb3p5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apuuf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bdl1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tj10t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qy2rj")
+}],
+"loop": false,
+"name": &"break",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_icntn")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vivu"]
+size = Vector2(16, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_apuuf"]
+size = Vector2(16, 16)
+
+[node name="Cracked Ice" type="Area2D"]
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_apuuf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tb3p5")
+animation = &"break"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_0vivu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_apuuf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

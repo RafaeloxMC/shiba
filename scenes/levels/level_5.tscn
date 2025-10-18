@@ -155,11 +155,11 @@ position = Vector2(2016, 320)
 [node name="Swim Triggers" type="Node" parent="."]
 
 [node name="SwimTrigger" parent="Swim Triggers" instance=ExtResource("8_6xwso")]
-position = Vector2(520, 328)
+position = Vector2(520, 322)
 scale = Vector2(4.0000196, 1)
 
 [node name="SwimTrigger2" parent="Swim Triggers" instance=ExtResource("8_6xwso")]
-position = Vector2(1624, 488)
+position = Vector2(1624, 482)
 scale = Vector2(5.6, 1)
 
 [node name="Ribbon" parent="." instance=ExtResource("10_tqnj0")]

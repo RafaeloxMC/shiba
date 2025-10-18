@@ -275,7 +275,7 @@ position = Vector2(472, -232)
 [node name="Swim Triggers" type="Node" parent="."]
 
 [node name="SwimTrigger" parent="Swim Triggers" instance=ExtResource("8_dnkej")]
-position = Vector2(8, -280)
+position = Vector2(8, -286)
 scale = Vector2(3.9900818, 1)
 
 [node name="Timers" type="Node" parent="."]

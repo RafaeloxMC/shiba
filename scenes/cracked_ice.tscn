@@ -1,7 +1,23 @@
-[gd_scene load_steps=11 format=3 uid="uid://dmn0lkcbvawff"]
+[gd_scene load_steps=15 format=3 uid="uid://dmn0lkcbvawff"]
 
 [ext_resource type="Texture2D" uid="uid://cxmq0a3jwng35" path="res://assets/sprites/ice.png" id="1_0vivu"]
 [ext_resource type="Script" uid="uid://cn1h2ygjokwnv" path="res://scripts/cracked_ice.gd" id="1_apuuf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tb3p5"]
+atlas = ExtResource("1_0vivu")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlqvh"]
+atlas = ExtResource("1_0vivu")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75uhe"]
+atlas = ExtResource("1_0vivu")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqavh"]
+atlas = ExtResource("1_0vivu")
+region = Rect2(48, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_apuuf"]
 atlas = ExtResource("1_0vivu")
@@ -27,6 +43,26 @@ region = Rect2(0, 0, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_tb3p5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vlqvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75uhe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqavh")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"break",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_apuuf")
 }, {
 "duration": 1.0,
@@ -39,8 +75,8 @@ animations = [{
 "texture": SubResource("AtlasTexture_qy2rj")
 }],
 "loop": false,
-"name": &"break",
-"speed": 5.0
+"name": &"crack",
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,

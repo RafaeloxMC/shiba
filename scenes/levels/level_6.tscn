@@ -117,14 +117,13 @@ position = Vector2(1344, -256)
 position = Vector2(234, -119)
 rotation = -3.1415927
 scale = Vector2(0.96, -0.96)
-animation = &"walk_ribbon"
 frame_progress = 0.5389935
 speed_scale = 0.5
 
 [node name="Swim Triggers" type="Node" parent="."]
 
 [node name="SwimTrigger" parent="Swim Triggers" instance=ExtResource("12_uwlxl")]
-position = Vector2(664.00006, 24)
+position = Vector2(664.00006, 18)
 scale = Vector2(7.1999807, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

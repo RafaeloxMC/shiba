@@ -1,9 +1,11 @@
-[gd_scene load_steps=16 format=4 uid="uid://bg8ilm2vmj4k2"]
+[gd_scene load_steps=18 format=4 uid="uid://bg8ilm2vmj4k2"]
 
 [ext_resource type="PackedScene" uid="uid://cesxcje0r35td" path="res://scenes/parallax.tscn" id="1_x7cri"]
 [ext_resource type="TileSet" uid="uid://bk2fv30homksp" path="res://assets/tile_sets/map_tiles.tres" id="2_5muy6"]
 [ext_resource type="Texture2D" uid="uid://bo6anrslxb030" path="res://assets/sprites/parallax_bg_northern.png" id="2_hfkb1"]
+[ext_resource type="Script" uid="uid://b8yyy402vh1a8" path="res://scripts/air_bg.gd" id="2_w0qkw"]
 [ext_resource type="PackedScene" uid="uid://dwkr2txvg88fv" path="res://scenes/dog_food.tscn" id="3_fijux"]
+[ext_resource type="Texture2D" uid="uid://coonspsoegm8l" path="res://assets/sprites/parallax_bg_northern_mountains.png" id="4_q1ohf"]
 [ext_resource type="PackedScene" uid="uid://b50ps8r584f3y" path="res://scenes/player.tscn" id="4_w0qkw"]
 [ext_resource type="PackedScene" uid="uid://b5lvwjoesv1re" path="res://scenes/killzone.tscn" id="5_q1ohf"]
 [ext_resource type="SpriteFrames" uid="uid://cmyr24ernl424" path="res://assets/sprite_frames/store_owner.tres" id="9_x7cri"]
@@ -21,8 +23,42 @@
 
 [node name="Parallax" parent="." instance=ExtResource("1_x7cri")]
 
-[node name="Sprite2D" parent="Parallax/ParallaxBackground/ParallaxLayer" index="0"]
+[node name="ParallaxBackground" parent="Parallax" index="0"]
+scroll_base_offset = Vector2(0, 1000)
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Parallax/ParallaxBackground" index="0"]
+position = Vector2(-940, 237.334)
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(1168.5, 680)
+script = ExtResource("2_w0qkw")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Parallax/ParallaxBackground/ParallaxLayer3"]
+position = Vector2(576.342, 102)
+scale = Vector2(1.82607, 1.42606)
 texture = ExtResource("2_hfkb1")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="Parallax/ParallaxBackground" index="1"]
+position = Vector2(-470, 118.667)
+motion_scale = Vector2(0.75, 0.75)
+motion_offset = Vector2(500, -325)
+motion_mirroring = Vector2(1168.5, 0)
+script = ExtResource("2_w0qkw")
+SPEED = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax/ParallaxBackground/ParallaxLayer4"]
+modulate = Color(0.92578125, 0.92578125, 0.92578125, 1)
+position = Vector2(576.342, 102)
+scale = Vector2(1.82607, 1.42606)
+texture = ExtResource("4_q1ohf")
+
+[node name="ParallaxLayer" parent="Parallax/ParallaxBackground" index="2"]
+motion_scale = Vector2(1, 1)
+motion_offset = Vector2(0, -200)
+motion_mirroring = Vector2(1168.5, 0)
+SPEED = 0
+
+[node name="Sprite2D" parent="Parallax/ParallaxBackground/ParallaxLayer" index="0"]
+texture = ExtResource("4_q1ohf")
 
 [node name="TileMap" type="Node2D" parent="."]
 
@@ -40,7 +76,7 @@ level_border_right = 1400
 position = Vector2(0, 165)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(0, 283)
+position = Vector2(0, -101)
 shape = SubResource("WorldBoundaryShape2D_p57ef")
 
 [node name="Platforms" type="Node" parent="."]
@@ -123,16 +159,16 @@ position = Vector2(792, 40)
 [node name="Cracked Ice3" parent="Environment" instance=ExtResource("14_5muy6")]
 position = Vector2(856, 8)
 
-[node name="Shop" parent="." instance=ExtResource("12_hd4w6")]
+[node name="Shop" parent="Environment" instance=ExtResource("12_hd4w6")]
 position = Vector2(77, -80)
 
-[node name="AnimatedSprite2D" parent="Shop" index="1"]
+[node name="AnimatedSprite2D" parent="Environment/Shop" index="1"]
 autoplay = "northern"
 frame_progress = 0.008851184
 
-[node name="CollisionShape2D" parent="Shop" index="4"]
+[node name="CollisionShape2D" parent="Environment/Shop" index="4"]
 visible = false
 
 [editable path="Parallax"]
 [editable path="Dog Houses/Dog House"]
-[editable path="Shop"]
+[editable path="Environment/Shop"]

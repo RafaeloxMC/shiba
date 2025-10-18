@@ -1,8 +1,10 @@
-[gd_scene load_steps=48 format=3 uid="uid://gef1vveefbjs"]
+[gd_scene load_steps=50 format=3 uid="uid://gef1vveefbjs"]
 
 [ext_resource type="Script" uid="uid://d4fky1rju1p7y" path="res://scripts/gameui.gd" id="1_wwaar"]
 [ext_resource type="PackedScene" uid="uid://3bnagxorg0g4" path="res://scenes/progress_bar.tscn" id="2_3guck"]
+[ext_resource type="Texture2D" uid="uid://dht1n4oim3fdr" path="res://assets/sprites/snowflakes.png" id="2_d0edb"]
 [ext_resource type="FontFile" uid="uid://8t1kpmmy5wvw" path="res://assets/fonts/pixelsix00.ttf" id="2_mu2ln"]
+[ext_resource type="Script" uid="uid://b3o2n2xfc6gik" path="res://scripts/snowflakes.gd" id="2_r6hs0"]
 [ext_resource type="SpriteFrames" uid="uid://dju8iw2jp5jrs" path="res://assets/sprite_frames/hearts.tres" id="3_bjfv8"]
 [ext_resource type="Texture2D" uid="uid://dq278psfgufaf" path="res://assets/sprites/coin.png" id="4_mu2ln"]
 [ext_resource type="Script" uid="uid://clpad50mh2ml4" path="res://scripts/gameui_color_rect.gd" id="5_n31af"]
@@ -320,6 +322,20 @@ grow_vertical = 2
 script = ExtResource("1_wwaar")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="CanvasLayer"]
+layer = -10
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground2"]
+position = Vector2(112, 0)
+motion_mirroring = Vector2(450, 262.5)
+script = ExtResource("2_r6hs0")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground2/ParallaxLayer"]
+modulate = Color(1, 1, 1, 0.39215687)
+position = Vector2(113, 131.25)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_d0edb")
 
 [node name="ProgressBar" parent="CanvasLayer" instance=ExtResource("2_3guck")]
 anchors_preset = 5

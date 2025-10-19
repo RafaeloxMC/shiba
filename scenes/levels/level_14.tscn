@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://bg8ilm2vmj4k2"]
+[gd_scene load_steps=19 format=4 uid="uid://bg8ilm2vmj4k2"]
 
 [ext_resource type="PackedScene" uid="uid://cesxcje0r35td" path="res://scenes/parallax.tscn" id="1_x7cri"]
 [ext_resource type="TileSet" uid="uid://bk2fv30homksp" path="res://assets/tile_sets/map_tiles.tres" id="2_5muy6"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://coonspsoegm8l" path="res://assets/sprites/parallax_bg_northern_mountains.png" id="4_q1ohf"]
 [ext_resource type="PackedScene" uid="uid://b50ps8r584f3y" path="res://scenes/player.tscn" id="4_w0qkw"]
 [ext_resource type="PackedScene" uid="uid://b5lvwjoesv1re" path="res://scenes/killzone.tscn" id="5_q1ohf"]
+[ext_resource type="PackedScene" uid="uid://crqc1hhdhds5b" path="res://scenes/coin.tscn" id="8_q1ohf"]
 [ext_resource type="SpriteFrames" uid="uid://cmyr24ernl424" path="res://assets/sprite_frames/store_owner.tres" id="9_x7cri"]
 [ext_resource type="PackedScene" uid="uid://prtcrbjwfdku" path="res://scenes/dialog_trigger.tscn" id="10_3cpn8"]
 [ext_resource type="PackedScene" uid="uid://c7ekn1l4pgdrl" path="res://scenes/slippery_trigger.tscn" id="10_vi0f2"]
@@ -86,6 +87,12 @@ shape = SubResource("WorldBoundaryShape2D_p57ef")
 
 [node name="Coins" type="Node" parent="."]
 
+[node name="Coin" parent="Coins" instance=ExtResource("8_q1ohf")]
+position = Vector2(488, -112)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("8_q1ohf")]
+position = Vector2(472, -112)
+
 [node name="Dog Food" type="Node" parent="."]
 
 [node name="Dog Food" parent="Dog Food" instance=ExtResource("3_fijux")]
@@ -125,7 +132,7 @@ position = Vector2(-29, -51)
 position = Vector2(-29, 0)
 
 [node name="Dog House2" parent="Dog Houses" instance=ExtResource("12_4qnux")]
-position = Vector2(752, -240)
+position = Vector2(1072, -64)
 
 [node name="Friendly" type="Node" parent="."]
 

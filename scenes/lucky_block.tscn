@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://brkbsviub7ua3"]
+
+[ext_resource type="Texture2D" uid="uid://bjognnt3xf0gn" path="res://assets/sprites/lucky_block.png" id="1_1oxb2"]
+[ext_resource type="Script" uid="uid://h5efebifuopt" path="res://scripts/lucky_block.gd" id="1_7jsp6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jsp6"]
+atlas = ExtResource("1_1oxb2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ews3o"]
+atlas = ExtResource("1_1oxb2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2mvj"]
+atlas = ExtResource("1_1oxb2")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ng8b"]
+atlas = ExtResource("1_1oxb2")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrfi8"]
+atlas = ExtResource("1_1oxb2")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_by7b2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jsp6")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ews3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2mvj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ng8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrfi8")
+}],
+"loop": true,
+"name": &"spin",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jsp6"]
+size = Vector2(14, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ews3o"]
+size = Vector2(16, 16)
+
+[node name="Lucky Block" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_7jsp6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_by7b2")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 1.0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_7jsp6")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_ews3o")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

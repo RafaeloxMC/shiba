@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://d3xsfwk2cdpw5"]
+[gd_scene load_steps=22 format=4 uid="uid://d3xsfwk2cdpw5"]
 
 [ext_resource type="PackedScene" uid="uid://cesxcje0r35td" path="res://scenes/parallax.tscn" id="1_wyujn"]
 [ext_resource type="TileSet" uid="uid://bk2fv30homksp" path="res://assets/tile_sets/map_tiles.tres" id="3_0hwde"]
@@ -13,8 +13,24 @@
 [ext_resource type="SpriteFrames" uid="uid://bklk7p5g27qcp" path="res://assets/sprite_frames/player.tres" id="9_2kfw6"]
 [ext_resource type="PackedScene" uid="uid://uhoo82xnqgww" path="res://scenes/dog_house.tscn" id="10_k1t7b"]
 [ext_resource type="PackedScene" uid="uid://bgwkv2r6fk6fm" path="res://scenes/timer.tscn" id="12_yje5r"]
+[ext_resource type="PackedScene" uid="uid://brkbsviub7ua3" path="res://scenes/lucky_block.tscn" id="14_0hwde"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p57ef"]
+
+[sub_resource type="Animation" id="Animation_yudpf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-80, 36.5)]
+}
 
 [sub_resource type="Animation" id="Animation_0hwde"]
 resource_name = "move"
@@ -33,7 +49,13 @@ tracks/0/keys = {
 "values": [Vector2(-80, 36.5), Vector2(-80, 36.5), Vector2(-80, -187.5), Vector2(-80, -187.5)]
 }
 
-[sub_resource type="Animation" id="Animation_yudpf"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f63os"]
+_data = {
+&"RESET": SubResource("Animation_yudpf"),
+&"move": SubResource("Animation_0hwde")
+}
+
+[sub_resource type="Animation" id="Animation_yje5r"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -45,13 +67,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-80, 36.5)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_f63os"]
-_data = {
-&"RESET": SubResource("Animation_yudpf"),
-&"move": SubResource("Animation_0hwde")
+"values": [Vector2(96, -187.5)]
 }
 
 [sub_resource type="Animation" id="Animation_wyujn"]
@@ -69,21 +85,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(96, -187.5), Vector2(96, -187.5), Vector2(336, -187.5), Vector2(336, -187.5)]
-}
-
-[sub_resource type="Animation" id="Animation_yje5r"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(96, -187.5)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0hwde"]
@@ -232,5 +233,12 @@ position = Vector2(-40, -216)
 
 [node name="Timer3" parent="Timers" instance=ExtResource("12_yje5r")]
 position = Vector2(72, -216)
+
+[node name="Lucky Block" parent="." instance=ExtResource("14_0hwde")]
+position = Vector2(16, -232)
+lootpool = Dictionary[String, Variant]({
+"coin": ExtResource("6_wyujn"),
+"dog_food": ExtResource("3_yje5r")
+})
 
 [editable path="Dog Houses/Dog House"]

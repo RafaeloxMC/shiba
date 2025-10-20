@@ -58,6 +58,7 @@ size = Vector2(14, 16)
 size = Vector2(16, 16)
 
 [node name="Lucky Block" type="Area2D"]
+visible = false
 collision_mask = 2
 script = ExtResource("1_7jsp6")
 
@@ -70,10 +71,12 @@ frame_progress = 1.0
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_7jsp6")
+disabled = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_ews3o")
+disabled = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

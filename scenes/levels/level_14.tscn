@@ -72,6 +72,7 @@ z_index = 5
 position = Vector2(-487, -64)
 level_border_left = -75
 level_border_right = 1400
+snow = true
 
 [node name="ParallaxLayer" parent="Player/Camera2D/CanvasLayer/GameUI/CanvasLayer/ParallaxBackground2" index="0"]
 snow = true

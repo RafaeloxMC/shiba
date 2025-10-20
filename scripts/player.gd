@@ -26,6 +26,7 @@ var air_left: float = 30
 @export var level_border_right: int = 100
 @export var bats = false
 @export var flying_animals = true
+@export var snow = false
 
 var hat = ""
 
@@ -100,6 +101,7 @@ func _process(_delta: float) -> void:
 		var bird_pos = self.position
 		bird_pos.y = self.position.y - floor(randf_range(50, 125))
 		bird_pos.x = self.position.x - 200
+		GameManager.snow = snow
 		GameManager.spawn_bird(bird_pos)
 		
 	if GameManager.hat != "":

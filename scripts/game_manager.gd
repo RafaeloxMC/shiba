@@ -43,6 +43,7 @@ signal dialog(content: String, author: String, animation: SpriteFrames, char_siz
 signal absorb()
 
 var bird: PackedScene
+var snow_bird: PackedScene
 var bat: PackedScene
 var bats: bool = false
 var flying_animals: bool = true
@@ -50,6 +51,8 @@ var flying_animals: bool = true
 var hat: String = ""
 
 var ribbon_collected = false
+
+var snow = false
 
 func set_show_shop(value: bool) -> void:
 	is_showing_shop = value
@@ -75,6 +78,7 @@ func _on_save_loaded(saveData):
 
 func _ready() -> void:
 	bird = preload("res://scenes/bird.tscn")
+	snow_bird = preload("res://scenes/snow_bird.tscn")
 	bat = preload("res://scenes/bat.tscn")
 	trigger_shop.connect(set_show_shop)
 	ShibaDB.save_loaded.connect(_on_save_loaded)
@@ -164,7 +168,10 @@ func spawn_bird(pos: Vector2):
 		if bats == true:
 			bird_node = bat.instantiate()
 		else:
-			bird_node = bird.instantiate()
+			if snow == true:
+				bird_node = snow_bird.instantiate()
+			else:
+				bird_node = bird.instantiate()
 		bird_node.position = pos
 		get_tree().current_scene.get_node("Birds").add_child(bird_node)
 	else:
@@ -174,7 +181,10 @@ func spawn_bird(pos: Vector2):
 		if bats == true:
 			bird_node = bat.instantiate()
 		else:
-			bird_node = bird.instantiate()
+			if snow == true:
+				bird_node = snow_bird.instantiate()
+			else:
+				bird_node = bird.instantiate()
 		bird_node.position = pos
 		get_tree().current_scene.add_child(node)
 		get_tree().current_scene.get_node("Birds").add_child(bird_node)

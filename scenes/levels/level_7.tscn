@@ -140,27 +140,6 @@ position = Vector2(-29, -51)
 [node name="Area2D" parent="Dog Houses/Dog House" index="4"]
 position = Vector2(-29, 0)
 
-[node name="Dog House2" parent="Dog Houses" instance=ExtResource("12_r4aal")]
-position = Vector2(1248, -304)
-
-[node name="HouseBG" parent="Dog Houses/Dog House2" index="0"]
-visible = false
-
-[node name="HouseFG" parent="Dog Houses/Dog House2/HouseBG" index="0"]
-visible = false
-
-[node name="Collider" parent="Dog Houses/Dog House2" index="1"]
-visible = false
-
-[node name="CollisionShape2D" parent="Dog Houses/Dog House2" index="2"]
-position = Vector2(28, -80)
-
-[node name="Text" parent="Dog Houses/Dog House2" index="3"]
-position = Vector2(-24, -32)
-
-[node name="Trigger" parent="Dog Houses/Dog House2/Area2D" index="0"]
-position = Vector2(16, -4)
-
 [node name="Friendly" type="Node" parent="."]
 
 [node name="Camel" parent="Friendly" instance=ExtResource("14_dfn7m")]
@@ -186,13 +165,37 @@ disabled = true
 [node name="Swim Triggers" type="Node" parent="."]
 
 [node name="Pyramid" parent="." instance=ExtResource("7_u1w5x")]
-position = Vector2(1103, -199)
+position = Vector2(1072.0001, -155)
+scale = Vector2(1.6800008, 1.6800008)
+
+[node name="Dog House2" parent="Pyramid" instance=ExtResource("12_r4aal")]
+position = Vector2(61.440674, -44.491524)
+scale = Vector2(0.4237288, 0.4237288)
+
+[node name="HouseBG" parent="Pyramid/Dog House2" index="0"]
+visible = false
+
+[node name="HouseFG" parent="Pyramid/Dog House2/HouseBG" index="0"]
+visible = false
+
+[node name="Collider" parent="Pyramid/Dog House2" index="1"]
+visible = false
+
+[node name="CollisionShape2D" parent="Pyramid/Dog House2" index="2"]
+position = Vector2(28, -80)
+
+[node name="Text" parent="Pyramid/Dog House2" index="3"]
+position = Vector2(1.0950184, -25.64282)
+scale = Vector2(1.561877, 1.561877)
+
+[node name="Trigger" parent="Pyramid/Dog House2/Area2D" index="0"]
+position = Vector2(16, -4)
 
 [node name="Shop" parent="." instance=ExtResource("8_posk4")]
 position = Vector2(648, -48)
 
 [editable path="Parallax"]
 [editable path="Dog Houses/Dog House"]
-[editable path="Dog Houses/Dog House2"]
 [editable path="Friendly/Camel"]
 [editable path="Friendly/Camel2"]
+[editable path="Pyramid/Dog House2"]

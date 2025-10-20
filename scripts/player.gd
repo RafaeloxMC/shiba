@@ -167,7 +167,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			animated_sprite_2d.play("walk" + hat)
 		if is_slippery:
-			velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION * delta * 0.3)
+			velocity.x = move_toward(velocity.x, direction * SPEED * 1.2, ACCELERATION * delta * 0.3)
 		else:
 			velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION * delta)
 		if velocity.x > 0:
@@ -176,7 +176,7 @@ func _physics_process(delta: float) -> void:
 			animated_sprite_2d.flip_h = true
 	else:
 		if is_slippery:
-			velocity.x = move_toward(velocity.x, 0, ACCELERATION * delta * 0.005)
+			velocity.x = move_toward(velocity.x, 0, ACCELERATION * 1.2 * delta * 0.005)
 		else: 
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 		animated_sprite_2d.play("idle" + hat)

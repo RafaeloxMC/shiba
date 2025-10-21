@@ -11,6 +11,10 @@ var is_slippery = false
 var water_multiplier = 1
 var air_left: float = 30
 
+var coyote_time: float = 0.25
+var coyote_last_on_ground: float = 0.0
+var coyote_already_jumped: bool = false
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var jump_sfx: AudioStreamPlayer2D = $JumpSFX
@@ -114,6 +118,7 @@ func _physics_process(delta: float) -> void:
 		GameManager.show_fps = !GameManager.show_fps
 	
 	if not is_on_floor():
+		coyote_last_on_ground += delta
 		if not is_swimming:
 			if hat == "_propeller":
 				velocity += get_gravity() * 0.7 * delta
@@ -123,6 +128,8 @@ func _physics_process(delta: float) -> void:
 			velocity += get_gravity() * delta * water_multiplier
 		is_falling = true
 	else:
+		coyote_last_on_ground = 0
+		coyote_already_jumped = false
 		if is_falling == true && jumping == false:
 			fall_sfx.play()
 		jumping = false
@@ -151,11 +158,12 @@ func _physics_process(delta: float) -> void:
 		GameManager.remove_heart()
 		
 	if Input.is_action_pressed("jump"):
-		if is_on_floor():
+		if is_on_floor() || (coyote_last_on_ground <= coyote_time and !coyote_already_jumped):
 			if not is_swimming:
 				velocity.y = JUMP_VELOCITY
 				jump_sfx.play()
 				jumping = true
+				coyote_already_jumped = true
 			else:
 				velocity.y = JUMP_VELOCITY / 6
 		else:

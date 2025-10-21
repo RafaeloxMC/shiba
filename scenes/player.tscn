@@ -26,7 +26,7 @@ autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 5
-position = Vector2(0, -7)
+position = Vector2(0, -7.1)
 shape = SubResource("CapsuleShape2D_fjrip")
 
 [node name="JumpSFX" type="AudioStreamPlayer2D" parent="."]

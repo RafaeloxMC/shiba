@@ -5,6 +5,8 @@ extends CharacterBody2D
 
 @export var speed: int = 20
 
+var dead: bool = false
+
 func _ready() -> void:
 	velocity.x = speed
 
@@ -21,7 +23,8 @@ func _on_body_exited(body: Node2D) -> void:
 		animated_sprite_2d.play("idle")
 
 func _physics_process(_delta: float) -> void:
-	if ray_cast_2d.is_colliding():
-		scale.x = scale.x * -1
-		velocity.x = -velocity.x
+	if not dead:
+		if ray_cast_2d.is_colliding():
+			scale.x = scale.x * -1
+			velocity.x = -velocity.x
 	move_and_slide()

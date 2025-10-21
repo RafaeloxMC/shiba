@@ -7,6 +7,7 @@ extends Area2D
 
 var launched = true
 var velocity = Vector2(0, 0)
+var is_in_water = false
 
 @export var maxVelocity = 200;
 
@@ -16,8 +17,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
 	if launched:
 		position.x += velocity * delta
+	if is_in_water:
+		self.velocity.y = -10
 
 func launch():
 	launched = true
@@ -34,7 +38,9 @@ func _on_timer_timeout() -> void:
 	self.queue_free()
 	
 func _on_body_entered(body: Node2D) -> void:
-	if body.name.begins_with("Squirrel") || body.name.begins_with("Rabbit"):
+	if body.name.begins_with("SwimTrigger"):
+		is_in_water = true
+	if body.is_in_group("enemies") && body is CharacterBody2D:
 		var enemy = body as CharacterBody2D
 		enemy.set_collision_mask_value(1, false)
 		enemy.dead = true
@@ -42,3 +48,5 @@ func _on_body_entered(body: Node2D) -> void:
 		self.queue_free()
 		await get_tree().create_timer(0.5).timeout
 		enemy.queue_free()
+	if !(body is CharacterBody2D) && not body.name.begins_with("SwimTrigger"):
+		self.queue_free()

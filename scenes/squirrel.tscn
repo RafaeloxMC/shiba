@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_m3xcr"]
 radius = 9.0
 
-[node name="Squirrel" type="CharacterBody2D"]
+[node name="Squirrel" type="CharacterBody2D" groups=["enemies"]]
 scale = Vector2(0.799999, 0.799999)
 script = ExtResource("1_m3xcr")
 

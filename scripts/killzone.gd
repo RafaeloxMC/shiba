@@ -9,12 +9,13 @@ func _on_body_entered(body: Node2D) -> void:
 		GameManager.hat = ""
 		GameManager.absorb.emit()
 		var enemy = self.get_parent()
-		enemy.set_collision_mask_value(1, false)
-		enemy.dead = true
-		enemy.velocity.y = -175
-		self.queue_free()
-		await get_tree().create_timer(0.5).timeout
-		enemy.queue_free()
+		if not enemy.name == "Game":
+			enemy.set_collision_mask_value(1, false)
+			enemy.dead = true
+			enemy.velocity.y = -175
+			self.queue_free()
+			await get_tree().create_timer(0.5).timeout
+			enemy.queue_free()
 		return
 	print("Player died!")
 	GameManager.remove_heart()

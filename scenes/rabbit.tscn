@@ -65,7 +65,7 @@ height = 28.610596
 [sub_resource type="CircleShape2D" id="CircleShape2D_ukfwh"]
 radius = 3.5763245
 
-[node name="Rabbit" type="CharacterBody2D"]
+[node name="Rabbit" type="CharacterBody2D" groups=["enemies"]]
 scale = Vector2(0.55923337, 0.55923337)
 script = ExtResource("1_dxh4p")
 

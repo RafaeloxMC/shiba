@@ -13,7 +13,7 @@ radius = 6.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_kn2uh"]
 radius = 49.010204
 
-[node name="Pufferfish" type="CharacterBody2D"]
+[node name="Pufferfish" type="CharacterBody2D" groups=["enemies"]]
 script = ExtResource("1_kn2uh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

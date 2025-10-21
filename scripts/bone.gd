@@ -34,11 +34,11 @@ func _on_timer_timeout() -> void:
 	self.queue_free()
 	
 func _on_body_entered(body: Node2D) -> void:
-	if body.name.begins_with("Squirrel"):
-		var squirrel = body as CharacterBody2D
-		squirrel.set_collision_mask_value(1, false)
-		squirrel.dead = true
-		squirrel.velocity.y = -175
+	if body.name.begins_with("Squirrel") || body.name.begins_with("Rabbit"):
+		var enemy = body as CharacterBody2D
+		enemy.set_collision_mask_value(1, false)
+		enemy.dead = true
+		enemy.velocity.y = -175
 		self.queue_free()
 		await get_tree().create_timer(0.5).timeout
-		squirrel.queue_free()
+		enemy.queue_free()

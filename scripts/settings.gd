@@ -98,6 +98,7 @@ func submit():
 		var node = load(current_button.scene.resource_path)
 		add_child(node.instantiate())
 		credits_open = true
+		return
 	if current_button == btn_shibadb_reset:
 		ShibaDB.reset_progress("Untitled Save")
 		GameManager.reset()

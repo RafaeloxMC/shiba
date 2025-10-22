@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://61x2dkmkmd14"]
+[gd_scene load_steps=24 format=3 uid="uid://61x2dkmkmd14"]
 
 [ext_resource type="FontFile" uid="uid://8t1kpmmy5wvw" path="res://assets/fonts/pixelsix00.ttf" id="1_l6cm7"]
 [ext_resource type="Script" uid="uid://qfokxpyfo4oi" path="res://scripts/main_menu.gd" id="1_wu84c"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cso30bnqrkklj" path="res://scenes/shutdown.tscn" id="5_8ln24"]
 [ext_resource type="PackedScene" uid="uid://ctrdli6f4pyyx" path="res://scenes/settings.tscn" id="5_rtw2f"]
 [ext_resource type="Texture2D" uid="uid://cwjr6pb7jamhr" path="res://assets/sprites/parallax_fg.png" id="6_5pajh"]
-[ext_resource type="Texture2D" uid="uid://cbuc4rw04hmp5" path="res://assets/sprites/shiba.png" id="7_j7ex8"]
+[ext_resource type="SpriteFrames" uid="uid://bklk7p5g27qcp" path="res://assets/sprite_frames/player.tres" id="7_rcqid"]
 [ext_resource type="Script" uid="uid://clpad50mh2ml4" path="res://scripts/gameui_color_rect.gd" id="13_rcqid"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a8gd2"]
@@ -170,70 +170,6 @@ texture = ExtResource("2_flqon")
 [sub_resource type="TileSet" id="TileSet_hstxw"]
 sources/1 = SubResource("TileSetAtlasSource_a8gd2")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uhhto"]
-atlas = ExtResource("7_j7ex8")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1g033"]
-atlas = ExtResource("7_j7ex8")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_01roj"]
-atlas = ExtResource("7_j7ex8")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wqwn7"]
-atlas = ExtResource("7_j7ex8")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oe2nd"]
-atlas = ExtResource("7_j7ex8")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7kvyq"]
-atlas = ExtResource("7_j7ex8")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ql1j0"]
-atlas = ExtResource("7_j7ex8")
-region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6dbjw"]
-atlas = ExtResource("7_j7ex8")
-region = Rect2(224, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_8egab"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uhhto")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1g033")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_01roj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wqwn7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oe2nd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7kvyq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ql1j0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6dbjw")
-}],
-"loop": true,
-"name": &"default",
-"speed": 10.0
-}]
-
 [sub_resource type="LabelSettings" id="LabelSettings_ekxnf"]
 font = ExtResource("1_l6cm7")
 font_size = 48
@@ -383,8 +319,10 @@ texture = ExtResource("6_5pajh")
 position = Vector2(968, 272)
 rotation = -3.14159
 scale = Vector2(9.625, -9.625)
-sprite_frames = SubResource("SpriteFrames_8egab")
-autoplay = "default"
+sprite_frames = ExtResource("7_rcqid")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.72478616
 
 [node name="title" type="Label" parent="."]
 layout_mode = 1

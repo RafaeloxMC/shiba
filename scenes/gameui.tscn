@@ -522,9 +522,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="FPS" type="Label" parent="CanvasLayer"]
-offset_top = 113.0
-offset_right = 135.0
-offset_bottom = 136.0
+offset_left = 103.0
+offset_top = 8.0
+offset_right = 238.0
+offset_bottom = 31.0
 label_settings = SubResource("LabelSettings_lwled")
 
 [node name="ShopLayer" type="CanvasLayer" parent="."]

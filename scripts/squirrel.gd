@@ -137,6 +137,10 @@ func change_direction() -> void:
 				facing.target_position = Vector2(-spotting_range, 0)
 				ground.target_position = Vector2(-15, 15)
 			return
+		else:
+			animated_sprite_2d.flip_h = false
+			facing.target_position = Vector2(spotting_range, 0)
+			ground.target_position = Vector2(15, 15)
 	if current_state == States.IDLE:
 		if not animated_sprite_2d.flip_h:
 			if self.position.x <= right_bounds.x:

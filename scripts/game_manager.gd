@@ -48,6 +48,8 @@ var bat: PackedScene
 var bats: bool = false
 var flying_animals: bool = true
 
+var time: float = 0.0
+
 var hat: String = ""
 
 var ribbon_collected = false
@@ -142,6 +144,7 @@ func reset():
 	should_show_intro = true
 	bought_items.clear()
 	hat = ""
+	time = 0
 	SceneManager.current_level = "level_1"
 	SoundManager.call_sound("Tiger Tracks - Lexica")
 	

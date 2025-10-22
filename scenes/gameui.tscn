@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://gef1vveefbjs"]
+[gd_scene load_steps=52 format=3 uid="uid://gef1vveefbjs"]
 
 [ext_resource type="Script" uid="uid://d4fky1rju1p7y" path="res://scripts/gameui.gd" id="1_wwaar"]
 [ext_resource type="PackedScene" uid="uid://3bnagxorg0g4" path="res://scenes/progress_bar.tscn" id="2_3guck"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://bmiksxfiyj8sf" path="res://scripts/dialog_manager.gd" id="7_bjfv8"]
 [ext_resource type="Texture2D" uid="uid://cbuc4rw04hmp5" path="res://assets/sprites/shiba.png" id="7_tgq32"]
 [ext_resource type="Texture2D" uid="uid://cmd466d651fgq" path="res://assets/sprites/menu_elements.png" id="8_s0xlj"]
+[ext_resource type="Script" uid="uid://svsqkifhmve" path="res://scripts/time_tracker.gd" id="9_seba6"]
 [ext_resource type="PackedScene" uid="uid://brwbaty0abnxo" path="res://scenes/shop_ui.tscn" id="11_lwled"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ccwni"]
@@ -113,6 +114,10 @@ animations = [{
 "name": &"pickup",
 "speed": 20.0
 }]
+
+[sub_resource type="LabelSettings" id="LabelSettings_r6hs0"]
+font = ExtResource("2_mu2ln")
+font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_wexye"]
 font = ExtResource("2_mu2ln")
@@ -401,6 +406,20 @@ position = Vector2(130, 142)
 scale = Vector2(4.23325, 4.23325)
 sprite_frames = ExtResource("6_55g5v")
 animation = &"pop"
+
+[node name="TimeTracker" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -278.0
+offset_top = 62.0
+offset_right = 278.0
+offset_bottom = 98.0
+grow_horizontal = 2
+text = "00:00:00"
+label_settings = SubResource("LabelSettings_r6hs0")
+horizontal_alignment = 1
+script = ExtResource("9_seba6")
 
 [node name="DialogManager" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 7

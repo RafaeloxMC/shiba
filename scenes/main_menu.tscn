@@ -288,11 +288,11 @@ script = ExtResource("1_wu84c")
 [node name="Background" type="Control" parent="."]
 anchors_preset = 0
 
-[node name="TileMap" type="TileMap" parent="Background"]
+[node name="TileMapLayer" type="TileMapLayer" parent="Background"]
+use_parent_material = true
 scale = Vector2(6, 6)
+tile_map_data = PackedByteArray(0, 0, 10, 0, 5, 0, 1, 0, 15, 0, 15, 0, 0, 0, 9, 0, 5, 0, 1, 0, 14, 0, 15, 0, 0, 0, 10, 0, 4, 0, 1, 0, 15, 0, 13, 0, 0, 0, 9, 0, 4, 0, 1, 0, 13, 0, 13, 0, 0, 0)
 tile_set = SubResource("TileSet_hstxw")
-format = 2
-layer_0/tile_data = PackedInt32Array(327690, 983041, 15, 327689, 917505, 15, 262154, 983041, 13, 262153, 851969, 13)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
 
@@ -322,7 +322,6 @@ scale = Vector2(9.625, -9.625)
 sprite_frames = ExtResource("7_rcqid")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.72478616
 
 [node name="title" type="Label" parent="."]
 layout_mode = 1

@@ -411,14 +411,13 @@ animation = &"pop"
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -278.0
-offset_top = 62.0
-offset_right = 278.0
-offset_bottom = 98.0
+offset_left = -66.0
+offset_top = 64.0
+offset_right = 256.0
+offset_bottom = 100.0
 grow_horizontal = 2
 text = "00:00:00"
 label_settings = SubResource("LabelSettings_r6hs0")
-horizontal_alignment = 1
 script = ExtResource("9_seba6")
 
 [node name="DialogManager" type="TextureRect" parent="CanvasLayer"]

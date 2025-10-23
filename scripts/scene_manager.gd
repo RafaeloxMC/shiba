@@ -18,6 +18,9 @@ func call_scene(scene: String) -> void:
 	if current_scene.begins_with("level_"):
 		if scene == "level_3" && current_level == "level_2":
 			SoundManager.call_sound_with_fade("You Know You Know - Forever Sunset")
+		else:
+			if scene == "level_14" && current_level == "level_13":
+				SoundManager.call_sound_with_fade("Racing Heartbeats - The Big Let Down")
 		current_level = current_scene
 	print("Current scene now is: " + scene)
 	GameManager.coins_collected_in_current_scene = 0

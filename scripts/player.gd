@@ -15,6 +15,8 @@ var coyote_time: float = 0.25
 var coyote_last_on_ground: float = 0.0
 var coyote_already_jumped: bool = false
 
+@export var movement_disabled = false
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var jump_sfx: AudioStreamPlayer2D = $JumpSFX
@@ -157,7 +159,7 @@ func _physics_process(delta: float) -> void:
 			drown_timer.start(1)
 		GameManager.remove_heart()
 		
-	if Input.is_action_pressed("jump"):
+	if Input.is_action_pressed("jump") && !movement_disabled:
 		if is_on_floor() || (coyote_last_on_ground <= coyote_time and !coyote_already_jumped):
 			if not is_swimming:
 				velocity.y = JUMP_VELOCITY
@@ -171,7 +173,7 @@ func _physics_process(delta: float) -> void:
 				velocity.y = JUMP_VELOCITY / 6
 		
 	var direction := Input.get_axis("move_left", "move_right")
-	if direction:
+	if direction && !movement_disabled:
 		if is_swimming:
 			animated_sprite_2d.play("swim" + hat)
 		else:
@@ -191,7 +193,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 		animated_sprite_2d.play("idle" + hat)
 		
-	if Input.is_action_just_pressed("attack") && timer.time_left <= 0:
+	if Input.is_action_just_pressed("attack") && timer.time_left <= 0 && !movement_disabled:
 		if GameManager.bought_items.has("bone"):
 			var proj = projectile.instantiate()
 			proj.position = self.global_position

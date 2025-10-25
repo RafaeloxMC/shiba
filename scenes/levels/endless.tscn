@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dokv0l52wesbk"]
+[gd_scene load_steps=15 format=3 uid="uid://dokv0l52wesbk"]
 
 [ext_resource type="Script" uid="uid://dx7ar0qtsy6vj" path="res://scripts/endless.gd" id="1_0kge5"]
 [ext_resource type="PackedScene" uid="uid://b80qpk8knquvw" path="res://scenes/levels/endless/grassland/grassland_1.tscn" id="2_qyjdh"]
@@ -9,12 +9,16 @@
 [ext_resource type="PackedScene" uid="uid://bmw1yu4yoowmv" path="res://scenes/levels/endless/grassland/grassland_4.tscn" id="5_c52pb"]
 [ext_resource type="PackedScene" uid="uid://ciahqrbf72xcr" path="res://scenes/levels/endless/grassland/grassland_5.tscn" id="6_ojtbl"]
 [ext_resource type="PackedScene" uid="uid://b5lvwjoesv1re" path="res://scenes/killzone.tscn" id="7_ifem6"]
+[ext_resource type="PackedScene" uid="uid://bobohpglta7wu" path="res://scenes/levels/endless/grassland/grassland_6.tscn" id="7_ojtbl"]
+[ext_resource type="PackedScene" uid="uid://dhpjj8562eg11" path="res://scenes/levels/endless/grassland/grassland_7.tscn" id="8_hl7h5"]
+[ext_resource type="PackedScene" uid="uid://dofg71avpd47r" path="res://scenes/levels/endless/grassland/grassland_8.tscn" id="9_nofk8"]
+[ext_resource type="PackedScene" uid="uid://ckmc3s8b5whvh" path="res://scenes/levels/endless/grassland/grassland_9.tscn" id="10_rmf4i"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jebdc"]
 
 [node name="Endless" type="Node2D"]
 script = ExtResource("1_0kge5")
-tiles = Array[PackedScene]([ExtResource("2_qyjdh"), ExtResource("3_vuxau"), ExtResource("4_ku55h"), ExtResource("5_c52pb"), ExtResource("6_ojtbl")])
+tiles = Array[PackedScene]([ExtResource("2_qyjdh"), ExtResource("3_vuxau"), ExtResource("4_ku55h"), ExtResource("5_c52pb"), ExtResource("6_ojtbl"), ExtResource("7_ojtbl"), ExtResource("8_hl7h5"), ExtResource("9_nofk8"), ExtResource("10_rmf4i")])
 
 [node name="Parallax" parent="." instance=ExtResource("3_qyjdh")]
 

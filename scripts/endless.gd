@@ -19,7 +19,6 @@ func _process(_delta: float) -> void:
 	offset = maxf(player.position.x, offset)
 	var buffer = tile_width
 	while (offset + buffer >= last_end):
-		print("Placing new tile ahead at: ", last_end + gap)
 		var tile_scene = get_random_themed_part("grassland")
 		if tile_scene != null:
 			var tile = tile_scene.instantiate() as Node2D
@@ -49,7 +48,6 @@ func update_tile_width(tile: Node2D) -> void:
 				max_x = max(max_x, cell.x)
 			var tile_count_x = max_x - min_x + 1
 			tile_width = tile_count_x * tile_size.x
-			print("Calculated tile width: ", tile_width)
 		else:
 			print("Warning: No used cells found in TileMapLayer, using default width: ", tile_width)
 	else:

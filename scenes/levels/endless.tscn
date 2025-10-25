@@ -1,14 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://dokv0l52wesbk"]
+[gd_scene load_steps=11 format=3 uid="uid://dokv0l52wesbk"]
 
 [ext_resource type="Script" uid="uid://dx7ar0qtsy6vj" path="res://scripts/endless.gd" id="1_0kge5"]
 [ext_resource type="PackedScene" uid="uid://b80qpk8knquvw" path="res://scenes/levels/endless/grassland/grassland_1.tscn" id="2_qyjdh"]
 [ext_resource type="PackedScene" uid="uid://b50ps8r584f3y" path="res://scenes/player.tscn" id="2_uergm"]
 [ext_resource type="PackedScene" uid="uid://cesxcje0r35td" path="res://scenes/parallax.tscn" id="3_qyjdh"]
 [ext_resource type="PackedScene" uid="uid://200lulv2bjh5" path="res://scenes/levels/endless/grassland/grassland_2.tscn" id="3_vuxau"]
+[ext_resource type="PackedScene" uid="uid://etj2t4j2x876" path="res://scenes/levels/endless/grassland/grassland_3.tscn" id="4_ku55h"]
+[ext_resource type="PackedScene" uid="uid://bmw1yu4yoowmv" path="res://scenes/levels/endless/grassland/grassland_4.tscn" id="5_c52pb"]
+[ext_resource type="PackedScene" uid="uid://ciahqrbf72xcr" path="res://scenes/levels/endless/grassland/grassland_5.tscn" id="6_ojtbl"]
+[ext_resource type="PackedScene" uid="uid://b5lvwjoesv1re" path="res://scenes/killzone.tscn" id="7_ifem6"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jebdc"]
 
 [node name="Endless" type="Node2D"]
 script = ExtResource("1_0kge5")
-tiles = Array[PackedScene]([ExtResource("2_qyjdh"), ExtResource("3_vuxau")])
+tiles = Array[PackedScene]([ExtResource("2_qyjdh"), ExtResource("3_vuxau"), ExtResource("4_ku55h"), ExtResource("5_c52pb"), ExtResource("6_ojtbl")])
 
 [node name="Parallax" parent="." instance=ExtResource("3_qyjdh")]
 
@@ -16,4 +22,10 @@ tiles = Array[PackedScene]([ExtResource("2_qyjdh"), ExtResource("3_vuxau")])
 z_index = 5
 level_border_left = -75
 level_border_right = 1400
-snow = true
+
+[node name="Killzone" parent="." instance=ExtResource("7_ifem6")]
+position = Vector2(0, 165)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(0, -45)
+shape = SubResource("WorldBoundaryShape2D_jebdc")

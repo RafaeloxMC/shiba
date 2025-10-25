@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://dokv0l52wesbk"]
+
+[ext_resource type="Script" uid="uid://dx7ar0qtsy6vj" path="res://scripts/endless.gd" id="1_0kge5"]
+[ext_resource type="PackedScene" uid="uid://b80qpk8knquvw" path="res://scenes/levels/endless/grassland/grassland_1.tscn" id="2_qyjdh"]
+[ext_resource type="PackedScene" uid="uid://b50ps8r584f3y" path="res://scenes/player.tscn" id="2_uergm"]
+[ext_resource type="PackedScene" uid="uid://cesxcje0r35td" path="res://scenes/parallax.tscn" id="3_qyjdh"]
+[ext_resource type="PackedScene" uid="uid://200lulv2bjh5" path="res://scenes/levels/endless/grassland/grassland_2.tscn" id="3_vuxau"]
+
+[node name="Endless" type="Node2D"]
+script = ExtResource("1_0kge5")
+tiles = Array[PackedScene]([ExtResource("2_qyjdh"), ExtResource("3_vuxau")])
+
+[node name="Parallax" parent="." instance=ExtResource("3_qyjdh")]
+
+[node name="Player" parent="." instance=ExtResource("2_uergm")]
+z_index = 5
+level_border_left = -75
+level_border_right = 1400
+snow = true

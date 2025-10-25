@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://dpr1kjh82qytp"]
+[gd_scene load_steps=43 format=4 uid="uid://dpr1kjh82qytp"]
 
 [ext_resource type="Script" uid="uid://bpcyxhphdu5sf" path="res://scripts/robo_cutscene.gd" id="1_lbspt"]
 [ext_resource type="PackedScene" uid="uid://cesxcje0r35td" path="res://scenes/parallax.tscn" id="1_lbynr"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b5lvwjoesv1re" path="res://scenes/killzone.tscn" id="7_f0pij"]
 [ext_resource type="PackedScene" uid="uid://b50ps8r584f3y" path="res://scenes/player.tscn" id="7_riis0"]
 [ext_resource type="SpriteFrames" uid="uid://dhy5r000cn6gf" path="res://assets/sprite_frames/shibina.tres" id="8_4wjd0"]
+[ext_resource type="PackedScene" uid="uid://cprvhd5gjkqgx" path="res://scenes/bone.tscn" id="8_pi8ry"]
 [ext_resource type="PackedScene" uid="uid://uhoo82xnqgww" path="res://scenes/dog_house.tscn" id="9_pi8ry"]
 [ext_resource type="Texture2D" uid="uid://baxnct107gh6l" path="res://assets/sprites/dialogbox.png" id="10_f0pij"]
 [ext_resource type="Script" uid="uid://bmiksxfiyj8sf" path="res://scripts/dialog_manager.gd" id="11_riis0"]
@@ -661,8 +662,13 @@ tile_set = ExtResource("5_4u4vv")
 
 [node name="Player" parent="." instance=ExtResource("7_riis0")]
 visible = false
+z_index = 10
 position = Vector2(-472, -64)
 movement_disabled = true
+projectile = ExtResource("8_pi8ry")
+level_border_left = -500
+level_border_right = 1000
+snow = true
 
 [node name="Camera2D" parent="Player" index="9"]
 enabled = false
@@ -802,6 +808,14 @@ libraries = {
 }
 autoplay = "fadein"
 
+[node name="Control2" type="Control" parent="CutsceneCam"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -96.0
+offset_top = -54.0
+offset_right = 96.0
+offset_bottom = 54.0
+
 [node name="Killzone" parent="." instance=ExtResource("7_f0pij")]
 position = Vector2(0, 165)
 
@@ -854,6 +868,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_4wjd0")
 }
 autoplay = "animation"
+
+[connection signal="gui_input" from="CutsceneCam/Control2" to="." method="_on_control_gui_input"]
 
 [editable path="Parallax"]
 [editable path="Player"]

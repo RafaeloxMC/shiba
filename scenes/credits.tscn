@@ -68,21 +68,20 @@ offset_right = 265.5
 offset_bottom = 269.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Code: xvcf (me)
-Assets: xvcf (me)
+text = "Code:
+xvcf (me)
+Assets:
+xvcf (me)
+Brackeys (assets have been modified by me)
 Music:
 Tiger Tracks - Lexica via Epidemicsound
 You Know You Know - Forever Sunset via EpidemicSound
+Racing Heartbeats - The Big Let Down via epidemicsound
 Purge Dropper - Lupus Nocte via epidemicsound
 
 
 
-
-
-
-
-
-Special thanks to Thomas for the shoutout!
+Special thanks to Thomas for the shoutouts!
 All feedback is appreciated!"
 label_settings = SubResource("LabelSettings_0ctdu")
 horizontal_alignment = 1

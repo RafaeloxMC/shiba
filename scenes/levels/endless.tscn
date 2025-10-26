@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dokv0l52wesbk"]
+[gd_scene load_steps=24 format=3 uid="uid://dokv0l52wesbk"]
 
 [ext_resource type="Script" uid="uid://dx7ar0qtsy6vj" path="res://scripts/endless.gd" id="1_0kge5"]
 [ext_resource type="PackedScene" uid="uid://b80qpk8knquvw" path="res://scenes/levels/endless/grassland/grassland_1.tscn" id="2_qyjdh"]
@@ -21,12 +21,13 @@
 [ext_resource type="PackedScene" uid="uid://rx8dhjumhwyh" path="res://scenes/levels/endless/northern_territories/northern_territories_5.tscn" id="15_3eti1"]
 [ext_resource type="PackedScene" uid="uid://cgigx6uxoq8vy" path="res://scenes/levels/endless/northern_territories/northern_territories_6.tscn" id="16_eb7li"]
 [ext_resource type="PackedScene" uid="uid://q2ourb5hyle3" path="res://scenes/levels/endless/northern_territories/northern_territories_7.tscn" id="17_yevkg"]
+[ext_resource type="PackedScene" uid="uid://bh8engk08gghg" path="res://scenes/levels/endless/northern_territories/northern_territories_8.tscn" id="19_eb7li"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jebdc"]
 
 [node name="Endless" type="Node2D"]
 script = ExtResource("1_0kge5")
-tiles = Array[PackedScene]([ExtResource("2_qyjdh"), ExtResource("3_vuxau"), ExtResource("4_ku55h"), ExtResource("5_c52pb"), ExtResource("6_ojtbl"), ExtResource("7_ojtbl"), ExtResource("8_hl7h5"), ExtResource("9_nofk8"), ExtResource("10_rmf4i"), ExtResource("11_3eti1"), ExtResource("11_wd24i"), ExtResource("12_1rp8o"), ExtResource("13_026yo"), ExtResource("14_71n5v"), ExtResource("15_3eti1"), ExtResource("16_eb7li"), ExtResource("17_yevkg")])
+tiles = Array[PackedScene]([ExtResource("2_qyjdh"), ExtResource("3_vuxau"), ExtResource("4_ku55h"), ExtResource("5_c52pb"), ExtResource("6_ojtbl"), ExtResource("7_ojtbl"), ExtResource("8_hl7h5"), ExtResource("9_nofk8"), ExtResource("10_rmf4i"), ExtResource("11_3eti1"), ExtResource("11_wd24i"), ExtResource("12_1rp8o"), ExtResource("13_026yo"), ExtResource("14_71n5v"), ExtResource("15_3eti1"), ExtResource("16_eb7li"), ExtResource("17_yevkg"), ExtResource("19_eb7li")])
 
 [node name="Parallax" parent="." instance=ExtResource("3_qyjdh")]
 

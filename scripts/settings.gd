@@ -95,6 +95,7 @@ func last():
 func submit():
 	var current_button = get_current_button()
 	if current_button == credits:
+		arrow_up.hide()
 		var node = load(current_button.scene.resource_path)
 		add_child(node.instantiate())
 		credits_open = true

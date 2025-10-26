@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dokv0l52wesbk"]
+[gd_scene load_steps=23 format=3 uid="uid://dokv0l52wesbk"]
 
 [ext_resource type="Script" uid="uid://dx7ar0qtsy6vj" path="res://scripts/endless.gd" id="1_0kge5"]
 [ext_resource type="PackedScene" uid="uid://b80qpk8knquvw" path="res://scenes/levels/endless/grassland/grassland_1.tscn" id="2_qyjdh"]
@@ -13,12 +13,20 @@
 [ext_resource type="PackedScene" uid="uid://dhpjj8562eg11" path="res://scenes/levels/endless/grassland/grassland_7.tscn" id="8_hl7h5"]
 [ext_resource type="PackedScene" uid="uid://dofg71avpd47r" path="res://scenes/levels/endless/grassland/grassland_8.tscn" id="9_nofk8"]
 [ext_resource type="PackedScene" uid="uid://ckmc3s8b5whvh" path="res://scenes/levels/endless/grassland/grassland_9.tscn" id="10_rmf4i"]
+[ext_resource type="PackedScene" uid="uid://do1odskq4aujr" path="res://scenes/levels/endless/grassland/grassland_10.tscn" id="11_3eti1"]
+[ext_resource type="PackedScene" uid="uid://dsju0w617t8ij" path="res://scenes/levels/endless/northern_territories/northern_territories_1.tscn" id="11_wd24i"]
+[ext_resource type="PackedScene" uid="uid://842458qlh4o1" path="res://scenes/levels/endless/northern_territories/northern_territories_2.tscn" id="12_1rp8o"]
+[ext_resource type="PackedScene" uid="uid://dbemqh8agg457" path="res://scenes/levels/endless/northern_territories/northern_territories_3.tscn" id="13_026yo"]
+[ext_resource type="PackedScene" uid="uid://b18qkbc5uamtf" path="res://scenes/levels/endless/northern_territories/northern_territories_4.tscn" id="14_71n5v"]
+[ext_resource type="PackedScene" uid="uid://rx8dhjumhwyh" path="res://scenes/levels/endless/northern_territories/northern_territories_5.tscn" id="15_3eti1"]
+[ext_resource type="PackedScene" uid="uid://cgigx6uxoq8vy" path="res://scenes/levels/endless/northern_territories/northern_territories_6.tscn" id="16_eb7li"]
+[ext_resource type="PackedScene" uid="uid://q2ourb5hyle3" path="res://scenes/levels/endless/northern_territories/northern_territories_7.tscn" id="17_yevkg"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jebdc"]
 
 [node name="Endless" type="Node2D"]
 script = ExtResource("1_0kge5")
-tiles = Array[PackedScene]([ExtResource("2_qyjdh"), ExtResource("3_vuxau"), ExtResource("4_ku55h"), ExtResource("5_c52pb"), ExtResource("6_ojtbl"), ExtResource("7_ojtbl"), ExtResource("8_hl7h5"), ExtResource("9_nofk8"), ExtResource("10_rmf4i")])
+tiles = Array[PackedScene]([ExtResource("2_qyjdh"), ExtResource("3_vuxau"), ExtResource("4_ku55h"), ExtResource("5_c52pb"), ExtResource("6_ojtbl"), ExtResource("7_ojtbl"), ExtResource("8_hl7h5"), ExtResource("9_nofk8"), ExtResource("10_rmf4i"), ExtResource("11_3eti1"), ExtResource("11_wd24i"), ExtResource("12_1rp8o"), ExtResource("13_026yo"), ExtResource("14_71n5v"), ExtResource("15_3eti1"), ExtResource("16_eb7li"), ExtResource("17_yevkg")])
 
 [node name="Parallax" parent="." instance=ExtResource("3_qyjdh")]
 

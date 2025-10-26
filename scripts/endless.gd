@@ -7,6 +7,9 @@ var offset: float = 0.0
 var last_end: float = 0.0
 var tile_width: float = 100
 
+var current_biome = "grassland"
+var biome_tile_counter = 0
+
 func _ready() -> void:
 	player = find_child("Player", true)
 	var node = tiles[0].instantiate() as Node2D
@@ -19,15 +22,26 @@ func _process(_delta: float) -> void:
 	offset = maxf(player.position.x, offset)
 	var buffer = tile_width
 	while (offset + buffer >= last_end):
-		var tile_scene = get_random_themed_part("grassland")
+		var tile_scene = get_random_themed_part(current_biome)
 		if tile_scene != null:
 			var tile = tile_scene.instantiate() as Node2D
 			tile.position.x = last_end + gap
 			add_child(tile)
 			update_tile_width(tile)
 			last_end += tile_width + gap
+			if biome_tile_counter > 10:
+				var rand = randi_range(0, 10)
+				if rand == 5:
+					if current_biome == "grassland":
+						current_biome = "northern_territories"
+					else:
+						if current_biome == "northern_territories":
+							current_biome = "grassland"
+					biome_tile_counter = 0
+			else:
+				biome_tile_counter = biome_tile_counter + 1
 		else:
-			print("Warning: No tiles found for biome 'grassland'")
+			print("Warning: No tiles found for biome '" + current_biome + "'")
 
 func get_random_themed_part(biome: String) -> PackedScene:
 	var biome_tiles: Array[PackedScene] = tiles

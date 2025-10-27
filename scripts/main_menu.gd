@@ -128,11 +128,13 @@ func submit() -> void:
 	if current == endless:
 		GameManager.call_tick_ui()
 		SceneManager.call_scene("endless")
+		return
 	
 	if current == splitscreen:
 		GameManager.call_tick_ui()
 		print("Called splitscreen")
-		# SceneManager.call_scene("")
+		SceneManager.call_scene("splitscreen")
+		return
 
 	if current.scene != null:
 		var node = load(current.scene.resource_path)

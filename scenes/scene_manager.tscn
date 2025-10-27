@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://demrdgjmkbl8d"]
+[gd_scene load_steps=21 format=3 uid="uid://demrdgjmkbl8d"]
 
 [ext_resource type="Script" uid="uid://11wsmxinx6m4" path="res://scripts/scene_manager.gd" id="1_we8k5"]
 [ext_resource type="PackedScene" uid="uid://61x2dkmkmd14" path="res://scenes/main_menu.tscn" id="2_65mdo"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://bg8ilm2vmj4k2" path="res://scenes/levels/level_14.tscn" id="17_wthsx"]
 [ext_resource type="PackedScene" uid="uid://o23th0intpmf" path="res://scenes/levels/level_15.tscn" id="18_0rrgr"]
 [ext_resource type="PackedScene" uid="uid://dokv0l52wesbk" path="res://scenes/levels/endless.tscn" id="19_3fdbs"]
+[ext_resource type="PackedScene" uid="uid://latwqqyqevgl" path="res://scenes/levels/splitscreen.tscn" id="20_00dg1"]
 
 [node name="SceneManager" type="Node2D"]
 script = ExtResource("1_we8k5")
@@ -40,5 +41,6 @@ scenes = Dictionary[String, PackedScene]({
 "level_7": ExtResource("10_2lhpl"),
 "level_8": ExtResource("11_ae61e"),
 "level_9": ExtResource("12_0t0fu"),
-"main_menu": ExtResource("2_65mdo")
+"main_menu": ExtResource("2_65mdo"),
+"splitscreen": ExtResource("20_00dg1")
 })

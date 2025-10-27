@@ -30,6 +30,16 @@ tile_set = ExtResource("3_blpyf")
 texture_filter = 1
 position = Vector2(200, 144)
 
+[node name="ProgressBar" parent="SubViewportContainer/SubViewport/Player/Camera2D/CanvasLayer/GameUI/CanvasLayer" index="1"]
+scale = Vector2(1.6, 1.6)
+
+[node name="DialogManager" parent="SubViewportContainer/SubViewport/Player/Camera2D/CanvasLayer/GameUI/CanvasLayer" index="8"]
+offset_left = -305.5
+offset_top = -196.0
+offset_right = 411.5
+offset_bottom = 28.0
+scale = Vector2(0.8434651, 0.8434651)
+
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="."]
 texture_filter = 1
 offset_left = 608.0
@@ -46,11 +56,26 @@ texture_filter = 1
 
 [node name="Player" parent="SubViewportContainer2/SubViewport" instance=ExtResource("4_s7431")]
 texture_filter = 1
-position = Vector2(200, 144)
+position = Vector2(219, 144)
 second_player = true
+
+[node name="ProgressBar" parent="SubViewportContainer2/SubViewport/Player/Camera2D/CanvasLayer/GameUI/CanvasLayer" index="1"]
+scale = Vector2(1.6, 1.6)
+
+[node name="DialogManager" parent="SubViewportContainer2/SubViewport/Player/Camera2D/CanvasLayer/GameUI/CanvasLayer" index="8"]
+offset_left = -300.0
+offset_top = -196.0
+offset_right = 417.0
+offset_bottom = 28.0
+scale = Vector2(0.843, 0.843)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = 604.0
 offset_right = 612.0
 offset_bottom = 648.0
 color = Color(0.46484375, 0.46484375, 0.46484375, 1)
+
+[editable path="SubViewportContainer/SubViewport/Player"]
+[editable path="SubViewportContainer/SubViewport/Player/Camera2D/CanvasLayer/GameUI"]
+[editable path="SubViewportContainer2/SubViewport/Player"]
+[editable path="SubViewportContainer2/SubViewport/Player/Camera2D/CanvasLayer/GameUI"]

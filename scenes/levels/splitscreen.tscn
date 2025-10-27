@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=4 uid="uid://latwqqyqevgl"]
+
+[ext_resource type="Script" uid="uid://skjrxodgss0q" path="res://scripts/splitscreen.gd" id="1_4ak84"]
+[ext_resource type="PackedScene" uid="uid://cesxcje0r35td" path="res://scenes/parallax.tscn" id="2_catt5"]
+[ext_resource type="TileSet" uid="uid://bk2fv30homksp" path="res://assets/tile_sets/map_tiles.tres" id="3_blpyf"]
+[ext_resource type="PackedScene" uid="uid://b50ps8r584f3y" path="res://scenes/player.tscn" id="4_s7431"]
+
+[node name="Splitscreen" type="Node2D"]
+script = ExtResource("1_4ak84")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+texture_filter = 1
+offset_right = 608.0
+offset_bottom = 648.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(608, 648)
+render_target_update_mode = 4
+
+[node name="Parallax" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_catt5")]
+texture_filter = 1
+
+[node name="TileMapLayer" type="TileMapLayer" parent="SubViewportContainer/SubViewport"]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAAKAAkAAAANAA0AAAAKAAoAAAAMAA8AAAAKAAsAAAAMAA8AAAAKAAwAAAAMAA8AAAAKAA0AAAAMAA8AAAAKAA4AAAAMAA8AAAAKAA8AAAAMAA8AAAAKABAAAAAOAA8AAAALAAkAAAAOAA0AAAALAAoAAAANAA8AAAALAAsAAAANAA8AAAALAAwAAAANAA8AAAALAA0AAAANAA8AAAALAA4AAAANAA8AAAALAA8AAAANAA8AAAALABAAAAALAA8AAAAMAAkAAAAOAA0AAAAMAAoAAAANAA8AAAAMAAsAAAANAA8AAAAMAAwAAAANAA8AAAAMAA0AAAANAA8AAAAMAA4AAAANAA8AAAAMAA8AAAANAA8AAAAMABAAAAALAA8AAAANAAkAAAAOAA0AAAANAAoAAAANAA8AAAANAAsAAAANAA8AAAANAAwAAAANAA8AAAANAA0AAAANAA8AAAANAA4AAAANAA8AAAANAA8AAAANAA8AAAANABAAAAALAA8AAAAOAAkAAAAOAA0AAAAOAAoAAAANAA8AAAAOAAsAAAANAA8AAAAOAAwAAAANAA8AAAAOAA0AAAANAA8AAAAOAA4AAAANAA8AAAAOAA8AAAANAA8AAAAOABAAAAALAA8AAAAPAAkAAAAOAA0AAAAPAAoAAAANAA8AAAAPAAsAAAANAA8AAAAPAAwAAAANAA8AAAAPAA0AAAANAA8AAAAPAA4AAAANAA8AAAAPAA8AAAANAA8AAAAPABAAAAALAA8AAAAQAAkAAAAOAA0AAAAQAAoAAAANAA8AAAAQAAsAAAANAA8AAAAQAAwAAAANAA8AAAAQAA0AAAANAA8AAAAQAA4AAAANAA8AAAAQAA8AAAANAA8AAAAQABAAAAALAA8AAAARAAkAAAAOAA0AAAARAAoAAAANAA8AAAARAAsAAAANAA8AAAARAAwAAAANAA8AAAARAA0AAAANAA8AAAARAA4AAAANAA8AAAARAA8AAAANAA8AAAARABAAAAALAA8AAAASAAkAAAAPAA0AAAASAAoAAAAMAA4AAAASAAsAAAAMAA4AAAASAAwAAAAMAA4AAAASAA0AAAAMAA4AAAASAA4AAAAMAA4AAAASAA8AAAAMAA4AAAASABAAAAAPAA8AAAA=")
+tile_set = ExtResource("3_blpyf")
+
+[node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_s7431")]
+texture_filter = 1
+position = Vector2(200, 144)
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="."]
+texture_filter = 1
+offset_left = 608.0
+offset_right = 1216.0
+offset_bottom = 648.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer2"]
+handle_input_locally = false
+size = Vector2i(608, 648)
+render_target_update_mode = 4
+
+[node name="Parallax" parent="SubViewportContainer2/SubViewport" instance=ExtResource("2_catt5")]
+texture_filter = 1
+
+[node name="Player" parent="SubViewportContainer2/SubViewport" instance=ExtResource("4_s7431")]
+texture_filter = 1
+position = Vector2(200, 144)
+second_player = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 604.0
+offset_right = 612.0
+offset_bottom = 648.0
+color = Color(0.46484375, 0.46484375, 0.46484375, 1)

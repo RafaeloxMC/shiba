@@ -33,6 +33,7 @@ var coyote_already_jumped: bool = false
 @export var bats = false
 @export var flying_animals = true
 @export var snow = false
+@export var second_player = false
 
 var hat = ""
 
@@ -159,7 +160,7 @@ func _physics_process(delta: float) -> void:
 			drown_timer.start(1)
 		GameManager.remove_heart()
 		
-	if Input.is_action_pressed("jump") && !movement_disabled:
+	if ((Input.is_action_pressed("jump") && !second_player) || (Input.is_action_pressed("jump_2nd") && second_player)) && !movement_disabled:
 		if is_on_floor() || (coyote_last_on_ground <= coyote_time and !coyote_already_jumped):
 			if not is_swimming:
 				velocity.y = JUMP_VELOCITY
@@ -172,7 +173,11 @@ func _physics_process(delta: float) -> void:
 			if is_swimming:
 				velocity.y = JUMP_VELOCITY / 6
 		
-	var direction := Input.get_axis("move_left", "move_right")
+	var direction: float
+	if second_player == true:
+		direction = Input.get_axis("move_left_2nd", "move_right_2nd")
+	else:
+		direction = Input.get_axis("move_left", "move_right")
 	if direction && !movement_disabled:
 		if is_swimming:
 			animated_sprite_2d.play("swim" + hat)

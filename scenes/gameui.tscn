@@ -343,6 +343,7 @@ scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_d0edb")
 
 [node name="ProgressBar" parent="CanvasLayer" instance=ExtResource("2_3guck")]
+texture_filter = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -352,6 +353,7 @@ grow_horizontal = 2
 scale = Vector2(2.17131, 2.17131)
 
 [node name="HeartsLabel" type="Label" parent="CanvasLayer"]
+texture_filter = 1
 offset_left = 70.0
 offset_right = 110.0
 offset_bottom = 56.0
@@ -360,6 +362,7 @@ text = "3"
 label_settings = SubResource("LabelSettings_ccwni")
 
 [node name="CoinsLabel" type="Label" parent="CanvasLayer"]
+texture_filter = 1
 offset_left = 70.0
 offset_top = 57.0
 offset_right = 110.0
@@ -369,6 +372,7 @@ text = "0"
 label_settings = SubResource("LabelSettings_ccwni")
 
 [node name="HeartsSprite" type="AnimatedSprite2D" parent="CanvasLayer"]
+texture_filter = 1
 position = Vector2(30, 21)
 scale = Vector2(4.60343, 4.60343)
 sprite_frames = ExtResource("3_bjfv8")
@@ -377,12 +381,14 @@ frame = 18
 frame_progress = 1.0
 
 [node name="CoinsSprite" type="AnimatedSprite2D" parent="CanvasLayer"]
+texture_filter = 1
 position = Vector2(30, 86)
 scale = Vector2(4.23325, 4.23325)
 sprite_frames = SubResource("SpriteFrames_0jyfi")
 animation = &"pickup"
 
 [node name="Bubbles" type="Control" parent="CanvasLayer"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -408,6 +414,7 @@ sprite_frames = ExtResource("6_55g5v")
 animation = &"pop"
 
 [node name="TimeTracker" type="Label" parent="CanvasLayer"]
+texture_filter = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -421,6 +428,7 @@ label_settings = SubResource("LabelSettings_r6hs0")
 script = ExtResource("9_seba6")
 
 [node name="DialogManager" type="TextureRect" parent="CanvasLayer"]
+texture_filter = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -510,6 +518,7 @@ label_settings = SubResource("LabelSettings_bjfv8")
 vertical_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+texture_filter = 1
 offset_left = -23.0
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -522,6 +531,7 @@ libraries = {
 }
 
 [node name="Label" type="Label" parent="CanvasLayer/ColorRect"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -550,3 +560,4 @@ label_settings = SubResource("LabelSettings_lwled")
 visible = false
 
 [node name="ShopUI" parent="ShopLayer" instance=ExtResource("11_lwled")]
+texture_filter = 1

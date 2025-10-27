@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://61x2dkmkmd14"]
+[gd_scene load_steps=28 format=3 uid="uid://61x2dkmkmd14"]
 
 [ext_resource type="FontFile" uid="uid://8t1kpmmy5wvw" path="res://assets/fonts/pixelsix00.ttf" id="1_l6cm7"]
 [ext_resource type="Script" uid="uid://qfokxpyfo4oi" path="res://scripts/main_menu.gd" id="1_wu84c"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cwjr6pb7jamhr" path="res://assets/sprites/parallax_fg.png" id="6_5pajh"]
 [ext_resource type="SpriteFrames" uid="uid://bklk7p5g27qcp" path="res://assets/sprite_frames/player.tres" id="7_rcqid"]
 [ext_resource type="Script" uid="uid://clpad50mh2ml4" path="res://scripts/gameui_color_rect.gd" id="13_rcqid"]
+[ext_resource type="Texture2D" uid="uid://bqa452kias5qu" path="res://assets/sprites/menu_arrows.png" id="14_1ajci"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a8gd2"]
 texture = ExtResource("2_flqon")
@@ -276,6 +277,33 @@ font = ExtResource("1_l6cm7")
 font_size = 64
 font_color = Color(1, 1, 1, 0)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_gis3k"]
+atlas = ExtResource("14_1ajci")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83j8s"]
+atlas = ExtResource("14_1ajci")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7b55j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gis3k")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83j8s")
+}],
+"loop": false,
+"name": &"selected",
+"speed": 5.0
+}]
+
 [node name="Main Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -355,28 +383,44 @@ text = "Go, Shiba, Go!"
 label_settings = SubResource("LabelSettings_wu84c")
 horizontal_alignment = 1
 
-[node name="play" parent="." instance=ExtResource("2_ekxnf")]
+[node name="btn_play" parent="." instance=ExtResource("2_ekxnf")]
 position = Vector2(576, 272)
 scale = Vector2(2.84, 2.84)
 scene = ExtResource("3_bqqt6")
 
-[node name="Label" parent="play" index="2"]
+[node name="Label" parent="btn_play" index="2"]
 text = "play"
 
-[node name="settings" parent="." instance=ExtResource("2_ekxnf")]
+[node name="btn_endless" parent="." instance=ExtResource("2_ekxnf")]
+position = Vector2(576, 396)
+scale = Vector2(2.84, 2.84)
+scene = ExtResource("3_bqqt6")
+
+[node name="Label" parent="btn_endless" index="2"]
+text = "endless"
+
+[node name="btn_splitscreen" parent="." instance=ExtResource("2_ekxnf")]
+position = Vector2(576, 516)
+scale = Vector2(2.84, 2.84)
+scene = ExtResource("3_bqqt6")
+
+[node name="Label" parent="btn_splitscreen" index="2"]
+text = "splitscreen"
+
+[node name="btn_settings" parent="." instance=ExtResource("2_ekxnf")]
 position = Vector2(576, 396)
 scale = Vector2(2.84, 2.84)
 scene = ExtResource("5_rtw2f")
 
-[node name="Label" parent="settings" index="2"]
+[node name="Label" parent="btn_settings" index="2"]
 text = "settings"
 
-[node name="quit" parent="." instance=ExtResource("2_ekxnf")]
+[node name="btn_quit" parent="." instance=ExtResource("2_ekxnf")]
 position = Vector2(576, 516)
 scale = Vector2(2.84, 2.84)
 scene = ExtResource("5_8ln24")
 
-[node name="Label" parent="quit" index="2"]
+[node name="Label" parent="btn_quit" index="2"]
 text = "quit"
 
 [node name="hint" type="Label" parent="."]
@@ -446,14 +490,33 @@ label_settings = SubResource("LabelSettings_1ajci")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="gui_input" from="." to="." method="_on_gui_input"]
-[connection signal="input_event" from="play" to="play" method="_on_input_event"]
-[connection signal="mouse_exited" from="play" to="play" method="_on_mouse_exited"]
-[connection signal="input_event" from="settings" to="settings" method="_on_input_event"]
-[connection signal="mouse_exited" from="settings" to="settings" method="_on_mouse_exited"]
-[connection signal="input_event" from="quit" to="quit" method="_on_input_event"]
-[connection signal="mouse_exited" from="quit" to="quit" method="_on_mouse_exited"]
+[node name="arrow_down" type="AnimatedSprite2D" parent="."]
+position = Vector2(576, 584)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_7b55j")
+autoplay = "default"
 
-[editable path="play"]
-[editable path="settings"]
-[editable path="quit"]
+[node name="arrow_up" type="AnimatedSprite2D" parent="."]
+position = Vector2(576, 200)
+rotation = 3.1415927
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_7b55j")
+autoplay = "default"
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="input_event" from="btn_play" to="btn_play" method="_on_input_event"]
+[connection signal="mouse_exited" from="btn_play" to="btn_play" method="_on_mouse_exited"]
+[connection signal="input_event" from="btn_endless" to="btn_endless" method="_on_input_event"]
+[connection signal="mouse_exited" from="btn_endless" to="btn_endless" method="_on_mouse_exited"]
+[connection signal="input_event" from="btn_splitscreen" to="btn_splitscreen" method="_on_input_event"]
+[connection signal="mouse_exited" from="btn_splitscreen" to="btn_splitscreen" method="_on_mouse_exited"]
+[connection signal="input_event" from="btn_settings" to="btn_settings" method="_on_input_event"]
+[connection signal="mouse_exited" from="btn_settings" to="btn_settings" method="_on_mouse_exited"]
+[connection signal="input_event" from="btn_quit" to="btn_quit" method="_on_input_event"]
+[connection signal="mouse_exited" from="btn_quit" to="btn_quit" method="_on_mouse_exited"]
+
+[editable path="btn_play"]
+[editable path="btn_endless"]
+[editable path="btn_splitscreen"]
+[editable path="btn_settings"]
+[editable path="btn_quit"]

@@ -9,7 +9,8 @@ func pickup() -> void:
 
 func _ready() -> void:
 	GameManager.coin_pickup.connect(pickup)
-	goal_coins = get_tree().current_scene.get_node("Coins").get_child_count()
+	if get_tree().current_scene.has_node("Coins"):
+		goal_coins = get_tree().current_scene.get_node("Coins").get_child_count()
 	
 	label.text = str(GameManager.coins_collected_in_current_scene) + "/" + str(goal_coins)
 

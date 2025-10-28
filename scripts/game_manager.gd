@@ -49,6 +49,7 @@ var bats: bool = false
 var flying_animals: bool = true
 
 var time: float = 0.0
+var time_tracker
 
 var hat: String = ""
 

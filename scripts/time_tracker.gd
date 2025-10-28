@@ -3,9 +3,11 @@ extends Label
 func _ready():
 	horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 	custom_minimum_size.x = 80
+	GameManager.time_tracker = self
 
 func _process(delta: float) -> void:
-	GameManager.time += delta
+	if GameManager.time_tracker == self:
+		GameManager.time += delta
 	var mins: int = int(GameManager.time / 60)
 	var seconds: int = int(GameManager.time) % 60
 	var milliseconds: int = int((GameManager.time - int(GameManager.time)) * 100)

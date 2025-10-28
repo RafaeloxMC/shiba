@@ -48,6 +48,12 @@ func reload_current_level():
 		current_level = "level_1"
 		reload_current_level()
 	
-	
 func reload_current() -> void:
 	get_tree().reload_current_scene()
+
+func get_random_level() -> PackedScene:
+	var filtered_dict = {}
+	for key in scenes.keys():
+		if key.begins_with("level_"):
+			filtered_dict[key] = scenes[key]
+	return filtered_dict.values().pick_random()

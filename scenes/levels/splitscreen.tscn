@@ -28,7 +28,7 @@ tile_set = ExtResource("3_blpyf")
 
 [node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_s7431")]
 texture_filter = 1
-position = Vector2(200, 144)
+position = Vector2(0, -131)
 
 [node name="ProgressBar" parent="SubViewportContainer/SubViewport/Player/Camera2D/CanvasLayer/GameUI/CanvasLayer" index="1"]
 scale = Vector2(1.6, 1.6)
@@ -56,7 +56,7 @@ texture_filter = 1
 
 [node name="Player" parent="SubViewportContainer2/SubViewport" instance=ExtResource("4_s7431")]
 texture_filter = 1
-position = Vector2(219, 144)
+position = Vector2(19, -131)
 second_player = true
 
 [node name="ProgressBar" parent="SubViewportContainer2/SubViewport/Player/Camera2D/CanvasLayer/GameUI/CanvasLayer" index="1"]

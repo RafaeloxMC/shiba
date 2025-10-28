@@ -75,6 +75,9 @@ func _ready():
 		for trigger in slippery_triggers:
 			trigger.body_entered.connect(_on_slippery_trigger_entered)
 			trigger.body_exited.connect(_on_slippery_trigger_exited)
+			
+	if second_player:
+		animated_sprite_2d.sprite_frames = preload("res://assets/sprite_frames/shibina.tres")
 
 func _on_swim_trigger_entered(body: Node) -> void:
 	if body == self:

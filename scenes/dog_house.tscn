@@ -18,6 +18,7 @@ font = ExtResource("2_gwcvr")
 size = Vector2(32, 45)
 
 [node name="Dog House" type="StaticBody2D"]
+texture_filter = 1
 collision_layer = 15
 collision_mask = 15
 script = ExtResource("1_303ex")

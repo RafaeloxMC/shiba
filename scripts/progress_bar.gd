@@ -8,6 +8,7 @@ var borders: int = 115
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GameManager.tick_ui.connect(_call_tick_ui)
 	sprite_2d.position.x = -borders
 	if self.get_parent().get_parent().get_parent().get_parent().get_parent():
 		level_border_left = self.get_parent().get_parent().get_parent().get_parent().get_parent().level_border_left
@@ -31,3 +32,8 @@ func _process(_delta: float) -> void:
 		sprite_2d.position.x = borders
 	else:
 		sprite_2d.position.x = -borders + ((player_pos.x - level_border_left) / (level_border_right - level_border_left)) * (2 * borders)
+
+func _call_tick_ui() -> void:
+	if self.get_parent().get_parent().get_parent().get_parent().get_parent():
+		level_border_left = self.get_parent().get_parent().get_parent().get_parent().get_parent().level_border_left
+		level_border_right = self.get_parent().get_parent().get_parent().get_parent().get_parent().level_border_right

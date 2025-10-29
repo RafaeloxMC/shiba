@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var player: CharacterBody2D
+var player: CharacterBody2D
 @export var SPEED: int = 25
 @export var CHASE_SPEED: int = 75
 @export var JUMP_VELOCITY: int = -400
@@ -84,7 +84,8 @@ func _physics_process(delta: float) -> void:
 func search_player() -> void:
 	if facing.is_colliding():
 		var collider = facing.get_collider()
-		if collider == player:
+		if collider is CharacterBody2D && collider.name == "Player":
+			player = collider
 			chase_player()
 			shoot_nut()
 		elif current_state == States.CHASE:

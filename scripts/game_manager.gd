@@ -41,6 +41,8 @@ signal dialog(content: String, author: String, animation: SpriteFrames, char_siz
 
 @warning_ignore("unused_signal")
 signal absorb()
+@warning_ignore("unused_signal")
+signal update_time_tracker()
 
 var bird: PackedScene
 var snow_bird: PackedScene

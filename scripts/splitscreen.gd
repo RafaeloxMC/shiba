@@ -21,7 +21,9 @@ func _ready() -> void:
 		
 	_copy_level_to_target(source_node, target_layer)
 	
-	level.queue_free()
+	level.free()
+	
+	GameManager.update_time_tracker.emit()
 	
 func _copy_level_to_target(source_root: Node, target: TileMapLayer) -> void:
 	target.clear()

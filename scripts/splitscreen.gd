@@ -6,8 +6,11 @@ extends Node2D
 @onready var camera: Camera2D = $SubViewportContainer/SubViewport/Player/Camera2D
 @onready var camera_2nd: Camera2D = $SubViewportContainer2/SubViewport/Player/Camera2D
 
+@onready var viewport1_root: Node = $SubViewportContainer/SubViewport
+@onready var viewport2_root: Node = $SubViewportContainer2/SubViewport
+
 func _ready() -> void:
-	var world = $SubViewportContainer/SubViewport.find_world_2d()
+	var world = viewport1_root.find_world_2d()
 	$SubViewportContainer2/SubViewport.world_2d = world
 	
 	var level_scene = SceneManager.get_random_level()
@@ -15,69 +18,54 @@ func _ready() -> void:
 	add_child(level)
 	
 	var old_player: CharacterBody2D = level.find_child("Player")
+	if not old_player:
+		push_error("Level does not contain a Player node!")
+		level.queue_free()
+		return
 	
 	player.position = old_player.position
 	player_2nd.position = old_player.position + Vector2(15, 0)
-	
-	camera.reset_smoothing()
-	camera_2nd.reset_smoothing()
 	
 	player.level_border_left = old_player.level_border_left
 	player.level_border_right = old_player.level_border_right
 	player_2nd.level_border_left = old_player.level_border_left
 	player_2nd.level_border_right = old_player.level_border_right
 	
+	camera.reset_smoothing()
+	camera_2nd.reset_smoothing()
+	camera.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	camera_2nd.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	
 	GameManager.call_tick_ui()
-		
+	
+	_duplicate_level_nodes_except_player(level, viewport1_root)
+	
 	var dog_houses = level.find_child("Dog Houses")
 	if dog_houses:
-		dog_houses.reparent($SubViewportContainer/SubViewport)
+		var dog_houses_v1 = dog_houses.duplicate()
+		viewport1_root.add_child(dog_houses_v1)
+		print("ADDED DOG HOUSES TO VIEWPORT!")
 	else:
 		print("DOG HOUSES NOT FOUND!")
-	print("ADDED DOG HOUSES! " + str(dog_houses))
 	
-	var source_node: Node = level.find_child("TileMap", true, false)
-	if not source_node:
-		source_node = level.find_child("TileMapLayer", true, false)
-		
-	if not source_node:
-		push_error("Level contains neither TileMap nor TileMapLayer!")
-		level.queue_free()
-		return
-		
-	_copy_level_to_target(source_node, target_layer)
-	
-	level.free()
+	level.queue_free()
 	
 	GameManager.update_time_tracker.emit()
-	
-func _copy_level_to_target(source_root: Node, target: TileMapLayer) -> void:
-	target.clear()
-	
-	var source_layers: Array[TileMapLayer] = []
-	if source_root is TileMapLayer:
-		source_layers.append(source_root as TileMapLayer)
-	else:
-		for child in source_root.get_children():
-			if child is TileMapLayer:
-				source_layers.append(child)
+
+
+func _duplicate_level_nodes_except_player(source_level: Node, target_parent: Node) -> void:
+	for child in source_level.get_children():
+		if child.name == "Player":
+			continue
+		
+		var duplicated = child.duplicate()
+		if duplicated:
+			target_parent.add_child(duplicated)
+			duplicated.owner = target_parent
 			
-	if source_layers.is_empty():
-		push_warning("No TileMapLayer found under the source node.")
-		return
-		
-	var first_layer = source_layers[0]
-	if first_layer.tile_set:
-		target.tile_set = first_layer.tile_set
-		
-	for src_layer in source_layers:
-		_copy_layer_cells(src_layer, target)
-		
-func _copy_layer_cells(src: TileMapLayer, dst: TileMapLayer) -> void:
-	for cell in src.get_used_cells():
-		var src_id = src.get_cell_source_id(cell)
-		var atlas = src.get_cell_atlas_coords(cell)
-		var alt_tile = src.get_cell_alternative_tile(cell)
-		dst.set_cell(cell, src_id, atlas, alt_tile)
-		dst.z_index = src.z_index
-		dst.modulate = src.modulate
+			if duplicated is TileMapLayer:
+				if duplicated.tile_set:
+					duplicated.tile_set = duplicated.tile_set
+				duplicated.z_index = child.z_index
+				duplicated.modulate = child.modulate
+				duplicated.y_sort_enabled = child.y_sort_enabled

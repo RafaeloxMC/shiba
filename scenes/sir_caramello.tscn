@@ -3,6 +3,7 @@
 [ext_resource type="SpriteFrames" uid="uid://bayblkj2ccx2m" path="res://assets/sprite_frames/sir_caramello.tres" id="1_ljtky"]
 
 [node name="Camel" type="AnimatedSprite2D"]
+texture_filter = 1
 scale = Vector2(0.95999885, 0.95999885)
 sprite_frames = ExtResource("1_ljtky")
 animation = &"idle"

@@ -81,6 +81,7 @@ scale = Vector2(0.9057509, 0.9057509)
 script = ExtResource("1_f60gj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_kq1tw")
 animation = &"throw"
 

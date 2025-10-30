@@ -63,6 +63,7 @@ collision_mask = 2
 script = ExtResource("1_7jsp6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_by7b2")
 animation = &"idle"
 autoplay = "idle"

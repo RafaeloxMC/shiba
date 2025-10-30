@@ -69,6 +69,7 @@ tile_set = ExtResource("2_5muy6")
 
 [node name="Player" parent="." instance=ExtResource("4_w0qkw")]
 z_index = 5
+texture_filter = 1
 position = Vector2(-487, -64)
 level_border_left = -75
 level_border_right = 1400

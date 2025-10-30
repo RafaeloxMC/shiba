@@ -99,6 +99,7 @@ collision_mask = 7
 script = ExtResource("1_apuuf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_tb3p5")
 animation = &"break"
 autoplay = "idle"

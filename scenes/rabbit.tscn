@@ -70,6 +70,7 @@ scale = Vector2(0.55923337, 0.55923337)
 script = ExtResource("1_dxh4p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_dcyra")
 animation = &"jump"
 

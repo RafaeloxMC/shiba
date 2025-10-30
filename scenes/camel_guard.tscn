@@ -3,6 +3,7 @@
 [ext_resource type="SpriteFrames" uid="uid://c4jkhoq1373kr" path="res://assets/sprite_frames/camel_guard.tres" id="1_kqkdq"]
 
 [node name="Camel" type="AnimatedSprite2D"]
+texture_filter = 1
 scale = Vector2(0.95999885, 0.95999885)
 sprite_frames = ExtResource("1_kqkdq")
 animation = &"idle"

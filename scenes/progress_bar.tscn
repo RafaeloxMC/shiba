@@ -84,9 +84,11 @@ anchors_preset = 0
 script = ExtResource("1_1iuoo")
 
 [node name="Slider" type="Sprite2D" parent="."]
+texture_filter = 1
 texture = ExtResource("1_vt3ux")
 
 [node name="ShibaHead" type="Sprite2D" parent="Slider"]
+texture_filter = 1
 position = Vector2(0, -1)
 rotation = -0.281524
 scale = Vector2(2.2, 2.2)
@@ -99,6 +101,7 @@ libraries = {
 autoplay = "wiggle"
 
 [node name="Flag" type="AnimatedSprite2D" parent="Slider"]
+texture_filter = 1
 position = Vector2(116, 1)
 sprite_frames = SubResource("SpriteFrames_e5nlk")
 autoplay = "default"

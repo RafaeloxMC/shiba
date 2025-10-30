@@ -395,6 +395,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Bubble" type="AnimatedSprite2D" parent="CanvasLayer/Bubbles"]
+texture_filter = 1
 position = Vector2(30, 142)
 scale = Vector2(4.23325, 4.23325)
 sprite_frames = ExtResource("6_55g5v")
@@ -402,12 +403,14 @@ animation = &"pop"
 autoplay = "default"
 
 [node name="Bubble2" type="AnimatedSprite2D" parent="CanvasLayer/Bubbles"]
+texture_filter = 1
 position = Vector2(80, 142)
 scale = Vector2(4.23325, 4.23325)
 sprite_frames = ExtResource("6_55g5v")
 animation = &"pop"
 
 [node name="Bubble3" type="AnimatedSprite2D" parent="CanvasLayer/Bubbles"]
+texture_filter = 1
 position = Vector2(130, 142)
 scale = Vector2(4.23325, 4.23325)
 sprite_frames = ExtResource("6_55g5v")

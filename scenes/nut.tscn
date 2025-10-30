@@ -12,6 +12,7 @@ collision_mask = 2
 script = ExtResource("1_q3m7n")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = ExtResource("2_5cbsx")
 animation = &"shot"
 frame = 3

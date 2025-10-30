@@ -17,6 +17,7 @@ radius = 49.010204
 script = ExtResource("1_kn2uh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 position = Vector2(-1, -1)
 sprite_frames = ExtResource("2_r0q7b")
 animation = &"idle"

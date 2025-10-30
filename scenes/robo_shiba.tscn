@@ -9,6 +9,7 @@ height = 24.0
 [node name="Robo Shiba" type="CharacterBody2D"]
 
 [node name="RoboShibaSprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = ExtResource("1_h40ri")
 animation = &"walk"
 autoplay = "idle"

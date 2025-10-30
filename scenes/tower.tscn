@@ -14,6 +14,7 @@ size = Vector2(54, 11)
 [node name="Tower" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 texture = ExtResource("1_2x682")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

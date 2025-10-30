@@ -3,4 +3,5 @@
 [ext_resource type="Texture2D" uid="uid://sxsdjy6x1pqn" path="res://assets/sprites/slippery.png" id="1_qyr6u"]
 
 [node name="Slippery Warning" type="Sprite2D"]
+texture_filter = 1
 texture = ExtResource("1_qyr6u")

@@ -9,6 +9,7 @@ height = 24.0
 [node name="Shibina" type="CharacterBody2D"]
 
 [node name="ShibinaSprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = ExtResource("1_8b5ry")
 animation = &"idle"
 autoplay = "idle"

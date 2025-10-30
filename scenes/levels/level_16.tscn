@@ -663,6 +663,7 @@ tile_set = ExtResource("5_4u4vv")
 [node name="Player" parent="." instance=ExtResource("7_riis0")]
 visible = false
 z_index = 10
+texture_filter = 1
 position = Vector2(-472, -64)
 movement_disabled = true
 projectile = ExtResource("8_pi8ry")

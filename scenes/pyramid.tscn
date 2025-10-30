@@ -23,9 +23,11 @@ size = Vector2(51.525425, 5.7627106)
 scale = Vector2(2.3600001, 2.3600001)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 texture = ExtResource("1_sw6ir")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(125.84745, 0)
 texture = ExtResource("1_sw6ir")
 flip_h = true
@@ -47,11 +49,13 @@ shape = SubResource("RectangleShape2D_u1w5x")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
 z_index = 10
+texture_filter = 1
 position = Vector2(48, -47.9)
 texture = ExtResource("2_ifwva")
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
 z_index = 10
+texture_filter = 1
 position = Vector2(77.845, -47.9)
 texture = ExtResource("2_yvq63")
 flip_h = true

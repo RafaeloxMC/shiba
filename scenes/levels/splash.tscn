@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=4 uid="uid://bx7ocan7t3swl"]
+
+[ext_resource type="TileSet" uid="uid://bk2fv30homksp" path="res://assets/tile_sets/map_tiles.tres" id="1_3ammd"]
+[ext_resource type="SpriteFrames" uid="uid://bklk7p5g27qcp" path="res://assets/sprite_frames/player.tres" id="2_o4nnd"]
+[ext_resource type="SpriteFrames" uid="uid://dhy5r000cn6gf" path="res://assets/sprite_frames/shibina.tres" id="3_eq0k0"]
+[ext_resource type="SpriteFrames" uid="uid://2032t5qshgsi" path="res://assets/sprite_frames/robo_shiba.tres" id="4_iput4"]
+[ext_resource type="SpriteFrames" uid="uid://b4jnktklknpwp" path="res://assets/sprite_frames/bone.tres" id="5_fdkwh"]
+[ext_resource type="SpriteFrames" uid="uid://5ci3qjfh1j1c" path="res://assets/sprite_frames/coin.tres" id="6_v8kcf"]
+
+[node name="Splash" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD8/wAAAAAOAA0AAAD8/wEAAAALAA8AAAD9/wAAAAAOAA0AAAD9/wEAAAALAA8AAAD+/wAAAAAOAA0AAAD+/wEAAAALAA8AAAD//wAAAAAOAA0AAAD//wEAAAALAA8AAAAAAAAAAAAOAA0AAAAAAAEAAAALAA8AAAABAAAAAAAOAA0AAAABAAEAAAALAA8AAAACAAAAAAAOAA0AAAACAAEAAAALAA8AAAD7/wAAAAANAA0AAAD7/wEAAAAOAA8AAAAEAAAAAAAPAA0AAAAEAAEAAAAPAA8AAAADAAAAAAAOAA0AAAADAAEAAAALAA8AAAA=")
+tile_set = ExtResource("1_3ammd")
+
+[node name="Player" type="AnimatedSprite2D" parent="TileMapLayer"]
+position = Vector2(-60, -12)
+sprite_frames = ExtResource("2_o4nnd")
+animation = &"idle"
+
+[node name="Shibina" type="AnimatedSprite2D" parent="TileMapLayer"]
+position = Vector2(60, -12)
+sprite_frames = ExtResource("3_eq0k0")
+animation = &"idle"
+flip_h = true
+
+[node name="Robo" type="AnimatedSprite2D" parent="TileMapLayer"]
+position = Vector2(40, -12)
+sprite_frames = ExtResource("4_iput4")
+animation = &"idle"
+flip_h = true
+
+[node name="Bone" type="AnimatedSprite2D" parent="TileMapLayer"]
+position = Vector2(-5.000001, -12.000001)
+rotation = 0.57202536
+sprite_frames = ExtResource("5_fdkwh")
+
+[node name="Coin" type="AnimatedSprite2D" parent="TileMapLayer"]
+position = Vector2(-40, -8)
+sprite_frames = ExtResource("6_v8kcf")
+flip_h = true
+
+[node name="Coin2" type="AnimatedSprite2D" parent="TileMapLayer"]
+position = Vector2(-26, -8)
+sprite_frames = ExtResource("6_v8kcf")
+flip_h = true

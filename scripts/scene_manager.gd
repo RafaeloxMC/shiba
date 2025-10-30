@@ -49,8 +49,14 @@ func reload_current_level():
 		reload_current_level()
 	
 func reload_current() -> void:
-	get_tree().reload_current_scene()
+	call_deferred("rld")
 
+func rld():
+	if get_tree().current_scene == null:
+		print("Warning: Cannot reload_current_scene — no scene is loaded yet.")
+		return
+	get_tree().reload_current_scene()
+	
 func get_random_level() -> PackedScene:
 	var filtered_dict = {}
 	for key in scenes.keys():

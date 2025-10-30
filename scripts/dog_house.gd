@@ -17,4 +17,7 @@ func _ready() -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name != "Player" or entry == true:
 		return
-	SceneManager.next_level()
+	if GameManager.mode == "splitscreen":
+		SceneManager.reload_current()
+	else:
+		SceneManager.next_level()

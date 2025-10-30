@@ -10,6 +10,7 @@ extends Node2D
 @onready var viewport2_root: Node = $SubViewportContainer2/SubViewport
 
 func _ready() -> void:
+	GameManager.mode = "splitscreen"
 	var world = viewport1_root.find_world_2d()
 	$SubViewportContainer2/SubViewport.world_2d = world
 	
@@ -48,11 +49,10 @@ func _ready() -> void:
 	else:
 		print("DOG HOUSES NOT FOUND!")
 	
-	level.queue_free()
+	level.free()
 	
 	GameManager.update_time_tracker.emit()
-
-
+	
 func _duplicate_level_nodes_except_player(source_level: Node, target_parent: Node) -> void:
 	for child in source_level.get_children():
 		if child.name == "Player" || child.name == "Parallax":

@@ -13,6 +13,7 @@ var hearts = 3
 
 var coins_collected_in_current_scene = 0
 
+var mode = "story"
 var running = false
 var first_play = true
 

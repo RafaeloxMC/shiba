@@ -122,18 +122,21 @@ func submit() -> void:
 			SceneManager.call_scene("kidnapping_cutscene")
 		else:
 			SceneManager.reload_current_level()
+		GameManager.mode = "story"
 		Engine.time_scale = 1
 		return
 	
 	if current == endless:
 		GameManager.call_tick_ui()
 		SceneManager.call_scene("endless")
+		GameManager.mode = "endless"
 		return
 	
 	if current == splitscreen:
 		GameManager.call_tick_ui()
 		print("Called splitscreen")
 		SceneManager.call_scene("splitscreen")
+		GameManager.mode = "splitscreen"
 		return
 
 	if current.scene != null:

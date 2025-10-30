@@ -3,6 +3,8 @@ extends Node2D
 @onready var target_layer: TileMapLayer = $SubViewportContainer/SubViewport/TileMapLayer
 @onready var player: CharacterBody2D = $SubViewportContainer/SubViewport/Player
 @onready var player_2nd: CharacterBody2D = $SubViewportContainer2/SubViewport/Player
+@onready var camera: Camera2D = $SubViewportContainer/SubViewport/Player/Camera2D
+@onready var camera_2nd: Camera2D = $SubViewportContainer2/SubViewport/Player/Camera2D
 
 func _ready() -> void:
 	var world = $SubViewportContainer/SubViewport.find_world_2d()
@@ -16,6 +18,9 @@ func _ready() -> void:
 	
 	player.position = old_player.position
 	player_2nd.position = old_player.position + Vector2(15, 0)
+	
+	camera.reset_smoothing()
+	camera_2nd.reset_smoothing()
 	
 	player.level_border_left = old_player.level_border_left
 	player.level_border_right = old_player.level_border_right

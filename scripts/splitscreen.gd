@@ -55,7 +55,7 @@ func _ready() -> void:
 
 func _duplicate_level_nodes_except_player(source_level: Node, target_parent: Node) -> void:
 	for child in source_level.get_children():
-		if child.name == "Player":
+		if child.name == "Player" || child.name == "Parallax":
 			continue
 		
 		var duplicated = child.duplicate()

@@ -129,7 +129,11 @@ func _on_jump_timer_timeout() -> void:
 func change_direction() -> void:
 	if is_on_floor() and not ground.is_colliding():
 		direction = Vector2(0, 0)
-		var player_dir_x = sign(player.position.x - self.position.x)
+		var player_dir_x 
+		if player:
+			player_dir_x = sign(player.position.x - self.position.x)
+		else:
+			player_dir_x = sign(ground.position.x - self.position.x)
 		if player_dir_x == 1 or player_dir_x == 0:
 			animated_sprite_2d.flip_h = false
 			facing.target_position = Vector2(spotting_range, 0)

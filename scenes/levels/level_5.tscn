@@ -108,14 +108,14 @@ BOUNDS = 100.0
 [node name="DialogTrigger3" parent="Dialogs" instance=ExtResource("5_5ke18")]
 position = Vector2(290, 103.00001)
 scale = Vector2(9.320481, -2.4668713)
-text = "This sleep was amazing! Okay, now let's get back to work!"
+text = "LEVEL_5_WAKE_UP"
 author = "Shiba"
 sprite_frames = ExtResource("7_0y7y4")
 
 [node name="DialogTrigger" parent="Dialogs" instance=ExtResource("5_5ke18")]
 position = Vector2(952, 304)
 scale = Vector2(2.3735747, 1.5960202)
-text = "Oh Camella... I have absolutely no idea how this even got here in the first place."
+text = "LEVEL_5_OH_CAMELLA"
 author = "Shiba"
 sprite_frames = ExtResource("7_0y7y4")
 
@@ -123,21 +123,21 @@ sprite_frames = ExtResource("7_0y7y4")
 position = Vector2(1128, 368)
 rotation = -3.1415927
 scale = Vector2(2.4386358, -1.6243881)
-text = "I guess I am just supposed to jump..."
+text = "LEVEL_5_JUMP"
 author = "Shiba"
 sprite_frames = ExtResource("7_0y7y4")
 
 [node name="DialogTrigger4" parent="Dialogs" instance=ExtResource("5_5ke18")]
 position = Vector2(1888, 376)
 scale = Vector2(7.24, 7.24)
-text = "Is that.... LIGHT AT THE END OF THE TUNNEL! I am so happy to be back on the surface!"
+text = "LEVEL_5_LIGHT"
 author = "Shiba"
 sprite_frames = ExtResource("7_0y7y4")
 
 [node name="DialogTrigger5" parent="Dialogs" instance=ExtResource("5_5ke18")]
 position = Vector2(1304, 488)
 scale = Vector2(7.012522, 2.4358704)
-text = "This must be it! It smells quite strong like- perfume... Not just that but the ribbon reminds me of Shibina as well..."
+text = "LEVEL_5_MUST_BE_IT"
 author = "Shiba"
 sprite_frames = ExtResource("7_0y7y4")
 

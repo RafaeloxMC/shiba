@@ -305,7 +305,7 @@ PROJECTILE = ExtResource("13_0qwwm")
 [node name="DialogTrigger" parent="." instance=ExtResource("15_4yk0h")]
 position = Vector2(160, -112)
 scale = Vector2(1.6, 1)
-text = "Oh no! A squirrel! I've heared those are very dangerous! I don't have a weapon right now, maybe I'll find one later!"
+text = "LEVEL_1_SQUIRREL"
 author = "Shiba"
 sprite_frames = ExtResource("16_vmrhw")
 

@@ -405,7 +405,7 @@ scale = Vector2(2.84, 2.84)
 scene = ExtResource("3_bqqt6")
 
 [node name="Label" parent="btn_splitscreen" index="2"]
-text = "splitscreen"
+text = "SPLITSCREEN"
 
 [node name="btn_settings" parent="." instance=ExtResource("2_ekxnf")]
 position = Vector2(576, 396)
@@ -413,7 +413,7 @@ scale = Vector2(2.84, 2.84)
 scene = ExtResource("5_rtw2f")
 
 [node name="Label" parent="btn_settings" index="2"]
-text = "settings"
+text = "SETTINGS"
 
 [node name="btn_quit" parent="." instance=ExtResource("2_ekxnf")]
 position = Vector2(576, 516)
@@ -421,7 +421,7 @@ scale = Vector2(2.84, 2.84)
 scene = ExtResource("5_8ln24")
 
 [node name="Label" parent="btn_quit" index="2"]
-text = "quit"
+text = "QUIT"
 
 [node name="hint" type="Label" parent="."]
 layout_mode = 1

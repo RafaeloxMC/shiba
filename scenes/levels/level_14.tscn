@@ -107,7 +107,7 @@ position = Vector2(-456, -73)
 [node name="DialogTrigger" parent="Dialogs" instance=ExtResource("10_3cpn8")]
 position = Vector2(-440, -73)
 scale = Vector2(7.1423826, 1)
-text = "Welcome to the Northern Territories! Phew, it's freezing here! I should be careful, it can be slippery here!"
+text = "LEVEL_14_WELCOME"
 author = "Shiba"
 sprite_frames = ExtResource("11_8fg8a")
 

@@ -13,7 +13,7 @@
 [sub_resource type="Resource" id="Resource_bidp2"]
 script = ExtResource("2_epbsd")
 name = "Bone"
-description = "A bone that Shiba can throw to defeat his enemies! (use s or arrow down to throw)"
+description = "SHOP_BONE_DESCRIPTION"
 price = 30
 icon = ExtResource("3_bidp2")
 metadata/_custom_type_script = "uid://b8to5lv7tuovr"
@@ -21,7 +21,7 @@ metadata/_custom_type_script = "uid://b8to5lv7tuovr"
 [sub_resource type="Resource" id="Resource_obwu6"]
 script = ExtResource("2_epbsd")
 name = "Dog Food"
-description = "Shiba's favorite food! He could never get enough of it!"
+description = "SHOP_FOOD_DESCRIPTION"
 price = 10
 icon = ExtResource("3_usj2y")
 metadata/_custom_type_script = "uid://b8to5lv7tuovr"
@@ -44,7 +44,7 @@ animations = [{
 [sub_resource type="Resource" id="Resource_ijxsd"]
 script = ExtResource("2_epbsd")
 name = "Melon Hat"
-description = "Absolutely useless but absolutely epic..."
+description = "SHOP_MELON_HAT_DESCRIPTION"
 price = 15
 icon = SubResource("SpriteFrames_y4j81")
 metadata/_custom_type_script = "uid://b8to5lv7tuovr"
@@ -94,7 +94,7 @@ animations = [{
 [sub_resource type="Resource" id="Resource_ytm40"]
 script = ExtResource("2_epbsd")
 name = "Propeller Hat"
-description = "Propeller hat gives you wings!"
+description = "SHOP_PROPELLER_HAT_DESCRIPTION"
 price = 25
 icon = SubResource("SpriteFrames_ijxsd")
 metadata/_custom_type_script = "uid://b8to5lv7tuovr"
@@ -138,7 +138,7 @@ animations = [{
 [sub_resource type="Resource" id="Resource_t3xdf"]
 script = ExtResource("2_epbsd")
 name = "Knight Helmet"
-description = "Absorbs damage once before it breaks!"
+description = "SHOP_KNIGHT_HELMET_DESCRIPTION"
 price = 30
 icon = SubResource("SpriteFrames_a5g6y")
 metadata/_custom_type_script = "uid://b8to5lv7tuovr"
@@ -188,7 +188,7 @@ animations = [{
 [sub_resource type="Resource" id="Resource_0yw5g"]
 script = ExtResource("2_epbsd")
 name = "Zac's Kuro Mask"
-description = "The man, the myth, the legend! (we all love him!)"
+description = "SHOP_KURO_MASK_DESCRIPTION"
 price = 20
 icon = SubResource("SpriteFrames_5t3ou")
 metadata/_custom_type_script = "uid://b8to5lv7tuovr"
@@ -231,7 +231,7 @@ offset_top = -28.908787
 offset_right = 36.0
 offset_bottom = -19.908787
 grow_horizontal = 2
-text = "Super Shiba Shop"
+text = "SHOP"
 label_settings = SubResource("LabelSettings_18xnp")
 
 [node name="Title" type="Label" parent="."]
@@ -282,7 +282,7 @@ offset_top = 26.194351
 offset_right = 360.25
 offset_bottom = 45.24922
 scale = Vector2(0.1994354, 0.1994354)
-text = "enter to buy, arrows to navigate, esc to leave"
+text = "SHOP_HINT"
 label_settings = SubResource("LabelSettings_crtus")
 horizontal_alignment = 1
 autowrap_mode = 3

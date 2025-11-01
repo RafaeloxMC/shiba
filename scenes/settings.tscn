@@ -92,7 +92,7 @@ type = 1
 settings = ["easy", "medium", "hard", "give up", "random"]
 
 [node name="Label" parent="btn_difficulty" index="2"]
-text = "difficulty"
+text = "DIFFICULTY"
 metadata/_edit_use_anchors_ = true
 
 [node name="btn_volume" parent="." instance=ExtResource("3_83j8s")]
@@ -102,7 +102,7 @@ type = 1
 settings = ["10", "20", "30", "40", "50", "60", "70", "80", "90", "100"]
 
 [node name="Label" parent="btn_volume" index="2"]
-text = "volume"
+text = "VOLUME"
 metadata/_edit_use_anchors_ = true
 
 [node name="btn_music_volume" parent="." instance=ExtResource("3_83j8s")]
@@ -112,7 +112,7 @@ type = 1
 settings = ["10", "20", "30", "40", "50", "60", "70", "80", "90", "100"]
 
 [node name="Label" parent="btn_music_volume" index="2"]
-text = "music volume"
+text = "MUSIC_VOL"
 metadata/_edit_use_anchors_ = true
 
 [node name="btn_sfx_volume" parent="." instance=ExtResource("3_83j8s")]
@@ -122,7 +122,7 @@ type = 1
 settings = ["10", "20", "30", "40", "50", "60", "70", "80", "90", "100"]
 
 [node name="Label" parent="btn_sfx_volume" index="2"]
-text = "sfx volume"
+text = "SFX_VOL"
 metadata/_edit_use_anchors_ = true
 
 [node name="btn_shibadb_reset" parent="." instance=ExtResource("3_83j8s")]
@@ -131,7 +131,7 @@ scale = Vector2(2.84, 2.84)
 scene = ExtResource("4_f4mfi")
 
 [node name="Label" parent="btn_shibadb_reset" index="2"]
-text = "reset save"
+text = "SDB_RESET"
 
 [node name="btn_credits" parent="." instance=ExtResource("3_83j8s")]
 position = Vector2(576, 516)
@@ -139,14 +139,14 @@ scale = Vector2(2.84, 2.84)
 scene = ExtResource("4_f4mfi")
 
 [node name="Label" parent="btn_credits" index="2"]
-text = "credits"
+text = "CREDITS_TITLE"
 
 [node name="btn_back" parent="." instance=ExtResource("3_83j8s")]
 position = Vector2(576, 516)
 scale = Vector2(2.84, 2.84)
 
 [node name="Label" parent="btn_back" index="2"]
-text = "back"
+text = "BACK"
 
 [node name="hint" type="Label" parent="."]
 layout_mode = 1

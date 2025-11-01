@@ -61,7 +61,7 @@ func _ready():
 	GameManager.bats = bats
 	GameManager.flying_animals = flying_animals
 	if GameManager.should_show_intro == true:
-		GameManager.call_dialog("Oh no! The robo dog kidnapped Shibina!\nI need to rescue her before something happens!", "Shiba", animated_sprite_2d.sprite_frames)
+		GameManager.call_dialog("LEVEL_1_OH_NO", "Shiba", animated_sprite_2d.sprite_frames)
 		GameManager.should_show_intro = false
 	
 	if self.get_parent().has_node("Swim Triggers"):

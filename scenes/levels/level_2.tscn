@@ -207,14 +207,14 @@ PROJECTILE = ExtResource("12_1yj8c")
 [node name="DialogTrigger" parent="Dialogs" instance=ExtResource("15_wwjag")]
 position = Vector2(0, -11)
 scale = Vector2(3.17426, 1.08355)
-text = "Woah! This dog house is like a... teleporter! I thought those only exist in movies! And somehow I always wake up here when I get hurt..."
+text = "LEVEL_2_TELEPORTER"
 author = "Shiba"
 sprite_frames = ExtResource("16_rvwo1")
 
 [node name="DialogTrigger2" parent="Dialogs" instance=ExtResource("15_wwjag")]
 position = Vector2(80, -26)
 scale = Vector2(4.56, 1)
-text = "Hmm, what does it say on that sign... \"Welcome to Squirrel Island!\"... Oh no! Seems like there are more of them!"
+text = "LEVEL_2_SIGN"
 author = "Shiba"
 sprite_frames = ExtResource("16_rvwo1")
 

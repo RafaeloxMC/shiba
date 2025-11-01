@@ -89,7 +89,7 @@ position = Vector2(1288, -232)
 [node name="DialogTrigger" parent="Dialogs" instance=ExtResource("7_pafwe")]
 position = Vector2(240, -113)
 scale = Vector2(5.7764792, 1.6800025)
-text = "It's you again! Don't tell me you really found the ribbon. Thank you so so much! My grandpa, Sir Caramello III., the mayor of Cameltown gave it to me when I got born! It would've broken my heart if you couldn't find it. I definitely owe you one!"
+text = "LEVEL_6_CAMELLA"
 author = "Camella"
 sprite_frames = ExtResource("6_b6i88")
 char_size = 0.5
@@ -97,7 +97,7 @@ char_size = 0.5
 [node name="DialogTrigger2" parent="Dialogs" instance=ExtResource("7_pafwe")]
 position = Vector2(408, -104)
 scale = Vector2(5.493782, 3.2250726)
-text = "The sign says: \"The view over Cameltown\". I really need to go there, maybe the mayor knows where Shibina is!"
+text = "LEVEL_6_SIGN"
 author = "Shiba"
 sprite_frames = ExtResource("9_e18e5")
 

@@ -146,7 +146,7 @@ BOUNDS = 150.0
 [node name="DialogTrigger2" parent="Dialogs" instance=ExtResource("6_vcewm")]
 position = Vector2(-384, -55.000004)
 scale = Vector2(11.212287, 5.4332542)
-text = "Stop! Hey you! Come here and tell me how you got here! You shouldn't be here. It's dangerous out here."
+text = "LEVEL_12_STOP"
 author = "Guard of Cameltown"
 sprite_frames = ExtResource("7_b73n6")
 char_size = 0.5
@@ -154,7 +154,7 @@ char_size = 0.5
 [node name="DialogTrigger" parent="Dialogs" instance=ExtResource("6_vcewm")]
 position = Vector2(972, -119)
 scale = Vector2(6.3340774, 2.3726542)
-text = "Hey there! I've been told you were searching for this robo dog. He was trying to get into cameltown but we stopped him here. He's aggressive, so be careful! After we sent him away he walked into the northern territories, at least that is where he said he would go. Be careful and let us know if you need help!"
+text = "LEVEL_12_HINT"
 author = "Guard of Cameltown"
 sprite_frames = ExtResource("7_b73n6")
 char_size = 0.5
@@ -162,7 +162,7 @@ char_size = 0.5
 [node name="DialogTrigger3" parent="Dialogs" instance=ExtResource("6_vcewm")]
 position = Vector2(-118.000015, 7)
 scale = Vector2(6.321475, 2.8754084)
-text = "Hey Mr. Guard! I came here through the lake. Sir Caramello III sent me here, I should ask a guard at the tower about an incident with a robo dog."
+text = "LEVEL_12_SHIBA_TO_GUARD"
 author = "Shiba"
 sprite_frames = ExtResource("8_b73n6")
 

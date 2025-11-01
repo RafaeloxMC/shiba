@@ -33,7 +33,7 @@ offset_top = 48.0
 offset_right = 144.0
 offset_bottom = 102.0
 grow_horizontal = 2
-text = "Credits"
+text = "CREDITS_TITLE"
 label_settings = SubResource("LabelSettings_2ckv8")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -51,7 +51,7 @@ offset_right = 144.0
 offset_bottom = -155.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "appreciation to all!"
+text = "CREDITS_SUBTITLE"
 label_settings = SubResource("LabelSettings_0ctdu")
 horizontal_alignment = 1
 
@@ -68,21 +68,7 @@ offset_right = 265.5
 offset_bottom = 269.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Code:
-xvcf (me)
-Assets:
-xvcf (me)
-Brackeys (assets have been modified by me)
-Music:
-Tiger Tracks - Lexica via Epidemicsound
-You Know You Know - Forever Sunset via EpidemicSound
-Racing Heartbeats - The Big Let Down via epidemicsound
-Purge Dropper - Lupus Nocte via epidemicsound
-
-
-
-Special thanks to Thomas for the shoutouts!
-All feedback is appreciated!"
+text = "CREDITS"
 label_settings = SubResource("LabelSettings_0ctdu")
 horizontal_alignment = 1
 
@@ -99,7 +85,7 @@ offset_right = 130.0
 offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "press enter to go back!"
+text = "CREDITS_HINT"
 label_settings = SubResource("LabelSettings_2fbfq")
 horizontal_alignment = 1
 vertical_alignment = 1

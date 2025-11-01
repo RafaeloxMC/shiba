@@ -69,13 +69,13 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if self.visible == false || self.get_parent().visible == false:
 		return
-	if Input.is_action_just_pressed("ui_up") || Input.is_action_just_pressed("ui_right"):
+	if Input.is_action_just_pressed("ui_down") || Input.is_action_just_pressed("ui_right"):
 		if curr + 1 >= items.size():
 			curr = 0
 		else:
 			curr += 1
 			
-	if Input.is_action_just_pressed("ui_down") || Input.is_action_just_pressed("ui_left"):
+	if Input.is_action_just_pressed("ui_up") || Input.is_action_just_pressed("ui_left"):
 		if curr - 1 < 0:
 			curr = items.size() - 1
 		else:

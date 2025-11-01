@@ -114,7 +114,7 @@ position = Vector2(688, -88)
 [node name="DialogTrigger2" parent="Dialogs" instance=ExtResource("9_q0wsq")]
 position = Vector2(187, -81)
 scale = Vector2(6.75999, 3.2800002)
-text = "But Mama! I don't want to go just yet! Can we not just visit the pyramid? This looks so cool!"
+text = "LEVEL_7_CAMELS"
 author = "Little camel child"
 sprite_frames = ExtResource("9_st48t")
 char_size = 0.4
@@ -123,7 +123,7 @@ y_offset = 20.0
 [node name="DialogTrigger" parent="Dialogs" instance=ExtResource("9_q0wsq")]
 position = Vector2(776, -41)
 scale = Vector2(7.68002, 2.5199988)
-text = "This leads me directly to the Great Pyramid of Shiba! That's where the mayor's at!"
+text = "LEVEL_7_PYRAMID"
 author = "Shiba"
 sprite_frames = ExtResource("10_ivh0c")
 

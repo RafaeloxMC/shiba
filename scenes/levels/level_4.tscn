@@ -54,7 +54,7 @@ shape = SubResource("WorldBoundaryShape2D_p57ef")
 [node name="DialogTrigger" parent="Dialogs" instance=ExtResource("6_fcb7b")]
 position = Vector2(129, -112)
 scale = Vector2(6.5288696, 3.1999998)
-text = "Oh, hey there, little Shiba! I need a favor from you. There's a cave further up ahead, I hoped you could help me return my lost ribbon! You see, it's a bit difficult for me to move around in there, so it would be very kind of you if you could help me out! I'll owe you one if you'll ever need some help! Beware of the rabbits though, they are aggressive!"
+text = "LEVEL_4_CAMELLA"
 author = "Camella"
 sprite_frames = ExtResource("6_ts8eg")
 char_size = 0.5
@@ -62,7 +62,7 @@ char_size = 0.5
 [node name="DialogTrigger3" parent="Dialogs" instance=ExtResource("6_fcb7b")]
 position = Vector2(588, 87.00001)
 scale = Vector2(9.320481, -2.4668713)
-text = "Well, this is quite an odd place to sleep... But I am very tired and Camella warned me because of the dangerous animals. I need to rest so I can beat them!"
+text = "LEVEL_4_SLEEP"
 author = "Shiba"
 sprite_frames = ExtResource("8_glw47")
 

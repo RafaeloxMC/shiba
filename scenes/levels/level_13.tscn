@@ -192,7 +192,7 @@ PROJECTILE = ExtResource("4_4sh85")
 [node name="DialogTrigger" parent="Dialogs" instance=ExtResource("7_ivm0h")]
 position = Vector2(-440, -73)
 scale = Vector2(7.1423826, 1)
-text = "This says \"you are heading north\", sounds great!"
+text = "LEVEL_13_SIGN"
 author = "Shiba"
 sprite_frames = ExtResource("9_2kfw6")
 

@@ -100,7 +100,7 @@ func _process(_delta: float) -> void:
 
 func add_coin(coin: Area2D, player: CharacterBody2D):
 	if coin_blacklist.size() == 0:
-		call_dialog("I picked up my first coin. I could use these to buy Shibina a gift to win her heart!", "Shiba", player.get_node("AnimatedSprite2D").sprite_frames)
+		call_dialog("LEVEL_1_COIN", "Shiba", player.get_node("AnimatedSprite2D").sprite_frames)
 	coin_blacklist.push_back(coin.transform)
 	coins += 1
 	coins_collected_in_current_scene += 1
@@ -125,12 +125,12 @@ func is_dialog_blacklisted(dlg: Area2D) -> bool:
 func eat_food(food: Area2D, player: CharacterBody2D):
 	var diff_warning = ""
 	if difficulty == 3: 
-		diff_warning = "\nSadly I can't restore health on this difficulty!"
+		diff_warning = "\n" + tr("LEVEL_1_FOOD_WARNING")
 	if hearts < max_hearts: 
 		hearts += 1
 	if food != null:
 		if food_blacklist.size() == 0:
-			call_dialog("*nom nom nom*\nThis is very delicious! And I already feel so much better! I need more of that!" + diff_warning, "Shiba", player.get_node("AnimatedSprite2D").sprite_frames)
+			call_dialog(tr("LEVEL_1_FOOD") + diff_warning, "Shiba", player.get_node("AnimatedSprite2D").sprite_frames)
 		food_blacklist.push_back(food.transform)
 	eat_dog_food.emit()
 	
@@ -166,7 +166,7 @@ func hearts_per_diff() -> int:
 	return 3
 
 func call_dialog(content: String, author: String, animation: SpriteFrames, char_size: float = 1, y_offset: float = 0):
-	dialog.emit(content, author, animation, char_size, y_offset)
+	dialog.emit(tr(content), author, animation, char_size, y_offset)
 	
 func spawn_bird(pos: Vector2):
 	if not flying_animals:

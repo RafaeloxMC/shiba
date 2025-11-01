@@ -67,14 +67,14 @@ shape = SubResource("WorldBoundaryShape2D_p57ef")
 [node name="DialogTrigger" parent="Dialogs" instance=ExtResource("6_m2cpo")]
 position = Vector2(-27, 35)
 scale = Vector2(7.119999, 3.92)
-text = "Hmm, this looks quite right...\\n*shouts*\\nSir Caramello III! Are you in here?"
+text = "LEVEL_9_LOOKS_RIGHT"
 author = "Shiba"
 sprite_frames = ExtResource("7_kj523")
 
 [node name="DialogTrigger2" parent="Dialogs" instance=ExtResource("6_m2cpo")]
 position = Vector2(881, 43)
 scale = Vector2(9.545973, 3.6796606)
-text = "Hey there, little Shiba! My niece, Camella, already told me everything about you! I can help you to find Shibina! My guards have seen her with some robo dog from the tower of nothern cameltown! There's a lake between you and the tower. You could walk around it but you're probably faster crossing it! Oh, and take some coins, you might need them!"
+text = "LEVEL_9_CARAMELLO"
 author = "Sir Caramello III."
 sprite_frames = ExtResource("8_kj523")
 char_size = 0.5

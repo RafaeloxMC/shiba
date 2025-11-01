@@ -112,6 +112,10 @@ move_right_2nd={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://assets/language/jp.en.translation", "res://assets/language/jp.jp.translation")
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

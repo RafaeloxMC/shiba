@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://bg8ilm2vmj4k2"]
+[gd_scene load_steps=18 format=4 uid="uid://bg8ilm2vmj4k2"]
 
 [ext_resource type="PackedScene" uid="uid://cesxcje0r35td" path="res://scenes/parallax.tscn" id="1_x7cri"]
 [ext_resource type="TileSet" uid="uid://bk2fv30homksp" path="res://assets/tile_sets/map_tiles.tres" id="2_5muy6"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://b50ps8r584f3y" path="res://scenes/player.tscn" id="4_w0qkw"]
 [ext_resource type="PackedScene" uid="uid://b5lvwjoesv1re" path="res://scenes/killzone.tscn" id="5_q1ohf"]
 [ext_resource type="PackedScene" uid="uid://crqc1hhdhds5b" path="res://scenes/coin.tscn" id="8_q1ohf"]
-[ext_resource type="SpriteFrames" uid="uid://cmyr24ernl424" path="res://assets/sprite_frames/store_owner.tres" id="9_x7cri"]
 [ext_resource type="PackedScene" uid="uid://prtcrbjwfdku" path="res://scenes/dialog_trigger.tscn" id="10_3cpn8"]
 [ext_resource type="PackedScene" uid="uid://c7ekn1l4pgdrl" path="res://scenes/slippery_trigger.tscn" id="10_vi0f2"]
 [ext_resource type="SpriteFrames" uid="uid://bklk7p5g27qcp" path="res://assets/sprite_frames/player.tres" id="11_8fg8a"]
@@ -111,13 +110,6 @@ scale = Vector2(7.1423826, 1)
 text = "Welcome to the Northern Territories! Phew, it's freezing here! I should be careful, it can be slippery here!"
 author = "Shiba"
 sprite_frames = ExtResource("11_8fg8a")
-
-[node name="DialogTrigger2" parent="Dialogs" instance=ExtResource("10_3cpn8")]
-position = Vector2(76, -65)
-scale = Vector2(10.640002, 10.640002)
-text = "Yo! It's the dev again! Seems like you've played through the game, at least for now. Some mysterious source (I'm not allowed to tell who it is) told me that the end of the game is not far anymore! Wait- There will be a boss fight :o"
-author = "xvcf"
-sprite_frames = ExtResource("9_x7cri")
 
 [node name="Dog Houses" type="Node" parent="."]
 

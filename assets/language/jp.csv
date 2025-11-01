@@ -1,0 +1,47 @@
+Key,en,jp
+PLAY,Play,
+ENDLESS,Endless,
+SPLITSCREEN,Splitscreen,
+SETTINGS,Settings,
+QUIT,Quit,
+DIFFICULTY,Difficulty
+VOLUME,Volume
+MUSIC_VOL,Music Volume
+SFX_VOL,SFX Volume
+SDB_RESET,Reset save
+BACK,Back
+CREDITS_TITLE,Credits
+CREDITS_SUBTITLE,Appreciation to all!
+CREDITS,Code:\nxvcf (me)\nAssets:\nxvcf (me)\nBrackeys (assets have been modified by me)\nMusic:\nTiger Tracks - Lexica via Epidemicsound\nYou Know You Know - Forever Sunset via EpidemicSound\nRacing Heartbeats - The Big Let Down via Epidemicsound\nPurge Dropper - Lupus Nocte via Epidemicsound\n\n\nSpecial thanks to Thomas for the shoutouts!\nAll feedback is appreciated!
+CREDITS_HINT,Press Enter to go back!
+INTRO_SHIBINA,"Oh uh, what is this sound... It sounds like metal... Oh no!",
+INTRO_ROBO,You will come with me now! You better not resist or you will regret it!,
+LEVEL_1_OH_NO,Oh no! The robo dog kidnapped Shibina!\nI need to rescue her before something happens!
+LEVEL_1_SQUIRREL,"Oh no! A squirrel! I've heared those are very dangerous! I don't have a weapon right now, maybe I'll find one later!"
+LEVEL_1_FOOD,*nom nom nom*\nThis is very delicious! And I already feel so much better! I need more of that!
+LEVEL_1_FOOD_WARNING,\nSadly I can't restore health on this difficulty!
+LEVEL_2_TELEPORTER,Woah! This dog house is like a... teleporter! I thought those only exist in movies! And somehow I always wake up here when I get hurt...
+LEVEL_2_SIGN,"Hmm, what does it say on that sign... ""Welcome to Squirrel Island!""... Oh no! Seems like there are more of them!"
+LEVEL_3_SHOP,"Wow, this looks so cool here! Is this a... shop! Here I can spend my coins! But I can't come back at any time, I should be mindful with what I buy and how much I spend since I still need a gift for Shibina!"
+LEVEL_3_OWNER,Hey and welcome to my shop! Feel free to buy all the stuff you could ever need! The prices are overpriced- *cough*... I meant very fair\n\nPress enter to interact with the shop!
+LEVEL_4_CAMELLA,"Oh, hey there, little Shiba! I need a favor from you. There's a cave further up ahead, I hoped you could help me return my lost ribbon! You see, it's a bit difficult for me to move around in there, so it would be very kind of you if you could help me out! I'll owe you one if you'll ever need some help! Beware of the rabbits though, they are aggressive!"
+LEVEL_4_SLEEP,"Well, this is quite an odd place to sleep... But I am very tired and Camella warned me because of the dangerous animals. I need to rest so I can beat them!"
+LEVEL_5_WAKE_UP,"This sleep was amazing! Okay, now let's get back to work!"
+LEVEL_5_OH_CAMELLA,Oh Camella... I have absolutely no idea how this even got here in the first place.
+LEVEL_5_JUMP,I guess I am just supposed to jump...
+LEVEL_5_LIGHT,Is that.... LIGHT AT THE END OF THE TUNNEL! I am so happy to be back on the surface!
+LEVEL_5_MUST_BE_IT,This must be it! It smells quite strong like- perfume... Not just that but the ribbon reminds me of Shibina as well...
+LEVEL_6_CAMELLA,"It's you again! Don't tell me you really found the ribbon. Thank you so so much! My grandpa, Sir Caramello III., the mayor of Cameltown gave it to me when I got born! It would've broken my heart if you couldn't find it. I definitely owe you one!"
+LEVEL_6_SIGN,"The sign says: ""The view over Cameltown"". I really need to go there, maybe the mayor knows where Shibina is!"
+LEVEL_7_CAMELS,But Mama! I don't want to go just yet! Can we not just visit the pyramid? This looks so cool!
+LEVEL_7_PYRAMID,This leads me directly to the Great Pyramid of Shiba! That's where the mayor's at!
+LEVEL_9_LOOKS_RIGHT,"Hmm, this looks quite right...\n*shouts*\nSir Caramello III! Are you in here?"
+LEVEL_9_CARAMELLO,"Hey there, little Shiba! My niece, Camella, already told me everything about you! I can help you to find Shibina! My guards have seen her with some robo dog from the tower of nothern cameltown! There's a lake between you and the tower. You could walk around it but you're probably faster crossing it! Oh, and take some coins, you might need them!"
+LEVEL_12_STOP,Stop! Hey you! Come here and tell me how you got here! You shouldn't be here. It's dangerous out here.
+LEVEL_12_SHIBA_TO_GUARD,"Hey Mr. Guard! I came here through the lake. Sir Caramello III sent me here, I should ask a guard at the tower about an incident with a robo dog.",
+LEVEL_12_HINT,"Hey there! I've been told you were searching for this robo dog. He was trying to get into cameltown but we stopped him here. He's aggressive, so be careful! After we sent him away he walked into the northern territories, at least that is where he said he would go. Be careful and let us know if you need help!"
+LEVEL_13_SIGN,"This says ""you are heading north"", sounds great!"
+LEVEL_14_WELCOME,"Welcome to the Northern Territories! Phew, it's freezing here! I should be careful, it can be slippery here!"
+LEVEL_16_FIRST,I've been watching you. What an honor to see you here...
+LEVEL_16_SECOND,Not you again... Let Shibina go!
+LEVEL_16_THIRD,"Oh, you wish I would. Get her back yourself!"

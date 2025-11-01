@@ -389,7 +389,7 @@ scale = Vector2(2.84, 2.84)
 scene = ExtResource("3_bqqt6")
 
 [node name="Label" parent="btn_play" index="2"]
-text = "play"
+text = "PLAY"
 
 [node name="btn_endless" parent="." instance=ExtResource("2_ekxnf")]
 position = Vector2(576, 396)
@@ -397,7 +397,7 @@ scale = Vector2(2.84, 2.84)
 scene = ExtResource("3_bqqt6")
 
 [node name="Label" parent="btn_endless" index="2"]
-text = "endless"
+text = "ENDLESS"
 
 [node name="btn_splitscreen" parent="." instance=ExtResource("2_ekxnf")]
 position = Vector2(576, 516)

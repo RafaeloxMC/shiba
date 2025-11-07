@@ -95,8 +95,18 @@ settings = ["easy", "medium", "hard", "give up", "random"]
 text = "DIFFICULTY"
 metadata/_edit_use_anchors_ = true
 
-[node name="btn_volume" parent="." instance=ExtResource("3_83j8s")]
+[node name="btn_language" parent="." instance=ExtResource("3_83j8s")]
 position = Vector2(576, 396)
+scale = Vector2(2.84, 2.84)
+type = 1
+settings = ["english", "japanese"]
+
+[node name="Label" parent="btn_language" index="2"]
+text = "LANGUAGE"
+metadata/_edit_use_anchors_ = true
+
+[node name="btn_volume" parent="." instance=ExtResource("3_83j8s")]
+position = Vector2(576, 516)
 scale = Vector2(2.84, 2.84)
 type = 1
 settings = ["10", "20", "30", "40", "50", "60", "70", "80", "90", "100"]
@@ -188,6 +198,7 @@ autoplay = "default"
 [connection signal="mouse_exited" from="btn_back" to="btn_back" method="_on_mouse_exited"]
 
 [editable path="btn_difficulty"]
+[editable path="btn_language"]
 [editable path="btn_volume"]
 [editable path="btn_music_volume"]
 [editable path="btn_sfx_volume"]

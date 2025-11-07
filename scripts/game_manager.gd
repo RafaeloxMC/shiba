@@ -90,7 +90,7 @@ func _ready() -> void:
 	ShibaDB.save_loaded.connect(_on_save_loaded)
 	await ShibaDB.init_shibadb("68d97ac7241f0847810f436d")
 	ShibaDB.load_progress()
-	TranslationServer.set_locale("en")
+	TranslationServer.set_locale("jp")
 
 func _process(_delta: float) -> void:
 	max_hearts = hearts_per_diff()

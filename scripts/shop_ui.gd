@@ -84,7 +84,7 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("next"):
 		buy()
 		
-	if Input.is_action_just_pressed("pause"):
+	if Input.is_action_just_pressed("pause") || Input.is_action_just_pressed("attack"):
 		self.get_parent().visible = false
 		GameManager.trigger_shop.emit(false)
 		

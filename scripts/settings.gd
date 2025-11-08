@@ -4,6 +4,7 @@ extends Control
 @onready var credits: Area2D = $btn_credits
 @onready var back: Area2D = $btn_back
 @onready var btn_shibadb_reset: Area2D = $btn_shibadb_reset
+@onready var btn_language: Area2D = $btn_language
 
 @onready var title: Label = $title
 @onready var subtitle: Label = $subtitle
@@ -94,22 +95,27 @@ func last():
 
 func submit():
 	var current_button = get_current_button()
-	if current_button == credits:
-		arrow_up.hide()
-		var node = load(current_button.scene.resource_path)
-		add_child(node.instantiate())
-		credits_open = true
-		return
-	if current_button == btn_shibadb_reset:
-		ShibaDB.reset_progress("Untitled Save")
-		GameManager.reset()
-	elif current_button.scene != null:
+	if current_button.scene != null:
 		if current_button != back:
 			get_tree().change_scene_to_packed(current_button.scene)
 	elif current_button.type == 1:
 		current_button.next()
 	elif current_button == back:
 		queue_free()
+	if current_button == credits:
+		arrow_up.hide()
+		var node = load(current_button.scene.resource_path)
+		add_child(node.instantiate())
+		credits_open = true
+		return
+	if current_button == btn_language:
+		if $btn_language/Label.text == "japanese":
+			TranslationServer.set_locale("jp")
+		else:
+			TranslationServer.set_locale("en")
+	if current_button == btn_shibadb_reset:
+		ShibaDB.reset_progress("Untitled Save")
+		GameManager.reset()
 
 func get_current_button() -> Area2D:
 	return buttons[current_button_id]

@@ -103,7 +103,7 @@ func _on_slippery_trigger_exited(body: Node) -> void:
 		is_slippery = false
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("pause") && GameManager.is_showing_shop == false:
+	if Input.is_action_pressed("jump") && Input.is_action_pressed("attack") && Input.is_action_pressed("ui_down") && GameManager.is_showing_shop == false:
 		Engine.time_scale = 1
 		SceneManager.call_scene("main_menu")
 	var rand = floor(randf_range(0, 10000))

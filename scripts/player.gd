@@ -162,6 +162,17 @@ func _physics_process(delta: float) -> void:
 		else:
 			drown_timer.start(1)
 		GameManager.remove_heart()
+		Engine.time_scale = 0.5
+		if GameManager.hearts <= 0:
+			await get_tree().create_timer(2).timeout
+		else:
+			await get_tree().create_timer(1).timeout
+		Engine.time_scale = 1
+		print("Timed out!")
+		if GameManager.hearts <= 0:
+			SceneManager.call_scene("main_menu")
+			return
+		SceneManager.reload_current()
 		
 	if ((Input.is_action_pressed("jump") && !second_player) || (Input.is_action_pressed("jump_2nd") && second_player)) && !movement_disabled:
 		if is_on_floor() || (coyote_last_on_ground <= coyote_time and !coyote_already_jumped):

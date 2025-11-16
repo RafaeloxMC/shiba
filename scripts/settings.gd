@@ -95,10 +95,8 @@ func last():
 
 func submit():
 	var current_button = get_current_button()
-	if current_button.scene != null:
-		if current_button != back:
-			get_tree().change_scene_to_packed(current_button.scene)
-	elif current_button.type == 1:
+
+	if current_button.type == 1:
 		current_button.next()
 	elif current_button == back:
 		queue_free()
@@ -116,6 +114,10 @@ func submit():
 	if current_button == btn_shibadb_reset:
 		ShibaDB.reset_progress("Untitled Save")
 		GameManager.reset()
+		
+	if current_button.scene != null:
+		if current_button != back:
+			get_tree().change_scene_to_packed(current_button.scene)
 
 func get_current_button() -> Area2D:
 	return buttons[current_button_id]

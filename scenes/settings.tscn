@@ -138,7 +138,6 @@ metadata/_edit_use_anchors_ = true
 [node name="btn_shibadb_reset" parent="." instance=ExtResource("3_83j8s")]
 position = Vector2(576, 516)
 scale = Vector2(2.84, 2.84)
-scene = ExtResource("4_f4mfi")
 
 [node name="Label" parent="btn_shibadb_reset" index="2"]
 text = "SDB_RESET"
